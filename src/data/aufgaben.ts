@@ -30,7 +30,8 @@ export const aufgaben: Aufgabe[] = [
       'Tangens: $\\tan(\\varphi) = \\dfrac{\\sin(\\varphi)}{\\cos(\\varphi)}$. Wo $\\cos(\\varphi)=0$ (bei $\\tfrac{\\pi}{2}+k\\pi$), ist der Tangens nicht definiert – der Graph schießt dort auf $\\pm\\infty$ (senkrechte Asymptote).\n\n' +
       'Arkusfunktionen drehen den Prozess um – gegeben ein Wert, gesucht der Winkel:\n' +
       '$\\arcsin$: Definitionsbereich $[-1,1]$, Wertemenge $[-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2}]$ (= $-90°$ bis $90°$)\n' +
-      '$\\arccos$: Definitionsbereich $[-1,1]$, Wertemenge $[0, \\pi]$ (= $0°$ bis $180°$)\n' +\n      '$\\arctan$: Definitionsbereich $\\mathbb{R}$, Wertemenge $(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2})$ (= $-90°$ bis $90°$, offen)',
+      '$\\arccos$: Definitionsbereich $[-1,1]$, Wertemenge $[0, \\pi]$ (= $0°$ bis $180°$)\n' +
+      '$\\arctan$: Definitionsbereich $\\mathbb{R}$, Wertemenge $(-\\tfrac{\\pi}{2}, \\tfrac{\\pi}{2})$ (= $-90°$ bis $90°$, offen)',
     loesung:
       '(a) $\\sin$ und $\\cos$: Periode $2\\pi$, Wertebereich $[-1, 1]$.\n' +
       '    Tabelle: $x = 0,\\ \\tfrac{\\pi}{2},\\ \\pi,\\ \\tfrac{3\\pi}{2},\\ 2\\pi$\n' +
