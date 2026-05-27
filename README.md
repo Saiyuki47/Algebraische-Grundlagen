@@ -1,74 +1,51 @@
-# Lernseite Template
+# Algebraische Grundlagen — AI1010
 
-Ein wiederverwendbares React-Template für interaktive Lernseiten zu beliebigen Themen – z. B. für Lehrveranstaltungen, Kurse oder Selbststudium.
+Interaktive Lernseite für die Lehrveranstaltung **Algebraische Grundlagen (AI1010)** an der **Hochschule Fulda**, Sommersemester 2026.
 
-## Features
+## Inhalte
+
+Abgedeckte Themen aus Übungsblatt 0:
+
+| Thema | Beschreibung |
+|-------|-------------|
+| **Trigonometrie** | Einheitskreis, sin/cos/tan-Graphen, Winkelumrechnung (Grad ↔ Bogenmaß), Arkusfunktionen |
+| **Periodizität** | Berechnung von sin/cos/tan-Werten für große Argumente, Standardwerte |
+| **Urbilder** | Unterschied Urbild vs. Umkehrfunktion, unendliche Lösungsmengen periodischer Gleichungen |
+| **ℝ×ℝ Teilmengen** | Skizzieren und Beschreiben von Mengen in der Ebene (Kreise, Geraden, Halbebenen) |
+| **Algebraische Umformungen** | Nenner rational machen, 3. binomische Formel, konjugierter Ausdruck |
+
+## App-Funktionen
 
 | Tab | Beschreibung |
 |-----|-------------|
-| **Übungsblätter** | Aufgaben nach Blatt geordnet, mit optionalem Tipp und aufklappbarer Musterlösung |
+| **Übungsblätter** | Aufgaben nach Blatt geordnet, mit ausführlichem Tipp und aufklappbarer Musterlösung |
 | **Aufgaben** | Alle Aufgaben nach Schwierigkeit gefiltert, ebenfalls mit Tipp & Lösung |
 | **Quiz** | Multiple-Choice-Quiz mit Fortschrittsbalken, Feedback und Ergebnisauswertung |
-| **Referenz** | Cheatsheet-Karten als schnelle Nachschlagereferenz |
+| **Referenz** | Formelsammlung als schnelle Nachschlagereferenz |
 | **Themen** | Strukturierte Übersicht der Lernthemen mit Stichpunkten |
 
-## Quickstart
+## Starten
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Eigene Inhalte eintragen
-
-Alle Inhalte befinden sich in `src/data/`. Ersetze die Platzhalterwerte mit deinen eigenen:
-
-| Datei | Inhalt |
-|-------|--------|
-| `src/data/aufgaben.ts` | Aufgaben mit Titel, Text, optionalem Tipp und Musterlösung |
-| `src/data/uebungsblaetter.ts` | Übungsblätter, die Aufgaben per ID referenzieren |
-| `src/data/quiz.ts` | Multiple-Choice-Fragen mit Antworten und Erklärungen |
-| `src/data/referenz.ts` | Cheatsheet-Karten (Titel + Inhalt) |
-| `src/data/themen.ts` | Lernthemen mit Beschreibung und Stichpunkten |
-
-### Beispiel: Aufgabe hinzufügen
-
-```ts
-// src/data/aufgaben.ts
-{
-  id: 'a1',
-  titel: 'Aufgabe 1',
-  aufgabeText: 'Was ist ...?',
-  tipp: 'Denke an ...', // optional
-  loesung: 'Die Antwort lautet ...',
-  schwierigkeit: 'einfach', // 'einfach' | 'mittel' | 'schwer'
-  kategorie: 'Grundlagen', // optional
-}
-```
-
-### Beispiel: Quiz-Frage hinzufügen
-
-```ts
-// src/data/quiz.ts
-{
-  frage: 'Was bedeutet ...?',
-  optionen: ['Option A', 'Option B', 'Option C', 'Option D'],
-  antwort: 0, // Index der richtigen Antwort (0-basiert)
-  erklaerung: 'Option A ist richtig, weil ...',
-}
-```
+Öffne anschließend `http://localhost:5173` im Browser.
 
 ## Projektstruktur
 
 ```
 src/
-├── components/       # UI-Komponenten (Tabs, Quiz, Aufgaben, …)
-├── data/             # Inhalte – hier trägst du deine Daten ein
+├── components/       # UI-Komponenten (Tabs, Quiz, Aufgaben, MathText, Graphs, …)
+├── data/             # Inhalte (Aufgaben, Quiz, Referenz, Themen)
 ├── types.ts          # TypeScript-Typdefinitionen
-└── index.css         # Globales Styling
+└── index.css         # Globales Styling (Dark Theme)
 ```
 
 ## Tech Stack
 
 - [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - [Vite](https://vite.dev/) als Build-Tool
+- [KaTeX](https://katex.org/) für LaTeX-Mathedarstellung
+- SVG-Koordinatensysteme für Graphen und Skizzen
