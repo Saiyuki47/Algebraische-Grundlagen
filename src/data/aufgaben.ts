@@ -240,5 +240,107 @@ export const aufgaben: Aufgabe[] = [
     schwierigkeit: 'einfach',
     kategorie: 'Algebraische Umformungen',
   },
+  {
+    id: 'b5_a1',
+    titel: 'Gruppen bei Teilmengen von Z',
+    aufgabeText:
+      'Prufen Sie jeweils, ob (G, +) eine Gruppe ist, wenn G wie folgt definiert ist:\n' +
+      '(a) G = {3z : z ∈ Z}\n' +
+      '(b) G = {z ∈ Z : z ist durch 2 oder durch 3 teilbar}\n' +
+      '(c) G = {z ∈ Z : z ist durch 2 und durch 3 teilbar}\n' +
+      '(d) G = {1}.',
+    tipp:
+      'Prufen Sie die Gruppenaxiome Schritt fur Schritt: Abgeschlossenheit, Assoziativitat, neutrales Element und Inverses. Bei Teilmengen von Z ist die Abgeschlossenheit meist der kritische Punkt. Bei (d) ist es sinnvoll, auch die gewohnliche Multiplikation zu betrachten.',
+    loesung:
+      '(a) Ja. Vielfache von 3 bleiben unter Addition Vielfache von 3; 0 ∈ G, und das additive Inverse von 3z ist -3z.\n' +
+      '(b) Nein. 2, 3 ∈ G, aber 2 + 3 = 5 ∉ G, also keine Abgeschlossenheit.\n' +
+      '(c) Ja. Die Menge ist genau 6Z; sie ist unter Addition abgeschlossen und enthalt 0 sowie additive Inverse.\n' +
+      '(d) Nein fur +, da 1 + 1 = 2 ∉ G. Fur die Multiplikation ist {1} aber eine Gruppe.',
+    schwierigkeit: 'mittel',
+    kategorie: 'Gruppen',
+  },
+  {
+    id: 'b5_a2',
+    titel: 'Gruppen auf positiven und komplexen Zahlen',
+    aufgabeText:
+      'Prufen Sie jeweils, ob eine Gruppe vorliegt:\n' +
+      '(a) ((0, ∞), +)\n' +
+      '(b) ((0, ∞), ·)\n' +
+      '(c) ((−∞, 0), ·)\n' +
+      '(d) T = {z ∈ C : |z| = 1} mit ·\n' +
+      '(e) E = {z ∈ C : z^4 = 1} mit ·',
+    tipp:
+      'Achten Sie besonders auf das neutrale Element und auf Inverse. Fur Multiplikation ist die Frage der Abgeschlossenheit bei positiven, negativen und komplexen Zahlen entscheidend. Bei T hilft die Betragsregel |zw| = |z||w|.',
+    loesung:
+      '(a) Nein. Es gibt kein additives Neutralelement in (0, ∞).\n' +
+      '(b) Ja. Abgeschlossenheit, Assoziativitat, Neutralelement 1 und Inverse 1/x sind vorhanden.\n' +
+      '(c) Nein. Das Produkt zweier negativer Zahlen ist positiv und liegt nicht wieder in (−∞, 0).\n' +
+      '(d) Ja. Für z, w ∈ T gilt |zw| = 1, außerdem ist 1 ∈ T und jedes z ∈ T hat 1/z = \u0305z ∈ T.\n' +
+      '(e) Ja. E = {1, i, −1, −i} ist unter Multiplikation abgeschlossen und jedes Element besitzt ein Inverses in E.',
+    schwierigkeit: 'mittel',
+    kategorie: 'Gruppen',
+  },
+  {
+    id: 'b5_a3',
+    titel: 'Verknuepfung auf Q ohne Null',
+    aufgabeText:
+      'Die Verknüpfung ⊙ auf Q \ {0} sei definiert durch x ⊙ y := (1/4) · x · y.\n' +
+      'Bestimmen Sie das Neutralelement der Gruppe und das Inverse zu x ∈ Q \ {0}.',
+    tipp:
+      'Setzen Sie fuer das neutrale Element e in die Gleichung e ⊙ x = x ein und loesen Sie nach e auf. Fur das Inverse y zu x muss x ⊙ y = e gelten.',
+    loesung:
+      'Das Neutralelement ist 4, denn (1/4) · 4 · x = x.\n' +
+      'Das Inverse zu x ∈ Q \ {0} ist 16/x, denn x ⊙ (16/x) = 4.',
+    schwierigkeit: 'schwer',
+    kategorie: 'Gruppen',
+  },
+  {
+    id: 'b5_a4',
+    titel: 'Rechnen in Z9 und Z12345',
+    aufgabeText:
+      'Berechnen Sie:\n' +
+      '(a) in Z9: [21] + [17], [-29] + [-4], [6] · [12]\n' +
+      '(b) in Z12345: [12346] · [6613]\n' +
+      '(c) Entscheiden Sie, ob man in Z6 bei der Multiplikation kuerzen darf.',
+    tipp:
+      'Reduzieren Sie die Zahlen zuerst modulo n. Bei (c) ist ein Gegenbeispiel oft schneller als ein allgemeiner Beweis.',
+    loesung:
+      '(a) [21] + [17] = [2], [-29] + [-4] = [3], [6] · [12] = [0].\n' +
+      '(b) [12346] · [6613] = [6613].\n' +
+      '(c) Nein. Zum Beispiel gilt [2] · [4] = [2] · [1] in Z6, aber [4] ≠ [1].',
+    schwierigkeit: 'einfach',
+    kategorie: 'Restklassen',
+  },
+  {
+    id: 'b5_a5',
+    titel: 'Symmetrische Gruppen S3',
+    aufgabeText:
+      'Laut Vorlesung ist S3 = {f : {1, 2, 3} -> {1, 2, 3} | f bijektiv} mit der Hintereinanderfuehrung ◦ eine Gruppe.\n' +
+      '(a) Listen Sie alle Abbildungen in der Darstellung mit drei Zeilen auf.\n' +
+      '(b) Geben Sie das Neutralelement an.\n' +
+      '(c) Geben Sie zu jedem f ∈ S3 das Inverse an.\n' +
+      '(d) Zeigen Sie, dass (S3, ◦) nicht kommutativ ist.',
+    tipp:
+      'Es gibt genau 3! = 6 Bijektionen von {1,2,3} nach {1,2,3}. Das neutrale Element ist die Identitaet. Fur (d) genuegt ein einziges Gegenbeispiel mit zwei Vertauschungen.',
+    loesung:
+      '(a) S3 besitzt 6 Elemente.\n' +
+      '(b) Das Neutralelement ist die Identitaet.\n' +
+      '(c) Die Inversen sind jeweils die zugehoerigen Rueckabbildungen; bei zwei Transpositionen ist das Inverse wieder sie selbst, bei den beiden 3-Zyklen werden sie ineinander invertiert.\n' +
+      '(d) Nicht kommutativ, z. B. gilt π2 ◦ π3 ≠ π3 ◦ π2.',
+    schwierigkeit: 'schwer',
+    kategorie: 'Symmetrische Gruppen',
+  },
+  {
+    id: 'b5_a6',
+    titel: 'Verknuepfungstafel einer Dreiergruppe',
+    aufgabeText:
+      'Ergänzen Sie die Verknüpfungstafel so, dass (G, *) eine Gruppe wird, wobei G = {a, b, c}.',
+    tipp:
+      'Bestimmen Sie zuerst das neutrale Element. In jeder Zeile und jeder Spalte darf jedes Element in einer Gruppe nur einmal vorkommen.',
+    loesung:
+      'Das neutrale Element ist b. Mit den Gruppenregeln ergibt sich eine Verknüpfungstafel, die zur zyklischen Gruppe Z3 äquivalent ist.',
+    schwierigkeit: 'schwer',
+    kategorie: 'Gruppen',
+  },
 ]
 
