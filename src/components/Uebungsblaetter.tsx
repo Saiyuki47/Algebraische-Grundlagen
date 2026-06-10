@@ -80,17 +80,31 @@ export default function Uebungsblaetter() {
                 )}
                 {aufgabe && (
                   <>
-                    {aufgabe.tipp && (
+                    {(aufgabe.tippSections ?? aufgabe.tipp) && (
                       <>
-                        <button className="toggle-btn" onClick={() => toggleTipp(key)}>
+                        <button type="button" className="toggle-btn" onClick={() => toggleTipp(key)}>
                           {isTippOpen ? '▼ Tipp verbergen' : '▶ Tipp anzeigen'}
                         </button>
-                        {isTippOpen && (
-                          <p className="tipp-block"><MathText>{aufgabe.tipp}</MathText></p>
-                        )}
+                        {isTippOpen && (aufgabe.tippSections ? (
+                          <div className="tipp-accordion">
+                            {aufgabe.tippSections.map((sec, idx) => (
+                              <details key={idx} className="tipp-section">
+                                <summary className="tipp-section-summary">
+                                  <span className="tipp-section-icon">{sec.icon}</span>
+                                  <span>{sec.titel}</span>
+                                </summary>
+                                <div className="tipp-section-body">
+                                  <MathText block>{sec.inhalt}</MathText>
+                                </div>
+                              </details>
+                            ))}
+                          </div>
+                        ) : (
+                          <p className="tipp-block"><MathText>{aufgabe.tipp!}</MathText></p>
+                        ))}
                       </>
                     )}
-                    <button className="toggle-btn" onClick={() => toggleSolution(key)}>
+                    <button type="button" className="toggle-btn" onClick={() => toggleSolution(key)}>
                       {isOpen ? '▼ Lösung verbergen' : '▶ Lösung anzeigen'}
                     </button>
                     {isOpen && (

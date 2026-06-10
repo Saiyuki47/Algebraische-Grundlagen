@@ -1,5 +1,11 @@
 export type Schwierigkeit = 'einfach' | 'mittel' | 'schwer'
 
+export interface TippSection {
+  icon: string
+  titel: string
+  inhalt: string
+}
+
 export interface ReferenzKarte {
   titel: string
   inhalt: string
@@ -17,6 +23,7 @@ export interface Aufgabe {
   titel: string
   aufgabeText: string
   tipp?: string
+  tippSections?: TippSection[]
   loesung: string
   schwierigkeit: Schwierigkeit
   kategorie?: string

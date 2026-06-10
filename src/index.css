@@ -591,6 +591,54 @@ header {
   margin-top: 6px;
 }
 
+/* TIPP ACCORDION */
+.tipp-accordion {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.tipp-section {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tipp-section-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  list-style: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  transition: background 0.15s;
+}
+.tipp-section-summary:hover { background: var(--bg3); }
+.tipp-section-summary::-webkit-details-marker { display: none; }
+.tipp-section[open] > .tipp-section-summary {
+  border-bottom: 1px solid var(--border);
+  color: var(--amber);
+}
+.tipp-section-icon { font-size: 14px; flex-shrink: 0; }
+.tipp-section-body {
+  padding: 10px 14px 12px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.8;
+}
+.tipp-section-body .math-block {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.85;
+  white-space: pre-wrap;
+}
+
 /* SQL TIPS */
 .ub-tips-section {
   margin: 10px 0;

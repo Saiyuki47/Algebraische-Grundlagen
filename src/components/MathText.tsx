@@ -6,8 +6,7 @@ function renderMath(tex: string): string {
 }
 
 function parseLine(line: string): React.ReactNode[] {
-  // Split on $...$ for inline math
-  const parts = line.split(/(\$[^$]+\$)/g)
+  const parts = line.split(/(\$[^$]+\$|\*\*[^*]+\*\*)/g)
   return parts.map((part, i) => {
     if (part.startsWith('$') && part.endsWith('$') && part.length > 2) {
       return (
@@ -16,6 +15,9 @@ function parseLine(line: string): React.ReactNode[] {
           dangerouslySetInnerHTML={{ __html: renderMath(part.slice(1, -1)) }}
         />
       )
+    }
+    if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>
     }
     return <span key={i}>{part}</span>
   })
