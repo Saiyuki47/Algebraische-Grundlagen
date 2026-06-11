@@ -70,10 +70,26 @@ export const b4: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) Keine Äquivalenzrelation ($R_1$ nicht transitiv): $0\\,R_1\\,3$ und $3\\,R_1\\,5$, aber $0$ und $5$ nicht in Relation ($5-0=5$).\n\n' +
-      '(b) Äquivalenzrelation. $xy > 0$ ↔ gleiches Vorzeichen. Klassen: $(0,\\infty)$ und $(-\\infty,0)$.\n\n' +
-      '(c) Keine Äquivalenzrelation: $R_3$ ist nicht reflexiv ($2x$ immer gerade).\n\n' +
-      '(d) Äquivalenzrelation. $x^2 = y^2 \\Leftrightarrow y = \\pm x$. Klassen: $\\{x,-x\\}$ für $x > 0$, und $\\{0\\}$.',
+      '(a) $R_1$ auf $\\mathbb{Z}$: $x\\,R_1\\,y \\Leftrightarrow 2 \\mid (y-x)$ oder $3 \\mid (y-x)$.\n' +
+      '  Reflexiv: $y-x=0$ ist durch 2 teilbar → ✓\n' +
+      '  Symmetrisch: $2 \\mid (y-x) \\Rightarrow 2 \\mid (x-y)$, da $x-y = -(y-x)$; analog für 3 → ✓\n' +
+      '  Transitiv? Gegenbeispiel: $0\\,R_1\\,3$ (da $3-0=3$, durch 3), $3\\,R_1\\,5$ (da $5-3=2$, durch 2),\n' +
+      '  aber $5-0=5$: weder durch 2 noch durch 3 → ✗\n' +
+      '  → Keine Äquivalenzrelation.\n\n' +
+      '(b) $R_2$ auf $\\mathbb{R}\\setminus\\{0\\}$: $x\\,R_2\\,y \\Leftrightarrow xy > 0$.\n' +
+      '  Reflexiv: $x^2 > 0$ für alle $x \\neq 0$ → ✓\n' +
+      '  Symmetrisch: $xy > 0 \\Rightarrow yx > 0$ → ✓\n' +
+      '  Transitiv: $xy > 0$ und $yz > 0$ → $x,y,z$ alle gleiches Vorzeichen → $xz > 0$ → ✓\n' +
+      '  → Äquivalenzrelation. Äquivalenzklassen: $(0,\\infty)$ und $(-\\infty,0)$.\n\n' +
+      '(c) $R_3$ auf $\\mathbb{Z}$: $x\\,R_3\\,y \\Leftrightarrow x+y$ ungerade.\n' +
+      '  Reflexiv? $x+x = 2x$ ist immer gerade → $x\\,R_3\\,x$ gilt NIE → ✗\n' +
+      '  → Keine Äquivalenzrelation.\n\n' +
+      '(d) $R_4$ auf $\\mathbb{R}$: $x\\,R_4\\,y \\Leftrightarrow x^2 = y^2$.\n' +
+      '  Reflexiv: $x^2 = x^2$ → ✓\n' +
+      '  Symmetrisch: $x^2 = y^2 \\Rightarrow y^2 = x^2$ → ✓\n' +
+      '  Transitiv: $x^2 = y^2$ und $y^2 = z^2 \\Rightarrow x^2 = z^2$ → ✓\n' +
+      '  → Äquivalenzrelation. $x^2 = y^2 \\Leftrightarrow y = \\pm x$.\n' +
+      '  Äquivalenzklassen: $\\{x,-x\\}$ für $x > 0$ (z.B. $[2]=\\{2,-2\\}$), und $\\{0\\}$.',
     schwierigkeit: 'mittel',
     kategorie: 'Relationen',
   },
@@ -216,7 +232,17 @@ export const b4: Aufgabe[] = [
       },
     ],
     loesung:
+      'Gehe alle Paare $(a,b) \\in R$ durch und suche passende $(b,c) \\in S$:\n\n' +
+      '$(1,2) \\in R$: $(2,6) \\in S$ → $(1,6) \\in S\\circ R$\n' +
+      '$(2,3) \\in R$: $(3,7) \\in S$ → $(2,7) \\in S\\circ R$\n' +
+      '$(2,3) \\in R$: $(3,10) \\in S$ → $(2,10) \\in S\\circ R$\n' +
+      '$(3,4) \\in R$: kein $(4,{?}) \\in S$ → nichts\n' +
+      '$(4,5) \\in R$: $(5,7) \\in S$ → $(4,7) \\in S\\circ R$\n' +
+      '$(5,1) \\in R$: $(1,8) \\in S$ → $(5,8) \\in S\\circ R$\n' +
+      '$(5,1) \\in R$: $(1,9) \\in S$ → $(5,9) \\in S\\circ R$\n' +
+      '$(5,1) \\in R$: $(1,6) \\in S$ → $(5,6) \\in S\\circ R$\n\n' +
       '$S \\circ R = \\{(1,6),(2,7),(2,10),(4,7),(5,8),(5,9),(5,6)\\}$.\n\n' +
+      'Umkehrrelation (alle Paare umdrehen):\n' +
       '$(S \\circ R)^{-1} = \\{(6,1),(7,2),(10,2),(7,4),(8,5),(9,5),(6,5)\\}$.',
     schwierigkeit: 'mittel',
     kategorie: 'Relationen',
@@ -295,11 +321,29 @@ export const b4: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) $R_< \\cup I_{\\mathbb{R}} = R_{\\leq}$ (die „kleiner-gleich"-Relation).\n\n' +
-      '(b) $R_{\\leq} \\cup R_{\\leq}^{-1} = \\mathbb{R} \\times \\mathbb{R}$.\n\n' +
-      '(c) Trans. Hülle: $\\{(1,2),(1,3),(2,3),(3,4),(5,6),(1,4),(2,4)\\}$.\n\n' +
-      '(d) Kleinste Äquivalenzrelation enthält alle Paare innerhalb der Klassen $\\{1,2,5\\}$, $\\{3,4\\}$, $\\{6\\}$.\n' +
-      'Äquivalenzklassen: $[1]=\\{1,2,5\\}$, $[3]=\\{3,4\\}$, $[6]=\\{6\\}$.',
+      '(a) Reflexive Hülle von $R_<$: Füge alle $(x,x)$ hinzu:\n' +
+      '  $R_< \\cup I_\\mathbb{R} = \\{(x,y): x < y\\} \\cup \\{(x,x): x \\in \\mathbb{R}\\} = \\{(x,y): x \\leq y\\} = R_\\leq$.\n\n' +
+      '(b) Symmetrische Hülle von $R_\\leq$:\n' +
+      '  $R_\\leq \\cup R_\\leq^{-1} = \\{(x,y): x \\leq y\\} \\cup \\{(x,y): y \\leq x\\}$.\n' +
+      '  Für beliebige $x,y \\in \\mathbb{R}$ gilt entweder $x \\leq y$ oder $y \\leq x$ → $R_\\leq \\cup R_\\leq^{-1} = \\mathbb{R} \\times \\mathbb{R}$.\n\n' +
+      '(c) $R = \\{(1,2),(1,3),(2,3),(3,4),(5,6)\\}$. Berechne iteriert:\n' +
+      '  $R^2 = R \\circ R$ (Ketten der Länge 2):\n' +
+      '    $(1,2),(2,3) \\in R$ → $(1,3)$ (schon in $R$)\n' +
+      '    $(1,3),(3,4) \\in R$ → $(1,4)$ NEU\n' +
+      '    $(2,3),(3,4) \\in R$ → $(2,4)$ NEU\n' +
+      '  $R^2 = \\{(1,3),(1,4),(2,4)\\}$\n' +
+      '  $R^3 = R \\circ R^2$: $(1,2),(2,4) \\to (1,4)$ (schon da); kein weiteres Neues.\n' +
+      '  $R^4 = \\emptyset$.\n' +
+      '  Transitive Hülle $= R \\cup R^2 = \\{(1,2),(1,3),(2,3),(3,4),(5,6),(1,4),(2,4)\\}$.\n\n' +
+      '(d) $S = \\{(2,1),(1,5),(3,4)\\}$. Konstruktion Schritt für Schritt:\n' +
+      '  Reflexive Hülle $S_r$: $S \\cup \\{(1,1),(2,2),(3,3),(4,4),(5,5),(6,6)\\}$\n' +
+      '  Symmetrische Hülle $(S_r)_s$: $S_r \\cup \\{(1,2),(5,1),(4,3)\\}$\n' +
+      '  Transitive Hülle $((S_r)_s)_t$:\n' +
+      '    $(2,1),(1,5) \\in (S_r)_s$ → $(2,5)$ NEU\n' +
+      '    $(5,1),(1,2) \\in (S_r)_s$ → $(5,2)$ NEU\n' +
+      '    $(2,5),(5,1) \\to (2,1)$ (da), $(2,5),(5,2) \\to (2,2)$ (da), ...\n' +
+      '  Alle Paare innerhalb $\\{1,2,5\\}$, $\\{3,4\\}$ und $\\{6\\}$ entstehen.\n' +
+      '  Äquivalenzklassen: $[1]=\\{1,2,5\\}$, $[3]=\\{3,4\\}$, $[6]=\\{6\\}$.',
     schwierigkeit: 'schwer',
     kategorie: 'Relationen',
   },
@@ -379,12 +423,18 @@ export const b4: Aufgabe[] = [
       },
     ],
     loesung:
-      '(i)  $R \\cap R^{-1} \\subseteq I_M$ → antisymmetrisch\n\n' +
-      '(ii) $R \\circ R \\subseteq R$ → transitiv\n\n' +
-      '(iii) $R \\cap R^{-1} = \\emptyset$ → asymmetrisch\n\n' +
-      '(iv) $I_M \\cap R = \\emptyset$ → irreflexiv\n\n' +
-      '(v)  $R^{-1} = R$ → symmetrisch\n\n' +
-      '(vi) $I_M \\subseteq R$ → reflexiv',
+      '(i)  $R \\cap R^{-1} \\subseteq I_M$ → antisymmetrisch\n' +
+      '     Bedeutet: Wenn $(x,y) \\in R$ und $(y,x) \\in R$, dann muss $x = y$ sein.\n\n' +
+      '(ii) $R \\circ R \\subseteq R$ → transitiv\n' +
+      '     Bedeutet: Wenn $xRy$ und $yRz$, dann ist $(x,z) \\in R \\circ R \\subseteq R$, also $xRz$.\n\n' +
+      '(iii) $R \\cap R^{-1} = \\emptyset$ → asymmetrisch\n' +
+      '      Bedeutet: $(x,y) \\in R$ und $(y,x) \\in R$ ist unmöglich (kein Hin und Zurück).\n\n' +
+      '(iv) $I_M \\cap R = \\emptyset$ → irreflexiv\n' +
+      '     Bedeutet: Kein $(x,x) \\in R$ (kein Element steht mit sich selbst in Relation).\n\n' +
+      '(v)  $R^{-1} = R$ → symmetrisch\n' +
+      '     Bedeutet: $(x,y) \\in R \\Leftrightarrow (y,x) \\in R^{-1} = R$, also $(y,x) \\in R$.\n\n' +
+      '(vi) $I_M \\subseteq R$ → reflexiv\n' +
+      '     Bedeutet: Alle Diagonal-Paare $(x,x)$ liegen in $R$.',
     schwierigkeit: 'einfach',
     kategorie: 'Relationen',
   },

@@ -64,9 +64,13 @@ export const b3: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) $3e^{\\mathrm{i}\\frac{\\pi}{3}} \\cdot 2e^{\\mathrm{i}\\frac{5\\pi}{6}} = 6\\,e^{\\mathrm{i}\\frac{7\\pi}{6}}$\n\n' +
-      '(b) $e^{\\mathrm{i}\\pi} \\cdot e^{3\\pi\\mathrm{i}} = e^{4\\pi\\mathrm{i}} = 1$\n\n' +
-      '(c) $2e^{\\mathrm{i}\\frac{\\pi}{9}} \\cdot 4e^{-\\mathrm{i}\\frac{\\pi}{9}} = 8$',
+      '(a) Beträge multiplizieren, Winkel addieren:\n' +
+      '  $r = 3 \\cdot 2 = 6$, $\\varphi = \\frac{\\pi}{3} + \\frac{5\\pi}{6} = \\frac{2\\pi}{6} + \\frac{5\\pi}{6} = \\frac{7\\pi}{6}$\n' +
+      '  $\\Rightarrow 6\\,e^{\\mathrm{i}\\frac{7\\pi}{6}}$\n\n' +
+      '(b) $r = 1 \\cdot 1 = 1$, $\\varphi = \\pi + 3\\pi = 4\\pi = 2 \\cdot 2\\pi$ (zwei volle Umdrehungen)\n' +
+      '  $e^{\\mathrm{i} \\cdot 4\\pi} = e^{\\mathrm{i} \\cdot 0} = 1$\n\n' +
+      '(c) $r = 2 \\cdot 4 = 8$, $\\varphi = \\frac{\\pi}{9} + \\left(-\\frac{\\pi}{9}\\right) = 0$\n' +
+      '  $e^{\\mathrm{i} \\cdot 0} = 1$, also $8 \\cdot 1 = 8$',
     schwierigkeit: 'einfach',
     kategorie: 'Komplexe Zahlen',
   },
@@ -134,10 +138,17 @@ export const b3: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) $z_k = 2\\,e^{\\mathrm{i}\\frac{\\pi k}{2}}$ für $k=0,1,2,3$:\n' +
-      '$z_0=2,\\quad z_1=2\\mathrm{i},\\quad z_2=-2,\\quad z_3=-2\\mathrm{i}$.\n\n' +
-      '(b) $z_k = e^{\\mathrm{i}\\frac{\\frac{3\\pi}{2}+2\\pi k}{3}}$ für $k=0,1,2$:\n' +
-      '$z_0=e^{\\mathrm{i}\\frac{\\pi}{2}}=\\mathrm{i},\\quad z_1=e^{\\mathrm{i}\\frac{7\\pi}{6}},\\quad z_2=e^{\\mathrm{i}\\frac{11\\pi}{6}}$.',
+      '(a) $z^4 = 16 = 16\\,e^{\\mathrm{i}\\cdot0}$: $r=16$, $\\varphi=0$, $n=4$.\n' +
+      '  $z_k = 16^{1/4}\\,e^{\\mathrm{i}\\frac{0+2\\pi k}{4}} = 2\\,e^{\\mathrm{i}\\frac{\\pi k}{2}}$ für $k=0,1,2,3$:\n' +
+      '  $z_0 = 2\\,e^{\\mathrm{i}\\cdot0} = 2$\n' +
+      '  $z_1 = 2\\,e^{\\mathrm{i}\\frac{\\pi}{2}} = 2\\mathrm{i}$\n' +
+      '  $z_2 = 2\\,e^{\\mathrm{i}\\pi} = -2$\n' +
+      '  $z_3 = 2\\,e^{\\mathrm{i}\\frac{3\\pi}{2}} = -2\\mathrm{i}$\n\n' +
+      '(b) $-\\mathrm{i} = e^{\\mathrm{i}\\frac{3\\pi}{2}}$: $r=1$, $\\varphi=\\frac{3\\pi}{2}$, $n=3$.\n' +
+      '  $z_k = e^{\\mathrm{i}\\frac{\\frac{3\\pi}{2}+2\\pi k}{3}}$ für $k=0,1,2$:\n' +
+      '  $z_0 = e^{\\mathrm{i}\\frac{3\\pi/2}{3}} = e^{\\mathrm{i}\\frac{\\pi}{2}} = \\mathrm{i}$\n' +
+      '  $z_1 = e^{\\mathrm{i}\\frac{3\\pi/2+2\\pi}{3}} = e^{\\mathrm{i}\\frac{7\\pi/2}{3}} = e^{\\mathrm{i}\\frac{7\\pi}{6}}$\n' +
+      '  $z_2 = e^{\\mathrm{i}\\frac{3\\pi/2+4\\pi}{3}} = e^{\\mathrm{i}\\frac{11\\pi/2}{3}} = e^{\\mathrm{i}\\frac{11\\pi}{6}}$',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -205,10 +216,15 @@ export const b3: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) Multiplikation mit $e^{\\mathrm{i}\\varphi}$: Drehung um $\\varphi$ gegen den Uhrzeigersinn (Betrag bleibt gleich).\n' +
-      'Multiplikation mit $e^{-\\mathrm{i}\\varphi}$: Drehung um $\\varphi$ im Uhrzeigersinn.\n\n' +
-      '(b) Gegen den Uhrzeigersinn: $\\mathrm{i}\\cdot(-1+2\\mathrm{i}) = -2 - \\mathrm{i}$.\n' +
-      'Im Uhrzeigersinn: $(-\\mathrm{i})\\cdot(-1+2\\mathrm{i}) = 2 + \\mathrm{i}$.',
+      '(a) In Polarform $z = r\\,e^{\\mathrm{i}\\psi}$:\n' +
+      '  $e^{\\mathrm{i}\\varphi} \\cdot r\\,e^{\\mathrm{i}\\psi} = r\\,e^{\\mathrm{i}(\\psi+\\varphi)}$ → Betrag $r$ unverändert, Winkel um $\\varphi$ erhöht.\n' +
+      '  Multiplikation mit $e^{\\mathrm{i}\\varphi}$: Drehung um $\\varphi$ gegen den Uhrzeigersinn.\n' +
+      '  Multiplikation mit $e^{-\\mathrm{i}\\varphi}$: Drehung um $\\varphi$ im Uhrzeigersinn.\n\n' +
+      '(b) Drehung von $z = -1+2\\mathrm{i}$ um $\\frac{\\pi}{2}$:\n' +
+      '  $e^{\\mathrm{i}\\frac{\\pi}{2}} = \\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2} = \\mathrm{i}$\n' +
+      '  $e^{-\\mathrm{i}\\frac{\\pi}{2}} = -\\mathrm{i}$\n\n' +
+      '  Gegen den Uhrzeigersinn: $\\mathrm{i}\\cdot(-1+2\\mathrm{i}) = -\\mathrm{i} + 2\\mathrm{i}^2 = -\\mathrm{i} - 2 = -2 - \\mathrm{i}$\n' +
+      '  Im Uhrzeigersinn: $(-\\mathrm{i})\\cdot(-1+2\\mathrm{i}) = \\mathrm{i} - 2\\mathrm{i}^2 = \\mathrm{i} + 2 = 2 + \\mathrm{i}$',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -437,10 +453,20 @@ export const b3: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) Keine Äquivalenzrelation: nicht reflexiv ($(3,3) \\notin R_1$), nicht symmetrisch ($(2,4) \\in R_1$, $(4,2) \\notin R_1$).\n\n' +
-      '(b) Äquivalenzrelation. Klassen: $[0,1] \\cap \\mathbb{Q}$ und $[0,1] \\setminus \\mathbb{Q}$.\n\n' +
-      '(c) Äquivalenzrelation. Klassen: gerade $\\mathbb{Z}$ und ungerade $\\mathbb{Z}$.\n\n' +
-      '(d) Keine Äquivalenzrelation (nicht symmetrisch).',
+      '(a) $R_1 = \\{(1,1),(2,2),(2,4),(4,4)\\}$:\n' +
+      '  Reflexiv? $(3,3) \\notin R_1$ → ✗ Nicht reflexiv.\n' +
+      '  Symmetrisch? $(2,4) \\in R_1$, aber $(4,2) \\notin R_1$ → ✗ Nicht symmetrisch.\n' +
+      '  → Keine Äquivalenzrelation.\n\n' +
+      '(b) $R_2$: $xR_2y \\Leftrightarrow f(x) = f(y)$. Jede Relation der Form $f(x)=f(y)$ ist automatisch eine Äquivalenzrelation:\n' +
+      '  Reflexiv: $f(x) = f(x)$ → ✓; Symmetrisch: $f(x)=f(y) \\Rightarrow f(y)=f(x)$ → ✓; Transitiv: → ✓\n' +
+      '  Äquivalenzklassen = Urbilder: $f^{-1}(1) = [0,1]\\cap\\mathbb{Q}$ und $f^{-1}(0) = [0,1]\\setminus\\mathbb{Q}$.\n\n' +
+      '(c) $R_3$: $xR_3y \\Leftrightarrow x+y$ gerade $\\Leftrightarrow$ $x$ und $y$ haben gleiche Parität.\n' +
+      '  Reflexiv: $x+x=2x$ gerade → ✓; Symmetrisch: ✓; Transitiv: gleiche Parität ist transitiv → ✓\n' +
+      '  → Äquivalenzrelation. Klassen: gerade $\\mathbb{Z}$ und ungerade $\\mathbb{Z}$.\n\n' +
+      '(d) $R_4$: $xR_4y \\Leftrightarrow \\exists\\,a,b\\in\\mathbb{N}^*: y = ax^b$.\n' +
+      '  Symmetrisch? Gegenbeispiel: $1\\,R_4\\,2$ (mit $a=2,b=1$: $2=2\\cdot1^1$).\n' +
+      '  Gilt $2\\,R_4\\,1$? Bräuchte $a,b$ mit $1=a\\cdot2^b$, also $a=\\frac{1}{2^b}$, aber $a\\in\\mathbb{N}^*$ → unmöglich.\n' +
+      '  → Nicht symmetrisch → Keine Äquivalenzrelation.',
     schwierigkeit: 'schwer',
     kategorie: 'Relationen',
   },

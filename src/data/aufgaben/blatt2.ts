@@ -217,10 +217,18 @@ export const b2: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) $r_1 = 2\\sqrt{2}$, $\\varphi_1 = \\frac{5\\pi}{4}$. $z_1 = 2\\sqrt{2}\\,e^{\\mathrm{i}\\frac{5\\pi}{4}}$.\n\n' +
-      '(b) $r_2 = 3$, $\\varphi_2 = \\frac{3\\pi}{2}$. $z_2 = 3\\,e^{\\mathrm{i}\\frac{3\\pi}{2}}$.\n\n' +
-      '(c) $r_3 = 1$, $\\varphi_3 = \\frac{\\pi}{6}$. $z_3 = e^{\\mathrm{i}\\frac{\\pi}{6}}$.\n\n' +
-      '(d) $r_4 = 2$, $\\varphi_4 = \\frac{5\\pi}{3}$. $z_4 = 2\\,e^{\\mathrm{i}\\frac{5\\pi}{3}}$.',
+      '(a) $z_1 = -2-2\\mathrm{i}$: $r_1 = \\sqrt{4+4} = 2\\sqrt{2}$.\n' +
+      '  $\\cos\\varphi = \\frac{-2}{2\\sqrt{2}} = -\\frac{\\sqrt{2}}{2}$, $\\mathrm{Im}<0$ → $\\varphi_1 = 2\\pi - \\frac{3\\pi}{4} = \\frac{5\\pi}{4}$.\n' +
+      '  $z_1 = 2\\sqrt{2}\\,e^{\\mathrm{i}\\frac{5\\pi}{4}}$.\n\n' +
+      '(b) $z_2 = -3\\mathrm{i} = 0 - 3\\mathrm{i}$: $r_2 = 3$.\n' +
+      '  Punkt $(0,-3)$: liegt auf der negativen Imaginärachse → $\\varphi_2 = \\frac{3\\pi}{2}$.\n' +
+      '  $z_2 = 3\\,e^{\\mathrm{i}\\frac{3\\pi}{2}}$.\n\n' +
+      '(c) $z_3 = \\frac{\\sqrt{3}}{2} + \\frac{1}{2}\\mathrm{i}$: $r_3 = \\sqrt{\\frac{3}{4}+\\frac{1}{4}} = 1$.\n' +
+      '  $\\cos\\varphi = \\frac{\\sqrt{3}/2}{1} = \\frac{\\sqrt{3}}{2}$, $\\mathrm{Im}>0$ → $\\varphi_3 = \\frac{\\pi}{6}$.\n' +
+      '  $z_3 = e^{\\mathrm{i}\\frac{\\pi}{6}}$.\n\n' +
+      '(d) $z_4 = 1-\\sqrt{3}\\,\\mathrm{i}$: $r_4 = \\sqrt{1+3} = 2$.\n' +
+      '  $\\cos\\varphi = \\frac{1}{2}$, $\\mathrm{Im}<0$ → $\\varphi_4 = 2\\pi - \\frac{\\pi}{3} = \\frac{5\\pi}{3}$.\n' +
+      '  $z_4 = 2\\,e^{\\mathrm{i}\\frac{5\\pi}{3}}$.',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -289,10 +297,13 @@ export const b2: Aufgabe[] = [
       },
     ],
     loesung:
-      '(a) $z_1 = \\cos\\!\\left(\\tfrac{\\pi}{2}\\right) + \\mathrm{i}\\sin\\!\\left(\\tfrac{\\pi}{2}\\right) = \\mathrm{i}$.\n\n' +
-      '(b) $z_2 = 2(\\cos(2\\pi) + \\mathrm{i}\\sin(2\\pi)) = 2$.\n\n' +
-      '(c) $\\tfrac{15\\pi}{4} - 2\\pi = \\tfrac{7\\pi}{4}$; $z_3 = \\dfrac{\\sqrt{2}}{2} - \\dfrac{\\sqrt{2}}{2}\\,\\mathrm{i}$.\n\n' +
-      '(d) $-\\tfrac{7\\pi}{2} + 4\\pi = \\tfrac{\\pi}{2}$; $z_4 = 3\\,\\mathrm{i}$.',
+      '(a) $z_1 = e^{\\mathrm{i}\\frac{\\pi}{2}} = \\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2} = 0 + \\mathrm{i} = \\mathrm{i}$.\n\n' +
+      '(b) $z_2 = 2e^{\\mathrm{i}\\cdot2\\pi}$: $2\\pi$ ist eine volle Umdrehung → $e^{\\mathrm{i}\\cdot2\\pi}=1$.\n' +
+      '  $z_2 = 2\\cdot(\\cos2\\pi + \\mathrm{i}\\sin2\\pi) = 2\\cdot(1+0) = 2$.\n\n' +
+      '(c) Winkel reduzieren: $\\frac{15\\pi}{4} - 2\\pi = \\frac{15\\pi}{4} - \\frac{8\\pi}{4} = \\frac{7\\pi}{4}$.\n' +
+      '  $z_3 = e^{\\mathrm{i}\\frac{7\\pi}{4}} = \\cos\\frac{7\\pi}{4} + \\mathrm{i}\\sin\\frac{7\\pi}{4} = \\frac{\\sqrt{2}}{2} - \\frac{\\sqrt{2}}{2}\\,\\mathrm{i}$.\n\n' +
+      '(d) Negativen Winkel reduzieren: $-\\frac{7\\pi}{2} + 4\\pi = -\\frac{7\\pi}{2} + \\frac{8\\pi}{2} = \\frac{\\pi}{2}$.\n' +
+      '  $z_4 = 3e^{\\mathrm{i}\\frac{\\pi}{2}} = 3(\\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2}) = 3\\cdot\\mathrm{i} = 3\\mathrm{i}$.',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
