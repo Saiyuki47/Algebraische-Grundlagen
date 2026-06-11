@@ -8,11 +8,21 @@ export default function Uebungsblaetter() {
   const [selectedId, setSelectedId] = useState(uebungsblaetter[0]?.id ?? '')
   const [openIds, setOpenIds] = useState<Set<string>>(new Set())
   const [openTipps, setOpenTipps] = useState<Set<string>>(new Set())
+  const [openTeilTipps, setOpenTeilTipps] = useState<Set<string>>(new Set())
 
   const blatt = uebungsblaetter.find(b => b.id === selectedId)
 
   const toggleTipp = (key: string) => {
     setOpenTipps(prev => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
+
+  const toggleTeilTipp = (key: string) => {
+    setOpenTeilTipps(prev => {
       const next = new Set(prev)
       if (next.has(key)) next.delete(key)
       else next.add(key)
@@ -81,10 +91,40 @@ export default function Uebungsblaetter() {
                 )}
                 {aufgabe && (
                   <>
+                    {aufgabe.teilaufgabeTipps && aufgabe.teilaufgabeTipps.length > 0 && (
+                      <div className="teilaufgabe-tipps">
+                        {aufgabe.teilaufgabeTipps.map((tt) => {
+                          const ttKey = `${key}-${tt.label}`
+                          const isTtOpen = openTeilTipps.has(ttKey)
+                          return (
+                            <div key={tt.label} className="teilaufgabe-tipp-item">
+                              <button type="button" className="toggle-btn toggle-btn-teil" onClick={() => toggleTeilTipp(ttKey)}>
+                                {isTtOpen ? `▼ Hilfe (${tt.label}) verbergen` : `▶ Hilfe (${tt.label})`}
+                              </button>
+                              {isTtOpen && (
+                                <div className="tipp-accordion">
+                                  {tt.tippSections.map((sec) => (
+                                    <details key={sec.titel} className="tipp-section">
+                                      <summary className="tipp-section-summary">
+                                        <span className="tipp-section-icon">{sec.icon}</span>
+                                        <span>{sec.titel}</span>
+                                      </summary>
+                                      <div className="tipp-section-body">
+                                        <MathText block>{sec.inhalt}</MathText>
+                                      </div>
+                                    </details>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )}
                     {(aufgabe.tippSections ?? aufgabe.tipp) && (
                       <>
                         <button type="button" className="toggle-btn" onClick={() => toggleTipp(key)}>
-                          {isTippOpen ? '▼ Tipp verbergen' : '▶ Tipp anzeigen'}
+                          {isTippOpen ? '▼ Allgemeine Tipps verbergen' : '▶ Allgemeine Tipps anzeigen'}
                         </button>
                         {isTippOpen && (aufgabe.tippSections ? (
                           <div className="tipp-accordion">
@@ -110,8 +150,19 @@ export default function Uebungsblaetter() {
                     </button>
                     {isOpen && (
                       <div className="sql-block visible">
-                        <MathText block>{aufgabe.loesung}</MathText>
-                        <GraphDisplay aufgabeId={aufgabe.id} />
+                        {aufgabe.loesungSections ? (
+                          aufgabe.loesungSections.map((sec) => (
+                            <div key={sec.graphId ?? sec.text?.slice(0, 60)}>
+                              {sec.text && <MathText block>{sec.text}</MathText>}
+                              {sec.graphId && <GraphDisplay aufgabeId={sec.graphId} />}
+                            </div>
+                          ))
+                        ) : (
+                          <>
+                            <MathText block>{aufgabe.loesung}</MathText>
+                            <GraphDisplay aufgabeId={aufgabe.id} />
+                          </>
+                        )}
                       </div>
                     )}
                   </>

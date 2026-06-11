@@ -177,6 +177,30 @@ header {
   white-space: pre-wrap;
 }
 
+.math-table {
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.math-table th,
+.math-table td {
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  text-align: center;
+}
+.math-table th {
+  background: var(--bg2);
+  color: var(--blue);
+  font-weight: 600;
+}
+.math-table td:first-child,
+.math-table th:first-child {
+  text-align: left;
+  color: var(--text2);
+}
+
 /* AUFGABE BODY – readable sans-serif question text */
 .ub-aufgabe-body {
   margin: 8px 0 14px;
@@ -590,6 +614,27 @@ header {
   color: var(--text3);
   margin-top: 6px;
 }
+
+/* TEILAUFGABEN-TIPPS */
+.teilaufgabe-tipps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 4px;
+}
+.teilaufgabe-tipp-item {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.toggle-btn-teil {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-color: var(--blue);
+  color: var(--blue);
+  white-space: nowrap;
+}
+.toggle-btn-teil:hover { background: color-mix(in srgb, var(--blue) 12%, transparent); }
+.teilaufgabe-tipp-item .tipp-accordion { margin-top: 6px; }
 
 /* TIPP ACCORDION */
 .tipp-accordion {

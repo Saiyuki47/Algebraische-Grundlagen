@@ -6,6 +6,11 @@ export interface TippSection {
   inhalt: string
 }
 
+export interface TeilaufgabeTipp {
+  label: string
+  tippSections: TippSection[]
+}
+
 export interface ReferenzKarte {
   titel: string
   inhalt: string
@@ -18,13 +23,20 @@ export interface QuizFrage {
   erklaerung: string
 }
 
+export interface LoesungSection {
+  text?: string
+  graphId?: string
+}
+
 export interface Aufgabe {
   id: string
   titel: string
   aufgabeText: string
   tipp?: string
   tippSections?: TippSection[]
+  teilaufgabeTipps?: TeilaufgabeTipp[]
   loesung: string
+  loesungSections?: LoesungSection[]
   schwierigkeit: Schwierigkeit
   kategorie?: string
 }

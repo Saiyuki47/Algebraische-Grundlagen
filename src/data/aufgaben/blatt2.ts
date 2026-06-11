@@ -71,10 +71,16 @@ export const b2: Aufgabe[] = [
           '  $|z| = \\sqrt{\\frac{1}{4}+4}$, $|z-1| = \\sqrt{\\frac{1}{4}+4}$ ✓ (gleich)',
       },
     ],
-    loesung:
-      '(a) $A$ ist ein offener Kreisring um $z_0 = 2\\mathrm{i}$ mit innerem Radius $1$ und äußerem Radius $2$ (beide Ränder nicht enthalten).\n\n' +
-      '(b) $B$ ist das offene Äußere des Kreises mit Mittelpunkt $-1+\\mathrm{i}$ und Radius $1$ (Kreisrand nicht enthalten).\n\n' +
-      '(c) $|z| = |z-1|$ gilt genau für $\\mathrm{Re}(z) = \\tfrac{1}{2}$, d.\\,h. $C$ ist die vertikale Gerade $x = \\tfrac{1}{2}$ (Mittelsenkrechte von $0$ und $1$).',
+    loesung: '',
+    loesungSections: [
+      {
+        text:
+          '(a) Offener Kreisring um $z_0 = 2\\mathrm{i}$ = Punkt $(0,2)$, innerer Radius $1$, äußerer Radius $2$ (beide Ränder gestrichelt).\n\n' +
+          '(b) Offenes Äußeres des Kreises mit Mittelpunkt $-1+\\mathrm{i}$ und Radius $1$ (Kreisrand gestrichelt).\n\n' +
+          '(c) $|z| = |z-1|$: Gleichabstand von $0$ und $1$ → vertikale Gerade $\\mathrm{Re}(z) = \\tfrac{1}{2}$ (Mittelsenkrechte).',
+        graphId: 'b2_a1',
+      },
+    ],
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -216,19 +222,17 @@ export const b2: Aufgabe[] = [
           '  $2\\sqrt{2}\\left(\\cos\\frac{5\\pi}{4} + \\mathrm{i}\\sin\\frac{5\\pi}{4}\\right) = 2\\sqrt{2}\\left(-\\frac{\\sqrt{2}}{2} - \\frac{\\sqrt{2}}{2}\\mathrm{i}\\right) = -2 - 2\\mathrm{i}$ ✓',
       },
     ],
-    loesung:
-      '(a) $z_1 = -2-2\\mathrm{i}$: $r_1 = \\sqrt{4+4} = 2\\sqrt{2}$.\n' +
-      '  $\\cos\\varphi = \\frac{-2}{2\\sqrt{2}} = -\\frac{\\sqrt{2}}{2}$, $\\mathrm{Im}<0$ → $\\varphi_1 = 2\\pi - \\frac{3\\pi}{4} = \\frac{5\\pi}{4}$.\n' +
-      '  $z_1 = 2\\sqrt{2}\\,e^{\\mathrm{i}\\frac{5\\pi}{4}}$.\n\n' +
-      '(b) $z_2 = -3\\mathrm{i} = 0 - 3\\mathrm{i}$: $r_2 = 3$.\n' +
-      '  Punkt $(0,-3)$: liegt auf der negativen Imaginärachse → $\\varphi_2 = \\frac{3\\pi}{2}$.\n' +
-      '  $z_2 = 3\\,e^{\\mathrm{i}\\frac{3\\pi}{2}}$.\n\n' +
-      '(c) $z_3 = \\frac{\\sqrt{3}}{2} + \\frac{1}{2}\\mathrm{i}$: $r_3 = \\sqrt{\\frac{3}{4}+\\frac{1}{4}} = 1$.\n' +
-      '  $\\cos\\varphi = \\frac{\\sqrt{3}/2}{1} = \\frac{\\sqrt{3}}{2}$, $\\mathrm{Im}>0$ → $\\varphi_3 = \\frac{\\pi}{6}$.\n' +
-      '  $z_3 = e^{\\mathrm{i}\\frac{\\pi}{6}}$.\n\n' +
-      '(d) $z_4 = 1-\\sqrt{3}\\,\\mathrm{i}$: $r_4 = \\sqrt{1+3} = 2$.\n' +
-      '  $\\cos\\varphi = \\frac{1}{2}$, $\\mathrm{Im}<0$ → $\\varphi_4 = 2\\pi - \\frac{\\pi}{3} = \\frac{5\\pi}{3}$.\n' +
-      '  $z_4 = 2\\,e^{\\mathrm{i}\\frac{5\\pi}{3}}$.',
+    loesung: '',
+    loesungSections: [
+      { graphId: 'b2_a3' },
+      {
+        text:
+          '(a) $z_1 = -2-2\\mathrm{i}$: $r_1 = 2\\sqrt{2}$,  $\\varphi_1 = \\dfrac{5\\pi}{4}$  →  $z_1 = 2\\sqrt{2}\\,e^{\\mathrm{i}\\frac{5\\pi}{4}}$\n\n' +
+          '(b) $z_2 = -3\\mathrm{i}$: $r_2 = 3$,  $\\varphi_2 = \\dfrac{3\\pi}{2}$  →  $z_2 = 3\\,e^{\\mathrm{i}\\frac{3\\pi}{2}}$\n\n' +
+          '(c) $z_3 = \\dfrac{\\sqrt{3}}{2}+\\dfrac{1}{2}\\mathrm{i}$: $r_3 = 1$,  $\\varphi_3 = \\dfrac{\\pi}{6}$  →  $z_3 = e^{\\mathrm{i}\\frac{\\pi}{6}}$\n\n' +
+          '(d) $z_4 = 1-\\sqrt{3}\\,\\mathrm{i}$: $r_4 = 2$,  $\\varphi_4 = \\dfrac{5\\pi}{3}$  →  $z_4 = 2\\,e^{\\mathrm{i}\\frac{5\\pi}{3}}$',
+      },
+    ],
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -296,14 +300,17 @@ export const b2: Aufgabe[] = [
           'Liegt der Punkt im richtigen Quadranten der Gaußschen Ebene (laut Skizze)?',
       },
     ],
-    loesung:
-      '(a) $z_1 = e^{\\mathrm{i}\\frac{\\pi}{2}} = \\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2} = 0 + \\mathrm{i} = \\mathrm{i}$.\n\n' +
-      '(b) $z_2 = 2e^{\\mathrm{i}\\cdot2\\pi}$: $2\\pi$ ist eine volle Umdrehung → $e^{\\mathrm{i}\\cdot2\\pi}=1$.\n' +
-      '  $z_2 = 2\\cdot(\\cos2\\pi + \\mathrm{i}\\sin2\\pi) = 2\\cdot(1+0) = 2$.\n\n' +
-      '(c) Winkel reduzieren: $\\frac{15\\pi}{4} - 2\\pi = \\frac{15\\pi}{4} - \\frac{8\\pi}{4} = \\frac{7\\pi}{4}$.\n' +
-      '  $z_3 = e^{\\mathrm{i}\\frac{7\\pi}{4}} = \\cos\\frac{7\\pi}{4} + \\mathrm{i}\\sin\\frac{7\\pi}{4} = \\frac{\\sqrt{2}}{2} - \\frac{\\sqrt{2}}{2}\\,\\mathrm{i}$.\n\n' +
-      '(d) Negativen Winkel reduzieren: $-\\frac{7\\pi}{2} + 4\\pi = -\\frac{7\\pi}{2} + \\frac{8\\pi}{2} = \\frac{\\pi}{2}$.\n' +
-      '  $z_4 = 3e^{\\mathrm{i}\\frac{\\pi}{2}} = 3(\\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2}) = 3\\cdot\\mathrm{i} = 3\\mathrm{i}$.',
+    loesung: '',
+    loesungSections: [
+      { graphId: 'b2_a4' },
+      {
+        text:
+          '(a) $z_1 = e^{\\mathrm{i}\\frac{\\pi}{2}} = \\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2} = \\mathrm{i}$\n\n' +
+          '(b) $z_2 = 2e^{\\mathrm{i}\\cdot2\\pi}$: vollständige Umdrehung → $e^{2\\pi\\mathrm{i}}=1$,  $z_2 = 2$\n\n' +
+          '(c) Winkel: $\\frac{15\\pi}{4} - 2\\pi = \\frac{7\\pi}{4}$  →  $z_3 = \\frac{\\sqrt{2}}{2} - \\frac{\\sqrt{2}}{2}\\,\\mathrm{i}$\n\n' +
+          '(d) Winkel: $-\\frac{7\\pi}{2} + 4\\pi = \\frac{\\pi}{2}$  →  $z_4 = 3\\mathrm{i}$',
+      },
+    ],
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },

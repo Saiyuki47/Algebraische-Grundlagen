@@ -315,8 +315,237 @@ function A5D() {
   )
 }
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+function AxisLabels({ c, xLabel = 'Re', yLabel = 'Im' }: { c: Cfg; xLabel?: string; yLabel?: string }) {
+  const xf = mkX(c), yf = mkY(c)
+  return (
+    <>
+      <text x={c.w - c.pad + 10} y={yf(0) + 4} fontSize="9" fill="#8b90a8">{xLabel}</text>
+      <text x={xf(0) + 4} y={c.pad - 10} fontSize="9" fill="#8b90a8">{yLabel}</text>
+    </>
+  )
+}
+
+function Dot({ xf, yf, x, y, label, color, labelOffset = [6, -6] }:
+  { xf: (v: number) => number; yf: (v: number) => number; x: number; y: number; label: string; color: string; labelOffset?: [number, number] }) {
+  return (
+    <g>
+      <circle cx={xf(x)} cy={yf(y)} r={3.5} fill={color} />
+      <text x={xf(x) + labelOffset[0]} y={yf(y) + labelOffset[1]} fontSize="9" fill={color}>{label}</text>
+    </g>
+  )
+}
+
+// ─── Blatt 1, Aufgabe 1: Points in Gaussian plane ────────────────────────────
+function B1A1Graph() {
+  const w = 310, h = 200, pad = 32
+  const c: Cfg = { w, h, pad, xMin: -7, xMax: 2, yMin: -2, yMax: 5 }
+  const xf = mkX(c), yf = mkY(c)
+  return (
+    <figure className="graph-figure">
+      <figcaption className="graph-label">Gaußsche Zahlenebene</figcaption>
+      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="graph-svg">
+        <Axes c={c}
+          xt={[-6,-4,-2,1].map(v => ({ v, label: String(v) }))}
+          yt={[-1,1,2,3,4].map(v => ({ v, label: String(v) }))}
+        />
+        <AxisLabels c={c} />
+        <Dot xf={xf} yf={yf} x={-6} y={4} label="-6+4i" color="#4d9fff" labelOffset={[6, -6]} />
+        <Dot xf={xf} yf={yf} x={0} y={1} label="i" color="#3ecf8e" labelOffset={[6, -6]} />
+        <Dot xf={xf} yf={yf} x={0} y={-1} label="-i" color="#f5a623" labelOffset={[6, -6]} />
+        <Dot xf={xf} yf={yf} x={-1} y={0} label="-1" color="#ff6b6b" labelOffset={[-20, -8]} />
+      </svg>
+    </figure>
+  )
+}
+
+// ─── Blatt 1, Aufgabe 4: Subsets of complex plane ────────────────────────────
+function B1A4_A() {
+  return (
+    <CoordSketch label="A: |z|≤3 (geschl. Scheibe)" r={3.8}>
+      {({ xf, yf }) => (
+        <circle cx={xf(0)} cy={yf(0)} r={xf(3) - xf(0)}
+          fill="#4d9fff22" stroke="#4d9fff" strokeWidth={1.8} />
+      )}
+    </CoordSketch>
+  )
+}
+
+function B1A4_B() {
+  return (
+    <CoordSketch label="B: Im(z)=−1 (waagerechte Gerade)" r={2.5}>
+      {({ xf: _xf, yf, c }) => (
+        <line x1={c.pad} y1={yf(-1)} x2={c.w - c.pad} y2={yf(-1)} stroke="#4d9fff" strokeWidth={1.8} />
+      )}
+    </CoordSketch>
+  )
+}
+
+function B1A4_C() {
+  return (
+    <CoordSketch label="C: Re<−1 und Im≥2" r={3.5}>
+      {({ xf, yf, c }) => (
+        <>
+          <rect x={c.pad} y={c.pad} width={xf(-1) - c.pad} height={yf(2) - c.pad}
+            fill="#4d9fff22" />
+          <line x1={xf(-1)} y1={c.pad} x2={xf(-1)} y2={c.h - c.pad}
+            stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+          <line x1={c.pad} y1={yf(2)} x2={xf(-1)} y2={yf(2)}
+            stroke="#4d9fff" strokeWidth={1.8} />
+        </>
+      )}
+    </CoordSketch>
+  )
+}
+
+function B1A4_D() {
+  return (
+    <CoordSketch label="D: Re(z)=Im(z), d.h. y=x" r={2.5}>
+      {({ xf, yf }) => (
+        <line x1={xf(-2.3)} y1={yf(-2.3)} x2={xf(2.3)} y2={yf(2.3)} stroke="#4d9fff" strokeWidth={1.8} />
+      )}
+    </CoordSketch>
+  )
+}
+
+function B1A4_E() {
+  return (
+    <CoordSketch label="E: |z|=2 und Re(z)<1 (Kreisbogen)" r={2.5}>
+      {({ xf, yf, c }) => {
+        const rpx = xf(2) - xf(0)
+        const sqrt3 = Math.sqrt(3)
+        const x1 = xf(1), y1 = yf(-sqrt3)
+        const x2 = xf(1), y2 = yf(sqrt3)
+        return (
+          <>
+            {/* dashed right chord */}
+            <line x1={xf(1)} y1={c.pad} x2={xf(1)} y2={c.h - c.pad}
+              stroke="#3b3f55" strokeWidth={1} strokeDasharray="4,3" />
+            {/* left arc (large, CCW in SVG = CW in math) */}
+            <path d={`M ${x1},${y1} A ${rpx},${rpx} 0 1 0 ${x2},${y2}`}
+              fill="none" stroke="#4d9fff" strokeWidth={1.8} strokeDasharray="4,3" />
+            {/* intersection dots */}
+            <circle cx={x1} cy={y1} r={3} fill="#8b90a8" />
+            <circle cx={x2} cy={y2} r={3} fill="#8b90a8" />
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
+// ─── Blatt 2, Aufgabe 1: Subsets of complex plane ────────────────────────────
+function B2A1_A() {
+  return (
+    <CoordSketch label="A: 1<|z−2i|<2 (offener Kreisring)" r={3.5}>
+      {({ xf, yf }) => {
+        const cx = xf(0), cy = yf(2)
+        const r1 = xf(1) - xf(0)
+        const r2 = xf(2) - xf(0)
+        return (
+          <>
+            <circle cx={cx} cy={cy} r={r2} fill="#4d9fff22" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <circle cx={cx} cy={cy} r={r1} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <circle cx={cx} cy={cy} r={2} fill="#4d9fff" />
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
+function B2A1_B() {
+  return (
+    <CoordSketch label="B: |z+1−i|>1 (Kreisäußeres, offen)" r={3}>
+      {({ xf, yf, c }) => {
+        const cx = xf(-1), cy = yf(1)
+        const rpx = xf(1) - xf(0)
+        return (
+          <>
+            <rect x={c.pad} y={c.pad} width={c.w - 2 * c.pad} height={c.h - 2 * c.pad} fill="#4d9fff22" />
+            <circle cx={cx} cy={cy} r={rpx} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <circle cx={cx} cy={cy} r={2} fill="#4d9fff" />
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
+function B2A1_C() {
+  return (
+    <CoordSketch label="C: Re(z)=½ (Mittelsenkrechte)" r={2}>
+      {({ xf, yf: _yf, c }) => (
+        <line x1={xf(0.5)} y1={c.pad} x2={xf(0.5)} y2={c.h - c.pad} stroke="#4d9fff" strokeWidth={1.8} />
+      )}
+    </CoordSketch>
+  )
+}
+
+// ─── Blatt 2, Aufgabe 3: Points in polar form ────────────────────────────────
+function B2A3Graph() {
+  return (
+    <CoordSketch label="z₁, z₂, z₃, z₄ in der Gaußschen Ebene" r={3.5}>
+      {({ xf, yf }) => {
+        const sqrt3 = Math.sqrt(3)
+        return (
+          <>
+            <Dot xf={xf} yf={yf} x={-2} y={-2} label="z₁=−2−2i" color="#4d9fff" labelOffset={[-60, 14]} />
+            <Dot xf={xf} yf={yf} x={0} y={-3} label="z₂=−3i" color="#3ecf8e" labelOffset={[6, -4]} />
+            <Dot xf={xf} yf={yf} x={sqrt3 / 2} y={0.5} label="z₃" color="#f5a623" labelOffset={[6, -6]} />
+            <Dot xf={xf} yf={yf} x={1} y={-sqrt3} label="z₄=1−√3i" color="#ff6b6b" labelOffset={[6, -4]} />
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
+// ─── Blatt 2, Aufgabe 4: Points from polar to cartesian ──────────────────────
+function B2A4Graph() {
+  return (
+    <CoordSketch label="z₁, z₂, z₃, z₄ in der Gaußschen Ebene" r={3.5}>
+      {({ xf, yf }) => {
+        const sq2 = Math.sqrt(2) / 2
+        return (
+          <>
+            <Dot xf={xf} yf={yf} x={0} y={1} label="z₁=i" color="#4d9fff" labelOffset={[6, -6]} />
+            <Dot xf={xf} yf={yf} x={2} y={0} label="z₂=2" color="#3ecf8e" labelOffset={[6, -8]} />
+            <Dot xf={xf} yf={yf} x={sq2} y={-sq2} label="z₃" color="#f5a623" labelOffset={[6, -6]} />
+            <Dot xf={xf} yf={yf} x={0} y={3} label="z₄=3i" color="#ff6b6b" labelOffset={[6, -6]} />
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
 // ─── Main export ─────────────────────────────────────────────────────────────
 export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
+  // ── Blatt 1 ──
+  if (aufgabeId === 'b1_a1') return <div className="graph-grid"><B1A1Graph /></div>
+  if (aufgabeId === 'b1_a4') return (
+    <div className="graph-grid">
+      <B1A4_A /><B1A4_B /><B1A4_C /><B1A4_D /><B1A4_E />
+    </div>
+  )
+  // ── Blatt 2 ──
+  if (aufgabeId === 'b2_a1') return (
+    <div className="graph-grid"><B2A1_A /><B2A1_B /><B2A1_C /></div>
+  )
+  if (aufgabeId === 'b2_a3') return <div className="graph-grid"><B2A3Graph /></div>
+  if (aufgabeId === 'b2_a4') return <div className="graph-grid"><B2A4Graph /></div>
+  // ── Blatt 0 ──
+  if (aufgabeId === 'b0_a1_sincos') {
+    return <div className="graph-grid"><SinCosGraph /></div>
+  }
+  if (aufgabeId === 'b0_a1_einheitskreis') {
+    return <div className="graph-grid"><UnitCircleGraph /></div>
+  }
+  if (aufgabeId === 'b0_a1_tan') {
+    return <div className="graph-grid"><TanGraph /></div>
+  }
   if (aufgabeId === 'b0_a1') {
     return (
       <div className="graph-grid">

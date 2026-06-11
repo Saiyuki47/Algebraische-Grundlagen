@@ -73,15 +73,21 @@ export const b1: Aufgabe[] = [
           'Für alle Punkte: Liegen reelle Zahlen auf der horizontalen Achse und rein imaginäre auf der vertikalen?',
       },
     ],
-    loesung:
-      '(a) $-6$\n' +
-      '(b) $4$\n' +
-      '(c) $0$\n' +
-      '(d) $1$\n' +
-      '(e) $0$\n' +
-      '(f) $-1$\n' +
-      '(g) $-1$\n' +
-      '(h) $0$',
+    loesung: '',
+    loesungSections: [
+      { graphId: 'b1_a1' },
+      {
+        text:
+          '(a) $\\mathrm{Re}(-6+4\\mathrm{i}) = -6$\n' +
+          '(b) $\\mathrm{Im}(-6+4\\mathrm{i}) = 4$\n' +
+          '(c) $\\mathrm{Re}(\\mathrm{i}) = 0$\n' +
+          '(d) $\\mathrm{Im}(\\mathrm{i}) = 1$\n' +
+          '(e) $\\mathrm{Re}(-\\mathrm{i}) = 0$\n' +
+          '(f) $\\mathrm{Im}(-\\mathrm{i}) = -1$\n' +
+          '(g) $\\mathrm{Re}(-1) = -1$\n' +
+          '(h) $\\mathrm{Im}(-1) = 0$',
+      },
+    ],
     schwierigkeit: 'einfach',
     kategorie: 'Komplexe Zahlen',
   },
@@ -308,12 +314,18 @@ export const b1: Aufgabe[] = [
           'Haben alle Figuren korrekte Ränder (gestrichelt vs. durchgezogen)?',
       },
     ],
-    loesung:
-      '(a) Geschlossene Kreisscheibe mit Radius 3 um den Ursprung.\n' +
-      '(b) Horizontale Gerade auf Höhe $y = -1$.\n' +
-      '(c) Alle Punkte links von $x = -1$ (nicht inklusive) und oberhalb oder auf $y = 2$.\n' +
-      '(d) Gerade $\\mathrm{Re}(z) = \\mathrm{Im}(z)$, also $y = x$ (Winkelhalbierende).\n' +
-      '(e) Der Kreisbogen $|z|=2$ im Bereich $\\mathrm{Re}(z) < 1$ (linker Großteil des Kreises, Rand ausgeschlossen).',
+    loesung: '',
+    loesungSections: [
+      {
+        text:
+          '(a) Geschlossene Kreisscheibe mit Radius $3$ um den Ursprung (Rand inklusive).\n' +
+          '(b) Horizontale Gerade $\\mathrm{Im}(z) = -1$, d.h. $y = -1$.\n' +
+          '(c) Alle Punkte mit $\\mathrm{Re}(z) < -1$ (gestrichelter Rand) und $\\mathrm{Im}(z) \\geq 2$ (durchgezogener Rand).\n' +
+          '(d) Gerade $\\mathrm{Re}(z) = \\mathrm{Im}(z)$, also $y = x$ (Winkelhalbierende).\n' +
+          '(e) Kreisbogen $|z|=2$ für $\\mathrm{Re}(z) < 1$ (linker Großteil, Rand gestrichelt).',
+        graphId: 'b1_a4',
+      },
+    ],
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },

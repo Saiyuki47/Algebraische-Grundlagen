@@ -11,6 +11,139 @@ export const b0: Aufgabe[] = [
       '(d) Rechnen Sie vom Bogenmaß ins Gradmaß um: $\\pi$, $5\\pi$, $\\frac{2\\pi}{3}$, $\\frac{\\pi}{6}$, $\\frac{\\pi}{18}$, $\\frac{2\\pi}{17}$.\n' +
       '(e) Skizzieren Sie die Tangensfunktion.\n' +
       '(f) Geben Sie Definitionsbereiche und Wertemengen von $\\arcsin$, $\\arccos$ und $\\arctan$ an.',
+    teilaufgabeTipps: [
+      {
+        label: 'a',
+        tippSections: [
+          {
+            icon: '💡',
+            titel: 'Was gefragt ist',
+            inhalt:
+              'Skizziere zwei Graphen im selben Koordinatensystem: $\\sin(x)$ und $\\cos(x)$ über mindestens eine volle Periode $[0, 2\\pi]$.\n\n' +
+              'Beide Kurven haben Wertebereich $[-1, 1]$ und Periode $2\\pi$.',
+          },
+          {
+            icon: '🔍',
+            titel: 'Vorgehensweise',
+            inhalt:
+              'Markiere die fünf Schlüsselpunkte für jede Funktion:\n\n' +
+              '| $x$ | $0$ | $\\frac{\\pi}{2}$ | $\\pi$ | $\\frac{3\\pi}{2}$ | $2\\pi$ |\n' +
+              '|-----|-----|-----------------|-------|------------------|--------|\n' +
+              '| $\\sin$ | $0$ | $1$ | $0$ | $-1$ | $0$ |\n' +
+              '| $\\cos$ | $1$ | $0$ | $-1$ | $0$ | $1$ |\n\n' +
+              'Verbinde die Punkte mit einer glatten Wellenkurve. $\\cos$ ist um $\\frac{\\pi}{2}$ nach links verschobenes $\\sin$.',
+          },
+        ],
+      },
+      {
+        label: 'b',
+        tippSections: [
+          {
+            icon: '💡',
+            titel: 'Was gefragt ist',
+            inhalt:
+              'Zeichne einen Kreis mit Radius 1 um den Ursprung. Für einen Punkt auf dem Kreis bei Winkel $\\varphi$:\n\n' +
+              '• $\\cos(\\varphi)$ = waagerechte Koordinate (x-Richtung)\n' +
+              '• $\\sin(\\varphi)$ = senkrechte Koordinate (y-Richtung)',
+          },
+          {
+            icon: '🔍',
+            titel: 'Vorgehensweise',
+            inhalt:
+              'Zeichne den Einheitskreis. Wähle einen Punkt $P = (\\cos\\varphi, \\sin\\varphi)$ auf dem Kreis.\n\n' +
+              'Trage ein:\n' +
+              '• Waagerechte Linie von $P$ zur y-Achse → Länge = $|\\cos\\varphi|$\n' +
+              '• Senkrechte Linie von $P$ zur x-Achse → Länge = $|\\sin\\varphi|$\n\n' +
+              'Beschrifte $\\cos(\\varphi)$ auf der x-Achse und $\\sin(\\varphi)$ auf der y-Achse.',
+          },
+        ],
+      },
+      {
+        label: 'c',
+        tippSections: [
+          {
+            icon: '💡',
+            titel: 'Was gefragt ist',
+            inhalt:
+              'Rechne die gegebenen Winkelgrade in Bogenmaß (Radiant) um:\n$0°,\\ 360°,\\ 90°,\\ 60°,\\ 36°,\\ 29°$',
+          },
+          {
+            icon: '🔍',
+            titel: 'Vorgehensweise',
+            inhalt:
+              'Formel: $x_{\\text{rad}} = x_{°} \\cdot \\dfrac{\\pi}{180}$\n\n' +
+              'Beispiel: $60° \\cdot \\dfrac{\\pi}{180} = \\dfrac{60\\pi}{180} = \\dfrac{\\pi}{3}$\n\n' +
+              'Tipp: Kürze so weit wie möglich. Bei $29°$ bleibt $\\dfrac{29\\pi}{180}$ (nicht weiter kürzbar).',
+          },
+        ],
+      },
+      {
+        label: 'd',
+        tippSections: [
+          {
+            icon: '💡',
+            titel: 'Was gefragt ist',
+            inhalt:
+              'Rechne die gegebenen Bogenmaße in Grad um:\n$\\pi,\\ 5\\pi,\\ \\dfrac{2\\pi}{3},\\ \\dfrac{\\pi}{6},\\ \\dfrac{\\pi}{18},\\ \\dfrac{2\\pi}{17}$',
+          },
+          {
+            icon: '🔍',
+            titel: 'Vorgehensweise',
+            inhalt:
+              'Formel: $x_{°} = x_{\\text{rad}} \\cdot \\dfrac{180}{\\pi}$\n\n' +
+              'Das $\\pi$ kürzt sich immer heraus:\n' +
+              '$\\dfrac{2\\pi}{3} \\cdot \\dfrac{180}{\\pi} = \\dfrac{2 \\cdot 180}{3} = 120°$\n\n' +
+              'Bei $\\dfrac{2\\pi}{17}$: $\\dfrac{2 \\cdot 180}{17} = \\dfrac{360}{17}°$ — als Bruch lassen ist in Ordnung.',
+          },
+        ],
+      },
+      {
+        label: 'e',
+        tippSections: [
+          {
+            icon: '💡',
+            titel: 'Was gefragt ist',
+            inhalt:
+              'Skizziere den Graphen von $\\tan(x) = \\dfrac{\\sin(x)}{\\cos(x)}$.\n\n' +
+              'Besonderheit: $\\tan$ ist an Stellen undefiniert, wo $\\cos(x) = 0$ – dort gibt es senkrechte Asymptoten.',
+          },
+          {
+            icon: '🔍',
+            titel: 'Vorgehensweise',
+            inhalt:
+              'Polstellen (senkrechte Asymptoten, gestrichelt zeichnen) bei $x = \\dfrac{\\pi}{2} + k\\pi$, $k \\in \\mathbb{Z}$.\n\n' +
+              'Schlüsselpunkte pro Periode:\n' +
+              '• $\\tan(0) = 0$\n' +
+              '• $\\tan\\!\\left(\\frac{\\pi}{4}\\right) = 1$\n' +
+              '• $\\tan\\!\\left(-\\frac{\\pi}{4}\\right) = -1$\n\n' +
+              'Die Kurve geht von $-\\infty$ bis $+\\infty$ in jeder Periode $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$.',
+          },
+        ],
+      },
+      {
+        label: 'f',
+        tippSections: [
+          {
+            icon: '💡',
+            titel: 'Was gefragt ist',
+            inhalt:
+              'Gib für $\\arcsin$, $\\arccos$ und $\\arctan$ jeweils an:\n' +
+              '• Definitionsbereich (welche Eingabewerte sind erlaubt?)\n' +
+              '• Wertemenge (welche Ausgabewerte kommen raus?)',
+          },
+          {
+            icon: '🔍',
+            titel: 'Vorgehensweise',
+            inhalt:
+              'Die Arkusfunktionen sind Umkehrfunktionen – daher tauschen Definitions- und Wertebereich gegenüber $\\sin$/$\\cos$/$\\tan$.\n\n' +
+              '$\\arcsin$: Def. $[-1,1]$ → Werte $\\left[-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right]$\n\n' +
+              '$\\arccos$: Def. $[-1,1]$ → Werte $[0, \\pi]$\n\n' +
+              '$\\arctan$: Def. $\\mathbb{R}$ → Werte $\\left(-\\dfrac{\\pi}{2}, \\dfrac{\\pi}{2}\\right)$ (offenes Intervall!)\n\n' +
+              'Merkhilfe: $\\arctan$ nimmt die Randwerte $\\pm\\frac{\\pi}{2}$ nie an, weil $\\tan$ dort nicht definiert ist.',
+          },
+        ],
+      },
+    ],
     tippSections: [
       {
         icon: '💡',
@@ -70,20 +203,54 @@ export const b0: Aufgabe[] = [
           'Arkusfunktionen: Liegt der gesuchte Winkel im angegebenen Wertebereich? Falls nein, ist er falsch.',
       },
     ],
-    loesung:
-      '(a) $\\sin$ und $\\cos$: Periode $2\\pi$, Wertebereich $[-1, 1]$.\n' +
-      '    Tabelle: $x = 0,\\ \\tfrac{\\pi}{2},\\ \\pi,\\ \\tfrac{3\\pi}{2},\\ 2\\pi$\n' +
-      '    $\\sin$: $0, 1, 0, -1, 0$\n' +
-      '    $\\cos$: $1, 0, -1, 0, 1$\n\n' +
-      '(b) Im Einheitskreis: $\\cos(\\varphi)$ = $x$-Koordinate, $\\sin(\\varphi)$ = $y$-Koordinate.\n\n' +
-      '(c) Gradmaß → Bogenmaß ($\\times\\frac{\\pi}{180}$):\n' +
-      '    $0° = 0$,  $360° = 2\\pi$,  $90° = \\frac{\\pi}{2}$,  $60° = \\frac{\\pi}{3}$,  $36° = \\frac{\\pi}{5}$,  $29° = \\frac{29\\pi}{180}$\n\n' +
-      '(d) Bogenmaß → Gradmaß ($\\times\\frac{180}{\\pi}$):\n' +
-      '    $\\pi = 180°$,  $5\\pi = 900°$,  $\\frac{2\\pi}{3} = 120°$,  $\\frac{\\pi}{6} = 30°$,  $\\frac{\\pi}{18} = 10°$,  $\\frac{2\\pi}{17} = \\left(\\frac{360}{17}\\right)°$\n\n' +
-      '(e) $\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$: Polstellen bei $x = \\frac{\\pi}{2} + k\\pi$, $k \\in \\mathbb{Z}$, Periode $\\pi$.\n\n' +
-      '(f) $\\arcsin : [-1,\\,1] \\to \\left[-\\frac{\\pi}{2},\\, \\frac{\\pi}{2}\\right]$\n' +
-      '    $\\arccos : [-1,\\,1] \\to [0,\\, \\pi]$\n' +
-      '    $\\arctan : \\mathbb{R} \\to \\left(-\\frac{\\pi}{2},\\, \\frac{\\pi}{2}\\right)$',
+    loesung: '',
+    loesungSections: [
+      {
+        text:
+          '(a)  Sinus & Cosinus – Periode $2\\pi$, Wertebereich $[-1,1]$:\n\n' +
+          '| $x$ | $0$ | $\\dfrac{\\pi}{2}$ | $\\pi$ | $\\dfrac{3\\pi}{2}$ | $2\\pi$ |\n' +
+          '|-----|-----|-----------------|-------|------------------|--------|\n' +
+          '| $\\sin$ | $0$ | $1$ | $0$ | $-1$ | $0$ |\n' +
+          '| $\\cos$ | $1$ | $0$ | $-1$ | $0$ | $1$ |',
+        graphId: 'b0_a1_sincos',
+      },
+      {
+        text:
+          '(b)  Einheitskreis – jeder Punkt hat die Koordinaten $(\\cos\\varphi,\\, \\sin\\varphi)$:\n\n' +
+          '$\\cos(\\varphi)$ = $x$-Koordinate (waagerecht)\n' +
+          '$\\sin(\\varphi)$ = $y$-Koordinate (senkrecht)',
+        graphId: 'b0_a1_einheitskreis',
+      },
+      {
+        text:
+          '(c)  Gradmaß → Bogenmaß  ($\\times\\,\\tfrac{\\pi}{180}$):\n\n' +
+          '| Gradmaß | $0°$ | $360°$ | $90°$ | $60°$ | $36°$ | $29°$ |\n' +
+          '|---------|------|--------|-------|-------|-------|-------|\n' +
+          '| Bogenmaß | $0$ | $2\\pi$ | $\\dfrac{\\pi}{2}$ | $\\dfrac{\\pi}{3}$ | $\\dfrac{\\pi}{5}$ | $\\dfrac{29\\pi}{180}$ |\n\n' +
+          'Beispielrechnung für $29°$: $\\quad \\dfrac{29}{360} \\cdot 2\\pi = \\dfrac{29}{180}\\pi$',
+      },
+      {
+        text:
+          '(d)  Bogenmaß → Gradmaß  ($\\times\\,\\tfrac{180}{\\pi}$):\n\n' +
+          '| Bogenmaß | $\\pi$ | $5\\pi$ | $\\dfrac{2\\pi}{3}$ | $\\dfrac{\\pi}{6}$ | $\\dfrac{\\pi}{18}$ | $\\dfrac{2\\pi}{17}$ |\n' +
+          '|----------|-------|--------|------------------|-----------------|------------------|--------------------|\n' +
+          '| Gradmaß | $180°$ | $900°$ | $120°$ | $30°$ | $10°$ | $\\left(\\dfrac{360}{17}\\right)°$ |',
+      },
+      {
+        text:
+          '(e)  Tangensfunktion:\n\n' +
+          '$\\tan(x) = \\dfrac{\\sin(x)}{\\cos(x)}$, Periode $\\pi$\n\n' +
+          'Polstellen (senkrechte Asymptoten) bei $x = \\dfrac{\\pi}{2} + k\\pi$, $k \\in \\mathbb{Z}$',
+        graphId: 'b0_a1_tan',
+      },
+      {
+        text:
+          '(f)  Arkusfunktionen – Definitionsbereich → Wertebereich:\n\n' +
+          '$\\arcsin : [-1,\\,1] \\to \\left[-\\dfrac{\\pi}{2},\\, \\dfrac{\\pi}{2}\\right]$\n' +
+          '$\\arccos : [-1,\\,1] \\to [0,\\, \\pi]$\n' +
+          '$\\arctan : \\mathbb{R} \\to \\left(-\\dfrac{\\pi}{2},\\, \\dfrac{\\pi}{2}\\right)$  (offenes Intervall!)',
+      },
+    ],
     schwierigkeit: 'einfach',
     kategorie: 'Trigonometrie',
   },
