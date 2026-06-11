@@ -23,8 +23,8 @@ export default function Schema() {
       {themen.map((thema, idx) => {
         const isOpen = openIds.has(idx)
         return (
-          <div key={idx} className="card">
-            <button className="schema-data-toggle" onClick={() => toggle(idx)}>
+          <div key={thema.titel} className="card">
+            <button type="button" className="schema-data-toggle" onClick={() => toggle(idx)}>
               <span className="schema-data-arrow">{isOpen ? '▼' : '▶'}</span>
               <span className="schema-data-name"><MathText>{thema.titel}</MathText></span>
             </button>
@@ -35,8 +35,8 @@ export default function Schema() {
                 )}
                 {thema.punkte && thema.punkte.length > 0 && (
                   <ul className="thema-punkte">
-                    {thema.punkte.map((p, i) => (
-                      <li key={i}><MathText>{p}</MathText></li>
+                    {thema.punkte.map((p) => (
+                      <li key={p}><MathText>{p}</MathText></li>
                     ))}
                   </ul>
                 )}

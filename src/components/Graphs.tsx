@@ -7,10 +7,12 @@ const mkX = (c: Cfg) => (v: number) => c.pad + ((v - c.xMin) / (c.xMax - c.xMin)
 const mkY = (c: Cfg) => (v: number) => (c.h - c.pad) - ((v - c.yMin) / (c.yMax - c.yMin)) * (c.h - 2 * c.pad)
 
 // ─── Axes ────────────────────────────────────────────────────────────────────
-function Axes({ c, xt = [], yt = [] }: {
+const EMPTY_TICKS: readonly { v: number; label: string }[] = []
+
+function Axes({ c, xt = EMPTY_TICKS, yt = EMPTY_TICKS }: {
   c: Cfg
-  xt?: { v: number; label: string }[]
-  yt?: { v: number; label: string }[]
+  xt?: readonly { v: number; label: string }[]
+  yt?: readonly { v: number; label: string }[]
 }) {
   const xf = mkX(c), yf = mkY(c)
   const ax = xf(0), ay = yf(0)
@@ -45,8 +47,7 @@ function CoordSketch({ label, r = 2.5, children }: { label: string; r?: number; 
   const xf = mkX(c), yf = mkY(c)
   const n = Math.floor(r)
   const ticks = Array.from({ length: 2 * n + 1 }, (_, i) => i - n)
-    .filter(v => v !== 0)
-    .map(v => ({ v, label: String(v) }))
+    .flatMap(v => v !== 0 ? [{ v, label: String(v) }] : [])
   return (
     <figure className="graph-figure">
       <figcaption className="graph-label">{label}</figcaption>

@@ -40,6 +40,7 @@ export default function Uebungsblaetter() {
         <div className="filter-row">
           {uebungsblaetter.map(b => (
             <button
+              type="button"
               key={b.id}
               className={`filter-btn${selectedId === b.id ? ' on' : ''}`}
               onClick={() => setSelectedId(b.id)}
@@ -87,8 +88,8 @@ export default function Uebungsblaetter() {
                         </button>
                         {isTippOpen && (aufgabe.tippSections ? (
                           <div className="tipp-accordion">
-                            {aufgabe.tippSections.map((sec, idx) => (
-                              <details key={idx} className="tipp-section">
+                            {aufgabe.tippSections.map((sec) => (
+                              <details key={sec.titel} className="tipp-section">
                                 <summary className="tipp-section-summary">
                                   <span className="tipp-section-icon">{sec.icon}</span>
                                   <span>{sec.titel}</span>

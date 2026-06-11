@@ -7,19 +7,20 @@ function renderMath(tex: string): string {
 
 function parseLine(line: string): React.ReactNode[] {
   const parts = line.split(/(\$[^$]+\$|\*\*[^*]+\*\*)/g)
-  return parts.map((part, i) => {
+  let m = 0, b = 0, t = 0
+  return parts.map((part) => {
     if (part.startsWith('$') && part.endsWith('$') && part.length > 2) {
       return (
         <span
-          key={i}
+          key={`m${m++}`}
           dangerouslySetInnerHTML={{ __html: renderMath(part.slice(1, -1)) }}
         />
       )
     }
     if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
-      return <strong key={i}>{part.slice(2, -2)}</strong>
+      return <strong key={`b${b++}`}>{part.slice(2, -2)}</strong>
     }
-    return <span key={i}>{part}</span>
+    return <span key={`t${t++}`}>{part}</span>
   })
 }
 
