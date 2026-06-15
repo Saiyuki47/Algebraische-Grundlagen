@@ -5,5 +5,6 @@ import { b3 } from './blatt3'
 import { b4 } from './blatt4'
 import { b5 } from './blatt5'
 import { b6 } from './blatt6'
+import { b7 } from './blatt7'
 
-export const aufgaben = [...b0, ...b1, ...b2, ...b3, ...b4, ...b5, ...b6]
+export const aufgaben = [...b0, ...b1, ...b2, ...b3, ...b4, ...b5, ...b6, ...b7]
