@@ -48,7 +48,7 @@ export const b1: Aufgabe[] = [
           '  Schreibe als $z = 3 + (-5)\\mathrm{i}$\n' +
           '  $\\mathrm{Re}(z) = 3$   (der Anteil ohne $\\mathrm{i}$)\n' +
           '  $\\mathrm{Im}(z) = -5$  (der Koeffizient von $\\mathrm{i}$, NICHT $-5\\mathrm{i}$)\n' +
-          '  Punkt in der Ebene: $(3, -5)$ → rechts auf der reellen Achse, 5 nach unten\n\n' +
+          '  Punkt in der Ebene: $(3, -5)$ → 3 nach rechts auf der reellen Achse, 5 nach unten\n\n' +
           'Beispiel: $z = -6 + 4\\mathrm{i}$\n' +
           '  $\\mathrm{Re}(z) = -6$  → 6 Einheiten nach links\n' +
           '  $\\mathrm{Im}(z) = 4$   → 4 Einheiten nach oben\n' +
@@ -62,15 +62,6 @@ export const b1: Aufgabe[] = [
           '• $\\mathrm{Im}(z)$ ist eine reelle Zahl! $\\mathrm{Im}(3+5\\mathrm{i}) = 5$, NICHT $5\\mathrm{i}$.\n\n' +
           '• $\\mathrm{i}$ selbst: $\\mathrm{i} = 0 + 1\\cdot\\mathrm{i}$, also $\\mathrm{Re}(\\mathrm{i}) = 0$ und $\\mathrm{Im}(\\mathrm{i}) = 1$ (nicht $\\mathrm{i}$!).\n\n' +
           '• $-1$ ist eine reelle Zahl: $-1 = -1 + 0\\cdot\\mathrm{i}$, also $\\mathrm{Im}(-1) = 0$.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Kann ich jede komplexe Zahl als $x + y\\mathrm{i}$ schreiben (mit $x, y \\in \\mathbb{R}$)?\n\n' +
-          'Probe: $\\mathrm{Re}(z) + \\mathrm{Im}(z)\\cdot\\mathrm{i}$ muss die ursprüngliche Zahl ergeben:\n' +
-          '  $\\mathrm{Re}(-6+4\\mathrm{i}) + \\mathrm{Im}(-6+4\\mathrm{i})\\cdot\\mathrm{i} = (-6) + 4\\mathrm{i} = -6+4\\mathrm{i}$ ✓\n\n' +
-          'Für alle Punkte: Liegen reelle Zahlen auf der horizontalen Achse und rein imaginäre auf der vertikalen?',
       },
     ],
     loesung: '',
@@ -150,22 +141,17 @@ export const b1: Aufgabe[] = [
           '• Betrag: $|\\sqrt{3} - \\mathrm{i}| = \\sqrt{(\\sqrt{3})^2 + (-1)^2} = \\sqrt{3+1} = 2$, nicht $\\sqrt{3}-1$!\n\n' +
           '• Ergebnis muss immer in der Form $x + y\\mathrm{i}$ stehen – nicht als $\\frac{\\ldots}{\\ldots+\\ldots\\mathrm{i}}$.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Probe für die Division: $z_1 = \\dfrac{z_1}{z_2} \\cdot z_2$?\n\n' +
-          'Für den Betrag: $|z_1 \\cdot z_2| = |z_1| \\cdot |z_2|$ (Betragsregel)\n\n' +
-          'Hat das Ergebnis die Form $x + y\\mathrm{i}$ mit rein reellen $x, y$? Falls im Nenner noch $\\mathrm{i}$ steht: Schritt nicht abgeschlossen.',
-      },
     ],
     loesung:
-      '(a) $\\overline{z_1} = \\sqrt{3} + \\mathrm{i}$, $\\overline{z_2} = -2\\sqrt{3} - 2\\mathrm{i}$\n' +
-      '(b) $|z_1| = 2$, $|z_2| = 4$\n' +
-      '(c) $z_1 + z_2 = -\\sqrt{3} + \\mathrm{i}$\n' +
-      '(d) $z_1 - z_2 = 3\\sqrt{3} - 3\\mathrm{i}$\n' +
-      '(e) $z_1 \\cdot z_2 = -4 + 4\\sqrt{3}\\,\\mathrm{i}$\n' +
-      '(f) $\\dfrac{z_1}{z_2} = -\\dfrac{1}{2}$',
+      '(a) $\\overline{z_1} = \\sqrt{3} + \\mathrm{i}$,   $\\overline{z_2} = -2\\sqrt{3} - 2\\mathrm{i}$\n\n' +
+      '(b) $|z_1| = \\sqrt{(\\sqrt{3})^2 + (-1)^2} = \\sqrt{4} = 2$\n' +
+      '    $|z_2| = \\sqrt{(-2\\sqrt{3})^2 + 2^2} = \\sqrt{4\\cdot 3 + 4} = \\sqrt{16} = 4$\n\n' +
+      '(c) $z_1 + z_2 = (\\sqrt{3} - \\mathrm{i}) + (-2\\sqrt{3} + 2\\mathrm{i}) = -\\sqrt{3} + \\mathrm{i}$\n\n' +
+      '(d) $z_1 - z_2 = (\\sqrt{3} - \\mathrm{i}) - (-2\\sqrt{3} + 2\\mathrm{i}) = 3\\sqrt{3} - 3\\mathrm{i}$\n\n' +
+      '(e) $z_1 \\cdot z_2 = (\\sqrt{3} - \\mathrm{i})(-2\\sqrt{3} + 2\\mathrm{i}) = -2(\\sqrt{3})^2 + 2\\sqrt{3}\\,\\mathrm{i} + 2\\sqrt{3}\\,\\mathrm{i} - 2\\mathrm{i}^2 = -6 + 4\\sqrt{3}\\,\\mathrm{i} + 2 = -4 + 4\\sqrt{3}\\,\\mathrm{i}$\n\n' +
+      '(f) $\\dfrac{z_1}{z_2} = \\dfrac{\\sqrt{3} - \\mathrm{i}}{-2(\\sqrt{3} - \\mathrm{i})} = -\\dfrac{1}{2}$\n\n' +
+      '    oder\n' +
+      '    $\\dfrac{z_1}{z_2} = \\dfrac{\\sqrt{3} - \\mathrm{i}}{-2\\sqrt{3} + 2\\mathrm{i}} \\cdot \\dfrac{-2\\sqrt{3} - 2\\mathrm{i}}{-2\\sqrt{3} - 2\\mathrm{i}} = \\dfrac{-2\\cdot 3 - 2\\sqrt{3}\\,\\mathrm{i} + 2\\sqrt{3}\\,\\mathrm{i} + 2\\mathrm{i}^2}{4\\cdot 3 - 4\\mathrm{i}^2} = \\dfrac{-6 - 2}{12 + 4} = -\\dfrac{1}{2}$',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -226,20 +212,10 @@ export const b1: Aufgabe[] = [
           '• Konjugat von $3 - 2\\mathrm{i}$ ist $3 + 2\\mathrm{i}$ (nur das Vorzeichen von $\\mathrm{i}$ dreht sich, nicht das der 3).\n\n' +
           '• Ergebnis muss in $x + y\\mathrm{i}$-Form sein – kein $\\mathrm{i}$ im Nenner!',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für (a): $\\mathrm{Re}((3-2\\mathrm{i})(2+4\\mathrm{i})) = 3\\cdot2 - (-2)\\cdot4 = 6 + 8 = 14$?\n' +
-          '  Formel: $\\mathrm{Re}(z_1 z_2) = \\mathrm{Re}(z_1)\\mathrm{Re}(z_2) - \\mathrm{Im}(z_1)\\mathrm{Im}(z_2)$\n\n' +
-          'Für Divisionen: Probe durch Rückmultiplizieren:\n' +
-          '  Ergebnis $\\cdot$ Nenner = Zähler?\n\n' +
-          'Ist das Endergebnis in der Form $x + y\\mathrm{i}$ mit rein reellen $x, y$? ✓',
-      },
     ],
     loesung:
       '(a) $(3-2\\mathrm{i})(2+4\\mathrm{i}) = 6+12\\mathrm{i}-4\\mathrm{i}-8\\mathrm{i}^2 = 6+8\\mathrm{i}+8 = 14+8\\mathrm{i}$\n' +
-      '(b) $\\dfrac{1}{\\mathrm{i}} = \\dfrac{-\\mathrm{i}}{-\\mathrm{i}^2} = -\\mathrm{i}$\n' +
+      '(b) $\\dfrac{1}{\\mathrm{i}} = \\dfrac{1}{\\mathrm{i}} \\cdot \\dfrac{-\\mathrm{i}}{-\\mathrm{i}} = \\dfrac{-\\mathrm{i}}{-\\mathrm{i}^2} = \\dfrac{-\\mathrm{i}}{1} = -\\mathrm{i}$\n' +
       '(c) $\\dfrac{1+2\\mathrm{i}}{3-2\\mathrm{i}} = \\dfrac{(1+2\\mathrm{i})(3+2\\mathrm{i})}{(3-2\\mathrm{i})(3+2\\mathrm{i})} = \\dfrac{3+2\\mathrm{i}+6\\mathrm{i}-4}{9+4} = \\dfrac{-1+8\\mathrm{i}}{13} = -\\dfrac{1}{13}+\\dfrac{8}{13}\\mathrm{i}$',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
@@ -302,16 +278,6 @@ export const b1: Aufgabe[] = [
           '• Für (c): Das „und" bedeutet Schnittmenge – beide Bedingungen müssen GLEICHZEITIG gelten. Das ist ein Viertel der Ebene, keine Vereinigung.\n\n' +
           '• Für (e): Es ist nur ein Teilkreisbogen, kein vollständiger Kreis! Der Kreis $|z|=2$ wird durch $\\mathrm{Re}(z) < 1$ auf einen Bogen eingeschränkt.\n\n' +
           '• $\\mathrm{Im}(z) = -1$: Die Gerade $y = -1$ liegt UNTER der reellen Achse.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe mit konkreten Punkten:\n' +
-          '  Liegt $z = 3 + 0\\mathrm{i}$ in $A$? $|z| = 3 \\leq 3$ ✓ (Randpunkt)\n' +
-          '  Liegt $z = 0 - \\mathrm{i}$ in $B$? $\\mathrm{Im}(z) = -1$ ✓\n' +
-          '  Liegt $z = -2 + 3\\mathrm{i}$ in $C$? $\\mathrm{Re}=-2 < -1$ ✓ und $\\mathrm{Im}=3 \\geq 2$ ✓\n\n' +
-          'Haben alle Figuren korrekte Ränder (gestrichelt vs. durchgezogen)?',
       },
     ],
     loesung: '',
@@ -384,22 +350,17 @@ export const b1: Aufgabe[] = [
           '• $\\mathrm{i}^2 = -1$ vergessen: Bei $z \\cdot w$ entsteht ein $yv\\mathrm{i}^2$-Term, der zu $-yv$ wird.\n\n' +
           '• Konjugation: Das Vorzeichen wechselt NUR beim Imaginärteil. $\\overline{x + y\\mathrm{i}} = x - y\\mathrm{i}$, nicht $-x + y\\mathrm{i}$.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Stehen am Ende zwei IDENTISCHE Ausdrücke (linke = rechte Seite)?\n\n' +
-          'Probe mit konkreten Zahlen: $z = 2+\\mathrm{i}$, $w = 1-3\\mathrm{i}$:\n' +
-          '  (a) $|z|^2 = 4+1=5$; $z\\cdot\\overline{z} = (2+\\mathrm{i})(2-\\mathrm{i}) = 4+1=5$ ✓\n' +
-          '  (b) $\\overline{z+w} = \\overline{3-2\\mathrm{i}} = 3+2\\mathrm{i}$; $\\overline{z}+\\overline{w} = (2-\\mathrm{i})+(1+3\\mathrm{i}) = 3+2\\mathrm{i}$ ✓',
-      },
     ],
     loesung:
-      '(a) $z \\cdot \\overline{z} = (x+y\\mathrm{i})(x-y\\mathrm{i}) = x^2 - y^2\\mathrm{i}^2 = x^2 + y^2 = |z|^2$ ✓\n\n' +
-      '(b) $\\overline{z+w} = \\overline{(x+u)+(y+v)\\mathrm{i}} = (x+u)-(y+v)\\mathrm{i}$;\n' +
-      '    $\\overline{z}+\\overline{w} = (x-y\\mathrm{i})+(u-v\\mathrm{i}) = (x+u)-(y+v)\\mathrm{i}$ ✓\n\n' +
-      '(c) $\\overline{z \\cdot w} = \\overline{(xu-yv)+(xv+yu)\\mathrm{i}} = (xu-yv)-(xv+yu)\\mathrm{i}$;\n' +
-      '    $\\overline{z} \\cdot \\overline{w} = (x-y\\mathrm{i})(u-v\\mathrm{i}) = xu - xv\\mathrm{i} - yu\\mathrm{i} + yv\\mathrm{i}^2 = (xu-yv)-(xv+yu)\\mathrm{i}$ ✓',
+      'Seien $z = x + \\mathrm{i}y$ und $w = u + \\mathrm{i}v$ mit $x, y, u, v \\in \\mathbb{R}$.\n\n' +
+      '(a) $z \\cdot \\overline{z} = (x+\\mathrm{i}y)(x-\\mathrm{i}y) = x^2 - (\\mathrm{i}y)^2 = x^2 + y^2 = |z|^2$\n\n' +
+      '(b) $\\overline{z+w} = \\overline{x+\\mathrm{i}y+u+\\mathrm{i}v} = \\overline{x+u+\\mathrm{i}(y+v)} = x+u-\\mathrm{i}(y+v)$\n' +
+      '    $= x-\\mathrm{i}y+u-\\mathrm{i}v = \\overline{z}+\\overline{w}$\n\n' +
+      '(c) $\\overline{z \\cdot w} = \\overline{(x+\\mathrm{i}y)(u+\\mathrm{i}v)} = \\overline{xu+\\mathrm{i}xv+\\mathrm{i}yu-yv} = \\overline{xu-yv+\\mathrm{i}(xv+yu)}$\n' +
+      '    $= xu-yv-\\mathrm{i}(xv+yu)$\n\n' +
+      '    $\\overline{z} \\cdot \\overline{w} = (x-\\mathrm{i}y)(u-\\mathrm{i}v) = xu-\\mathrm{i}xv-\\mathrm{i}yu+\\mathrm{i}^2 yv$\n' +
+      '    $= xu-yv-\\mathrm{i}(xv+yu)$\n\n' +
+      '    Beide Ausdrücke stimmen also überein.',
     schwierigkeit: 'mittel',
     kategorie: 'Komplexe Zahlen',
   },
@@ -458,15 +419,6 @@ export const b1: Aufgabe[] = [
           '• $g \\circ f \\neq f \\circ g$: Komposition ist im Allgemeinen nicht kommutativ.\n' +
           '  $(g \\circ f)(x) = (2x+1)^2$ vs. $(f \\circ g)(x) = f(x^2) = 2x^2+1$ → verschieden!\n\n' +
           '• $g(x) = x^2$ ist NICHT invertierbar (auf ganz $\\mathbb{R}$), weil $g(-1) = g(1) = 1$ (nicht injektiv).',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Probe für die Umkehrfunktion: Gilt $f(f^{-1}(x)) = x$?\n' +
-          '  $f\\!\\left(\\frac{x-1}{2}\\right) = 2 \\cdot \\frac{x-1}{2} + 1 = (x-1)+1 = x$ ✓\n\n' +
-          'Gilt auch $f^{-1}(f(x)) = x$?\n' +
-          '  $f^{-1}(2x+1) = \\frac{(2x+1)-1}{2} = \\frac{2x}{2} = x$ ✓',
       },
     ],
     loesung:
