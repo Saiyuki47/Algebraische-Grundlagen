@@ -720,6 +720,102 @@ header > :first-child { flex: 1; }
   white-space: pre-wrap;
 }
 
+/* PDF / FOLIEN */
+.pdf-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+.pdf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 90px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+.pdf-group { display: flex; flex-direction: column; gap: 4px; }
+.pdf-group-title {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.pdf-item {
+  text-align: left;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text2);
+  cursor: pointer;
+  line-height: 1.4;
+  transition: all 0.15s;
+}
+.pdf-item:hover { background: var(--bg3); color: var(--text); }
+.pdf-item.on {
+  background: var(--blue-dim);
+  color: var(--blue);
+  border-color: rgba(77,159,255,0.3);
+  font-weight: 500;
+}
+.pdf-viewer {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+.pdf-viewer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg3);
+}
+.pdf-viewer-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.pdf-viewer-actions { display: flex; gap: 14px; flex-shrink: 0; }
+.pdf-action-link {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pdf-action-link:hover { text-decoration: underline; }
+.pdf-frame {
+  flex: 1;
+  width: 100%;
+  min-height: 70vh;
+  border: none;
+  background: var(--bg);
+}
+.pdf-empty { padding: 2rem; color: var(--text2); font-size: 14px; }
+
+@media (max-width: 700px) {
+  .pdf-layout { grid-template-columns: 1fr; }
+  .pdf-list {
+    position: static;
+    max-height: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .pdf-group { flex: 1 1 100%; }
+}
+
 /* SQL TIPS */
 .ub-tips-section {
   margin: 10px 0;
