@@ -54,14 +54,6 @@ export const b3: Aufgabe[] = [
           '  $e^{\\mathrm{i}\\frac{\\pi}{9}} \\cdot e^{-\\mathrm{i}\\frac{\\pi}{9}} = e^{\\mathrm{i}0} = 1$ (nicht $e^{\\mathrm{i}\\frac{2\\pi}{9}}$!).\n\n' +
           '• Winkelreduktion vergessen: Das Ergebnis $e^{4\\pi\\mathrm{i}}$ muss als $1$ erkannt werden.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Stimmt der Betrag des Ergebnisses mit dem Produkt der Einzel-Beträge überein?\n' +
-          '  Für (a): $|3e^{\\mathrm{i}\\frac{\\pi}{3}} \\cdot 2e^{\\mathrm{i}\\frac{5\\pi}{6}}| = 3 \\cdot 2 = 6$ ✓\n\n' +
-          'Sind die Winkel korrekt addiert (und ggf. auf $[0, 2\\pi)$ reduziert)?',
-      },
     ],
     loesung:
       '(a) Beträge multiplizieren, Winkel addieren:\n' +
@@ -125,16 +117,6 @@ export const b3: Aufgabe[] = [
           '• Falscher Winkel für $-\\mathrm{i}$: $-\\mathrm{i}$ hat Winkel $\\frac{3\\pi}{2}$, NICHT $-\\frac{\\pi}{2}$. (Obwohl beides äquivalent ist, muss man mit $[0, 2\\pi)$ arbeiten.)\n\n' +
           '• $k$ läuft von $0$ bis $n-1$, NICHT von $1$ bis $n$.\n\n' +
           '• Die Winkel der Lösungen nicht korrekt berechnen: $\\frac{\\varphi + 2\\pi k}{n}$, nicht $\\frac{\\varphi}{n} + 2\\pi k$.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Probe: Gilt $z_k^n = w$ für jede Lösung?\n' +
-          '  Für $z_0 = 2\\,e^{\\mathrm{i}0} = 2$: $2^4 = 16$ ✓\n' +
-          '  Für $z_1 = 2\\,e^{\\mathrm{i}\\frac{\\pi}{2}} = 2\\mathrm{i}$: $(2\\mathrm{i})^4 = 16\\mathrm{i}^4 = 16$ ✓\n\n' +
-          'Sind genau $n$ verschiedene Lösungen gefunden?\n' +
-          'Liegen die Punkte gleichmäßig auf einem Kreis?',
       },
     ],
     loesung:
@@ -203,16 +185,6 @@ export const b3: Aufgabe[] = [
           '• Richtung verwechseln: Positiver Winkel (z.B. $e^{\\mathrm{i}\\frac{\\pi}{2}}$) dreht GEGEN den Uhrzeigersinn; negativer ($e^{-\\mathrm{i}\\frac{\\pi}{2}}$) dreht IM Uhrzeigersinn.\n\n' +
           '• $\\mathrm{i}^2 = -1$ vergessen: $\\mathrm{i} \\cdot (-1+2\\mathrm{i}) = -\\mathrm{i} + 2\\mathrm{i}^2 = -\\mathrm{i} - 2$.\n\n' +
           '• Ergebnis muss in $x+y\\mathrm{i}$-Form sein: Nicht als $-2 + (-1)\\mathrm{i}$ lassen, sondern $-2 - \\mathrm{i}$ schreiben.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Betragsprobe: Hat das Ergebnis denselben Betrag wie $z$?\n' +
-          '  $|-1+2\\mathrm{i}| = \\sqrt{5}$\n' +
-          '  $|-2-\\mathrm{i}| = \\sqrt{4+1} = \\sqrt{5}$ ✓\n' +
-          '  $|2+\\mathrm{i}| = \\sqrt{5}$ ✓\n\n' +
-          'Sind die beiden Ergebnisse für gegen und im UZS verschieden?',
       },
     ],
     loesung:
@@ -287,15 +259,6 @@ export const b3: Aufgabe[] = [
           '• Transitivität von $R_2$ (Geburtstag ODER Größe): Gegenbeispiel suchen!\n' +
           '  A und B haben gleichen Geburtstag ($A\\,R_2\\,B$); B und C sind gleich groß ($B\\,R_2\\,C$). Gilt $A\\,R_2\\,C$? Nicht notwendigerweise!',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe die Klassifizierung:\n' +
-          '  Ist $R_1$ eine Äquivalenzrelation? Reflexiv ✓, symmetrisch ✓, transitiv ✓ → Ja!\n\n' +
-          'Für jede geprüfte Eigenschaft: Gibt es ein Gegenbeispiel oder einen Beweis?\n\n' +
-          'Gilt für $R_4$: Sind je zwei Elemente vergleichbar (entweder $(a,b)\\,R_4\\,(c,d)$ oder $(c,d)\\,R_4\\,(a,b)$)? → Ja (lexikographische Ordnung ist total)',
-      },
     ],
     loesung:
       '(a) $R_1$: reflexiv, symmetrisch, transitiv → Äquivalenzrelation.\n\n' +
@@ -366,14 +329,6 @@ export const b3: Aufgabe[] = [
           '• Für (d): $\\mathbb{N} \\times \\mathbb{N}$ funktioniert, aber auch jede einzelne Äquivalenzklasse $\\{(n,m) : n \\bmod k = m \\bmod k\\}$.\n\n' +
           '• Transitivität prüfen: Für JEDEN Pfad $a \\to b \\to c$ muss $(a,c) \\in R$ gelten.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe jede Eigenschaft explizit für deine Relation:\n\n' +
-          'Für (a): Ist $(n,n) \\in R$ für alle $n$? Gibt es $(a,b) \\in R$ mit $(b,a) \\notin R$? Gibt es $(a,b),(b,c) \\in R$ mit $(a,c) \\notin R$?\n\n' +
-          'Alle drei Fragen sollten die erwartete Antwort liefern.',
-      },
     ],
     loesung:
       '(a) $R = \\{(n,n) : n \\in \\mathbb{N}\\} \\cup \\{(1,2),(2,3)\\}$\n' +
@@ -441,15 +396,6 @@ export const b3: Aufgabe[] = [
           '• Für (a): $(3,3) \\notin R_1$! Die Relation ist nicht reflexiv (das Element 3 fehlt). Damit ist $R_1$ KEINE Äquivalenzrelation.\n\n' +
           '• Für (a): $(2,4) \\in R_1$ aber $(4,2) \\notin R_1$ → auch nicht symmetrisch.\n\n' +
           '• Für (d): Asymmetrie zu zeigen reicht als Gegenbeispiel: Wenn $1 R_4 2$ (mit $a=2, b=1$: $2 = 2\\cdot1^1$), folgt nicht $2 R_4 1$.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für jede Äquivalenzrelation: Bilden die Klassen eine Partition?\n\n' +
-          'Für (c): Ist jede ganze Zahl in genau einer Klasse?\n' +
-          '  $5 \\in [1]$ (ungerade) ✓, $8 \\in [0]$ (gerade) ✓, kein Element in beiden Klassen ✓\n\n' +
-          'Probe: Liegt $x$ in der Klasse $[x]$? (Reflexivität impliziert $x \\in [x]$)',
       },
     ],
     loesung:

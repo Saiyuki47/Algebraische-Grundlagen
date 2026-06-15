@@ -57,15 +57,6 @@ export const b5: Aufgabe[] = [
           '• (b) vs. (c): „oder" macht die Menge zu groß (nicht abgeschlossen); „und" macht die Menge kleiner (durch ggT teilbar) – das ist oft eine Untergruppe.\n\n' +
           '• (d): Für Addition ist $\\{1\\}$ keine Gruppe (fehlendes Neutralelement 0). Für Multiplikation wäre es eine Gruppe!',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für jede Nicht-Gruppe: Was scheitert?\n' +
-          '  (b): Abgeschlossenheit: $2 + 3 = 5 \\notin G$ ✗\n' +
-          '  (d): Neutralelement oder Abgeschlossenheit: $0 \\notin \\{1\\}$ und $1+1=2 \\notin \\{1\\}$ ✗\n\n' +
-          'Ein einziges Gegenbeispiel reicht aus, um zu zeigen, dass eine Menge keine Gruppe ist.',
-      },
     ],
     loesung:
       '(a) Ja. $3\\mathbb{Z}$ ist unter Addition abgeschlossen, $0 \\in 3\\mathbb{Z}$, Inverses von $3z$ ist $-3z$.\n' +
@@ -137,16 +128,6 @@ export const b5: Aufgabe[] = [
           '• (c): Zwei negative Zahlen multipliziert ergeben eine POSITIVE – also verlässt man die Menge.\n\n' +
           '• Für $T$: Das Inverse von $z = e^{\\mathrm{i}\\varphi}$ ist $e^{-\\mathrm{i}\\varphi} = \\bar{z}$, liegt immer auf $T$.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für jede Nicht-Gruppe – welches Axiom scheitert?\n' +
-          '  (a): Neutralelement ($0 \\notin (0,\\infty)$)\n' +
-          '  (c): Abgeschlossenheit ($(-1)(-1) = 1 \\notin (-\\infty,0)$)\n\n' +
-          'Für (d) und (e): Ist die Menge unter Multiplikation abgeschlossen?\n' +
-          '  $z, w \\in T$: $|zw| = |z||w| = 1$ → $zw \\in T$ ✓',
-      },
     ],
     loesung:
       '(a) Nein. Kein Neutralelement ($0 \\notin (0,\\infty)$).\n' +
@@ -208,14 +189,6 @@ export const b5: Aufgabe[] = [
           '• Das Neutralelement ist NICHT $1$: Bei der normalen Multiplikation ist $e=1$, aber hier ändert die Konstante $\\frac{1}{4}$ das Neutralelement.\n\n' +
           '• Das Inverse ist NICHT $\\frac{1}{x}$: Das normale Multiplikationsinverse ist $\\frac{1}{x}$, aber die Verknüpfung $\\odot$ hat ein anderes Inverses.\n\n' +
           '• Neutralelement muss von BEIDEN Seiten prüfen: $e \\odot x = x$ und $x \\odot e = x$. (Hier ist $\\odot$ kommutativ, also reicht eine Seite.)',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Probe Neutralelement: $4 \\odot 7 = \\frac{1}{4} \\cdot 4 \\cdot 7 = 7$ ✓\n\n' +
-          'Probe Inverses: $3 \\odot \\frac{16}{3} = \\frac{1}{4} \\cdot 3 \\cdot \\frac{16}{3} = \\frac{16}{4} = 4 = e$ ✓\n\n' +
-          'Liegt das Inverse $\\frac{16}{x}$ immer in $\\mathbb{Q} \\setminus \\{0\\}$? Ja, denn $x \\neq 0$ und $\\frac{16}{x} \\neq 0$ ✓',
       },
     ],
     loesung:
@@ -279,15 +252,6 @@ export const b5: Aufgabe[] = [
           '• Negative Reste: $-29 \\mod 9$ ist NICHT $-2$! Der Rest muss immer $\\geq 0$ sein. Addiere solange $n$, bis der Rest nicht-negativ ist.\n\n' +
           '• (b): $[12346] = [1]$ in $\\mathbb{Z}_{12345}$, denn $12346 - 12345 = 1$. Einfach!\n\n' +
           '• Kürzen: In $\\mathbb{Z}_6$ darf man $[2]$ NICHT wegkürzen, weil $\\gcd(2, 6) = 2 \\neq 1$. Man darf nur kürzen, wenn der Faktor teilerfremd zu $n$ ist.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Probe: Liegt das Ergebnis immer in $\\{[0],[1],\\ldots,[n-1]\\}$?\n\n' +
-          'Für $[6]\\cdot[12]$ in $\\mathbb{Z}_9$: $6 \\cdot 12 = 72 = 8 \\cdot 9 + 0$ → $[0]$ ✓\n\n' +
-          'Kürzen-Test in $\\mathbb{Z}_6$: $[3]\\cdot[2] = [6] = [0]$ und $[3]\\cdot[4] = [12] = [0]$\n' +
-          '  → $[3]\\cdot[2] = [3]\\cdot[4]$, aber $[2] \\neq [4]$ → Kürzen nicht erlaubt! ✓',
       },
     ],
     loesung:
@@ -357,15 +321,6 @@ export const b5: Aufgabe[] = [
           '• Inverse von $3$-Zyklen: $(123)^{-1} = (132)$ (umgekehrter Richtungssinn), NICHT $(123)$ selbst.\n\n' +
           '• Nicht-Kommutativität: Ein einziges Gegenbeispiel reicht – es muss nicht alle Paare zeigen.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Sind genau 6 Elemente aufgelistet ($3! = 6$)?\n\n' +
-          'Probe Inverses: $(12)\\circ(12)$:\n' +
-          '  $1\\to2\\to1$, $2\\to1\\to2$, $3\\to3\\to3$ → $= \\mathrm{id}$ ✓\n\n' +
-          'Nicht-Kommutativität: $(12)\\circ(23) = (132)$ und $(23)\\circ(12) = (123)$, da $(132)\\neq(123)$ ✓',
-      },
     ],
     loesung:
       '(a) $S_3$ hat $6$ Elemente: $\\mathrm{id}$, $(12)$, $(13)$, $(23)$, $(123)$, $(132)$.\n' +
@@ -430,14 +385,6 @@ export const b5: Aufgabe[] = [
           '• Latin-Square reicht NICHT automatisch für eine Gruppe: Assoziativität muss erfüllt sein. Aber für Ordnung 3 gibt es nur eine Gruppenstruktur (die zyklische $\\mathbb{Z}_3$).\n\n' +
           '• Das Neutralelement muss in der Zeile/Spalte die Elemente in DERSELBEN Reihenfolge wiederholen wie der Header.\n\n' +
           '• $a * a \\neq a$ (außer wenn $a = e$): Ein nicht-neutrales Element ist i.A. nicht idempotent.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Erscheint jedes Element genau einmal in jeder Zeile und Spalte? ✓\n\n' +
-          'Ist $b$ wirklich das Neutralelement: $b*a=a$, $b*b=b$, $b*c=c$? ✓\n\n' +
-          'Probe Assoziativität: $(a*c)*a = a*(c*a)$? Beide Seiten berechnen und vergleichen.',
       },
     ],
     loesung:

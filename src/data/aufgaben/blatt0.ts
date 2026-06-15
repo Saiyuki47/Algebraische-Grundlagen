@@ -194,14 +194,6 @@ export const b0: Aufgabe[] = [
           '• $\\arctan$ hat einen OFFENEN Wertebereich: $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$ – die Randwerte werden nie angenommen.\n\n' +
           '• Tangens-Graph: An den Polstellen $\\frac{\\pi}{2} + k\\pi$ muss eine gestrichelte senkrechte Asymptote eingezeichnet werden.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe die fünf Schlüsselpunkte: Ist $\\sin\\!\\left(\\frac{\\pi}{2}\\right) = 1$ und $\\cos\\!\\left(\\frac{\\pi}{2}\\right) = 0$?\n\n' +
-          'Umrechnung Probe: $36° \\cdot \\frac{\\pi}{180} = \\frac{36\\pi}{180} = \\frac{\\pi}{5}$. Zurückrechnen: $\\frac{\\pi}{5} \\cdot \\frac{180}{\\pi} = 36°$ ✓\n\n' +
-          'Arkusfunktionen: Liegt der gesuchte Winkel im angegebenen Wertebereich? Falls nein, ist er falsch.',
-      },
     ],
     loesung: '',
     loesungSections: [
@@ -309,16 +301,6 @@ export const b0: Aufgabe[] = [
           '• $\\tan(n\\pi) = 0$ für alle $n \\in \\mathbb{Z}$ (da $\\sin(n\\pi) = 0$ immer, solange $\\tan$ definiert ist).\n\n' +
           '• Arkusfunktionen: $\\arctan(1) = \\frac{\\pi}{4}$, NICHT $\\frac{5\\pi}{4}$ – obwohl beide $\\tan = 1$ haben, liegt $\\frac{5\\pi}{4}$ nicht im Wertebereich von $\\arctan$.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für die Arkusfunktions-Aufgaben: Liegt der gefundene Winkel im korrekten Wertebereich?\n' +
-          '  $\\arcsin$: Ergebnis muss in $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$ liegen\n' +
-          '  $\\arccos$: Ergebnis muss in $[0, \\pi]$ liegen\n' +
-          '  $\\arctan$: Ergebnis muss in $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$ liegen\n\n' +
-          'Probe: Wende die Originalfunktion auf das Ergebnis an: $\\tan(\\arctan(1)) = 1$ ✓',
-      },
     ],
     loesung:
       '(a) $\\sin(-64\\pi) = \\sin(0) = 0$\n' +
@@ -390,15 +372,6 @@ export const b0: Aufgabe[] = [
           '  $\\sin^{-1}(\\{1\\}) = \\{\\frac{\\pi}{2} + 2k\\pi : k \\in \\mathbb{Z}\\}$ – Periode ist $2\\pi$, nicht $\\pi$.\n\n' +
           '• $\\tan$ hat die Periode $\\pi$, NICHT $2\\pi$! Also: $\\tan^{-1}(\\{0\\}) = \\{k\\pi : k \\in \\mathbb{Z}\\}$.\n\n' +
           '• Negative Argumente: $\\sin^{-1}(\\{-1\\}) \\neq -\\sin^{-1}(\\{1\\})$ als Mengen (obwohl die Werte verwandt sind).',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Wähle einen konkreten Wert $k = 0, 1, -1$ und prüfe, ob er in der Lösung liegt:\n' +
-          '  Für $\\sin^{-1}(\\{0\\}) = \\{k\\pi : k \\in \\mathbb{Z}\\}$: Gilt $\\sin(0) = 0$? Ja ✓  Gilt $\\sin(\\pi) = 0$? Ja ✓  Gilt $\\sin(2) = 0$? Nein (2 ∉ Lösung) ✓\n\n' +
-          'Handelt es sich um eine unendliche Menge? (Falls nicht: etwas fehlt!)\n\n' +
-          'Stimmt das Periodenintervall ($2k\\pi$ oder $k\\pi$)?',
       },
     ],
     loesung:
@@ -479,15 +452,6 @@ export const b0: Aufgabe[] = [
           '• Für $M_7$ ($x = -2y$): Erst nach $y$ umstellen: $y = -\\frac{x}{2}$. Steigung ist $-\\frac{1}{2}$, nicht $-2$.\n\n' +
           '• $M_8$ („und"): Es handelt sich um den Schnitt zweier Halbebenen – ein Rechteck ohne zwei Ränder, nicht um einen Streifen.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe mit konkreten Testpunkten:\n' +
-          '  Liegt $(0,0)$ in $M_3$ ($x^2+y^2 < 4$)? $0+0 = 0 < 4$ ✓\n' +
-          '  Liegt $(2,0)$ in $M_3$? $4+0 = 4 \\not< 4$ ✗ (Rand nicht drin)\n\n' +
-          'Für jede Skizze: Markiere einen Punkt, der offensichtlich drin liegt (✓) und einen, der offensichtlich nicht drin liegt (✗), und prüfe die Bedingung.',
-      },
     ],
     loesung:
       '(a) $M_1$: Einheitskreis (Kreis mit Radius $1$, Mittelpunkt Ursprung) – nur der Rand.\n' +
@@ -564,15 +528,6 @@ export const b0: Aufgabe[] = [
           '• $D$ ohne Rand: $x^2+y^2 > 1$ (strikte Ungleichung), NICHT $x^2+y^2 \\geq 1$ (das würde den Kreisrand mit einschließen).\n\n' +
           '• $B$: Die Bedingung $y = -x$ kann auch als $x + y = 0$ geschrieben werden – beide Formen sind korrekt.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Teste deine Antwort mit konkreten Punkten:\n' +
-          '  $A$: Liegt $(3, 0)$ in $A$? $x=3, y=0$ → $y=0$ ✓   Liegt $(1,1)$ in $A$? $x\\neq 0$ und $y\\neq 0$ ✗\n' +
-          '  $C$: Liegt $(100, 1.5)$ in $C$? $-2 \\leq 1.5 \\leq 2$ ✓   Liegt $(0, 3)$ in $C$? $3 > 2$ ✗\n' +
-          '  $D$: Liegt $(2,0)$ in $D$? $4+0 = 4 > 1$ ✓   Liegt $(0.5, 0)$ in $D$? $0.25 < 1$ ✗',
-      },
     ],
     loesung:
       '$A = \\{(x,y) \\in \\mathbb{R}{\\times}\\mathbb{R} : x = 0 \\text{ oder } y = 0\\}$\n' +
@@ -634,17 +589,6 @@ export const b0: Aufgabe[] = [
           '• Konjugat falsch bilden: Das Vorzeichen wird NUR zwischen den beiden Termen gedreht, nicht vor dem ersten Term:\n' +
           '  Konjugat zu $(\\sqrt{3}+\\sqrt{5})$ ist $(\\sqrt{3}-\\sqrt{5})$, NICHT $(-\\sqrt{3}+\\sqrt{5})$.\n\n' +
           '• Ergebnis vereinfachen vergessen: $\\dfrac{\\sqrt{3}-\\sqrt{5}}{-2}$ ist korrekt – man muss das Minuszeichen nicht in die Wurzel ziehen.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Steht im Nenner des Ergebnisses noch eine Wurzel? Falls ja: Fehler!\n\n' +
-          'Probe: Multipliziere Zähler und Nenner mit dem Konjugat und prüfe, ob das Produkt der Nenner eine rationale Zahl ergibt:\n' +
-          '  $(\\sqrt{3}+\\sqrt{5})(\\sqrt{3}-\\sqrt{5}) = 3 - 5 = -2$ ✓ (rationale Zahl)\n\n' +
-          'Wertprobe: Berechne den Originalbruch und das Ergebnis numerisch:\n' +
-          '  $\\dfrac{1}{\\sqrt{3}+\\sqrt{5}} \\approx \\dfrac{1}{1.732+2.236} \\approx \\dfrac{1}{3.968} \\approx 0.252$\n' +
-          '  $\\dfrac{\\sqrt{3}-\\sqrt{5}}{-2} \\approx \\dfrac{1.732-2.236}{-2} = \\dfrac{-0.504}{-2} \\approx 0.252$ ✓',
       },
     ],
     loesung:

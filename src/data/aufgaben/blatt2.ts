@@ -61,15 +61,6 @@ export const b2: Aufgabe[] = [
           '• Kreisring (a): Beide Ränder müssen GESTRICHELT gezeichnet werden (da $<$ und $>$, ohne $=$).\n\n' +
           '• Für (b): $|z - z_0| > 1$ ist das ÄUSSERE des Kreises, also die unendlich große Region außerhalb des Kreises.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für (a): Liegt der Punkt $2\\mathrm{i}$ (= Mittelpunkt) in $A$?\n' +
-          '  $|2\\mathrm{i} - 2\\mathrm{i}| = 0$. Da $0 \\not> 1$: Nein ✓ (liegt im Loch)\n\n' +
-          'Für (c): Liegt der Punkt $\\frac{1}{2} + 2\\mathrm{i}$ in $C$?\n' +
-          '  $|z| = \\sqrt{\\frac{1}{4}+4}$, $|z-1| = \\sqrt{\\frac{1}{4}+4}$ ✓ (gleich)',
-      },
     ],
     loesung: '',
     loesungSections: [
@@ -138,14 +129,6 @@ export const b2: Aufgabe[] = [
           '  Richtig: $|2+2\\mathrm{i}| = \\sqrt{4+4} = 2\\sqrt{2} \\approx 2.83$\n\n' +
           '• Bei (c): $\\frac{\\sqrt{3}}{2} - \\frac{1}{2}\\mathrm{i}$ liegt auf dem EINHEITSKREIS (Betrag = 1), daher $|z|^{15} = 1$.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Gilt $|z \\cdot w|^2 = |z|^2 \\cdot |w|^2$? (Einfacher zu prüfen, weil kein Wurzelziehen nötig)\n\n' +
-          'Für (b): $|(6+2\\mathrm{i})(2+\\mathrm{i})|^2 = |6+2\\mathrm{i}|^2 \\cdot |2+\\mathrm{i}|^2 = 40 \\cdot 5 = 200$\n' +
-          '  Also $|(6+2\\mathrm{i})(2+\\mathrm{i})| = \\sqrt{200} = 10\\sqrt{2}$ ✓',
-      },
     ],
     loesung:
       '(a) $\\left|\\left(\\dfrac{2+2\\mathrm{i}}{1-\\mathrm{i}}\\right)^{6}\\right| = \\dfrac{|2+2\\mathrm{i}|^6}{|1-\\mathrm{i}|^6} = \\dfrac{(2\\sqrt{2})^6}{(\\sqrt{2})^6} = \\dfrac{8^3}{2^3} = \\dfrac{512}{8} = 64$.\n\n' +
@@ -212,14 +195,6 @@ export const b2: Aufgabe[] = [
           '• Vergessen zu prüfen, ob $\\mathrm{Im}(z)$ positiv oder negativ ist.\n\n' +
           '• $\\varphi$ außerhalb $[0, 2\\pi)$: Das Ergebnis muss immer im Bereich $[0, 2\\pi)$ liegen.\n\n' +
           '• Betrag falsch: $|-2-2\\mathrm{i}| = \\sqrt{4+4} = 2\\sqrt{2}$, nicht $-2\\sqrt{2}$ (Betrag immer $\\geq 0$!).',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Rückrechnung: $r\\,e^{\\mathrm{i}\\varphi} = r(\\cos\\varphi + \\mathrm{i}\\sin\\varphi)$ muss die ursprüngliche Zahl ergeben.\n\n' +
-          'Für (a): $z_1 = 2\\sqrt{2}\\,e^{\\mathrm{i}\\frac{5\\pi}{4}}$. Probe:\n' +
-          '  $2\\sqrt{2}\\left(\\cos\\frac{5\\pi}{4} + \\mathrm{i}\\sin\\frac{5\\pi}{4}\\right) = 2\\sqrt{2}\\left(-\\frac{\\sqrt{2}}{2} - \\frac{\\sqrt{2}}{2}\\mathrm{i}\\right) = -2 - 2\\mathrm{i}$ ✓',
       },
     ],
     loesung: '',
@@ -291,14 +266,6 @@ export const b2: Aufgabe[] = [
           '• $\\cos$ und $\\sin$ verwechseln: $\\mathrm{Re}(e^{\\mathrm{i}\\varphi}) = \\cos(\\varphi)$ (horizontale Komponente), $\\mathrm{Im} = \\sin(\\varphi)$ (vertikale Komponente).\n\n' +
           '• Negativer Winkel: $e^{-\\mathrm{i}\\varphi} = \\cos(\\varphi) - \\mathrm{i}\\sin(\\varphi)$ (Imaginärteil negativ!)',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Probe: $|x + y\\mathrm{i}| = r$?\n' +
-          '  Für $z_4 = 3e^{-\\mathrm{i}\\frac{7\\pi}{2}}$: Ergebnis $3\\mathrm{i}$, Betrag $= 3 = r$ ✓\n\n' +
-          'Liegt der Punkt im richtigen Quadranten der Gaußschen Ebene (laut Skizze)?',
-      },
     ],
     loesung: '',
     loesungSections: [
@@ -366,14 +333,6 @@ export const b2: Aufgabe[] = [
           '• Für $n = 0$: $\\mathrm{i}^0 = 1$ per Definition (wie bei jeder Zahl außer 0).\n\n' +
           '• Bei (b): $(\\mathrm{i}\\varphi)^k = \\mathrm{i}^k \\cdot \\varphi^k$, also müssen $\\mathrm{i}^k$ und $\\varphi^k$ getrennt behandelt werden.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe: $\\mathrm{i}^{13}$. $13 = 3 \\cdot 4 + 1$, also Rest $= 1$ → $\\mathrm{i}^{13} = \\mathrm{i}$ ✓\n\n' +
-          'Für (b): Gilt die Eulersche Identität $e^{\\mathrm{i}\\pi} + 1 = 0$?\n' +
-          '  $e^{\\mathrm{i}\\pi} = \\cos(\\pi) + \\mathrm{i}\\sin(\\pi) = -1 + 0 = -1$, also $-1 + 1 = 0$ ✓',
-      },
     ],
     loesung:
       '(a) $\\mathrm{i}^2 = -1$, $\\mathrm{i}^3 = -\\mathrm{i}$, $\\mathrm{i}^4 = 1$, $\\mathrm{i}^5 = \\mathrm{i}$.\n' +
@@ -432,15 +391,6 @@ export const b2: Aufgabe[] = [
           '• $(z_n) = (\\mathrm{i}^n)$ hat konstanten Betrag $|z_n| = 1$, aber die Folge $(z_n)$ SELBST konvergiert nicht (weil sie springt).\n\n' +
           '• $(|z_n|) = (1, 1, 1, \\ldots)$ ist eine konstante Folge → konvergiert gegen $1$.\n\n' +
           '• Der Betrag $|\\frac{1}{2}+\\frac{1}{2}\\mathrm{i}| = \\frac{1}{\\sqrt{2}} < 1$ muss korrekt berechnet werden – die Komponenten nicht einfach addieren!',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für $(w_n)$: Wähle $\\varepsilon = 0.01$. Ab welchem $N$ gilt $|w_n| < 0.01$?\n' +
-          '  $|w_n| = \\left(\\frac{1}{\\sqrt{2}}\\right)^n < 0.01$\n' +
-          '  $n > \\log_{1/\\sqrt{2}}(0.01) \\approx 13.3$, also $N = 14$.\n\n' +
-          'Dies zeigt: Die Folge kommt beliebig nahe an $0$ heran. ✓',
       },
     ],
     loesung:

@@ -59,15 +59,6 @@ export const b4: Aufgabe[] = [
           '• (b): $xy > 0$ schließt $x = 0$ aus, da der Definitionsbereich $\\mathbb{R} \\setminus \\{0\\}$ ist.\n\n' +
           '• (a) Transitivität: Das Gegenbeispiel $0, 3, 5$ zeigt: Zwar $3-0=3$ (durch 3 teilbar) und $5-3=2$ (durch 2 teilbar), aber $5-0=5$ (weder durch 2 noch durch 3) → $R_1$ ist nicht transitiv.',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für die Äquivalenzrelationen: Bilden die Klassen eine Partition?\n\n' +
-          '(b): Liegt jedes $x \\in \\mathbb{R} \\setminus \\{0\\}$ in genau einer Klasse ($>0$ oder $<0$)? Ja ✓\n\n' +
-          '(d): Liegt jedes $x \\in \\mathbb{R}$ in der Klasse $[|x|] = \\{x, -x\\}$? Ja ✓\n\n' +
-          'Haben die Klassen keine gemeinsamen Elemente? ✓',
-      },
     ],
     loesung:
       '(a) $R_1$ auf $\\mathbb{Z}$: $x\\,R_1\\,y \\Leftrightarrow 2 \\mid (y-x)$ oder $3 \\mid (y-x)$.\n' +
@@ -149,15 +140,6 @@ export const b4: Aufgabe[] = [
           '• Nur halbe Paare angeben: Für $(1,3)$ muss auch $(3,1)$ in $R$ stehen (Symmetrie).\n\n' +
           '• (b) und (c) vergleichen: Einelementige Klassen → minimale Relation (nur Identität); eine große Klasse → maximale Relation (alles).',
       },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Prüfe für (a): Enthält $R$ genau $14$ Paare (kein Mehr, kein Weniger)?\n\n' +
-          'Prüfe Reflexivität: Sind alle $(1,1),(2,2),(3,3),(4,4),(5,5),(6,6) \\in R$? Ja ✓\n\n' +
-          'Prüfe Symmetrie: Für jedes $(a,b) \\in R$: ist $(b,a) \\in R$? ✓\n\n' +
-          'Prüfe die Klassen: Haben $1$ und $4$ die gleiche Klasse? → $(1,4) \\in R$ ✓',
-      },
     ],
     loesung:
       '(a) $R = \\{(1,1),(3,3),(4,4),(1,3),(3,1),(1,4),(4,1),(3,4),(4,3),(2,2),(5,5),(2,5),(5,2),(6,6)\\}$.\n\n' +
@@ -221,14 +203,6 @@ export const b4: Aufgabe[] = [
           '• Nicht alle Paare in $S$ für den jeweiligen $b$-Wert finden: Bei $(5,1) \\in R$ gibt es drei Paare in $S$ mit erstem Element $1$.\n\n' +
           '• Umkehrrelation: Paare umdrehen, nicht die Menge spiegeln.\n' +
           '  $(1,6) \\in S \\circ R$ → $(6,1) \\in (S \\circ R)^{-1}$',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für jedes $(a,c) \\in S \\circ R$: Gibt es wirklich ein $b \\in B$ mit $(a,b) \\in R$ und $(b,c) \\in S$?\n\n' +
-          'Prüfe $(4,7) \\in S \\circ R$: $(4,5) \\in R$ und $(5,7) \\in S$ → $b = 5$ ✓\n\n' +
-          'Prüfe $(5,9) \\in S \\circ R$: $(5,1) \\in R$ und $(1,9) \\in S$ → $b = 1$ ✓',
       },
     ],
     loesung:
@@ -307,17 +281,6 @@ export const b4: Aufgabe[] = [
           '• Transitive Hülle zu früh abbrechen: Iterieren, bis wirklich keine neuen Paare mehr entstehen.\n\n' +
           '• (b): Die symmetrische Hülle von $R_{\\leq}$ ist die gesamte Ebene $\\mathbb{R} \\times \\mathbb{R}$, weil für jedes Paar $(x,y)$ gilt: entweder $x \\leq y$ oder $y \\leq x$.\n\n' +
           '• (d): Alle drei Hüllen nacheinander anwenden (reflexiv → symmetrisch → transitiv), NICHT nur die transitive!',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Für (c): Ist die transitive Hülle wirklich transitiv?\n' +
-          '  $(1,2),(2,4)$ im Ergebnis → $(1,4)$ auch? Ja ✓\n' +
-          '  $(1,3),(3,4)$ im Ergebnis → $(1,4)$ auch? Ja ✓\n\n' +
-          'Für (d): Bilden die Äquivalenzklassen eine Partition von $\\{1,\\ldots,6\\}$?\n' +
-          '  Erwartete Klassen: $[1] = \\{1,2,5\\}$, $[3] = \\{3,4\\}$, $[6] = \\{6\\}$\n' +
-          '  Vereinigung: $\\{1,2,3,4,5,6\\}$ ✓',
       },
     ],
     loesung:
@@ -410,16 +373,6 @@ export const b4: Aufgabe[] = [
           '  Asymmetrisch (iii): Hin und Zurück ist NIEMALS möglich\n\n' +
           '• $R^{-1} = R$ ist SYMMETRIE (v), nicht Reflexivität.\n\n' +
           '• $R \\circ R \\subseteq R$ ist die TRANSITIVITÄT (ii) in Mengensprache.',
-      },
-      {
-        icon: '✅',
-        titel: 'Kontrollfrage',
-        inhalt:
-          'Überprüfe: Kann eine Relation gleichzeitig symmetrisch und asymmetrisch sein?\n' +
-          '  Symmetrisch: $R^{-1} = R$ → $R \\cap R^{-1} = R$\n' +
-          '  Asymmetrisch: $R \\cap R^{-1} = \\emptyset$\n' +
-          '  Beide zusammen: $R = \\emptyset$ – nur die leere Relation!\n\n' +
-          'Das zeigt, dass diese Eigenschaften im Allgemeinen unverträglich sind.',
       },
     ],
     loesung:
