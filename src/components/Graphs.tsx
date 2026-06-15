@@ -422,8 +422,8 @@ function B1A4_E() {
             {/* dashed right chord */}
             <line x1={xf(1)} y1={c.pad} x2={xf(1)} y2={c.h - c.pad}
               stroke="#3b3f55" strokeWidth={1} strokeDasharray="4,3" />
-            {/* left arc (large, CCW in SVG = CW in math) */}
-            <path d={`M ${x1},${y1} A ${rpx},${rpx} 0 1 0 ${x2},${y2}`}
+            {/* left arc (large, through (-2,0)) */}
+            <path d={`M ${x1},${y1} A ${rpx},${rpx} 0 1 1 ${x2},${y2}`}
               fill="none" stroke="#4d9fff" strokeWidth={1.8} strokeDasharray="4,3" />
             {/* intersection dots */}
             <circle cx={x1} cy={y1} r={3} fill="#8b90a8" />
