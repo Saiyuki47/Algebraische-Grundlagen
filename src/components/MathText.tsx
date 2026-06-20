@@ -12,6 +12,10 @@ function KatexSpan({ tex }: { tex: string }) {
   return <span ref={ref} />
 }
 
+// A line that is entirely one bold span (e.g. "**Worum geht es?**") is treated
+// as a block subheading. Returns the inner text without the ** markers, or null.
+const SUBHEAD_RE = /^\*\*([^*]+)\*\*$/
+
 function parseLine(line: string): React.ReactNode[] {
   const parts = line.split(/(\$[^$]+\$|\*\*[^*]+\*\*)/g)
   let m = 0, b = 0, t = 0
@@ -126,12 +130,29 @@ export default function MathText({ children, className, block }: Props) {
         // text segment
         return (
           <React.Fragment key={si}>
-            {seg.lines.map((line, li) => (
-              <React.Fragment key={li}>
-                {(si > 0 || li > 0) && <br />}
-                {parseLine(line)}
-              </React.Fragment>
-            ))}
+            {seg.lines.map((line, li) => {
+              const head = line.match(SUBHEAD_RE)
+              if (head) {
+                // Block-level heading: no surrounding <br> needed (the div breaks the line)
+                return (
+                  <div key={li} className="math-subhead">
+                    {parseLine(head[1])}
+                  </div>
+                )
+              }
+              // A blank line right before a heading is redundant — the heading's
+              // own top margin already provides the spacing.
+              if (line === '' && SUBHEAD_RE.test(seg.lines[li + 1] ?? '')) {
+                return null
+              }
+              const prevHead = li > 0 && SUBHEAD_RE.test(seg.lines[li - 1])
+              return (
+                <React.Fragment key={li}>
+                  {(si > 0 || li > 0) && !prevHead && <br />}
+                  {parseLine(line)}
+                </React.Fragment>
+              )
+            })}
           </React.Fragment>
         )
       })}

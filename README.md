@@ -21,7 +21,7 @@ Abgedeckte Themen aus Übungsblatt 0:
 | **Übungsblätter** | Aufgaben nach Blatt geordnet, mit ausführlichem Tipp und aufklappbarer Musterlösung |
 | **Aufgaben** | Alle Aufgaben nach Schwierigkeit gefiltert, ebenfalls mit Tipp & Lösung |
 | **Quiz** | Multiple-Choice-Quiz mit Fortschrittsbalken, Feedback und Ergebnisauswertung |
-| **Referenz** | Formelsammlung als schnelle Nachschlagereferenz |
+| **Referenz** | Jedes Thema von Grund auf erklärt – ausführliche, voraussetzungsfreie Erklärungen statt reiner Formelsammlung |
 | **Themen** | Strukturierte Übersicht der Lernthemen mit Stichpunkten |
 
 ## Starten
