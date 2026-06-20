@@ -8,9 +8,34 @@ export const uebungsblaetter: Uebungsblatt[] = [
     beschreibung: 'Trigonometrische Funktionen und Teilmengen von $\\mathbb{R} \\times \\mathbb{R}$. Besprechung: 16.04.–17.04.2026',
     aufgaben: [
       {
-        nr: 1,
-        text: 'Graphen von $\\sin$ und $\\cos$, Einheitskreis, Winkelumrechnung (Grad ↔ Bogenmaß), Tangensfunktion, Definitionsbereiche und Wertemengen von $\\arcsin$, $\\arccos$, $\\arctan$.',
-        aufgabeId: 'b0_a1',
+        nr: '1a',
+        text: 'Skizzieren Sie die Graphen der Sinus- und der Cosinusfunktion.',
+        aufgabeId: 'b0_a1a',
+      },
+      {
+        nr: '1b',
+        text: 'Zeichnen Sie $\\sin(\\varphi)$ und $\\cos(\\varphi)$ in den Einheitskreis ein.',
+        aufgabeId: 'b0_a1b',
+      },
+      {
+        nr: '1c',
+        text: 'Rechnen Sie die gegebenen Winkel vom Gradmaß ins Bogenmaß um.',
+        aufgabeId: 'b0_a1c',
+      },
+      {
+        nr: '1d',
+        text: 'Rechnen Sie die gegebenen Winkel vom Bogenmaß ins Gradmaß um.',
+        aufgabeId: 'b0_a1d',
+      },
+      {
+        nr: '1e',
+        text: 'Skizzieren Sie die Tangensfunktion.',
+        aufgabeId: 'b0_a1e',
+      },
+      {
+        nr: '1f',
+        text: 'Geben Sie Definitionsbereiche und Wertemengen von $\\arcsin$, $\\arccos$ und $\\arctan$ an.',
+        aufgabeId: 'b0_a1f',
       },
       {
         nr: 2,

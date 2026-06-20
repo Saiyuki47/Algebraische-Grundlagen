@@ -32,6 +32,7 @@ export interface Aufgabe {
   id: string
   titel: string
   aufgabeText: string
+  aufgabeSections?: LoesungSection[]
   tipp?: string
   tippSections?: TippSection[]
   teilaufgabeTipps?: TeilaufgabeTipp[]
@@ -42,7 +43,7 @@ export interface Aufgabe {
 }
 
 export interface UebungsblattAufgabe {
-  nr: number
+  nr: number | string
   text: string
   aufgabeId: string
 }

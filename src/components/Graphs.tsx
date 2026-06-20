@@ -154,6 +154,37 @@ function UnitCircleGraph() {
   )
 }
 
+// Unit circle for the TASK (as printed on the sheet): circle, axes, the radius line
+// at an obtuse angle φ and the green angle marker. The student draws sin/cos into it.
+function UnitCircleBlank() {
+  const w = 200, h = 200, pad = 26
+  const c: Cfg = { w, h, pad, xMin: -1.5, xMax: 1.5, yMin: -1.5, yMax: 1.5 }
+  const xf = mkX(c), yf = mkY(c)
+  const rpx = xf(1) - xf(0)
+  const cx = xf(0), cy = yf(0)
+  const phi = (130 * PI) / 180 // obtuse angle into the 2nd quadrant, like the sheet
+  const ex = cx + rpx * Math.cos(phi), ey = cy - rpx * Math.sin(phi)
+  const ar = rpx * 0.22 // radius of the green angle marker
+  const lr = ar + 9, lphi = phi * 0.5 // φ label sits in the middle of the sector
+  return (
+    <figure className="graph-figure">
+      <figcaption className="graph-label">zum Einzeichnen</figcaption>
+      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="graph-svg">
+        <Axes c={c} xt={[{ v: 1, label: '1' }]} />
+        <circle cx={cx} cy={cy} r={rpx} fill="none" stroke="#8b90a8" strokeWidth={1.4} />
+        <line x1={cx} y1={cy} x2={ex} y2={ey} stroke="#8b90a8" strokeWidth={1.4} />
+        <path
+          d={`M ${cx + ar},${cy} A ${ar},${ar} 0 0,0 ${cx + ar * Math.cos(phi)},${cy - ar * Math.sin(phi)} L ${cx},${cy} Z`}
+          fill="#3ecf8e33" stroke="#3ecf8e" strokeWidth={1}
+        />
+        <text x={cx + lr * Math.cos(lphi)} y={cy - lr * Math.sin(lphi) + 3} textAnchor="middle" fontSize="10" fill="#3ecf8e">φ</text>
+        <circle cx={cx} cy={cy} r={2} fill="#8b90a8" />
+        <text x={cx - 9} y={cy + 12} fontSize="9" fill="#8b90a8">0</text>
+      </svg>
+    </figure>
+  )
+}
+
 // ─── Aufgabe 4: Subset sketches ───────────────────────────────────────────────
 function M1() {
   return (
@@ -542,6 +573,9 @@ export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   }
   if (aufgabeId === 'b0_a1_einheitskreis') {
     return <div className="graph-grid"><UnitCircleGraph /></div>
+  }
+  if (aufgabeId === 'b0_a1_einheitskreis_leer') {
+    return <div className="graph-grid"><UnitCircleBlank /></div>
   }
   if (aufgabeId === 'b0_a1_tan') {
     return <div className="graph-grid"><TanGraph /></div>

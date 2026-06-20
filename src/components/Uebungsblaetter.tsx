@@ -84,7 +84,16 @@ export default function Uebungsblaetter() {
                 <p className="ub-task-nr">Aufgabe {task.nr}</p>
                 {aufgabe ? (
                   <div className="ub-aufgabe-body">
-                    <MathText block>{aufgabe.aufgabeText}</MathText>
+                    {aufgabe.aufgabeSections ? (
+                      aufgabe.aufgabeSections.map((sec) => (
+                        <div key={sec.graphId ?? sec.text?.slice(0, 60)}>
+                          {sec.text && <MathText block>{sec.text}</MathText>}
+                          {sec.graphId && <GraphDisplay aufgabeId={sec.graphId} />}
+                        </div>
+                      ))
+                    ) : (
+                      <MathText block>{aufgabe.aufgabeText}</MathText>
+                    )}
                   </div>
                 ) : (
                   <p className="q-title"><MathText>{task.text}</MathText></p>
