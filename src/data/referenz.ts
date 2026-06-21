@@ -281,6 +281,44 @@ export const referenzKarten: ReferenzKarte[] = [
       '• mal $\\mathrm{i}$:  Drehung um $\\frac{\\pi}{2}$ ($90°$) gegen den Uhrzeigersinn\n' +
       '• mal $-\\mathrm{i}$:  Drehung um $\\frac{\\pi}{2}$ ($90°$) im Uhrzeigersinn',
   },
+  {
+    titel: 'Konvergenz & Divergenz von Folgen',
+    inhalt:
+      '**Worum geht es?**\n' +
+      'Bei einer Folge fragt man: Steuern die Zahlen mit wachsendem Index auf einen festen Wert zu oder nicht? Tun sie das, heißt die Folge konvergent; tun sie es nicht, heißt sie divergent.\n' +
+      '\n' +
+      '**Was ist eine Folge?**\n' +
+      'Eine Folge ist eine unendliche, durchnummerierte Liste von Zahlen $a_1, a_2, a_3, \\ldots$ – zu jedem Index $n \\in \\mathbb{N}$ gehört ein Wert $a_n$. Die Werte können reell oder komplex sein; die ganze Folge schreibt man $(a_n)$.\n' +
+      '\n' +
+      '**Was bedeutet Konvergenz?**\n' +
+      'Die Folge $(a_n)$ konvergiert gegen eine feste Zahl $a$ (den Grenzwert), wenn die Glieder $a_n$ dem Wert $a$ für wachsendes $n$ beliebig nahe kommen und auch nahe bleiben. Schreibweise: $a_n \\to a$ oder $\\lim_{n\\to\\infty} a_n = a$. Bild dazu: Zeichne einen noch so kleinen Kreis (bzw. ein Intervall) um $a$ – ab einem Index liegen ALLE weiteren Glieder darin.\n' +
+      '\n' +
+      '**Die Definition Wort für Wort**\n' +
+      '„Zu jedem $\\varepsilon > 0$ gibt es ein $N$, sodass für alle $n \\geq N$ gilt $|a_n - a| < \\varepsilon$."\n' +
+      '• $\\varepsilon$ = erlaubte Toleranz (Radius um $a$), beliebig klein.\n' +
+      '• $N$ = ab welchem Index es klappen muss (darf von $\\varepsilon$ abhängen).\n' +
+      '• $|a_n - a| < \\varepsilon$ = der Abstand von $a_n$ zum Grenzwert ist kleiner als $\\varepsilon$.\n' +
+      'Kurz: $(a_n)$ konvergiert gegen $a$ genau dann, wenn der Abstand $|a_n - a| \\to 0$ geht.\n' +
+      '\n' +
+      '**Darf die Folge den Grenzwert erreichen?**\n' +
+      'Ja! Konvergenz verlangt nur, dass die Glieder dem Grenzwert beliebig nahe kommen – sie verbietet aber nicht, dass sie ihn auch treffen. Alle drei Fälle sind erlaubt:\n' +
+      '• $a_n = \\frac{1}{n}$, also $1, \\frac{1}{2}, \\frac{1}{3}, \\ldots \\to 0$: kommt der $0$ beliebig nahe, erreicht sie aber nie.\n' +
+      '• $a_n = 5$ (konstante Folge) $\\to 5$: jedes Glied IST bereits der Grenzwert.\n' +
+      '• $a_n = 0, 1, 0, \\frac{1}{2}, 0, \\frac{1}{3}, \\ldots \\to 0$: trifft den Grenzwert $0$ sogar unendlich oft und konvergiert trotzdem.\n' +
+      'Entscheidend ist allein, dass der Abstand $|a_n - a|$ am Ende beliebig klein wird.\n' +
+      '\n' +
+      '**Was bedeutet Divergenz?**\n' +
+      'Divergent heißt schlicht: nicht konvergent – es gibt keinen Grenzwert. Typische Muster:\n' +
+      '• Springen: $a_n = (-1)^n$, also $1, -1, 1, -1, \\ldots$ – pendelt zwischen zwei Werten und beruhigt sich nie.\n' +
+      '• Wachsen über alle Grenzen: $a_n = n$, also $1, 2, 3, \\ldots$ (oder $a_n = 2^n$) – wird unendlich groß.\n' +
+      '\n' +
+      '**Beispiele mit komplexen Folgen**\n' +
+      '• $z_n = \\mathrm{i}^n$, also $1, \\mathrm{i}, -1, -\\mathrm{i}, 1, \\ldots$: springt im Kreis → divergent.\n' +
+      '• $\\left(\\frac{1}{2}+\\frac{1}{2}\\mathrm{i}\\right)^n$: der Betrag ist $\\frac{1}{\\sqrt{2}} < 1$, daher gehen die Glieder gegen $0$ → konvergent mit Grenzwert $0$.\n' +
+      '\n' +
+      '**Nützliches Werkzeug**\n' +
+      'Für Potenzfolgen $r^n$ (reell oder komplex) entscheidet der Betrag $|r|$: bei $|r| < 1$ gilt $r^n \\to 0$; bei $|r| > 1$ divergiert die Folge; bei $|r| = 1$ bleibt der Betrag $1$, aber die Folge kann sich weiterdrehen und divergieren.',
+  },
 
   // ===== Relationen =====
   {
