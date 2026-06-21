@@ -552,6 +552,54 @@ function B2A4Graph() {
   )
 }
 
+// ─── Blatt 2 Aufgabe 6a: ε-Umgebungen (schematische Beispiele) ───────────────
+// Offene Kreisscheibe um einen Punkt z mit Radius ε in der komplexen Ebene.
+function EpsilonDiskC() {
+  return (
+    <CoordSketch label="ε-Umgebung in ℂ: Kreisscheibe um z" r={3}>
+      {({ xf, yf }) => {
+        const zx = 1, zy = 1, eps = 1.2
+        const cx = xf(zx), cy = yf(zy)
+        const rpx = xf(zx + eps) - xf(zx)
+        const ex = xf(zx + eps)
+        return (
+          <>
+            <circle cx={cx} cy={cy} r={rpx} fill="#4d9fff1a" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <line x1={cx} y1={cy} x2={ex} y2={cy} stroke="#4d9fff" strokeWidth={1.2} />
+            <circle cx={cx} cy={cy} r={2.5} fill="#4d9fff" />
+            <text x={cx - 6} y={cy - 6} textAnchor="end" fontSize="10" fill="#e8eaf0">z</text>
+            <text x={(cx + ex) / 2} y={cy - 5} textAnchor="middle" fontSize="10" fill="#4d9fff">ε</text>
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
+// Offenes Intervall (x−ε, x+ε) auf der reellen Zahlengerade.
+function EpsilonIntervalR() {
+  const w = 210, h = 160, y = 84
+  const left = 18, right = w - 18
+  const cx = w / 2, e = 58
+  return (
+    <figure className="graph-figure">
+      <figcaption className="graph-label">ε-Umgebung in ℝ: Intervall um x</figcaption>
+      <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="graph-svg">
+        <line x1={left} y1={y} x2={right} y2={y} stroke="#555a72" strokeWidth={1} />
+        <polygon points={`${right},${y - 3} ${right + 6},${y} ${right},${y + 3}`} fill="#555a72" />
+        <line x1={cx - e} y1={y} x2={cx + e} y2={y} stroke="#4d9fff" strokeWidth={3} />
+        <circle cx={cx - e} cy={y} r={4} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} />
+        <circle cx={cx + e} cy={y} r={4} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} />
+        <circle cx={cx} cy={y} r={2.5} fill="#8b90a8" />
+        <text x={cx} y={y - 9} textAnchor="middle" fontSize="10" fill="#e8eaf0">x</text>
+        <text x={cx - e} y={y + 18} textAnchor="middle" fontSize="9" fill="#8b90a8">x−ε</text>
+        <text x={cx + e} y={y + 18} textAnchor="middle" fontSize="9" fill="#8b90a8">x+ε</text>
+        <text x={cx} y={y + 32} textAnchor="middle" fontSize="9" fill="#555a72">offene Enden = Rand gehört nicht dazu</text>
+      </svg>
+    </figure>
+  )
+}
+
 // ─── Main export ─────────────────────────────────────────────────────────────
 export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   // ── Blatt 1 ──
@@ -567,6 +615,7 @@ export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   )
   if (aufgabeId === 'b2_a3') return <div className="graph-grid"><B2A3Graph /></div>
   if (aufgabeId === 'b2_a4') return <div className="graph-grid"><B2A4Graph /></div>
+  if (aufgabeId === 'b2_a6a') return <div className="graph-grid"><EpsilonDiskC /><EpsilonIntervalR /></div>
   // ── Blatt 0 ──
   if (aufgabeId === 'b0_a1_sincos') {
     return <div className="graph-grid"><SinCosGraph /></div>

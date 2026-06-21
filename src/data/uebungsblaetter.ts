@@ -102,6 +102,15 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '2',
     typ: 'Präsenzaufgabe',
     beschreibung: 'Komplexe Zahlen: Mengen, Beträge, Polar- und kartesische Darstellung. Besprechung: 30.04.–01.05.2026',
+    hinweis:
+      'Werte von $\\sin$ und $\\cos$ für die wichtigsten Winkel:\n' +
+      '| Winkel $\\varphi$ im Bogenmaß | $0$ | $\\frac{\\pi}{6}$ | $\\frac{\\pi}{4}$ | $\\frac{\\pi}{3}$ | $\\frac{\\pi}{2}$ | $\\frac{2\\pi}{3}$ | $\\frac{3\\pi}{4}$ | $\\frac{5\\pi}{6}$ | $\\pi$ |\n' +
+      '| $\\sin(\\varphi)$ | $0$ | $\\frac{1}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{\\sqrt{3}}{2}$ | $1$ | $\\frac{\\sqrt{3}}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{1}{2}$ | $0$ |\n' +
+      '| $\\cos(\\varphi)$ | $1$ | $\\frac{\\sqrt{3}}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{1}{2}$ | $0$ | $-\\frac{1}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{\\sqrt{3}}{2}$ | $-1$ |\n' +
+      '\n' +
+      '| Winkel $\\varphi$ im Bogenmaß | $\\frac{7\\pi}{6}$ | $\\frac{5\\pi}{4}$ | $\\frac{4\\pi}{3}$ | $\\frac{3\\pi}{2}$ | $\\frac{5\\pi}{3}$ | $\\frac{7\\pi}{4}$ | $\\frac{11\\pi}{6}$ |\n' +
+      '| $\\sin(\\varphi)$ | $-\\frac{1}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{\\sqrt{3}}{2}$ | $-1$ | $-\\frac{\\sqrt{3}}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{1}{2}$ |\n' +
+      '| $\\cos(\\varphi)$ | $-\\frac{\\sqrt{3}}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{1}{2}$ | $0$ | $\\frac{1}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{\\sqrt{3}}{2}$ |',
     aufgaben: [
       {
         nr: 1,
@@ -124,14 +133,24 @@ export const uebungsblaetter: Uebungsblatt[] = [
         aufgabeId: 'b2_a4',
       },
       {
-        nr: 5,
-        text: 'Wenn noch Zeit ist: Bestimmen Sie $i^2, i^3, i^4, i^5$ und geben Sie eine Formel für $i^n$ an. Zeigen Sie zudem, dass $\\exp(i\\varphi) = \\cos(\\varphi) + i\\sin(\\varphi)$.',
-        aufgabeId: 'b2_a5',
+        nr: '5a',
+        text: 'Wenn noch Zeit ist: Bestimmen Sie $i^2, i^3, i^4, i^5$ und geben Sie eine Formel für $i^n$ an.',
+        aufgabeId: 'b2_a5a',
       },
       {
-        nr: 6,
+        nr: '5b',
+        text: 'Wenn noch Zeit ist: Zeigen Sie über die Reihendarstellungen, dass $\\exp(i\\varphi) = \\cos(\\varphi) + i\\sin(\\varphi)$.',
+        aufgabeId: 'b2_a5b',
+      },
+      {
+        nr: '6a',
+        text: 'Wenn noch Zeit ist: Beschreiben Sie für $\\varepsilon > 0$ die Mengen $\\{w \\in \\mathbb{C} : |w-z| < \\varepsilon\\}$ und $\\{y \\in \\mathbb{R} : |y-x| < \\varepsilon\\}$.',
+        aufgabeId: 'b2_a6a',
+      },
+      {
+        nr: '6b',
         text: 'Wenn noch Zeit ist: Untersuchen Sie die Konvergenz der Folgen $z_n = i^n$, $(|z_n|)$ und $w_n = (\\frac{1}{2}+\\frac{1}{2}i)^n$.',
-        aufgabeId: 'b2_a6',
+        aufgabeId: 'b2_a6b',
       },
     ],
   },

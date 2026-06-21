@@ -73,6 +73,15 @@ export default function Uebungsblaetter() {
             )}
           </div>
 
+          {blatt.hinweis && (
+            <div className="ub-hinweis card">
+              <p className="ub-hinweis-label">Hinweis</p>
+              <div className="ub-hinweis-body">
+                <MathText block>{blatt.hinweis}</MathText>
+              </div>
+            </div>
+          )}
+
           {blatt.aufgaben.map(task => {
             const aufgabe = aufgaben.find(a => a.id === task.aufgabeId)
             const key = `${blatt.id}-${task.nr}`

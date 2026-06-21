@@ -60,6 +60,8 @@ export interface Uebungsblatt {
   nr: string
   typ: 'Hausaufgabe' | 'Präsenzaufgabe'
   beschreibung?: string
+  /** Optionaler Hinweis (z. B. Hilfstabellen), als MathText-Block gerendert */
+  hinweis?: string
   aufgaben: UebungsblattAufgabe[]
 }
 

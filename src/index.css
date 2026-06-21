@@ -635,6 +635,21 @@ header > :first-child { flex: 1; }
   margin-bottom: 6px;
 }
 
+/* HINWEIS-BOX (z. B. Hilfstabellen zu einem Blatt) */
+.ub-hinweis { border-left: 3px solid var(--amber); }
+.ub-hinweis-label {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+.ub-hinweis-body { overflow-x: auto; }
+.ub-hinweis-body .math-block { font-size: 13px; line-height: 1.7; }
+.ub-hinweis-body .math-table { font-size: 12.5px; margin: 8px 0; }
+
 /* RELEVANT TABLES */
 .ub-tables-section {
   margin: 14px 0 10px;
