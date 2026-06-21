@@ -16,6 +16,13 @@ export interface ReferenzKarte {
   inhalt: string
 }
 
+// Abschnitt der Klausur-Formelsammlung (Hilfsmittel-Tab).
+// Inhalte werden nur auf ausdrückliche Anweisung des Nutzers ergänzt.
+export interface FormelSektion {
+  titel: string
+  inhalt: string
+}
+
 export interface QuizFrage {
   frage: string
   optionen: string[]

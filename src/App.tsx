@@ -6,9 +6,10 @@ import Schema from './components/Schema'
 import Quiz from './components/Quiz'
 import Uebungsblaetter from './components/Uebungsblaetter'
 import Folien from './components/Folien'
+import Formelsammlung from './components/Formelsammlung'
 import { useTheme } from './hooks/useTheme'
 
-export type TabId = 'referenz' | 'themen' | 'quiz' | 'aufgaben' | 'folien'
+export type TabId = 'referenz' | 'themen' | 'quiz' | 'aufgaben' | 'folien' | 'formelsammlung'
 
 function App() {
   const [activeTab, setActiveTab] = useState<TabId>('aufgaben')
@@ -24,6 +25,7 @@ function App() {
         {activeTab === 'quiz' && <Quiz />}
         {activeTab === 'aufgaben' && <Uebungsblaetter />}
         {activeTab === 'folien' && <Folien />}
+        {activeTab === 'formelsammlung' && <Formelsammlung />}
       </div>
     </>
   )
