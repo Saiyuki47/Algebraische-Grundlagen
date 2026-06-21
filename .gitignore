@@ -2,3 +2,6 @@ node_modules
 dist
 .env
 *.local
+
+# Python virtual environment (lokal, nicht Teil der App)
+.venv
