@@ -12,8 +12,8 @@ function Seite({ sektionen, nummer }: { sektionen: FormelSektion[]; nummer: numb
             hier rein sollen.
           </p>
         ) : (
-          sektionen.map((s, i) => (
-            <section key={i} className="fs-section">
+          sektionen.map(s => (
+            <section key={s.titel} className="fs-section">
               <h3 className="fs-section-title">
                 <MathText>{s.titel}</MathText>
               </h3>

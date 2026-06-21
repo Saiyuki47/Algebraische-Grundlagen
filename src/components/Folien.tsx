@@ -53,7 +53,13 @@ export default function Folien() {
                   </a>
                 </div>
               </div>
-              <iframe key={url} src={url} title={aktiv.titel} className="pdf-frame" />
+              <iframe
+                key={url}
+                src={url}
+                title={aktiv.titel}
+                className="pdf-frame"
+                sandbox="allow-same-origin"
+              />
             </>
           ) : (
             <p className="pdf-empty">Kein Dokument ausgewählt.</p>

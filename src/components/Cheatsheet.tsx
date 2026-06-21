@@ -5,7 +5,7 @@ import MathText from './MathText'
 const cardId = (i: number) => `ref-card-${i}`
 
 export default function Cheatsheet() {
-  const [activeId, setActiveId] = useState<string>(cardId(0))
+  const [activeId, setActiveId] = useState<string>(() => cardId(0))
   const contentRef = useRef<HTMLDivElement>(null)
 
   // Hebt im Navigationsmenü das Thema hervor, das gerade oben im Sichtbereich steht.
