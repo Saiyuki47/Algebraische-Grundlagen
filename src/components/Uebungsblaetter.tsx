@@ -142,7 +142,7 @@ export default function Uebungsblaetter() {
                     {(aufgabe.tippSections ?? aufgabe.tipp) && (
                       <>
                         <button type="button" className="toggle-btn" onClick={() => toggleTipp(key)}>
-                          {isTippOpen ? '▼ Allgemeine Tipps verbergen' : '▶ Allgemeine Tipps anzeigen'}
+                          {isTippOpen ? '▼ Tipp verbergen' : '▶ Tipp anzeigen'}
                         </button>
                         {isTippOpen && (aufgabe.tippSections ? (
                           <div className="tipp-accordion">

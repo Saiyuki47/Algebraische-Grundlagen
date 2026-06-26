@@ -9,10 +9,10 @@ import Folien from './components/Folien'
 import Formelsammlung from './components/Formelsammlung'
 import { useTheme } from './hooks/useTheme'
 
-export type TabId = 'referenz' | 'themen' | 'quiz' | 'aufgaben' | 'folien' | 'formelsammlung'
+export type TabId = 'uebung' | 'themen' | 'referenz' | 'formelsammlung' | 'folien' | 'quiz'
 
 function App() {
-  const [activeTab, setActiveTab] = useState<TabId>('aufgaben')
+  const [activeTab, setActiveTab] = useState<TabId>('uebung')
   const { theme, toggle } = useTheme()
 
   return (
@@ -23,7 +23,7 @@ function App() {
         {activeTab === 'referenz' && <Cheatsheet />}
         {activeTab === 'themen' && <Schema />}
         {activeTab === 'quiz' && <Quiz />}
-        {activeTab === 'aufgaben' && <Uebungsblaetter />}
+        {activeTab === 'uebung' && <Uebungsblaetter />}
         {activeTab === 'folien' && <Folien />}
         {activeTab === 'formelsammlung' && <Formelsammlung />}
       </div>
