@@ -20,7 +20,6 @@ export default function Cheatsheet() {
       })
       setActiveId(current)
     }
-    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
