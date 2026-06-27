@@ -6,6 +6,7 @@ import type { ReferenzKarte } from '../types'
 export const referenzKarten: ReferenzKarte[] = [
   // ===== Trigonometrie =====
   {
+    id: 'sin-cos',
     titel: 'Sinus & Cosinus – Werte',
     inhalt:
       '**Worum geht es?**\n' +
@@ -29,13 +30,43 @@ export const referenzKarten: ReferenzKarte[] = [
       '| $\\frac{\\pi}{3}$ | $\\frac{\\sqrt{3}}{2}$ | $\\frac{1}{2}$ | $\\sqrt{3}$ |\n' +
       '| $\\frac{\\pi}{2}$ | $1$ | $0$ | – |\n' +
       '\n' +
+      '**Vorzeichen in den vier Quadranten**\n' +
+      'Über $\\frac{\\pi}{2}$ hinaus ändern sich die Vorzeichen. Im 1. Quadranten ($0$ bis $\\frac{\\pi}{2}$) sind beide positiv; im 2. ($\\frac{\\pi}{2}$ bis $\\pi$) ist nur $\\sin$ positiv; im 3. ($\\pi$ bis $\\frac{3\\pi}{2}$) sind beide negativ; im 4. ($\\frac{3\\pi}{2}$ bis $2\\pi$) ist nur $\\cos$ positiv. Den Betrag liest man am zugehörigen spitzen Winkel ab (z. B. $\\cos\\frac{2\\pi}{3} = -\\cos\\frac{\\pi}{3} = -\\frac{1}{2}$).\n' +
+      '\n' +
       '**Was ist der Tangens?**\n' +
       'Der Tangens ist das Verhältnis $\\tan\\varphi = \\frac{\\sin\\varphi}{\\cos\\varphi}$. Bei $\\varphi = \\frac{\\pi}{2}$ ist $\\cos\\varphi = 0$, und durch $0$ darf man nicht teilen. Deshalb ist $\\tan\\!\\left(\\frac{\\pi}{2}\\right)$ nicht definiert.\n' +
       '\n' +
       '**Eselsbrücke zum Merken**\n' +
       'Schreibe die Sinuswerte als $\\frac{\\sqrt{0}}{2}, \\frac{\\sqrt{1}}{2}, \\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{3}}{2}, \\frac{\\sqrt{4}}{2}$ für die Winkel $0, \\frac{\\pi}{6}, \\frac{\\pi}{4}, \\frac{\\pi}{3}, \\frac{\\pi}{2}$. Der Kosinus durchläuft genau dieselbe Reihe rückwärts.',
+    beispiele: [
+      {
+        szenario: 'Standardwert direkt ablesen',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\sin\\frac{\\pi}{6}$ und $\\cos\\frac{\\pi}{6}$.\n**Lösung:** $\\frac{\\pi}{6}$ entspricht $30°$. Aus der Tabelle: der Sinus (Höhe) ist klein, der Kosinus (Breite) groß.\n**Ergebnis:** $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$ und $\\cos\\frac{\\pi}{6} = \\frac{\\sqrt{3}}{2}$.',
+          '**Aufgabe:** Bestimme $\\sin\\frac{\\pi}{4}$ und $\\cos\\frac{\\pi}{4}$.\n**Lösung:** $\\frac{\\pi}{4}$ entspricht $45°$. Auf der Winkelhalbierenden sind Höhe und Breite gleich groß.\n**Ergebnis:** $\\sin\\frac{\\pi}{4} = \\cos\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2} \\approx 0{,}707$.',
+          '**Aufgabe:** Bestimme $\\sin\\frac{\\pi}{2}$ und $\\cos\\frac{\\pi}{2}$.\n**Lösung:** $\\frac{\\pi}{2}$ entspricht $90°$, der Punkt liegt ganz oben auf dem Einheitskreis bei $(0,1)$.\n**Ergebnis:** $\\sin\\frac{\\pi}{2} = 1$ (volle Höhe), $\\cos\\frac{\\pi}{2} = 0$ (keine Breite).',
+        ],
+      },
+      {
+        szenario: 'Werte in anderen Quadranten',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\cos\\frac{2\\pi}{3}$.\n**Lösung:** $\\frac{2\\pi}{3} = 120°$ liegt im 2. Quadranten, dort ist $\\cos$ negativ. Der zugehörige spitze Winkel ist $\\pi - \\frac{2\\pi}{3} = \\frac{\\pi}{3}$, also $\\cos\\frac{2\\pi}{3} = -\\cos\\frac{\\pi}{3}$.\n**Ergebnis:** $\\cos\\frac{2\\pi}{3} = -\\frac{1}{2}$.',
+          '**Aufgabe:** Bestimme $\\sin\\frac{7\\pi}{6}$.\n**Lösung:** $\\frac{7\\pi}{6} = 210°$ liegt im 3. Quadranten, dort ist $\\sin$ negativ. Spitzer Winkel: $\\frac{7\\pi}{6} - \\pi = \\frac{\\pi}{6}$, also $\\sin\\frac{7\\pi}{6} = -\\sin\\frac{\\pi}{6}$.\n**Ergebnis:** $\\sin\\frac{7\\pi}{6} = -\\frac{1}{2}$.',
+          '**Aufgabe:** Bestimme $\\cos\\frac{7\\pi}{4}$.\n**Lösung:** $\\frac{7\\pi}{4} = 315°$ liegt im 4. Quadranten, dort ist $\\cos$ positiv. Spitzer Winkel: $2\\pi - \\frac{7\\pi}{4} = \\frac{\\pi}{4}$, also $\\cos\\frac{7\\pi}{4} = +\\cos\\frac{\\pi}{4}$.\n**Ergebnis:** $\\cos\\frac{7\\pi}{4} = \\frac{\\sqrt{2}}{2}$.',
+        ],
+      },
+      {
+        szenario: 'Tangens berechnen',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\tan\\frac{\\pi}{4}$.\n**Lösung:** $\\tan\\varphi = \\frac{\\sin\\varphi}{\\cos\\varphi}$. Hier $\\tan\\frac{\\pi}{4} = \\frac{\\sin(\\pi/4)}{\\cos(\\pi/4)} = \\frac{\\sqrt{2}/2}{\\sqrt{2}/2}$.\n**Ergebnis:** $\\tan\\frac{\\pi}{4} = 1$.',
+          '**Aufgabe:** Bestimme $\\tan\\frac{\\pi}{3}$.\n**Lösung:** $\\tan\\frac{\\pi}{3} = \\frac{\\sin(\\pi/3)}{\\cos(\\pi/3)} = \\frac{\\sqrt{3}/2}{1/2} = \\frac{\\sqrt{3}}{2}\\cdot\\frac{2}{1}$.\n**Ergebnis:** $\\tan\\frac{\\pi}{3} = \\sqrt{3} \\approx 1{,}732$.',
+          '**Aufgabe:** Warum ist $\\tan\\frac{\\pi}{2}$ nicht definiert?\n**Lösung:** $\\tan\\frac{\\pi}{2} = \\frac{\\sin(\\pi/2)}{\\cos(\\pi/2)} = \\frac{1}{0}$. Eine Division durch $0$ ist nicht erlaubt.\n**Ergebnis:** $\\tan\\frac{\\pi}{2}$ ist undefiniert (der Graph hat dort eine Polstelle).',
+        ],
+      },
+    ],
   },
   {
+    id: 'arkusfunktionen',
     titel: 'Arkusfunktionen',
     inhalt:
       '**Worum geht es?**\n' +
@@ -59,8 +90,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Wichtig zu verstehen**\n' +
       'Die Arkusfunktion gibt immer nur einen einzigen Winkel aus dem eingeschränkten Bereich zurück. Suchst du dagegen alle Winkel mit z. B. $\\sin\\varphi = 1$, brauchst du das Urbild (siehe Karte „Urbilder") – dort gibt es unendlich viele Lösungen.',
+    beispiele: [
+      {
+        szenario: 'arcsin auswerten (Antwort in $[-\\frac{\\pi}{2}, \\frac{\\pi}{2}]$)',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\arcsin\\!\\left(\\frac{1}{2}\\right)$.\n**Lösung:** Gesucht ist der Winkel $\\varphi$ im Bereich $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$ mit $\\sin\\varphi = \\frac{1}{2}$. Aus der Standardtabelle: $\\sin\\frac{\\pi}{6} = \\frac{1}{2}$.\n**Ergebnis:** $\\arcsin\\!\\left(\\frac{1}{2}\\right) = \\frac{\\pi}{6}$.',
+          '**Aufgabe:** Berechne $\\arcsin\\!\\left(-\\frac{\\sqrt{2}}{2}\\right)$.\n**Lösung:** Gesucht: $\\sin\\varphi = -\\frac{\\sqrt{2}}{2}$ mit $\\varphi \\in [-\\frac{\\pi}{2},\\frac{\\pi}{2}]$. Da $\\sin\\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$ und der Sinus ungerade ist, ist der negative Wert bei $-\\frac{\\pi}{4}$.\n**Ergebnis:** $\\arcsin\\!\\left(-\\frac{\\sqrt{2}}{2}\\right) = -\\frac{\\pi}{4}$.',
+          '**Aufgabe:** Berechne $\\arcsin(1)$.\n**Lösung:** Gesucht: $\\sin\\varphi = 1$ im Bereich $[-\\frac{\\pi}{2},\\frac{\\pi}{2}]$. Der Sinus erreicht $1$ am oberen Rand bei $\\varphi = \\frac{\\pi}{2}$.\n**Ergebnis:** $\\arcsin(1) = \\frac{\\pi}{2}$.',
+        ],
+      },
+      {
+        szenario: 'arccos auswerten (Antwort in $[0, \\pi]$)',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\arccos(0)$.\n**Lösung:** Gesucht: $\\cos\\varphi = 0$ mit $\\varphi \\in [0,\\pi]$. Der Kosinus ist $0$ bei $\\frac{\\pi}{2}$.\n**Ergebnis:** $\\arccos(0) = \\frac{\\pi}{2}$.',
+          '**Aufgabe:** Berechne $\\arccos\\!\\left(-\\frac{1}{2}\\right)$.\n**Lösung:** Gesucht: $\\cos\\varphi = -\\frac{1}{2}$ mit $\\varphi \\in [0,\\pi]$. Da $\\cos\\frac{\\pi}{3} = \\frac{1}{2}$, liegt der negative Wert im 2. Quadranten bei $\\pi - \\frac{\\pi}{3} = \\frac{2\\pi}{3}$.\n**Ergebnis:** $\\arccos\\!\\left(-\\frac{1}{2}\\right) = \\frac{2\\pi}{3}$.',
+          '**Aufgabe:** Berechne $\\arccos(-1)$.\n**Lösung:** Gesucht: $\\cos\\varphi = -1$ mit $\\varphi \\in [0,\\pi]$. Der Kosinus erreicht $-1$ am Rand bei $\\varphi = \\pi$.\n**Ergebnis:** $\\arccos(-1) = \\pi$.',
+        ],
+      },
+      {
+        szenario: 'arctan auswerten (jede reelle Zahl erlaubt)',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\arctan(1)$.\n**Lösung:** Gesucht: $\\tan\\varphi = 1$ mit $\\varphi \\in (-\\frac{\\pi}{2},\\frac{\\pi}{2})$. Da $\\tan\\frac{\\pi}{4} = 1$.\n**Ergebnis:** $\\arctan(1) = \\frac{\\pi}{4}$.',
+          '**Aufgabe:** Berechne $\\arctan(\\sqrt{3})$.\n**Lösung:** Gesucht: $\\tan\\varphi = \\sqrt{3}$. Aus der Tabelle: $\\tan\\frac{\\pi}{3} = \\sqrt{3}$.\n**Ergebnis:** $\\arctan(\\sqrt{3}) = \\frac{\\pi}{3}$.',
+          '**Aufgabe:** Berechne $\\arctan(0)$.\n**Lösung:** Gesucht: $\\tan\\varphi = 0$. Der Tangens ist $0$, wenn der Sinus $0$ ist – im erlaubten Bereich genau bei $\\varphi = 0$.\n**Ergebnis:** $\\arctan(0) = 0$.',
+        ],
+      },
+    ],
   },
   {
+    id: 'winkelumrechnung',
     titel: 'Winkelumrechnung',
     inhalt:
       '**Worum geht es?**\n' +
@@ -83,8 +141,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '**Die häufigsten Werte zum Nachschlagen**\n' +
       '$0° = 0$,  $30° = \\frac{\\pi}{6}$,  $45° = \\frac{\\pi}{4}$,  $60° = \\frac{\\pi}{3}$\n' +
       '$90° = \\frac{\\pi}{2}$,  $180° = \\pi$,  $270° = \\frac{3\\pi}{2}$,  $360° = 2\\pi$',
+    beispiele: [
+      {
+        szenario: 'Grad → Bogenmaß',
+        beispiele: [
+          '**Aufgabe:** Wandle $45°$ ins Bogenmaß um.\n**Lösung:** $45 \\cdot \\frac{\\pi}{180} = \\frac{45\\pi}{180}$. Kürze mit $45$: $\\frac{45}{180} = \\frac{1}{4}$.\n**Ergebnis:** $45° = \\frac{\\pi}{4}$.',
+          '**Aufgabe:** Wandle $120°$ ins Bogenmaß um.\n**Lösung:** $120 \\cdot \\frac{\\pi}{180} = \\frac{120\\pi}{180}$. Kürze mit $60$: $\\frac{120}{180} = \\frac{2}{3}$.\n**Ergebnis:** $120° = \\frac{2\\pi}{3}$.',
+          '**Aufgabe:** Wandle $270°$ ins Bogenmaß um.\n**Lösung:** $270 \\cdot \\frac{\\pi}{180} = \\frac{270\\pi}{180}$. Kürze mit $90$: $\\frac{270}{180} = \\frac{3}{2}$.\n**Ergebnis:** $270° = \\frac{3\\pi}{2}$.',
+        ],
+      },
+      {
+        szenario: 'Bogenmaß → Grad',
+        beispiele: [
+          '**Aufgabe:** Wandle $\\frac{\\pi}{6}$ in Grad um.\n**Lösung:** $\\frac{\\pi}{6} \\cdot \\frac{180}{\\pi} = \\frac{180}{6}$, das $\\pi$ kürzt sich weg.\n**Ergebnis:** $\\frac{\\pi}{6} = 30°$.',
+          '**Aufgabe:** Wandle $\\frac{3\\pi}{4}$ in Grad um.\n**Lösung:** $\\frac{3\\pi}{4} \\cdot \\frac{180}{\\pi} = \\frac{3 \\cdot 180}{4} = \\frac{540}{4}$.\n**Ergebnis:** $\\frac{3\\pi}{4} = 135°$.',
+          '**Aufgabe:** Wandle $\\frac{5\\pi}{3}$ in Grad um.\n**Lösung:** $\\frac{5\\pi}{3} \\cdot \\frac{180}{\\pi} = \\frac{5 \\cdot 180}{3} = \\frac{900}{3}$.\n**Ergebnis:** $\\frac{5\\pi}{3} = 300°$.',
+        ],
+      },
+      {
+        szenario: 'Krumme Gradzahlen (Dezimalwert)',
+        beispiele: [
+          '**Aufgabe:** Wandle $90°$ ins Bogenmaß und gib auch den Dezimalwert an.\n**Lösung:** $90 \\cdot \\frac{\\pi}{180} = \\frac{\\pi}{2} \\approx \\frac{3{,}14159}{2}$.\n**Ergebnis:** $90° = \\frac{\\pi}{2} \\approx 1{,}5708$.',
+          '**Aufgabe:** Wandle $1$ (Bogenmaß) in Grad um.\n**Lösung:** $1 \\cdot \\frac{180}{\\pi} = \\frac{180}{3{,}14159}$.\n**Ergebnis:** $1\\,\\text{rad} \\approx 57{,}30°$.',
+          '**Aufgabe:** Wandle $100°$ ins Bogenmaß um.\n**Lösung:** $100 \\cdot \\frac{\\pi}{180} = \\frac{100\\pi}{180} = \\frac{5\\pi}{9} \\approx \\frac{5 \\cdot 3{,}14159}{9}$.\n**Ergebnis:** $100° = \\frac{5\\pi}{9} \\approx 1{,}745$.',
+        ],
+      },
+    ],
   },
   {
+    id: 'urbilder',
     titel: 'Urbilder',
     inhalt:
       '**Worum geht es?**\n' +
@@ -106,10 +191,40 @@ export const referenzKarten: ReferenzKarte[] = [
       '$\\tan^{-1}(\\{1\\}) = \\left\\{\\tfrac{\\pi}{4} + k\\pi\\right\\}$,  $\\tan^{-1}(\\{0\\}) = \\{k\\pi\\}$,  $\\tan^{-1}(\\{-1\\}) = \\left\\{-\\tfrac{\\pi}{4} + k\\pi\\right\\}$\n' +
       'In allen Formeln ist $k \\in \\mathbb{Z}$ eine beliebige ganze Zahl.\n' +
       '\n' +
+      '**Allgemeines Rezept (ein Wert $\\to$ alle Winkel)**\n' +
+      'Suchst du alle $\\varphi$ mit $\\sin\\varphi = s$, dann ist eine Lösung $\\alpha = \\arcsin(s)$, und die volle Lösungsmenge ist $\\{\\alpha + 2k\\pi\\} \\cup \\{\\pi - \\alpha + 2k\\pi\\}$ (zwei Stellen pro Umlauf). Für $\\cos\\varphi = c$ mit $\\alpha = \\arccos(c)$ ist es $\\{\\alpha + 2k\\pi\\} \\cup \\{-\\alpha + 2k\\pi\\}$. Beim Tangens genügt $\\{\\arctan(t) + k\\pi\\}$.\n' +
+      '\n' +
       '**Merke**\n' +
       'Bei $\\sin$ und $\\cos$ wird in der Regel $2k\\pi$ addiert (Periode $2\\pi$), bei $\\tan$ nur $k\\pi$ (Periode $\\pi$). Der Wert $0$ ist ein Sonderfall: Hier reicht beim Sinus $k\\pi$, weil der Sinus seinen Nulldurchgang doppelt so oft hat.',
+    beispiele: [
+      {
+        szenario: 'Urbild des Sinus',
+        beispiele: [
+          '**Aufgabe:** Bestimme alle $\\varphi$ mit $\\sin\\varphi = 0$, also $\\sin^{-1}(\\{0\\})$.\n**Lösung:** Der Sinus (Höhe auf dem Einheitskreis) ist $0$ bei $0$ und bei $\\pi$, danach wiederholt es sich. Beide liegen genau $\\pi$ auseinander.\n**Ergebnis:** $\\sin^{-1}(\\{0\\}) = \\{k\\pi : k \\in \\mathbb{Z}\\}$.',
+          '**Aufgabe:** Bestimme $\\sin^{-1}(\\{1\\})$.\n**Lösung:** Der Sinus erreicht den Höchstwert $1$ nur am obersten Punkt bei $\\frac{\\pi}{2}$. Pro voller Umdrehung $2\\pi$ passiert das genau einmal.\n**Ergebnis:** $\\sin^{-1}(\\{1\\}) = \\left\\{\\frac{\\pi}{2} + 2k\\pi : k \\in \\mathbb{Z}\\right\\}$.',
+          '**Aufgabe:** Bestimme alle $\\varphi$ mit $\\sin\\varphi = \\frac{1}{2}$.\n**Lösung:** Eine Lösung ist $\\arcsin\\frac{1}{2} = \\frac{\\pi}{6}$. Die zweite Stelle pro Umlauf ist $\\pi - \\frac{\\pi}{6} = \\frac{5\\pi}{6}$.\n**Ergebnis:** $\\left\\{\\frac{\\pi}{6} + 2k\\pi\\right\\} \\cup \\left\\{\\frac{5\\pi}{6} + 2k\\pi\\right\\}$.',
+        ],
+      },
+      {
+        szenario: 'Urbild des Kosinus',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\cos^{-1}(\\{1\\})$.\n**Lösung:** Der Kosinus (Breite) erreicht $1$ nur ganz rechts bei $0$, danach erst wieder nach einer vollen Umdrehung.\n**Ergebnis:** $\\cos^{-1}(\\{1\\}) = \\{2k\\pi : k \\in \\mathbb{Z}\\}$.',
+          '**Aufgabe:** Bestimme $\\cos^{-1}(\\{0\\})$.\n**Lösung:** Der Kosinus ist $0$ bei $\\frac{\\pi}{2}$ (oben) und bei $\\frac{3\\pi}{2}$ (unten). Diese beiden liegen $\\pi$ auseinander, daher reicht $\\frac{\\pi}{2} + k\\pi$.\n**Ergebnis:** $\\cos^{-1}(\\{0\\}) = \\left\\{\\frac{\\pi}{2} + k\\pi : k \\in \\mathbb{Z}\\right\\}$.',
+          '**Aufgabe:** Bestimme alle $\\varphi$ mit $\\cos\\varphi = \\frac{1}{2}$.\n**Lösung:** Eine Lösung ist $\\arccos\\frac{1}{2} = \\frac{\\pi}{3}$. Wegen $\\cos(-\\varphi) = \\cos\\varphi$ ist die zweite Stelle $-\\frac{\\pi}{3}$.\n**Ergebnis:** $\\left\\{\\frac{\\pi}{3} + 2k\\pi\\right\\} \\cup \\left\\{-\\frac{\\pi}{3} + 2k\\pi\\right\\}$.',
+        ],
+      },
+      {
+        szenario: 'Urbild des Tangens',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\tan^{-1}(\\{0\\})$.\n**Lösung:** $\\tan\\varphi = 0$ genau dann, wenn $\\sin\\varphi = 0$, also bei $0, \\pi, 2\\pi, \\ldots$ Der Tangens hat Periode $\\pi$.\n**Ergebnis:** $\\tan^{-1}(\\{0\\}) = \\{k\\pi : k \\in \\mathbb{Z}\\}$.',
+          '**Aufgabe:** Bestimme $\\tan^{-1}(\\{1\\})$.\n**Lösung:** Eine Lösung ist $\\arctan(1) = \\frac{\\pi}{4}$. Wegen der Periode $\\pi$ kommt jeweils $k\\pi$ hinzu.\n**Ergebnis:** $\\tan^{-1}(\\{1\\}) = \\left\\{\\frac{\\pi}{4} + k\\pi : k \\in \\mathbb{Z}\\right\\}$.',
+          '**Aufgabe:** Bestimme alle $\\varphi$ mit $\\tan\\varphi = -1$.\n**Lösung:** $\\arctan(-1) = -\\frac{\\pi}{4}$. Mit Periode $\\pi$ erhält man alle Lösungen.\n**Ergebnis:** $\\left\\{-\\frac{\\pi}{4} + k\\pi : k \\in \\mathbb{Z}\\right\\}$ (gleichwertig $\\left\\{\\frac{3\\pi}{4} + k\\pi\\right\\}$).',
+        ],
+      },
+    ],
   },
   {
+    id: 'kreise-mengen',
     titel: 'Kreise & Mengen in $\\mathbb{R} \\times \\mathbb{R}$',
     inhalt:
       '**Worum geht es?**\n' +
@@ -127,14 +242,44 @@ export const referenzKarten: ReferenzKarte[] = [
       '$x^2+y^2 \\leq r^2$  →  abgeschlossene Kreisscheibe (Inneres samt Rand)\n' +
       '$x^2+y^2 > r^2$  →  Äußeres des Kreises (alles weiter weg als $r$)\n' +
       '\n' +
+      '**Kreise mit verschobenem Mittelpunkt**\n' +
+      'Ein Kreis um den Punkt $(a, b)$ mit Radius $r$ hat die Gleichung $(x-a)^2 + (y-b)^2 = r^2$. Steht in der Gleichung ein Plus, z. B. $(x+3)^2$, gehört dazu $a = -3$. Den Mittelpunkt liest man also mit umgedrehtem Vorzeichen ab.\n' +
+      '\n' +
       '**Geraden durch den Nullpunkt**\n' +
       '$x = y$  →  Winkelhalbierende durch den 1. und 3. Quadranten (Punkte mit gleichen Koordinaten)\n' +
       '$x = -y$  →  Winkelhalbierende durch den 2. und 4. Quadranten (Koordinaten entgegengesetzt)\n' +
       '\n' +
       '**Merke**\n' +
-      'Ein Gleichheitszeichen liefert eine Linie (den Rand), ein Ungleichheitszeichen eine Fläche. „$<$“ bzw. „$>$“ schließt den Rand aus, „$\\leq$“ bzw. „$\\geq$“ schließt ihn ein.',
+      'Ein Gleichheitszeichen liefert eine Linie (den Rand), ein Ungleichheitszeichen eine Fläche. „$<$" bzw. „$>$" schließt den Rand aus, „$\\leq$" bzw. „$\\geq$" schließt ihn ein.',
+    beispiele: [
+      {
+        szenario: 'Gleichung erkennen (Kreislinie)',
+        beispiele: [
+          '**Aufgabe:** Welche Figur beschreibt $x^2 + y^2 = 25$?\n**Lösung:** Form $x^2+y^2 = r^2$ mit $r^2 = 25$, also $r = 5$. Gleichheitszeichen → Rand.\n**Ergebnis:** Kreislinie um den Nullpunkt mit Radius $5$.',
+          '**Aufgabe:** Welche Figur beschreibt $(x-2)^2 + (y+1)^2 = 9$?\n**Lösung:** Verschobener Kreis: $a = 2$, $b = -1$ (Vorzeichen umdrehen), $r^2 = 9 \\Rightarrow r = 3$.\n**Ergebnis:** Kreislinie um $(2, -1)$ mit Radius $3$.',
+          '**Aufgabe:** Beschreibe $x^2 + y^2 = 2$ als Punktmenge.\n**Lösung:** $r = \\sqrt{2}$. Punkte mit Abstand genau $\\sqrt{2}$ vom Nullpunkt, z. B. $(1,1)$ wegen $1^2+1^2 = 2$.\n**Ergebnis:** Kreislinie um $0$ mit Radius $\\sqrt{2}$.',
+        ],
+      },
+      {
+        szenario: 'Ungleichung erkennen (Fläche)',
+        beispiele: [
+          '**Aufgabe:** Welche Menge ist $x^2 + y^2 < 4$?\n**Lösung:** $r^2 = 4 \\Rightarrow r = 2$. „$<$" → Inneres ohne Rand.\n**Ergebnis:** Offene Kreisscheibe um $0$, Radius $2$ (der Randkreis gehört nicht dazu).',
+          '**Aufgabe:** Welche Menge ist $x^2 + y^2 \\geq 1$?\n**Lösung:** $r = 1$. „$\\geq$" → alles außerhalb, der Rand gehört dazu.\n**Ergebnis:** Äußeres des Einheitskreises samt Randkreis.',
+          '**Aufgabe:** Welche Menge ist $1 \\leq x^2 + y^2 \\leq 9$?\n**Lösung:** Zwischen $r_1 = 1$ und $r_2 = 3$. Beide Ränder eingeschlossen.\n**Ergebnis:** Abgeschlossener Kreisring zwischen den Radien $1$ und $3$.',
+        ],
+      },
+      {
+        szenario: 'Punkt-Test (liegt der Punkt drin?)',
+        beispiele: [
+          '**Aufgabe:** Liegt $(3, 4)$ auf dem Kreis $x^2 + y^2 = 25$?\n**Lösung:** Einsetzen: $3^2 + 4^2 = 9 + 16 = 25$. Stimmt mit $25$ überein.\n**Ergebnis:** Ja, $(3,4)$ liegt genau auf der Kreislinie.',
+          '**Aufgabe:** Liegt $(1, 1)$ in der offenen Scheibe $x^2 + y^2 < 4$?\n**Lösung:** $1^2 + 1^2 = 2$. Da $2 < 4$, ist die Bedingung erfüllt.\n**Ergebnis:** Ja, $(1,1)$ liegt im Inneren.',
+          '**Aufgabe:** Liegt $(2, 2)$ im Bereich $x^2 + y^2 \\leq 4$?\n**Lösung:** $2^2 + 2^2 = 8$. Da $8 > 4$, ist die Bedingung verletzt.\n**Ergebnis:** Nein, $(2,2)$ liegt außerhalb.',
+        ],
+      },
+    ],
   },
   {
+    id: 'binomische-formeln',
     titel: 'Binomische Formeln',
     inhalt:
       '**Worum geht es?**\n' +
@@ -156,10 +301,37 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Warum funktioniert der Trick?**\n' +
       'Multipliziert man $(\\sqrt{a}+\\sqrt{b})(\\sqrt{a}-\\sqrt{b})$, so ist das nach der dritten Formel $(\\sqrt{a})^2 - (\\sqrt{b})^2 = a - b$ – die Wurzeln verschwinden, weil Quadrat und Wurzel sich aufheben. Genau diesen Faktor schreibt man in Zähler und Nenner, der Bruchwert ändert sich dadurch nicht.',
+    beispiele: [
+      {
+        szenario: 'Ausmultiplizieren mit $(a+b)^2$ und $(a-b)^2$',
+        beispiele: [
+          '**Aufgabe:** Multipliziere $(x+3)^2$ aus.\n**Lösung:** Erste Formel mit $a = x$, $b = 3$: $a^2 + 2ab + b^2 = x^2 + 2\\cdot x \\cdot 3 + 3^2$.\n**Ergebnis:** $x^2 + 6x + 9$.',
+          '**Aufgabe:** Multipliziere $(2x-5)^2$ aus.\n**Lösung:** Zweite Formel mit $a = 2x$, $b = 5$: $(2x)^2 - 2\\cdot 2x \\cdot 5 + 5^2 = 4x^2 - 20x + 25$.\n**Ergebnis:** $4x^2 - 20x + 25$.',
+          '**Aufgabe:** Berechne $(a+b)^2$ für $a = 7$, $b = 0{,}5$ ohne langes Rechnen.\n**Lösung:** $7^2 + 2\\cdot 7 \\cdot 0{,}5 + 0{,}5^2 = 49 + 7 + 0{,}25$.\n**Ergebnis:** $56{,}25$ (das ist $7{,}5^2$).',
+        ],
+      },
+      {
+        szenario: 'Dritte Formel $(a+b)(a-b) = a^2-b^2$',
+        beispiele: [
+          '**Aufgabe:** Multipliziere $(x+4)(x-4)$ aus.\n**Lösung:** Dritte Formel mit $a = x$, $b = 4$: $a^2 - b^2 = x^2 - 16$.\n**Ergebnis:** $x^2 - 16$.',
+          '**Aufgabe:** Berechne $103 \\cdot 97$ mit der dritten Formel.\n**Lösung:** $103 = 100+3$, $97 = 100-3$, also $(100+3)(100-3) = 100^2 - 3^2 = 10000 - 9$.\n**Ergebnis:** $9991$.',
+          '**Aufgabe:** Faktorisiere $9x^2 - 25$.\n**Lösung:** $9x^2 = (3x)^2$ und $25 = 5^2$, also $a = 3x$, $b = 5$: $a^2 - b^2 = (a+b)(a-b)$.\n**Ergebnis:** $(3x+5)(3x-5)$.',
+        ],
+      },
+      {
+        szenario: 'Nenner rational machen',
+        beispiele: [
+          '**Aufgabe:** Mache $\\dfrac{1}{\\sqrt{2}}$ rational.\n**Lösung:** Mit $\\sqrt{2}$ erweitern: $\\frac{1}{\\sqrt{2}} \\cdot \\frac{\\sqrt{2}}{\\sqrt{2}} = \\frac{\\sqrt{2}}{2}$.\n**Ergebnis:** $\\dfrac{\\sqrt{2}}{2}$.',
+          '**Aufgabe:** Mache $\\dfrac{1}{\\sqrt{3}+1}$ rational.\n**Lösung:** Mit dem Konjugierten $\\sqrt{3}-1$ erweitern. Nenner: $(\\sqrt{3}+1)(\\sqrt{3}-1) = 3 - 1 = 2$.\n**Ergebnis:** $\\dfrac{\\sqrt{3}-1}{2}$.',
+          '**Aufgabe:** Mache $\\dfrac{2}{\\sqrt{5}-\\sqrt{3}}$ rational.\n**Lösung:** Mit $\\sqrt{5}+\\sqrt{3}$ erweitern. Nenner: $(\\sqrt{5})^2 - (\\sqrt{3})^2 = 5 - 3 = 2$. Zähler: $2(\\sqrt{5}+\\sqrt{3})$.\n**Ergebnis:** $\\dfrac{2(\\sqrt{5}+\\sqrt{3})}{2} = \\sqrt{5}+\\sqrt{3}$.',
+        ],
+      },
+    ],
   },
 
   // ===== Komplexe Zahlen =====
   {
+    id: 'komplexe-grundoperationen',
     titel: 'Komplexe Zahlen – Grundoperationen',
     inhalt:
       '**Worum geht es?**\n' +
@@ -188,8 +360,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Nützliche Rechenregeln**\n' +
       '$|zw| = |z|\\cdot|w|$,  $|z^n| = |z|^n$,  $\\overline{zw} = \\overline{z}\\cdot\\overline{w}$.',
+    beispiele: [
+      {
+        szenario: 'Addition & Subtraktion',
+        beispiele: [
+          '**Aufgabe:** Berechne $(3+2\\mathrm{i}) + (1+4\\mathrm{i})$.\n**Lösung:** Realteile $3+1 = 4$, Imaginärteile $2+4 = 6$.\n**Ergebnis:** $4 + 6\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $(5-\\mathrm{i}) + (-2+3\\mathrm{i})$.\n**Lösung:** Realteile $5 + (-2) = 3$, Imaginärteile $-1 + 3 = 2$.\n**Ergebnis:** $3 + 2\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $(5-\\mathrm{i}) - (-2+3\\mathrm{i})$.\n**Lösung:** Realteile $5 - (-2) = 7$, Imaginärteile $-1 - 3 = -4$.\n**Ergebnis:** $7 - 4\\mathrm{i}$.',
+        ],
+      },
+      {
+        szenario: 'Multiplikation (mit $\\mathrm{i}^2 = -1$)',
+        beispiele: [
+          '**Aufgabe:** Berechne $(2+3\\mathrm{i})(1+4\\mathrm{i})$.\n**Lösung:** Ausmultiplizieren: $2\\cdot 1 + 2\\cdot 4\\mathrm{i} + 3\\mathrm{i}\\cdot 1 + 3\\mathrm{i}\\cdot 4\\mathrm{i} = 2 + 8\\mathrm{i} + 3\\mathrm{i} + 12\\mathrm{i}^2$. Mit $\\mathrm{i}^2 = -1$: $2 - 12 + 11\\mathrm{i}$.\n**Ergebnis:** $-10 + 11\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $(1-2\\mathrm{i})(3+\\mathrm{i})$.\n**Lösung:** $1\\cdot 3 + 1\\cdot\\mathrm{i} - 2\\mathrm{i}\\cdot 3 - 2\\mathrm{i}\\cdot\\mathrm{i} = 3 + \\mathrm{i} - 6\\mathrm{i} - 2\\mathrm{i}^2 = 3 + 2 + (1-6)\\mathrm{i}$.\n**Ergebnis:** $5 - 5\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $(2+\\mathrm{i})^2$.\n**Lösung:** Binomisch: $2^2 + 2\\cdot 2 \\cdot \\mathrm{i} + \\mathrm{i}^2 = 4 + 4\\mathrm{i} - 1$.\n**Ergebnis:** $3 + 4\\mathrm{i}$.',
+        ],
+      },
+      {
+        szenario: 'Konjugieren, Betrag & Division',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\overline{z}$ und $|z|$ für $z = 3 - 4\\mathrm{i}$.\n**Lösung:** Konjugiert: Vorzeichen des Imaginärteils drehen, $\\overline{z} = 3 + 4\\mathrm{i}$. Betrag: $|z| = \\sqrt{3^2 + (-4)^2} = \\sqrt{9+16} = \\sqrt{25}$.\n**Ergebnis:** $\\overline{z} = 3+4\\mathrm{i}$, $|z| = 5$.',
+          '**Aufgabe:** Berechne $\\dfrac{3+\\mathrm{i}}{1+\\mathrm{i}}$.\n**Lösung:** Mit $\\overline{1+\\mathrm{i}} = 1-\\mathrm{i}$ erweitern. Zähler: $(3+\\mathrm{i})(1-\\mathrm{i}) = 3 - 3\\mathrm{i} + \\mathrm{i} - \\mathrm{i}^2 = 4 - 2\\mathrm{i}$. Nenner: $|1+\\mathrm{i}|^2 = 1^2+1^2 = 2$.\n**Ergebnis:** $\\frac{4-2\\mathrm{i}}{2} = 2 - \\mathrm{i}$.',
+          '**Aufgabe:** Berechne $\\dfrac{2+3\\mathrm{i}}{1-2\\mathrm{i}}$.\n**Lösung:** Mit $\\overline{1-2\\mathrm{i}} = 1+2\\mathrm{i}$ erweitern. Zähler: $(2+3\\mathrm{i})(1+2\\mathrm{i}) = 2 + 4\\mathrm{i} + 3\\mathrm{i} + 6\\mathrm{i}^2 = -4 + 7\\mathrm{i}$. Nenner: $|1-2\\mathrm{i}|^2 = 1^2 + 2^2 = 5$.\n**Ergebnis:** $\\frac{-4+7\\mathrm{i}}{5} = -\\frac{4}{5} + \\frac{7}{5}\\mathrm{i}$.',
+        ],
+      },
+    ],
   },
   {
+    id: 'gauss-mengen',
     titel: 'Mengen in der Gaußschen Zahlenebene',
     inhalt:
       '**Worum geht es?**\n' +
@@ -213,8 +412,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Geraden als Mittelsenkrechte**\n' +
       'Die Bedingung „gleich weit von zwei Punkten entfernt" ergibt eine Gerade. Zum Beispiel ist $|z| = |z - a|$ die Mittelsenkrechte der Strecke von $0$ und $a$ – also die senkrechte Gerade genau in der Mitte zwischen beiden Punkten.',
+    beispiele: [
+      {
+        szenario: 'Kreis / Kreisscheibe erkennen',
+        beispiele: [
+          '**Aufgabe:** Welche Figur ist $|z| = 3$?\n**Lösung:** $|z - 0| = 3$, also Mittelpunkt $z_0 = 0$, Radius $r = 3$. Gleichheit → Rand.\n**Ergebnis:** Kreislinie um den Nullpunkt mit Radius $3$.',
+          '**Aufgabe:** Welche Figur ist $|z - (1+2\\mathrm{i})| \\leq 2$?\n**Lösung:** Mittelpunkt $z_0 = 1 + 2\\mathrm{i}$ (Punkt $(1,2)$), Radius $2$. „$\\leq$" → Scheibe mit Rand.\n**Ergebnis:** Abgeschlossene Kreisscheibe um $(1,2)$ mit Radius $2$.',
+          '**Aufgabe:** Welche Figur ist $1 < |z| < 2$?\n**Lösung:** Abstand vom Nullpunkt zwischen $1$ und $2$, beide Ränder ausgeschlossen.\n**Ergebnis:** Offener Kreisring um $0$ zwischen den Radien $1$ und $2$.',
+        ],
+      },
+      {
+        szenario: 'Mittelpunkt aus $|z + \\ldots|$ ablesen',
+        beispiele: [
+          '**Aufgabe:** Bestimme Mittelpunkt und Radius von $|z + 3| = 4$.\n**Lösung:** Umschreiben $|z - (-3)| = 4$. Mittelpunkt $z_0 = -3$ (Punkt $(-3,0)$), Radius $4$.\n**Ergebnis:** Kreis um $(-3, 0)$ mit Radius $4$.',
+          '**Aufgabe:** Bestimme Mittelpunkt und Radius von $|z + 1 - 2\\mathrm{i}| = 5$.\n**Lösung:** $|z - (-1 + 2\\mathrm{i})| = 5$. Mittelpunkt $z_0 = -1 + 2\\mathrm{i}$ (Punkt $(-1, 2)$), Radius $5$.\n**Ergebnis:** Kreis um $(-1, 2)$ mit Radius $5$.',
+          '**Aufgabe:** Bestimme Mittelpunkt und Radius von $|z - 2 + \\mathrm{i}| < 1$.\n**Lösung:** $|z - (2 - \\mathrm{i})| < 1$. Mittelpunkt $z_0 = 2 - \\mathrm{i}$ (Punkt $(2,-1)$), Radius $1$, „$<$" → offen.\n**Ergebnis:** Offene Kreisscheibe um $(2, -1)$ mit Radius $1$.',
+        ],
+      },
+      {
+        szenario: 'Geraden (Mittelsenkrechte & Achsen)',
+        beispiele: [
+          '**Aufgabe:** Welche Figur ist $|z| = |z - 2|$?\n**Lösung:** Punkte gleich weit von $0$ und $2$ (auf der reellen Achse). Die Mitte liegt bei $\\mathrm{Re}(z) = 1$.\n**Ergebnis:** Senkrechte Gerade $\\mathrm{Re}(z) = 1$ (Mittelsenkrechte der Strecke $0$–$2$).',
+          '**Aufgabe:** Welche Figur ist $\\mathrm{Im}(z) = 0$?\n**Lösung:** Der Imaginärteil $y$ ist null, der Realteil beliebig.\n**Ergebnis:** Die reelle Achse (waagerechte Achse).',
+          '**Aufgabe:** Welche Figur ist $|z - \\mathrm{i}| = |z + \\mathrm{i}|$?\n**Lösung:** Gleich weit von $\\mathrm{i}$ (Punkt $(0,1)$) und $-\\mathrm{i}$ (Punkt $(0,-1)$). Die Mitte liegt bei $\\mathrm{Im}(z) = 0$.\n**Ergebnis:** Die reelle Achse $\\mathrm{Im}(z) = 0$.',
+        ],
+      },
+    ],
   },
   {
+    id: 'polardarstellung',
     titel: 'Polardarstellung',
     inhalt:
       '**Worum geht es?**\n' +
@@ -234,10 +460,40 @@ export const referenzKarten: ReferenzKarte[] = [
       '• Ist $\\mathrm{Im}(z) \\geq 0$ (obere Hälfte):  $\\varphi = \\arccos\\!\\left(\\dfrac{\\mathrm{Re}(z)}{r}\\right)$\n' +
       '• Ist $\\mathrm{Im}(z) < 0$ (untere Hälfte):  $\\varphi = 2\\pi - \\arccos\\!\\left(\\dfrac{\\mathrm{Re}(z)}{r}\\right)$\n' +
       '\n' +
+      '**Zurück in die kartesische Form**\n' +
+      'Hat man $r$ und $\\varphi$, rechnet man mit $x = r\\cos\\varphi$ und $y = r\\sin\\varphi$ zurück zu $z = x + y\\mathrm{i}$.\n' +
+      '\n' +
       '**Warum das praktisch ist: Multiplizieren**\n' +
       'In Polarform wird Multiplikation kinderleicht: $r_1 e^{\\mathrm{i}\\varphi_1} \\cdot r_2 e^{\\mathrm{i}\\varphi_2} = (r_1 r_2)\\,e^{\\mathrm{i}(\\varphi_1+\\varphi_2)}$. In Worten: Längen multiplizieren, Winkel addieren. Geometrisch ist Multiplizieren also Strecken plus Drehen.',
+    beispiele: [
+      {
+        szenario: 'Kartesisch → Polar',
+        beispiele: [
+          '**Aufgabe:** Schreibe $z = 1 + \\mathrm{i}$ in Polarform.\n**Lösung:** $r = \\sqrt{1^2+1^2} = \\sqrt{2}$. Da $\\mathrm{Im}(z) > 0$: $\\varphi = \\arccos\\frac{1}{\\sqrt{2}} = \\frac{\\pi}{4}$.\n**Ergebnis:** $z = \\sqrt{2}\\,e^{\\mathrm{i}\\pi/4}$.',
+          '**Aufgabe:** Schreibe $z = -1 + \\sqrt{3}\\,\\mathrm{i}$ in Polarform.\n**Lösung:** $r = \\sqrt{(-1)^2 + (\\sqrt{3})^2} = \\sqrt{1+3} = 2$. Da $\\mathrm{Im}(z) > 0$: $\\varphi = \\arccos\\frac{-1}{2} = \\frac{2\\pi}{3}$.\n**Ergebnis:** $z = 2\\,e^{\\mathrm{i}\\,2\\pi/3}$.',
+          '**Aufgabe:** Schreibe $z = -2 - 2\\mathrm{i}$ in Polarform.\n**Lösung:** $r = \\sqrt{(-2)^2+(-2)^2} = \\sqrt{8} = 2\\sqrt{2}$. Da $\\mathrm{Im}(z) < 0$: $\\varphi = 2\\pi - \\arccos\\frac{-2}{2\\sqrt{2}} = 2\\pi - \\frac{3\\pi}{4} = \\frac{5\\pi}{4}$.\n**Ergebnis:** $z = 2\\sqrt{2}\\,e^{\\mathrm{i}\\,5\\pi/4}$.',
+        ],
+      },
+      {
+        szenario: 'Polar → Kartesisch',
+        beispiele: [
+          '**Aufgabe:** Schreibe $z = 2\\,e^{\\mathrm{i}\\pi/3}$ in der Form $x + y\\mathrm{i}$.\n**Lösung:** $x = 2\\cos\\frac{\\pi}{3} = 2\\cdot\\frac{1}{2} = 1$, $y = 2\\sin\\frac{\\pi}{3} = 2\\cdot\\frac{\\sqrt{3}}{2} = \\sqrt{3}$.\n**Ergebnis:** $z = 1 + \\sqrt{3}\\,\\mathrm{i}$.',
+          '**Aufgabe:** Schreibe $z = 3\\,e^{\\mathrm{i}\\pi}$ in der Form $x + y\\mathrm{i}$.\n**Lösung:** $x = 3\\cos\\pi = 3\\cdot(-1) = -3$, $y = 3\\sin\\pi = 3\\cdot 0 = 0$.\n**Ergebnis:** $z = -3$.',
+          '**Aufgabe:** Schreibe $z = \\sqrt{2}\\,e^{\\mathrm{i}\\,3\\pi/4}$ in der Form $x + y\\mathrm{i}$.\n**Lösung:** $x = \\sqrt{2}\\cos\\frac{3\\pi}{4} = \\sqrt{2}\\cdot(-\\frac{\\sqrt{2}}{2}) = -1$, $y = \\sqrt{2}\\sin\\frac{3\\pi}{4} = \\sqrt{2}\\cdot\\frac{\\sqrt{2}}{2} = 1$.\n**Ergebnis:** $z = -1 + \\mathrm{i}$.',
+        ],
+      },
+      {
+        szenario: 'Multiplizieren in Polarform',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\left(2\\,e^{\\mathrm{i}\\pi/6}\\right)\\cdot\\left(3\\,e^{\\mathrm{i}\\pi/3}\\right)$.\n**Lösung:** Längen multiplizieren $2\\cdot 3 = 6$, Winkel addieren $\\frac{\\pi}{6}+\\frac{\\pi}{3} = \\frac{\\pi}{2}$.\n**Ergebnis:** $6\\,e^{\\mathrm{i}\\pi/2} = 6\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $\\left(\\sqrt{2}\\,e^{\\mathrm{i}\\pi/4}\\right)^2$ über die Polarform.\n**Lösung:** Quadrieren = Länge quadrieren, Winkel verdoppeln: $r = (\\sqrt{2})^2 = 2$, $\\varphi = 2\\cdot\\frac{\\pi}{4} = \\frac{\\pi}{2}$.\n**Ergebnis:** $2\\,e^{\\mathrm{i}\\pi/2} = 2\\mathrm{i}$ (Probe: $(1+\\mathrm{i})^2 = 2\\mathrm{i}$).',
+          '**Aufgabe:** Berechne $\\left(4\\,e^{\\mathrm{i}\\,3\\pi/4}\\right)\\cdot\\left(\\tfrac{1}{2}\\,e^{\\mathrm{i}\\pi/4}\\right)$.\n**Lösung:** Längen $4\\cdot\\frac{1}{2} = 2$, Winkel $\\frac{3\\pi}{4}+\\frac{\\pi}{4} = \\pi$.\n**Ergebnis:** $2\\,e^{\\mathrm{i}\\pi} = -2$.',
+        ],
+      },
+    ],
   },
   {
+    id: 'euler-formel',
     titel: 'Eulersche Formel & Potenzen von $\\mathrm{i}$',
     inhalt:
       '**Worum geht es?**\n' +
@@ -258,8 +514,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**So rechnest du $\\mathrm{i}^n$ schnell aus**\n' +
       'Teile den Exponenten $n$ mit Rest durch $4$. Nur der Rest $n \\bmod 4$ zählt: Rest $0 \\to 1$, Rest $1 \\to \\mathrm{i}$, Rest $2 \\to -1$, Rest $3 \\to -\\mathrm{i}$. Beispiel: $\\mathrm{i}^{15}$ hat wegen $15 = 3\\cdot 4 + 3$ den Rest $3$, also $\\mathrm{i}^{15} = -\\mathrm{i}$.',
+    beispiele: [
+      {
+        szenario: 'Eulersche Formel auswerten',
+        beispiele: [
+          '**Aufgabe:** Berechne $e^{\\mathrm{i}\\pi}$.\n**Lösung:** $e^{\\mathrm{i}\\pi} = \\cos\\pi + \\mathrm{i}\\sin\\pi = -1 + \\mathrm{i}\\cdot 0$.\n**Ergebnis:** $e^{\\mathrm{i}\\pi} = -1$ (Eulersche Identität $e^{\\mathrm{i}\\pi}+1 = 0$).',
+          '**Aufgabe:** Berechne $e^{\\mathrm{i}\\pi/2}$.\n**Lösung:** $\\cos\\frac{\\pi}{2} + \\mathrm{i}\\sin\\frac{\\pi}{2} = 0 + \\mathrm{i}\\cdot 1$.\n**Ergebnis:** $e^{\\mathrm{i}\\pi/2} = \\mathrm{i}$.',
+          '**Aufgabe:** Schreibe $e^{\\mathrm{i}\\pi/3}$ in der Form $x + y\\mathrm{i}$.\n**Lösung:** $\\cos\\frac{\\pi}{3} + \\mathrm{i}\\sin\\frac{\\pi}{3} = \\frac{1}{2} + \\mathrm{i}\\cdot\\frac{\\sqrt{3}}{2}$.\n**Ergebnis:** $e^{\\mathrm{i}\\pi/3} = \\frac{1}{2} + \\frac{\\sqrt{3}}{2}\\mathrm{i}$.',
+        ],
+      },
+      {
+        szenario: 'Potenzen von $\\mathrm{i}$ berechnen',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\mathrm{i}^{10}$.\n**Lösung:** $10 = 2\\cdot 4 + 2$, Rest $2$. Rest $2 \\to -1$.\n**Ergebnis:** $\\mathrm{i}^{10} = -1$.',
+          '**Aufgabe:** Berechne $\\mathrm{i}^{23}$.\n**Lösung:** $23 = 5\\cdot 4 + 3$, Rest $3$. Rest $3 \\to -\\mathrm{i}$.\n**Ergebnis:** $\\mathrm{i}^{23} = -\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $\\mathrm{i}^{100}$.\n**Lösung:** $100 = 25\\cdot 4 + 0$, Rest $0$. Rest $0 \\to 1$.\n**Ergebnis:** $\\mathrm{i}^{100} = 1$.',
+        ],
+      },
+      {
+        szenario: 'Mit Potenzen von $\\mathrm{i}$ rechnen',
+        beispiele: [
+          '**Aufgabe:** Vereinfache $\\mathrm{i}^5 + \\mathrm{i}^7$.\n**Lösung:** $\\mathrm{i}^5$: Rest $1 \\to \\mathrm{i}$. $\\mathrm{i}^7$: Rest $3 \\to -\\mathrm{i}$. Summe $\\mathrm{i} + (-\\mathrm{i})$.\n**Ergebnis:** $\\mathrm{i}^5 + \\mathrm{i}^7 = 0$.',
+          '**Aufgabe:** Vereinfache $\\mathrm{i}^{2} \\cdot \\mathrm{i}^{3}$.\n**Lösung:** Exponenten addieren: $\\mathrm{i}^{2+3} = \\mathrm{i}^5$, Rest $1 \\to \\mathrm{i}$. (Probe: $(-1)\\cdot(-\\mathrm{i}) = \\mathrm{i}$.)\n**Ergebnis:** $\\mathrm{i}$.',
+          '**Aufgabe:** Berechne $\\dfrac{1}{\\mathrm{i}}$.\n**Lösung:** Mit $\\mathrm{i}$ erweitern: $\\frac{1}{\\mathrm{i}}\\cdot\\frac{\\mathrm{i}}{\\mathrm{i}} = \\frac{\\mathrm{i}}{\\mathrm{i}^2} = \\frac{\\mathrm{i}}{-1}$.\n**Ergebnis:** $\\frac{1}{\\mathrm{i}} = -\\mathrm{i}$.',
+        ],
+      },
+    ],
   },
   {
+    id: 'nte-wurzeln',
     titel: '$n$-te Wurzeln & Drehung',
     inhalt:
       '**Worum geht es?**\n' +
@@ -280,8 +563,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '• mal $e^{-\\mathrm{i}\\varphi}$:  Drehung um $\\varphi$ im Uhrzeigersinn\n' +
       '• mal $\\mathrm{i}$:  Drehung um $\\frac{\\pi}{2}$ ($90°$) gegen den Uhrzeigersinn\n' +
       '• mal $-\\mathrm{i}$:  Drehung um $\\frac{\\pi}{2}$ ($90°$) im Uhrzeigersinn',
+    beispiele: [
+      {
+        szenario: '$n$-te Einheitswurzeln ($z^n = 1$)',
+        beispiele: [
+          '**Aufgabe:** Löse $z^4 = 1$.\n**Lösung:** $1 = 1\\cdot e^{\\mathrm{i}\\cdot 0}$, also $r = 1$, $\\varphi = 0$. Lösungen $z_k = e^{\\mathrm{i}\\,2\\pi k/4}$ für $k=0,1,2,3$: Winkel $0, \\frac{\\pi}{2}, \\pi, \\frac{3\\pi}{2}$.\n**Ergebnis:** $z = 1,\\ \\mathrm{i},\\ -1,\\ -\\mathrm{i}$.',
+          '**Aufgabe:** Löse $z^3 = 1$.\n**Lösung:** $r = 1$, $\\varphi = 0$. $z_k = e^{\\mathrm{i}\\,2\\pi k/3}$, $k=0,1,2$: Winkel $0, \\frac{2\\pi}{3}, \\frac{4\\pi}{3}$.\n**Ergebnis:** $z = 1,\\ -\\frac{1}{2}+\\frac{\\sqrt{3}}{2}\\mathrm{i},\\ -\\frac{1}{2}-\\frac{\\sqrt{3}}{2}\\mathrm{i}$.',
+          '**Aufgabe:** Löse $z^2 = 1$.\n**Lösung:** $r = 1$, $\\varphi = 0$. $z_k = e^{\\mathrm{i}\\,2\\pi k/2}$, $k=0,1$: Winkel $0$ und $\\pi$.\n**Ergebnis:** $z = 1$ und $z = -1$.',
+        ],
+      },
+      {
+        szenario: 'Wurzeln aus einer beliebigen Zahl ($z^n = w$)',
+        beispiele: [
+          '**Aufgabe:** Löse $z^3 = 8$.\n**Lösung:** $8 = 8\\,e^{\\mathrm{i}\\cdot 0}$, also $r = 8$, $\\varphi = 0$. Länge $8^{1/3} = 2$, Winkel $\\frac{2\\pi k}{3}$, $k=0,1,2$.\n**Ergebnis:** $z = 2,\\ -1+\\sqrt{3}\\,\\mathrm{i},\\ -1-\\sqrt{3}\\,\\mathrm{i}$.',
+          '**Aufgabe:** Löse $z^2 = \\mathrm{i}$.\n**Lösung:** $\\mathrm{i} = 1\\cdot e^{\\mathrm{i}\\pi/2}$, $r = 1$, $\\varphi = \\frac{\\pi}{2}$. Länge $1$, Winkel $\\frac{\\pi/2 + 2\\pi k}{2}$: $\\frac{\\pi}{4}$ und $\\frac{5\\pi}{4}$.\n**Ergebnis:** $z = \\frac{\\sqrt{2}}{2}+\\frac{\\sqrt{2}}{2}\\mathrm{i}$ und $z = -\\frac{\\sqrt{2}}{2}-\\frac{\\sqrt{2}}{2}\\mathrm{i}$.',
+          '**Aufgabe:** Löse $z^2 = -9$.\n**Lösung:** $-9 = 9\\,e^{\\mathrm{i}\\pi}$, $r = 9$, $\\varphi = \\pi$. Länge $\\sqrt{9} = 3$, Winkel $\\frac{\\pi + 2\\pi k}{2}$: $\\frac{\\pi}{2}$ und $\\frac{3\\pi}{2}$.\n**Ergebnis:** $z = 3\\mathrm{i}$ und $z = -3\\mathrm{i}$.',
+        ],
+      },
+      {
+        szenario: 'Drehen durch Multiplikation',
+        beispiele: [
+          '**Aufgabe:** Drehe $z = 2$ um $90°$ gegen den Uhrzeigersinn.\n**Lösung:** $90°$ gegen den Uhrzeigersinn = mal $\\mathrm{i}$: $2 \\cdot \\mathrm{i}$.\n**Ergebnis:** $2\\mathrm{i}$ (der Punkt $(2,0)$ wandert nach $(0,2)$).',
+          '**Aufgabe:** Drehe $z = 1 + \\mathrm{i}$ um $90°$ gegen den Uhrzeigersinn.\n**Lösung:** Mal $\\mathrm{i}$: $(1+\\mathrm{i})\\cdot\\mathrm{i} = \\mathrm{i} + \\mathrm{i}^2 = \\mathrm{i} - 1$.\n**Ergebnis:** $-1 + \\mathrm{i}$.',
+          '**Aufgabe:** Drehe $z = 3\\mathrm{i}$ um $90°$ im Uhrzeigersinn.\n**Lösung:** $90°$ im Uhrzeigersinn = mal $-\\mathrm{i}$: $3\\mathrm{i}\\cdot(-\\mathrm{i}) = -3\\mathrm{i}^2 = 3$.\n**Ergebnis:** $3$ (der Punkt $(0,3)$ wandert nach $(3,0)$).',
+        ],
+      },
+    ],
   },
   {
+    id: 'folgen-konvergenz',
     titel: 'Konvergenz & Divergenz von Folgen',
     inhalt:
       '**Worum geht es?**\n' +
@@ -318,10 +628,37 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Nützliches Werkzeug**\n' +
       'Für Potenzfolgen $r^n$ (reell oder komplex) entscheidet der Betrag $|r|$: bei $|r| < 1$ gilt $r^n \\to 0$; bei $|r| > 1$ divergiert die Folge; bei $|r| = 1$ bleibt der Betrag $1$, aber die Folge kann sich weiterdrehen und divergieren.',
+    beispiele: [
+      {
+        szenario: 'Grenzwert eines Bruchterms bestimmen',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\lim_{n\\to\\infty} \\frac{1}{n}$.\n**Lösung:** Mit wachsendem $n$ wird $\\frac{1}{n}$ immer kleiner ($1, 0{,}5, 0{,}33, \\ldots$) und kommt der $0$ beliebig nahe.\n**Ergebnis:** Grenzwert $0$, die Folge ist konvergent.',
+          '**Aufgabe:** Bestimme $\\lim_{n\\to\\infty} \\frac{2n+1}{n}$.\n**Lösung:** Umformen: $\\frac{2n+1}{n} = 2 + \\frac{1}{n}$. Der Anteil $\\frac{1}{n} \\to 0$.\n**Ergebnis:** Grenzwert $2$, konvergent.',
+          '**Aufgabe:** Bestimme $\\lim_{n\\to\\infty} \\frac{3n^2}{n^2+1}$.\n**Lösung:** Zähler und Nenner durch $n^2$ teilen: $\\frac{3}{1 + 1/n^2}$. Der Term $\\frac{1}{n^2} \\to 0$, also $\\frac{3}{1+0}$.\n**Ergebnis:** Grenzwert $3$, konvergent.',
+        ],
+      },
+      {
+        szenario: 'Konvergenz oder Divergenz entscheiden',
+        beispiele: [
+          '**Aufgabe:** Konvergiert $a_n = (-1)^n$?\n**Lösung:** Die Glieder sind $-1, 1, -1, 1, \\ldots$ Sie pendeln und nähern sich keinem festen Wert.\n**Ergebnis:** Divergent (kein Grenzwert).',
+          '**Aufgabe:** Konvergiert $a_n = \\frac{(-1)^n}{n}$?\n**Lösung:** Die Glieder sind $-1, \\frac{1}{2}, -\\frac{1}{3}, \\ldots$ Der Abstand zur $0$ ist $\\frac{1}{n} \\to 0$, das Vorzeichen ändert daran nichts.\n**Ergebnis:** Konvergent mit Grenzwert $0$.',
+          '**Aufgabe:** Konvergiert $a_n = n^2$?\n**Lösung:** Die Glieder $1, 4, 9, 16, \\ldots$ wachsen über alle Grenzen.\n**Ergebnis:** Divergent (bestimmt divergent gegen $+\\infty$).',
+        ],
+      },
+      {
+        szenario: 'Potenzfolgen $r^n$ über den Betrag',
+        beispiele: [
+          '**Aufgabe:** Konvergiert $a_n = \\left(\\frac{1}{2}\\right)^n$?\n**Lösung:** Betrag $|r| = \\frac{1}{2} < 1$, daher $r^n \\to 0$. Glieder $\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{8}, \\ldots$\n**Ergebnis:** Konvergent mit Grenzwert $0$.',
+          '**Aufgabe:** Konvergiert $a_n = 2^n$?\n**Lösung:** Betrag $|r| = 2 > 1$, daher wächst $r^n$ über alle Grenzen ($2, 4, 8, \\ldots$).\n**Ergebnis:** Divergent.',
+          '**Aufgabe:** Konvergiert $z_n = \\left(\\frac{1}{2}+\\frac{1}{2}\\mathrm{i}\\right)^n$?\n**Lösung:** Betrag $\\left|\\frac{1}{2}+\\frac{1}{2}\\mathrm{i}\\right| = \\sqrt{\\frac{1}{4}+\\frac{1}{4}} = \\frac{1}{\\sqrt{2}} < 1$, also geht der Betrag gegen $0$.\n**Ergebnis:** Konvergent mit Grenzwert $0$.',
+        ],
+      },
+    ],
   },
 
   // ===== Relationen =====
   {
+    id: 'relationen-eigenschaften',
     titel: 'Relationen – Eigenschaften',
     inhalt:
       '**Worum geht es?**\n' +
@@ -343,8 +680,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Was die Symbole bedeuten**\n' +
       '$\\forall$ heißt „für alle", $\\exists$ „es gibt", $\\Rightarrow$ „daraus folgt", $\\wedge$ „und", $\\neg$ „nicht". $R^{-1}$ ist die Relation mit vertauschten Paaren, $\\emptyset$ die leere Menge.',
+    beispiele: [
+      {
+        szenario: 'Reflexiv / irreflexiv prüfen',
+        beispiele: [
+          '**Aufgabe:** Ist „$\\leq$" auf $\\{1,2,3\\}$ reflexiv?\n**Lösung:** Reflexiv heißt $xRx$ für alle $x$. Hier $1\\leq 1$, $2\\leq 2$, $3\\leq 3$ – alle wahr.\n**Ergebnis:** Ja, reflexiv.',
+          '**Aufgabe:** Ist „$<$" auf $\\{1,2,3\\}$ reflexiv?\n**Lösung:** Es müsste $1<1$ gelten, das ist falsch. Sogar kein einziges $x$ steht zu sich selbst in Beziehung.\n**Ergebnis:** Nicht reflexiv; sie ist sogar irreflexiv.',
+          '**Aufgabe:** Ist $R = \\{(1,1),(2,2)\\}$ auf $M = \\{1,2,3\\}$ reflexiv?\n**Lösung:** Es fehlt das Paar $(3,3)$, also steht $3$ nicht zu sich selbst in Beziehung.\n**Ergebnis:** Nicht reflexiv (und auch nicht irreflexiv, da $(1,1)$ enthalten ist).',
+        ],
+      },
+      {
+        szenario: 'Symmetrie / Antisymmetrie prüfen',
+        beispiele: [
+          '**Aufgabe:** Ist $R = \\{(1,2),(2,1),(3,3)\\}$ symmetrisch?\n**Lösung:** Zu $(1,2)$ ist $(2,1)$ da, zu $(3,3)$ ist es selbst da. Jedes Paar hat sein Gegenstück.\n**Ergebnis:** Ja, symmetrisch.',
+          '**Aufgabe:** Ist „$\\leq$" auf $\\mathbb{Z}$ antisymmetrisch?\n**Lösung:** Gilt $x \\leq y$ und $y \\leq x$, so muss $x = y$ sein. Genau das ist Antisymmetrie.\n**Ergebnis:** Ja, antisymmetrisch.',
+          '**Aufgabe:** Ist $R = \\{(1,2),(2,1)\\}$ auf $\\{1,2\\}$ antisymmetrisch?\n**Lösung:** Es gilt $1R2$ und $2R1$, aber $1 \\neq 2$. Die Bedingung wird verletzt.\n**Ergebnis:** Nicht antisymmetrisch (aber symmetrisch).',
+        ],
+      },
+      {
+        szenario: 'Transitivität prüfen',
+        beispiele: [
+          '**Aufgabe:** Ist „$<$" auf $\\mathbb{Z}$ transitiv?\n**Lösung:** Aus $x < y$ und $y < z$ folgt $x < z$. Beispiel: $1 < 2$ und $2 < 5$ ergibt $1 < 5$.\n**Ergebnis:** Ja, transitiv.',
+          '**Aufgabe:** Ist $R = \\{(1,2),(2,3)\\}$ auf $\\{1,2,3\\}$ transitiv?\n**Lösung:** Es gilt $1R2$ und $2R3$, also müsste $1R3$ enthalten sein – ist es aber nicht.\n**Ergebnis:** Nicht transitiv (es fehlt $(1,3)$).',
+          '**Aufgabe:** Ist $R = \\{(1,2),(2,3),(1,3)\\}$ auf $\\{1,2,3\\}$ transitiv?\n**Lösung:** Die einzige Kette ist $1R2$ und $2R3$; die nötige Abkürzung $(1,3)$ ist vorhanden.\n**Ergebnis:** Ja, transitiv.',
+        ],
+      },
+    ],
   },
   {
+    id: 'aequivalenz-ordnung',
     titel: 'Äquivalenzrelationen & Ordnungsrelationen',
     inhalt:
       '**Worum geht es?**\n' +
@@ -366,8 +730,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '**Klassische Beispiele**\n' +
       '• Teilbarkeit auf $\\mathbb{N}^*$: partielle Ordnung (nicht jede zwei Zahlen teilen einander).\n' +
       '• Lexikographische Ordnung auf $\\mathbb{R}^2$ (wie im Wörterbuch, erst die erste Koordinate): totale Ordnung.',
+    beispiele: [
+      {
+        szenario: 'Äquivalenzrelation prüfen',
+        beispiele: [
+          '**Aufgabe:** Ist „$=$" auf $\\mathbb{Z}$ eine Äquivalenzrelation?\n**Lösung:** Reflexiv ($x=x$), symmetrisch ($x=y \\Rightarrow y=x$), transitiv ($x=y, y=z \\Rightarrow x=z$). Alle drei erfüllt.\n**Ergebnis:** Ja, Gleichheit ist die einfachste Äquivalenzrelation.',
+          '**Aufgabe:** Ist „kongruent modulo $3$" auf $\\mathbb{Z}$ eine Äquivalenzrelation?\n**Lösung:** $x \\equiv x$ (Rest gleich), Symmetrie und Transitivität der Restgleichheit gelten. Alle drei Eigenschaften erfüllt.\n**Ergebnis:** Ja; sie zerlegt $\\mathbb{Z}$ in die drei Klassen der Reste $0, 1, 2$.',
+          '**Aufgabe:** Ist „$\\leq$" auf $\\mathbb{Z}$ eine Äquivalenzrelation?\n**Lösung:** Reflexiv und transitiv ja, aber symmetrisch nein: $1 \\leq 2$, aber nicht $2 \\leq 1$.\n**Ergebnis:** Nein (Symmetrie fehlt).',
+        ],
+      },
+      {
+        szenario: 'Äquivalenzklassen bestimmen',
+        beispiele: [
+          '**Aufgabe:** Bestimme die Klassen von „kongruent modulo $2$" auf $\\mathbb{Z}$.\n**Lösung:** Zwei Zahlen sind äquivalent, wenn sie denselben Rest bei Teilung durch $2$ haben (gerade oder ungerade).\n**Ergebnis:** Zwei Klassen: $[0] = $ gerade Zahlen, $[1] = $ ungerade Zahlen.',
+          '**Aufgabe:** Bestimme $[2]$ für „kongruent modulo $3$" auf $\\mathbb{Z}$.\n**Lösung:** Alle Zahlen mit Rest $2$ bei Teilung durch $3$: $\\ldots, -1, 2, 5, 8, \\ldots$\n**Ergebnis:** $[2] = \\{3k + 2 : k \\in \\mathbb{Z}\\}$.',
+          '**Aufgabe:** Wie viele Klassen hat „kongruent modulo $5$" auf $\\mathbb{Z}$?\n**Lösung:** Jeder Rest $0,1,2,3,4$ bildet eine eigene Klasse; alle Klassen zusammen ergeben eine Partition von $\\mathbb{Z}$.\n**Ergebnis:** Genau $5$ Klassen.',
+        ],
+      },
+      {
+        szenario: 'Ordnung prüfen (partiell / total)',
+        beispiele: [
+          '**Aufgabe:** Ist „$\\leq$" auf $\\mathbb{R}$ eine totale Ordnung?\n**Lösung:** Reflexiv, antisymmetrisch, transitiv – also partielle Ordnung. Zusätzlich sind je zwei Zahlen vergleichbar ($x \\leq y$ oder $y \\leq x$).\n**Ergebnis:** Ja, totale Ordnung.',
+          '**Aufgabe:** Ist die Teilbarkeit „$a \\mid b$" auf $\\mathbb{N}^*$ eine totale Ordnung?\n**Lösung:** Sie ist reflexiv, antisymmetrisch und transitiv (partielle Ordnung). Aber $2$ und $3$ sind unvergleichbar: weder $2 \\mid 3$ noch $3 \\mid 2$.\n**Ergebnis:** Nur partielle Ordnung, nicht total.',
+          '**Aufgabe:** Ist „$<$" auf $\\mathbb{R}$ eine partielle Ordnung?\n**Lösung:** Eine partielle Ordnung muss reflexiv sein, aber $x < x$ ist nie wahr.\n**Ergebnis:** Nein (Reflexivität fehlt); „$<$" ist eine strikte Ordnung.',
+        ],
+      },
+    ],
   },
   {
+    id: 'relationen-verkettung',
     titel: 'Relationen – Verkettung & Hüllen',
     inhalt:
       '**Worum geht es?**\n' +
@@ -390,10 +781,37 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Kleinste Äquivalenzrelation, die $S$ enthält**\n' +
       'Nacheinander die reflexive, dann die symmetrische, dann die transitive Hülle bilden. Das Ergebnis ist reflexiv, symmetrisch und transitiv – also eine Äquivalenzrelation – und so klein wie möglich.',
+    beispiele: [
+      {
+        szenario: 'Umkehrrelation bilden',
+        beispiele: [
+          '**Aufgabe:** Bestimme $R^{-1}$ für $R = \\{(1,2),(2,3)\\}$.\n**Lösung:** Jedes Paar umdrehen: $(1,2) \\to (2,1)$, $(2,3) \\to (3,2)$.\n**Ergebnis:** $R^{-1} = \\{(2,1),(3,2)\\}$.',
+          '**Aufgabe:** Bestimme $R^{-1}$ für die Relation „$<$" auf $\\{1,2,3\\}$.\n**Lösung:** „$<$" enthält $(1,2),(1,3),(2,3)$. Umdrehen liefert die Relation „$>$".\n**Ergebnis:** $R^{-1} = \\{(2,1),(3,1),(3,2)\\}$, also „$>$".',
+          '**Aufgabe:** Was ist $R^{-1}$, wenn $R$ symmetrisch ist (z. B. $R = \\{(1,2),(2,1)\\}$)?\n**Lösung:** Bei symmetrischen Relationen ist zu jedem Paar das umgekehrte schon da, also $R^{-1} = R$.\n**Ergebnis:** $R^{-1} = \\{(1,2),(2,1)\\} = R$.',
+        ],
+      },
+      {
+        szenario: 'Verkettung $S \\circ R$ berechnen',
+        beispiele: [
+          '**Aufgabe:** Bestimme $S \\circ R$ für $R = \\{(1,2)\\}$, $S = \\{(2,3)\\}$.\n**Lösung:** Von rechts nach links: $1 \\xrightarrow{R} 2 \\xrightarrow{S} 3$. Zwischenelement $b = 2$ verbindet.\n**Ergebnis:** $S \\circ R = \\{(1,3)\\}$.',
+          '**Aufgabe:** Bestimme $S \\circ R$ für $R = \\{(1,2),(1,3)\\}$, $S = \\{(2,4),(3,5)\\}$.\n**Lösung:** $1 \\to 2 \\to 4$ ergibt $(1,4)$; $1 \\to 3 \\to 5$ ergibt $(1,5)$.\n**Ergebnis:** $S \\circ R = \\{(1,4),(1,5)\\}$.',
+          '**Aufgabe:** Bestimme $R \\circ R$ (also $R^2$) für $R = \\{(1,2),(2,3)\\}$.\n**Lösung:** Wege der Länge $2$: $1 \\to 2 \\to 3$ ergibt $(1,3)$. Andere Verkettungen gibt es nicht.\n**Ergebnis:** $R^2 = \\{(1,3)\\}$.',
+        ],
+      },
+      {
+        szenario: 'Hüllen bilden',
+        beispiele: [
+          '**Aufgabe:** Reflexive Hülle von $R = \\{(1,2)\\}$ auf $M = \\{1,2\\}$.\n**Lösung:** $R \\cup I_M$ mit $I_M = \\{(1,1),(2,2)\\}$. Die fehlenden Selbstpaare ergänzen.\n**Ergebnis:** $\\{(1,2),(1,1),(2,2)\\}$.',
+          '**Aufgabe:** Symmetrische Hülle von $R = \\{(1,2),(2,3)\\}$.\n**Lösung:** $R \\cup R^{-1}$ mit $R^{-1} = \\{(2,1),(3,2)\\}$. Zu jedem Paar das umgekehrte hinzufügen.\n**Ergebnis:** $\\{(1,2),(2,3),(2,1),(3,2)\\}$.',
+          '**Aufgabe:** Transitive Hülle von $R = \\{(1,2),(2,3)\\}$.\n**Lösung:** Aus $1\\to 2 \\to 3$ ergänzen wir $(1,3)$. Danach entstehen keine neuen Abkürzungen mehr.\n**Ergebnis:** $\\{(1,2),(2,3),(1,3)\\}$.',
+        ],
+      },
+    ],
   },
 
   // ===== Gruppen =====
   {
+    id: 'gruppenaxiome',
     titel: 'Gruppenaxiome',
     inhalt:
       '**Worum geht es?**\n' +
@@ -413,8 +831,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Praxis-Tipp für Teilmengen von $(\\mathbb{Z}, +)$**\n' +
       'Liegt $G$ innerhalb der ganzen Zahlen mit der Addition, ist die Assoziativität automatisch erfüllt. Dann musst du nur prüfen: Enthält $G$ die $0$? Liegt mit $a, b$ auch $a+b$ in $G$? Liegt mit $a$ auch $-a$ in $G$?',
+    beispiele: [
+      {
+        szenario: 'Ist es eine Gruppe? (Axiome durchgehen)',
+        beispiele: [
+          '**Aufgabe:** Ist $(\\mathbb{Z}, +)$ eine Gruppe?\n**Lösung:** Abgeschlossen (Summe ganzer Zahlen ist ganz), assoziativ, Neutralelement $0$, Inverses zu $a$ ist $-a$.\n**Ergebnis:** Ja, $(\\mathbb{Z}, +)$ ist sogar eine abelsche Gruppe.',
+          '**Aufgabe:** Ist $(\\mathbb{N}, +)$ eine Gruppe?\n**Lösung:** Abgeschlossen und assoziativ, Neutralelement $0$. Aber zu $a = 3$ fehlt das Inverse $-3$, denn $-3 \\notin \\mathbb{N}$.\n**Ergebnis:** Nein (keine Inversen).',
+          '**Aufgabe:** Ist $(\\mathbb{Q}\\setminus\\{0\\}, \\cdot)$ eine Gruppe?\n**Lösung:** Produkt zweier von $0$ verschiedener Brüche ist wieder so einer (abgeschlossen), assoziativ, Neutralelement $1$, Inverses zu $a$ ist $\\frac{1}{a}$.\n**Ergebnis:** Ja, abelsche Gruppe.',
+        ],
+      },
+      {
+        szenario: 'Neutralelement & Inverses bestimmen',
+        beispiele: [
+          '**Aufgabe:** Neutralelement und Inverses von $5$ in $(\\mathbb{Z}, +)$?\n**Lösung:** Bei der Addition ist das Neutralelement $0$ (ändert nichts), das Inverse macht die Summe $0$: $5 + (-5) = 0$.\n**Ergebnis:** Neutralelement $0$, Inverses $-5$.',
+          '**Aufgabe:** Neutralelement und Inverses von $4$ in $((0,\\infty), \\cdot)$?\n**Lösung:** Bei der Multiplikation ist das Neutralelement $1$, das Inverse erfüllt $4 \\cdot x = 1$, also $x = \\frac{1}{4}$.\n**Ergebnis:** Neutralelement $1$, Inverses $\\frac{1}{4}$.',
+          '**Aufgabe:** Inverses von $[2]$ in $(\\mathbb{Z}_5, +)$?\n**Lösung:** Gesucht $[2] + [x] = [0]$, also $x = 5 - 2 = 3$. Probe: $2 + 3 = 5 \\equiv 0$.\n**Ergebnis:** Inverses ist $[3]$.',
+        ],
+      },
+      {
+        szenario: 'Abelsch oder nicht?',
+        beispiele: [
+          '**Aufgabe:** Ist $(\\mathbb{Z}, +)$ abelsch?\n**Lösung:** $a + b = b + a$ gilt für alle ganzen Zahlen, z. B. $3 + 5 = 5 + 3 = 8$.\n**Ergebnis:** Ja, abelsch.',
+          '**Aufgabe:** Ist die Gruppe der invertierbaren $2{\\times}2$-Matrizen $\\mathrm{GL}_2(\\mathbb{R})$ abelsch?\n**Lösung:** Matrizenmultiplikation ist im Allgemeinen nicht kommutativ; man findet leicht $A, B$ mit $AB \\neq BA$.\n**Ergebnis:** Nein, nicht abelsch.',
+          '**Aufgabe:** Ist $((0,\\infty), \\cdot)$ abelsch?\n**Lösung:** $a \\cdot b = b \\cdot a$ gilt für alle positiven reellen Zahlen, z. B. $2 \\cdot 3 = 3 \\cdot 2$.\n**Ergebnis:** Ja, abelsch.',
+        ],
+      },
+    ],
   },
   {
+    id: 'wichtige-gruppen',
     titel: 'Wichtige Gruppen',
     inhalt:
       '**Worum geht es?**\n' +
@@ -434,8 +879,35 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Nützlicher Test: die Cayley-Tafel**\n' +
       'Schreibt man alle Verknüpfungen in eine Tabelle (Cayley-Tafel), muss bei einer Gruppe in jeder Zeile und jeder Spalte jedes Element genau einmal vorkommen (ein „lateinisches Quadrat"). Fehlt oder doppelt sich etwas, ist es keine Gruppe.',
+    beispiele: [
+      {
+        szenario: 'Standardgruppe nachweisen',
+        beispiele: [
+          '**Aufgabe:** Zeige, dass $(2\\mathbb{Z}, +)$ eine Gruppe ist.\n**Lösung:** $2\\mathbb{Z} = \\{\\ldots,-4,-2,0,2,4,\\ldots\\}$. Summe zweier gerader Zahlen ist gerade (abgeschlossen), $0$ ist gerade (Neutralelement), zu $2k$ ist $-2k$ gerade (Inverses), Assoziativität erbt man von $\\mathbb{Z}$.\n**Ergebnis:** Ja, $(2\\mathbb{Z}, +)$ ist eine (abelsche) Gruppe.',
+          '**Aufgabe:** Ist $E = \\{1, \\mathrm{i}, -1, -\\mathrm{i}\\}$ mit $\\cdot$ eine Gruppe?\n**Lösung:** Produkte bleiben in $E$ (z. B. $\\mathrm{i}\\cdot\\mathrm{i} = -1$), Neutralelement $1$, Inverse: $\\mathrm{i}^{-1} = -\\mathrm{i}$, $(-1)^{-1} = -1$. Assoziativität erbt man von $\\mathbb{C}$.\n**Ergebnis:** Ja, die vierten Einheitswurzeln bilden eine Gruppe.',
+          '**Aufgabe:** Ist der Einheitskreis $T = \\{z : |z| = 1\\}$ mit $\\cdot$ eine Gruppe?\n**Lösung:** $|zw| = |z||w| = 1$ (abgeschlossen), $1 \\in T$ (Neutralelement), $z^{-1} = \\overline{z}$ hat ebenfalls Betrag $1$ (Inverses).\n**Ergebnis:** Ja, $T$ ist eine Gruppe.',
+        ],
+      },
+      {
+        szenario: 'Gegenbeispiel begründen',
+        beispiele: [
+          '**Aufgabe:** Ist $(\\mathbb{N}, +)$ eine Gruppe?\n**Lösung:** Suche das verletzte Axiom: zu $a = 1$ fehlt das Inverse $-1 \\notin \\mathbb{N}$.\n**Ergebnis:** Nein – keine Inversen.',
+          '**Aufgabe:** Ist $((0,\\infty), +)$ eine Gruppe?\n**Lösung:** Das Neutralelement der Addition wäre $0$, aber $0 \\notin (0,\\infty)$.\n**Ergebnis:** Nein – Neutralelement fehlt.',
+          '**Aufgabe:** Ist $((-\\infty, 0), \\cdot)$ eine Gruppe?\n**Lösung:** Abgeschlossenheit prüfen: $(-1)\\cdot(-2) = 2 \\notin (-\\infty, 0)$. Das Produkt verlässt die Menge.\n**Ergebnis:** Nein – nicht abgeschlossen.',
+        ],
+      },
+      {
+        szenario: 'Cayley-Tafel-Test',
+        beispiele: [
+          '**Aufgabe:** Prüfe an der Tafel von $(\\mathbb{Z}_3, +)$, ob es eine Gruppe ist.\n**Lösung:** Zeile $[1]$: $[1]+[0]=[1]$, $[1]+[1]=[2]$, $[1]+[2]=[0]$ – jedes Element kommt genau einmal vor. Gleiches in allen Zeilen/Spalten.\n**Ergebnis:** Lateinisches Quadrat → konsistent mit einer Gruppe.',
+          '**Aufgabe:** Warum verrät eine doppelte Eintragung in einer Zeile, dass keine Gruppe vorliegt?\n**Lösung:** Käme ein Element in der Zeile von $a$ zweimal vor, gäbe es $b \\neq c$ mit $a \\star b = a \\star c$; durch Linksmultiplikation mit $a^{-1}$ folgte $b = c$ – Widerspruch.\n**Ergebnis:** In jeder Gruppenzeile steht jedes Element genau einmal.',
+          '**Aufgabe:** Ist eine Tafel mit der Zeile $a: a, a, b$ Teil einer Gruppe?\n**Lösung:** Das Element $a$ taucht in der Zeile doppelt auf, $b$ fehlt – kein lateinisches Quadrat.\n**Ergebnis:** Nein, das kann keine Gruppentafel sein.',
+        ],
+      },
+    ],
   },
   {
+    id: 'symmetrische-gruppe-s3',
     titel: 'Symmetrische Gruppe $S_3$',
     inhalt:
       '**Worum geht es?**\n' +
@@ -448,18 +920,45 @@ export const referenzKarten: ReferenzKarte[] = [
       'Die Elemente sind $\\mathrm{id}$, $(12)$, $(13)$, $(23)$, $(123)$, $(132)$. $(12)$ bedeutet: vertausche $1$ und $2$, lasse $3$ fest. $(123)$ bedeutet: $1 \\to 2$, $2 \\to 3$, $3 \\to 1$ (im Kreis). $\\mathrm{id}$ lässt alles, wie es ist.\n' +
       '\n' +
       '**Verknüpfen (Komposition)**\n' +
-      'Bei $f \\circ g$ wird zuerst $g$ angewandt, dann $f$ (von rechts nach links lesen). Beispiel $(12)\\circ(23)$:\n' +
-      '$1 \\to 1 \\to 2$,  $2 \\to 3 \\to 3$,  $3 \\to 2 \\to 1$. Ergebnis: $(132)$.\n' +
+      'Bei $f \\circ g$ wird zuerst $g$ angewandt, dann $f$ (von rechts nach links lesen). Beispiel $(12)\\circ(23)$ – also erst $(23)$, dann $(12)$:\n' +
+      '$1 \\xrightarrow{(23)} 1 \\xrightarrow{(12)} 2$,  $2 \\xrightarrow{(23)} 3 \\xrightarrow{(12)} 3$,  $3 \\xrightarrow{(23)} 2 \\xrightarrow{(12)} 1$. Ergebnis: $1\\to 2, 2\\to 3, 3\\to 1$, also $(123)$.\n' +
       '\n' +
       '**Inverse Elemente**\n' +
       'Jede Vertauschung zweier Elemente (eine Transposition) ist zu sich selbst invers: zweimal vertauscht ergibt den Ausgangszustand. Bei Dreierzyklen gilt $(123)^{-1} = (132)$ (Pfeile umdrehen).\n' +
       '\n' +
       '**$S_3$ ist nicht kommutativ**\n' +
-      'Die Reihenfolge ändert das Ergebnis: $(12)\\circ(23) = (132)$, aber $(23)\\circ(12) = (123)$. Wegen $(132) \\neq (123)$ ist $S_3$ nicht kommutativ – ein zentrales Merkmal dieser Gruppe.',
+      'Die Reihenfolge ändert das Ergebnis: $(12)\\circ(23) = (123)$, aber $(23)\\circ(12) = (132)$. Wegen $(123) \\neq (132)$ ist $S_3$ nicht kommutativ – ein zentrales Merkmal dieser Gruppe.',
+    beispiele: [
+      {
+        szenario: 'Permutation auf Elemente anwenden',
+        beispiele: [
+          '**Aufgabe:** Wende $(123)$ auf jedes Element von $\\{1,2,3\\}$ an.\n**Lösung:** Der Zyklus $(123)$ schiebt im Kreis: $1\\to 2$, $2\\to 3$, $3\\to 1$.\n**Ergebnis:** $1\\mapsto 2,\\ 2\\mapsto 3,\\ 3\\mapsto 1$.',
+          '**Aufgabe:** Wende $(13)$ auf $\\{1,2,3\\}$ an.\n**Lösung:** Transposition $(13)$ vertauscht $1$ und $3$, lässt $2$ fest.\n**Ergebnis:** $1\\mapsto 3,\\ 2\\mapsto 2,\\ 3\\mapsto 1$.',
+          '**Aufgabe:** Was macht $\\mathrm{id}$ mit den Elementen?\n**Lösung:** Die Identität lässt alles unverändert.\n**Ergebnis:** $1\\mapsto 1,\\ 2\\mapsto 2,\\ 3\\mapsto 3$.',
+        ],
+      },
+      {
+        szenario: 'Zwei Permutationen verknüpfen (erst rechts, dann links)',
+        beispiele: [
+          '**Aufgabe:** Berechne $(12)\\circ(23)$ (erst $(23)$, dann $(12)$).\n**Lösung:** $1\\xrightarrow{(23)}1\\xrightarrow{(12)}2$; $2\\xrightarrow{(23)}3\\xrightarrow{(12)}3$; $3\\xrightarrow{(23)}2\\xrightarrow{(12)}1$. Also $1\\to 2, 2\\to 3, 3\\to 1$.\n**Ergebnis:** $(12)\\circ(23) = (123)$.',
+          '**Aufgabe:** Berechne $(23)\\circ(12)$ (erst $(12)$, dann $(23)$).\n**Lösung:** $1\\xrightarrow{(12)}2\\xrightarrow{(23)}3$; $2\\xrightarrow{(12)}1\\xrightarrow{(23)}1$; $3\\xrightarrow{(12)}3\\xrightarrow{(23)}2$. Also $1\\to 3, 2\\to 1, 3\\to 2$.\n**Ergebnis:** $(23)\\circ(12) = (132)$ – anders als oben, $S_3$ ist nicht kommutativ.',
+          '**Aufgabe:** Berechne $(123)\\circ(123)$.\n**Lösung:** Zweimal im Kreis schieben: $1\\to 2\\to 3$; $2\\to 3\\to 1$; $3\\to 1\\to 2$. Also $1\\to 3, 2\\to 1, 3\\to 2$.\n**Ergebnis:** $(123)^2 = (132)$.',
+        ],
+      },
+      {
+        szenario: 'Inverses bestimmen',
+        beispiele: [
+          '**Aufgabe:** Bestimme das Inverse von $(12)$.\n**Lösung:** Eine Transposition rückgängig machen heißt nochmal vertauschen: $(12)\\circ(12) = \\mathrm{id}$.\n**Ergebnis:** $(12)^{-1} = (12)$ (selbstinvers).',
+          '**Aufgabe:** Bestimme das Inverse von $(123)$.\n**Lösung:** Pfeile umdrehen: aus $1\\to 2\\to 3\\to 1$ wird $1\\to 3, 3\\to 2, 2\\to 1$, also $(132)$. Probe: $(123)\\circ(132) = \\mathrm{id}$.\n**Ergebnis:** $(123)^{-1} = (132)$.',
+          '**Aufgabe:** Bestimme das Inverse von $(132)$.\n**Lösung:** Umkehrung des vorigen Falls: $(132)^{-1} = (123)$.\n**Ergebnis:** $(132)^{-1} = (123)$.',
+        ],
+      },
+    ],
   },
 
   // ===== Restklassen =====
   {
+    id: 'restklassen-zn',
     titel: 'Restklassen $\\mathbb{Z}_n$',
     inhalt:
       '**Worum geht es?**\n' +
@@ -485,5 +984,31 @@ export const referenzKarten: ReferenzKarte[] = [
       '\n' +
       '**Kürzen und Untergruppen**\n' +
       'Kürzen ist nur erlaubt, wenn der Kürzungsfaktor teilerfremd zu $n$ ist, also $\\mathrm{ggT}(\\text{Faktor}, n) = 1$. Die von $[k]$ erzeugte Untergruppe ist $\\langle[k]\\rangle = \\{[0],[k],[2k],\\ldots\\}$. Nach dem Satz von Lagrange gibt es $|G|/|H|$ viele Nebenklassen $[j] + H$.',
+    beispiele: [
+      {
+        szenario: 'Addieren & Multiplizieren modulo $n$',
+        beispiele: [
+          '**Aufgabe:** Berechne $[4] + [5]$ in $\\mathbb{Z}_6$.\n**Lösung:** $4 + 5 = 9$, Rest beim Teilen durch $6$: $9 = 1\\cdot 6 + 3$.\n**Ergebnis:** $[4] + [5] = [3]$.',
+          '**Aufgabe:** Berechne $[3] \\cdot [5]$ in $\\mathbb{Z}_7$.\n**Lösung:** $3 \\cdot 5 = 15$, Rest beim Teilen durch $7$: $15 = 2\\cdot 7 + 1$.\n**Ergebnis:** $[3] \\cdot [5] = [1]$.',
+          '**Aufgabe:** Berechne $[7] + [8]$ in $\\mathbb{Z}_{10}$.\n**Lösung:** $7 + 8 = 15$, Rest beim Teilen durch $10$: $15 = 1\\cdot 10 + 5$.\n**Ergebnis:** $[7] + [8] = [5]$.',
+        ],
+      },
+      {
+        szenario: 'Negative Reste & additives Inverses',
+        beispiele: [
+          '**Aufgabe:** Schreibe $[-3]$ in $\\mathbb{Z}_7$ mit Vertreter in $\\{0,\\ldots,6\\}$.\n**Lösung:** $-3 + 7 = 4$.\n**Ergebnis:** $[-3] = [4]$.',
+          '**Aufgabe:** Bestimme das additive Inverse von $[3]$ in $\\mathbb{Z}_8$.\n**Lösung:** Gesucht $[3] + [x] = [0]$, also $x = 8 - 3 = 5$. Probe: $3 + 5 = 8 \\equiv 0$.\n**Ergebnis:** $-[3] = [5]$.',
+          '**Aufgabe:** Bestimme das additive Inverse von $[5]$ in $\\mathbb{Z}_{12}$.\n**Lösung:** $x = 12 - 5 = 7$. Probe: $5 + 7 = 12 \\equiv 0$.\n**Ergebnis:** $-[5] = [7]$.',
+        ],
+      },
+      {
+        szenario: 'Ordnung eines Elements bestimmen',
+        beispiele: [
+          '**Aufgabe:** Bestimme $\\mathrm{ord}([4])$ in $(\\mathbb{Z}_6, +)$.\n**Lösung:** $\\mathrm{ord}([k]) = \\frac{n}{\\mathrm{ggT}(k,n)} = \\frac{6}{\\mathrm{ggT}(4,6)} = \\frac{6}{2}$. Probe: $4, 8\\equiv 2, 12\\equiv 0$ – drei Schritte.\n**Ergebnis:** $\\mathrm{ord}([4]) = 3$.',
+          '**Aufgabe:** Bestimme $\\mathrm{ord}([3])$ in $(\\mathbb{Z}_{12}, +)$.\n**Lösung:** $\\frac{12}{\\mathrm{ggT}(3,12)} = \\frac{12}{3} = 4$. Probe: $3, 6, 9, 12\\equiv 0$.\n**Ergebnis:** $\\mathrm{ord}([3]) = 4$.',
+          '**Aufgabe:** Bestimme $\\mathrm{ord}([2])$ in $(\\mathbb{Z}_{10}, +)$.\n**Lösung:** $\\frac{10}{\\mathrm{ggT}(2,10)} = \\frac{10}{2} = 5$. Probe: $2,4,6,8,10\\equiv 0$.\n**Ergebnis:** $\\mathrm{ord}([2]) = 5$.',
+        ],
+      },
+    ],
   },
 ]
