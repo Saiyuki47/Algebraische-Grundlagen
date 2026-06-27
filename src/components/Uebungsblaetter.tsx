@@ -1,16 +1,20 @@
 import { useState, type CSSProperties } from 'react'
-import { useDoneTracker } from 'lernseiten-ui'
+import { useDoneTracker, useTaskDeepLink, getHashDetail } from 'lernseiten-ui'
 import { uebungsblaetter } from '../data/uebungsblaetter'
 import { aufgaben } from '../data/aufgaben'
 import MathText from './MathText'
 import GraphDisplay from './Graphs'
 
 export default function Uebungsblaetter() {
-  const [selectedId, setSelectedId] = useState(uebungsblaetter[0]?.id ?? '')
+  const [selectedId, setSelectedId] = useState(() => {
+    const b = getHashDetail().blatt
+    return b && uebungsblaetter.some(x => x.id === b) ? b : (uebungsblaetter[0]?.id ?? '')
+  })
   const [openIds, setOpenIds] = useState<Set<string>>(new Set())
   const [openTipps, setOpenTipps] = useState<Set<string>>(new Set())
   const [openTeilTipps, setOpenTeilTipps] = useState<Set<string>>(new Set())
   const { done, toggle: toggleDone, ratio } = useDoneTracker()
+  const listRef = useTaskDeepLink<HTMLDivElement>(selectedId)
 
   const blatt = uebungsblaetter.find(b => b.id === selectedId)
 
@@ -98,6 +102,7 @@ export default function Uebungsblaetter() {
             </div>
           )}
 
+          <div ref={listRef}>
           {blatt.aufgaben.map(task => {
             const aufgabe = aufgaben.find(a => a.id === task.aufgabeId)
             const key = `${blatt.id}-${task.nr}`
@@ -106,7 +111,7 @@ export default function Uebungsblaetter() {
             const isDone = done.has(key)
 
             return (
-              <div key={key} className="card">
+              <div key={key} className="card" data-aufgabe={String(task.nr)}>
                 <p className="ub-task-nr">Aufgabe {task.nr}</p>
                 {aufgabe ? (
                   <div className="ub-aufgabe-body">
@@ -213,6 +218,7 @@ export default function Uebungsblaetter() {
               </div>
             )
           })}
+          </div>
         </>
       )}
     </div>
