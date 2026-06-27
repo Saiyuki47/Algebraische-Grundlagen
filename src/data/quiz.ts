@@ -1,4 +1,4 @@
-import type { QuizFrage } from '../types'
+import type { QuizFrage } from 'lernseiten-ui'
 
 // Quizfragen für „Algebraische Grundlagen" – Inhalte aus den Übungsblättern 0–7.
 // Mathe als Unicode in Plain-Strings (x², √, ½, ≤, ∈, ⊆, ∪, ∩, ⇒, ⇔, ≠, ·, π …).
