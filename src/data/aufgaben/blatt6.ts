@@ -1,199 +1,382 @@
 import type { Aufgabe } from '../../types'
 
 export const b6: Aufgabe[] = [
+  // ─── Aufgabe 1: Einheitengruppen Z7* und Z8* ──────────────────────────────
   {
     id: 'b6_a1',
-    titel: 'Einheitengruppen $\\mathbb{Z}_7^*$ und $\\mathbb{Z}_8^*$ – Inverse',
-    aufgabeText:
-      'Geben Sie zunächst alle Elemente von $\\mathbb{Z}_7^*$ und $\\mathbb{Z}_8^*$ an. Geben Sie anschließend jeweils die zugehörigen Inversen bezüglich der üblichen Multiplikation in $\\mathbb{Z}_7^*$ bzw. $\\mathbb{Z}_8^*$ an.',
+    titel: 'Einheitengruppen $\\mathbb{Z}_7^*$ und $\\mathbb{Z}_8^*$ und ihre Inversen',
+    aufgabeText: 'Geben Sie zunächst alle Elemente von $\\mathbb{Z}_7^*$ und $\\mathbb{Z}_8^*$ an. Geben Sie anschließend jeweils die zugehörigen Inversen bezüglich der üblichen Multiplikation in $\\mathbb{Z}_7^*$ bzw. $\\mathbb{Z}_8^*$ an.',
     tippSections: [
       {
         icon: '💡',
-        titel: 'Konzept verstehen',
+        titel: 'Was ist $\\mathbb{Z}_n^*$?',
         inhalt:
-          'Die **Einheitengruppe** $\\mathbb{Z}_n^*$ besteht aus allen Restklassen $[a] \\in \\mathbb{Z}_n$, die bezüglich der Multiplikation ein Inverses besitzen.\n\nEs gilt: $[a] \\in \\mathbb{Z}_n^*$ genau dann, wenn $\\text{ggT}(a, n) = 1$ (also $a$ und $n$ teilerfremd sind).\n\nIst $n = p$ eine **Primzahl**, so sind alle Restklassen außer $[0]$ teilerfremd zu $p$, also $\\mathbb{Z}_p^* = \\{[1], [2], \\ldots, [p-1]\\}$.\n\nDas **multiplikative Inverse** $[a]^{-1}$ ist die Restklasse $[b]$ mit $[a] \\cdot [b] = [1]$.',
+          '$\\mathbb{Z}_n^*$ (die Einheitengruppe) ist die Menge aller Restklassen $[a]$ in $\\mathbb{Z}_n$, die bezüglich der Multiplikation ein Inverses besitzen.\n\n' +
+          'Kriterium: $[a]$ ist genau dann invertierbar, wenn $\\mathrm{ggT}(a, n) = 1$ (also $a$ und $n$ teilerfremd sind).\n\n' +
+          'Die $[0]$ ist nie dabei.',
       },
       {
         icon: '🔍',
-        titel: 'Vorgehensweise',
+        titel: 'Elemente bestimmen',
         inhalt:
-          '**Schritt 1 – Elemente bestimmen**: Prüfen Sie für jedes $a \\in \\{1, \\ldots, n-1\\}$, ob $\\text{ggT}(a, n) = 1$. Nur diese Restklassen gehören zu $\\mathbb{Z}_n^*$.\n\n**Schritt 2 – Inverse finden**: Suchen Sie zu jedem $[a]$ ein $[b]$ mit $[a][b] = [1]$. Bei kleinem $n$ können Sie einfach alle Produkte durchprobieren.\n\n**Schritt 3 – Probe**: Rechnen Sie $[a][b]$ aus und reduzieren Sie modulo $n$ – das Ergebnis muss $[1]$ sein.\n\nTipp: Inverse treten paarweise auf ($[a]^{-1} = [b] \\Leftrightarrow [b]^{-1} = [a]$); selbstinverse Elemente erfüllen $[a]^2 = [1]$.',
+          '$\\mathbb{Z}_7$: Da $7$ eine Primzahl ist, sind ALLE Zahlen $1$ bis $6$ teilerfremd zu $7$. Also $\\mathbb{Z}_7^* = \\{[1],[2],[3],[4],[5],[6]\\}$.\n\n' +
+          '$\\mathbb{Z}_8$: teilerfremd zu $8 = 2^3$ sind nur die ungeraden Zahlen. Also $\\mathbb{Z}_8^* = \\{[1],[3],[5],[7]\\}$.',
       },
       {
         icon: '📝',
-        titel: 'Syntax / Beispiel',
+        titel: 'Inverse finden (Ausprobieren)',
         inhalt:
-          'Beispiel $\\mathbb{Z}_5^*$ ($5$ ist prim): $\\mathbb{Z}_5^* = \\{[1], [2], [3], [4]\\}$.\n\n$[2]^{-1} = [3]$, denn $[2][3] = [6] = [1]$\n$[4]^{-1} = [4]$, denn $[4][4] = [16] = [1]$\n\nBeispiel $\\mathbb{Z}_6^*$ ($6$ nicht prim): teilerfremd zu $6$ sind nur $a \\in \\{1, 5\\}$, also $\\mathbb{Z}_6^* = \\{[1], [5]\\}$.\n\n$[5]^{-1} = [5]$, denn $[5][5] = [25] = [1]$',
+          'Das Inverse von $[a]$ ist die Restklasse $[b]$ mit $[a][b] = [1]$. Bei kleinen Mengen probiert man durch:\n\n' +
+          'In $\\mathbb{Z}_7$: $[2][4] = [8] = [1]$, also $[2]^{-1} = [4]$.\n' +
+          'In $\\mathbb{Z}_8$: $[3][3] = [9] = [1]$, also $[3]^{-1} = [3]$ (selbstinvers).',
       },
       {
         icon: '⚠️',
-        titel: 'Häufige Fehler',
+        titel: 'Auffälligkeit in $\\mathbb{Z}_8^*$',
         inhalt:
-          '• **$[0]$ aufnehmen**: $[0]$ ist nie invertierbar und gehört nie zu $\\mathbb{Z}_n^*$.\n\n• **Nicht-teilerfremde Klassen aufnehmen**: In $\\mathbb{Z}_8^*$ fehlen $[2], [4], [6]$, da $\\text{ggT}(2,8) = 2 \\neq 1$ usw. Also $\\mathbb{Z}_8^* = \\{[1], [3], [5], [7]\\}$.\n\n• **Reduktion vergessen**: $[3][5] = [15]$ muss noch zu $[15 \\bmod 7] = [1]$ reduziert werden.\n\n• **Additives statt multiplikatives Inverses**: Gesucht ist $[a][b] = [1]$, nicht $[a] + [b] = [0]$.',
+          '• In $\\mathbb{Z}_8^*$ ist JEDES Element zu sich selbst invers ($[a]^2 = [1]$). Das ist eine Besonderheit dieser Gruppe.',
       },
     ],
     loesung:
-      'Es ist $\\mathbb{Z}_7^* = \\{[1], [2], [3], [4], [5], [6]\\}$ und $\\mathbb{Z}_8^* = \\{[1], [3], [5], [7]\\}$.\n\n' +
-      'In $\\mathbb{Z}_7^*$ ist\n' +
-      '$[1]^{-1} = [1]$, denn $[1][1] = [1]$\n' +
-      '$[2]^{-1} = [4]$, denn $[2][4] = [8] = [1]$\n' +
-      '$[3]^{-1} = [5]$, denn $[3][5] = [15] = [1]$\n' +
-      '$[4]^{-1} = [2]$, denn $[4][2] = [8] = [1]$\n' +
-      '$[5]^{-1} = [3]$, denn $[5][3] = [15] = [1]$\n' +
-      '$[6]^{-1} = [6]$, denn $[6][6] = [36] = [1]$\n\n' +
-      'und in $\\mathbb{Z}_8^*$ ist\n' +
-      '$[1]^{-1} = [1]$, denn $[1][1] = [1]$\n' +
-      '$[3]^{-1} = [3]$, denn $[3][3] = [9] = [1]$\n' +
-      '$[5]^{-1} = [5]$, denn $[5][5] = [25] = [1]$\n' +
-      '$[7]^{-1} = [7]$, denn $[7][7] = [49] = [1]$.',
+      'Elemente:\n' +
+      '  $\\mathbb{Z}_7^* = \\{[1],[2],[3],[4],[5],[6]\\}$ (7 ist prim → alle außer [0])\n' +
+      '  $\\mathbb{Z}_8^* = \\{[1],[3],[5],[7]\\}$ (nur ungerade, da teilerfremd zu 8)\n\n' +
+      'Inverse in $\\mathbb{Z}_7^*$:\n' +
+      '  $[1]^{-1} = [1]$ (denn $[1][1]=[1]$)\n' +
+      '  $[2]^{-1} = [4]$ (denn $[2][4]=[8]=[1]$)\n' +
+      '  $[3]^{-1} = [5]$ (denn $[3][5]=[15]=[1]$)\n' +
+      '  $[4]^{-1} = [2]$ (denn $[4][2]=[8]=[1]$)\n' +
+      '  $[5]^{-1} = [3]$ (denn $[5][3]=[15]=[1]$)\n' +
+      '  $[6]^{-1} = [6]$ (denn $[6][6]=[36]=[1]$)\n\n' +
+      'Inverse in $\\mathbb{Z}_8^*$ (jedes selbstinvers):\n' +
+      '  $[1]^{-1} = [1]$ (denn $[1][1]=[1]$)\n' +
+      '  $[3]^{-1} = [3]$ (denn $[3][3]=[9]=[1]$)\n' +
+      '  $[5]^{-1} = [5]$ (denn $[5][5]=[25]=[1]$)\n' +
+      '  $[7]^{-1} = [7]$ (denn $[7][7]=[49]=[1]$)',
+    schwierigkeit: 'mittel',
+    kategorie: 'Restklassen',
+  },
+
+  // ─── Aufgabe 2: Invertierbarkeit + euklidischer Algorithmus (a/b) ─────────
+  {
+    id: 'b6_a2a',
+    titel: 'Invertierbarkeit: $[96]$ in $\\mathbb{Z}_{296}$',
+    aufgabeText: 'Ist $[96]$ in $\\mathbb{Z}_{296}$ bezüglich „$\\cdot$" invertierbar? Falls ja, bestimmen Sie das Inverse und geben es in der Form $[k]$ mit $k \\in \\{0, \\ldots, 295\\}$ an.',
+    tippSections: [
+      {
+        icon: '💡',
+        titel: 'Das Invertierbarkeits-Kriterium',
+        inhalt:
+          '$[a]$ ist in $\\mathbb{Z}_n$ genau dann invertierbar, wenn $\\mathrm{ggT}(a, n) = 1$ (teilerfremd). Prüfe also zuerst den größten gemeinsamen Teiler.',
+      },
+      {
+        icon: '🔍',
+        titel: 'Gemeinsamen Teiler suchen',
+        inhalt:
+          'Schau, ob $96$ und $296$ einen gemeinsamen Teiler $> 1$ haben.\n\n' +
+          'Beide Zahlen sind gerade: $96 = 2 \\cdot 48$ und $296 = 2 \\cdot 148$. Also ist $2$ ein gemeinsamer Teiler.',
+      },
+      {
+        icon: '📝',
+        titel: 'Schlussfolgerung',
+        inhalt:
+          'Da $2$ beide Zahlen teilt, ist $\\mathrm{ggT}(96, 296) \\geq 2 \\neq 1$. Damit ist $[96]$ NICHT invertierbar.',
+      },
+      {
+        icon: '⚠️',
+        titel: 'Hinweis',
+        inhalt:
+          '• Vor dem aufwändigen euklidischen Algorithmus lohnt ein schneller Blick: Sind beide Zahlen gerade, ist der ggT mindestens 2 und man ist sofort fertig.',
+      },
+    ],
+    loesung:
+      '$[96]$ ist NICHT invertierbar in $\\mathbb{Z}_{296}$.\n\n' +
+      'Begründung: $2$ teilt sowohl $96$ als auch $296$, also $\\mathrm{ggT}(96, 296) \\geq 2 \\neq 1$. Nur teilerfremde Zahlen sind invertierbar.',
     schwierigkeit: 'einfach',
     kategorie: 'Restklassen',
   },
   {
-    id: 'b6_a2',
-    titel: 'Invertierbarkeit in $\\mathbb{Z}_n$ – euklidischer Algorithmus',
-    aufgabeText:
-      '(a) Ist $[96]$ in $\\mathbb{Z}_{296}$ bezüglich „$\\cdot$" invertierbar? Falls ja, bestimmen Sie das Inverse und geben es in der Form $[k]$ mit $k \\in \\{0, \\ldots, 295\\}$ an.\n' +
-      '(b) Ist $[26]$ in $\\mathbb{Z}_{73}$ bezüglich „$\\cdot$" invertierbar? Falls ja, bestimmen Sie das Inverse und geben es in der Form $[k]$ mit $k \\in \\{0, \\ldots, 72\\}$ an.',
+    id: 'b6_a2b',
+    titel: 'Invertierbarkeit: $[26]$ in $\\mathbb{Z}_{73}$ (euklidischer Algorithmus)',
+    aufgabeText: 'Ist $[26]$ in $\\mathbb{Z}_{73}$ bezüglich „$\\cdot$" invertierbar? Falls ja, bestimmen Sie das Inverse und geben es in der Form $[k]$ mit $k \\in \\{0, \\ldots, 72\\}$ an.',
     tippSections: [
       {
         icon: '💡',
-        titel: 'Konzept verstehen',
+        titel: 'Erst ggT, dann Inverses',
         inhalt:
-          'Eine Restklasse $[a]$ ist in $\\mathbb{Z}_n$ bezüglich der Multiplikation **genau dann invertierbar**, wenn $\\text{ggT}(a, n) = 1$.\n\nDer **erweiterte euklidische Algorithmus** liefert dann ganze Zahlen $s, t$ mit\n$s \\cdot a + t \\cdot n = \\text{ggT}(a, n) = 1$.\n\nModulo $n$ folgt $[s] \\cdot [a] = [1]$, also ist $[a]^{-1} = [s]$.\n\nIst dagegen $\\text{ggT}(a, n) > 1$, so ist $[a]$ **nicht** invertierbar.',
+          'Zwei Schritte:\n' +
+          '1. Mit dem euklidischen Algorithmus den $\\mathrm{ggT}(26, 73)$ bestimmen. Ist er $1$, so ist $[26]$ invertierbar.\n' +
+          '2. Mit dem erweiterten euklidischen Algorithmus (Rückwärtseinsetzen) das Inverse berechnen.\n\n' +
+          'Abkürzung: $73$ ist eine Primzahl, daher sind alle Elemente außer $[0]$ invertierbar.',
       },
       {
         icon: '🔍',
-        titel: 'Vorgehensweise',
+        titel: 'Euklidischer Algorithmus',
         inhalt:
-          '**Schritt 1 – ggT berechnen**: Führen Sie den euklidischen Algorithmus durch (fortlaufende Division mit Rest), bis der Rest $0$ ist. Der letzte Rest $\\neq 0$ ist der ggT.\n\n**Schritt 2 – Invertierbarkeit entscheiden**: Ist der ggT $> 1$, ist $[a]$ nicht invertierbar – fertig. Ist er $1$, geht es weiter.\n\n**Schritt 3 – Rückwärts einsetzen**: Lösen Sie die Gleichungen von unten nach oben nach den Resten auf, bis Sie $1 = s \\cdot a + t \\cdot n$ erhalten.\n\n**Schritt 4 – Inverses ablesen**: $[a]^{-1} = [s]$. Bringen Sie $s$ ggf. durch Addition von $n$ in den Bereich $\\{0, \\ldots, n-1\\}$.',
+          'Man teilt immer die größere durch die kleinere Zahl mit Rest, bis der Rest $0$ ist:\n' +
+          '  (1) $73 = 2 \\cdot 26 + 21$\n' +
+          '  (2) $26 = 1 \\cdot 21 + 5$\n' +
+          '  (3) $21 = 4 \\cdot 5 + 1$\n' +
+          '  (4) $5 = 5 \\cdot 1 + 0$\n\n' +
+          'Der letzte Rest $\\neq 0$ ist $1$, also $\\mathrm{ggT}(26, 73) = 1$ → invertierbar.',
       },
       {
         icon: '📝',
-        titel: 'Syntax / Beispiel',
+        titel: 'Rückwärts einsetzen',
         inhalt:
-          'Inverses von $[3]$ in $\\mathbb{Z}_7$:\n\nEuklid: $7 = 2 \\cdot 3 + 1$ und $3 = 3 \\cdot 1 + 0$, also $\\text{ggT}(3, 7) = 1$.\n\nRückwärts: $1 = 7 - 2 \\cdot 3$, also $-2 \\cdot 3 = 1 - 7$.\n\nDamit ist $[3]^{-1} = [-2] = [-2 + 7] = [5]$.\n\nProbe: $[3][5] = [15] = [1]$ ✓',
+          'Ziel: $1$ als Kombination $\\ldots \\cdot 73 + \\ldots \\cdot 26$ schreiben. Beginne bei Zeile (3) und ersetze die Reste schrittweise:\n' +
+          '  $1 = 21 - 4\\cdot 5$\n' +
+          '  $= 21 - 4(26 - 21) = 5\\cdot 21 - 4\\cdot 26$\n' +
+          '  $= 5(73 - 2\\cdot 26) - 4\\cdot 26 = 5\\cdot 73 - 14\\cdot 26$\n\n' +
+          'Der Faktor vor $26$ ist $-14$ → das Inverse ist $[-14]$.',
       },
       {
         icon: '⚠️',
-        titel: 'Häufige Fehler',
+        titel: 'In den richtigen Bereich bringen',
         inhalt:
-          '• **Gemeinsamen Teiler übersehen**: Ein gemeinsamer Teiler $> 1$ (z.B. beide Zahlen gerade) genügt bereits als Begründung für Nicht-Invertierbarkeit – der volle Algorithmus ist dann nicht nötig.\n\n• **Negatives Inverses stehen lassen**: $[-14]$ muss zu $[-14 + 73] = [59]$ in den Bereich $\\{0, \\ldots, n-1\\}$ gebracht werden.\n\n• **Rechenfehler beim Rückwärtseinsetzen**: Setzen Sie immer den Rest aus der vorigen Zeile ein und fassen Sie sorgfältig zusammen.\n\n• **Primzahl-Abkürzung übersehen**: Ist $n$ prim und $0 < a < n$, ist $[a]$ automatisch invertierbar.',
+          '• $[-14]$ ist negativ. Addiere $73$: $[-14] = [-14 + 73] = [59]$.\n\n' +
+          '• Probe: $[26][59] = [1534]$; $1534 = 21\\cdot 73 + 1$, also $[1]$ ✓',
       },
     ],
     loesung:
-      '**(a)** Da $2$ ein Teiler von $96$ und $296$ ist, ist $\\text{ggT}(96, 296) \\geq 2$, also $\\text{ggT}(96, 296) \\neq 1$. Damit ist $[96]$ nicht invertierbar in $\\mathbb{Z}_{296}$ bezüglich „$\\cdot$".\n\n' +
-      '**(b)** Wir bestimmen zunächst mit dem euklidischen Algorithmus den größten gemeinsamen Teiler von $26$ und $73$:\n' +
-      '(1)  $73 = 2 \\cdot 26 + 21$\n' +
-      '(2)  $26 = 1 \\cdot 21 + 5$\n' +
-      '(3)  $21 = 4 \\cdot 5 + 1$\n' +
-      '(4)  $5 = 5 \\cdot 1 + 0$\n\n' +
-      'und erhalten $\\text{ggT}(26, 73) = 1$. Damit ist $[26]$ in $\\mathbb{Z}_{73}$ invertierbar bezüglich „$\\cdot$". (Man hätte auch überlegen können, dass $73$ eine Primzahl ist und deswegen alle Elemente außer $[0]$ in $\\mathbb{Z}_{73}$ invertierbar sind.)\n\n' +
-      'Nun gehen wir die Rechenschritte in umgekehrter Reihenfolge durch und erhalten\n' +
-      '$1 \\overset{(3)}{=} 21 - 4 \\cdot 5$\n' +
-      '$\\overset{(2)}{=} 21 - 4 \\cdot (26 - 1 \\cdot 21) = 5 \\cdot 21 - 4 \\cdot 26$\n' +
-      '$\\overset{(1)}{=} 5 \\cdot (73 - 2 \\cdot 26) - 4 \\cdot 26 = 5 \\cdot 73 - 14 \\cdot 26$.\n\n' +
+      'Euklidischer Algorithmus:\n' +
+      '  (1) $73 = 2 \\cdot 26 + 21$\n' +
+      '  (2) $26 = 1 \\cdot 21 + 5$\n' +
+      '  (3) $21 = 4 \\cdot 5 + 1$\n' +
+      '  (4) $5 = 5 \\cdot 1 + 0$\n' +
+      'Es ist $\\mathrm{ggT}(26, 73) = 1$, also ist $[26]$ invertierbar (73 ist auch prim).\n\n' +
+      'Rückwärtseinsetzen:\n' +
+      '  $1 = 21 - 4\\cdot 5 = 21 - 4(26 - 1\\cdot 21) = 5\\cdot 21 - 4\\cdot 26 = 5(73 - 2\\cdot 26) - 4\\cdot 26 = 5\\cdot 73 - 14\\cdot 26$\n\n' +
       'Damit ist $[-14] = [-14 + 73] = [59]$ das Inverse zu $[26]$ in $\\mathbb{Z}_{73}$.',
-    schwierigkeit: 'mittel',
-    kategorie: 'Restklassen',
-  },
-  {
-    id: 'b6_a3',
-    titel: 'ISBN-Prüfziffern in $\\mathbb{Z}_{11}$',
-    aufgabeText:
-      'Ergänzen Sie $y \\in \\{0, 1, \\ldots, 10\\}$ und $z \\in \\{0, 1, \\ldots, 9\\}$ in nachfolgenden Nummern jeweils so, dass eine gültige ISBN-Nummer herauskommt.\n' +
-      '(a) 3-528-97217-$y$\n' +
-      '(b) 3-540-$z$7431-9\n\n' +
-      'Erinnerung: $x_{10}x_9x_8x_7\\,x_6x_5x_4x_3x_2\\,x_1$ ist eine gültige ISBN-Nummer, falls in $\\mathbb{Z}_{11}$ gilt $\\left[\\sum_{k=1}^{10} k \\cdot x_k\\right] = [0]$.',
-    tippSections: [
-      {
-        icon: '💡',
-        titel: 'Konzept verstehen',
-        inhalt:
-          'Eine **ISBN-10-Nummer** besteht aus den Ziffern $x_{10}, x_9, \\ldots, x_1$ (von links nach rechts gelesen). Sie ist **gültig**, falls in $\\mathbb{Z}_{11}$ gilt:\n$\\left[\\sum_{k=1}^{10} k \\cdot x_k\\right] = [0]$.\n\nDabei wird die Ziffer mit Index $k$ – von **rechts** gezählt, $x_1$ ganz rechts – mit dem Gewicht $k$ multipliziert.\n\nGesucht ist jeweils die fehlende Ziffer, sodass die gewichtete Summe modulo $11$ den Wert $0$ ergibt.',
-      },
-      {
-        icon: '🔍',
-        titel: 'Vorgehensweise',
-        inhalt:
-          '**Schritt 1 – Ziffern zuordnen**: Nummerieren Sie die Ziffern von rechts: $x_1$ (Gewicht $1$) bis $x_{10}$ (Gewicht $10$).\n\n**Schritt 2 – Summe bilden**: Berechnen Sie $\\sum_{k=1}^{10} k \\cdot x_k$ und reduzieren Sie modulo $11$.\n\n**Schritt 3 – Gleichung lösen**: Setzen Sie die Summe gleich $[0]$. Steht die Unbekannte mit Gewicht $1$ da, lesen Sie sie direkt ab.\n\n**Schritt 4 – Koeffizient invertieren**: Hat die Unbekannte ein Gewicht $\\neq 1$ (z.B. $[6][z]$), multiplizieren Sie mit dem Inversen dieses Koeffizienten in $\\mathbb{Z}_{11}$.',
-      },
-      {
-        icon: '📝',
-        titel: 'Syntax / Beispiel',
-        inhalt:
-          'Steht die Unbekannte an Position $x_1$ (Gewicht $1$):\n$[S] + [1 \\cdot y] = [0] \\Leftrightarrow [y] = [-S]$.\n\nSteht sie an einer anderen Position, z.B. mit Gewicht $6$:\n$[S] + [6][z] = [0] \\Leftrightarrow [6][z] = [-S] \\Leftrightarrow [z] = [6]^{-1}[-S]$.\n\nDas Inverse $[6]^{-1}$ in $\\mathbb{Z}_{11}$ bestimmt man mit dem euklidischen Algorithmus: $[6]^{-1} = [2]$, denn $[6][2] = [12] = [1]$.',
-      },
-      {
-        icon: '⚠️',
-        titel: 'Häufige Fehler',
-        inhalt:
-          '• **Zählrichtung verwechseln**: $x_1$ ist die **rechte** Ziffer (Gewicht $1$), $x_{10}$ die **linke** (Gewicht $10$).\n\n• **Koeffizient nicht invertieren**: Bei $[6][z] = [9]$ ist $[z] \\neq [9]$ – man muss mit $[6]^{-1} = [2]$ multiplizieren.\n\n• **Falsches Modul**: Gerechnet wird in $\\mathbb{Z}_{11}$, nicht modulo $10$.\n\n• **Negatives Ergebnis**: $[-8]$ muss zu $[-8 + 11] = [3]$ in $\\{0, \\ldots, 10\\}$ gebracht werden.',
-      },
-    ],
-    loesung:
-      '**(a)** Für diese ISBN-Nummer erhalten wir in $\\mathbb{Z}_{11}$\n' +
-      '$\\left[\\sum_{k=1}^{10} k \\cdot x_k\\right] = [10 \\cdot 3 + 9 \\cdot 5 + 8 \\cdot 2 + 7 \\cdot 8 + 6 \\cdot 9 + 5 \\cdot 7 + 4 \\cdot 2 + 3 \\cdot 1 + 2 \\cdot 7 + 1 \\cdot y]$\n' +
-      '$= [261 + y] = [8] + [y]$.\n\n' +
-      'Nun gilt $[8] + [y] = [0] \\Leftrightarrow [y] = [-8] \\Leftrightarrow [y] = [3]$.\n\n' +
-      'Für $y = 3$ erhält man also eine gültige ISBN-Nummer.\n\n' +
-      '**(b)** Für diese ISBN-Nummer erhalten wir in $\\mathbb{Z}_{11}$\n' +
-      '$\\left[\\sum_{k=1}^{10} k \\cdot x_k\\right] = [10 \\cdot 3 + 9 \\cdot 5 + 8 \\cdot 4 + 7 \\cdot 0 + 6 \\cdot z + 5 \\cdot 7 + 4 \\cdot 4 + 3 \\cdot 3 + 2 \\cdot 1 + 1 \\cdot 9]$\n' +
-      '$= [178 + 6z] = [2] + [6][z]$.\n\n' +
-      'Nun gilt $[2] + [6][z] = [0] \\Leftrightarrow [6][z] = [-2] \\Leftrightarrow [6][z] = [9] \\Leftrightarrow [z] = [6]^{-1}[9]$.\n\n' +
-      'Berechnung von $[6]^{-1}$ in $\\mathbb{Z}_{11}$: Mit dem euklidischen Algorithmus erhalten wir\n' +
-      '(1)  $11 = 1 \\cdot 6 + 5$\n' +
-      '(2)  $6 = 1 \\cdot 5 + 1$\n' +
-      '(3)  $5 = 5 \\cdot 1 + 0$\n\n' +
-      'Wir gehen nun die Rechenschritte in umgekehrter Reihenfolge durch und erhalten\n' +
-      '$1 \\overset{(2)}{=} 6 - 1 \\cdot 5 \\overset{(1)}{=} 6 - 1 \\cdot (11 - 1 \\cdot 6) = 2 \\cdot 6 - 1 \\cdot 11$.\n\n' +
-      'Damit ist $[2]$ das Inverse zu $[6]$ in $\\mathbb{Z}_{11}$. Damit ergibt sich $[z] = [6]^{-1}[9] = [2][9] = [18] = [7]$.\n\n' +
-      'Für $z = 7$ erhält man also eine gültige ISBN-Nummer.',
-    schwierigkeit: 'mittel',
-    kategorie: 'Restklassen',
-  },
-  {
-    id: 'b6_a4',
-    titel: 'Gruppenhomomorphismen und -isomorphismen',
-    aufgabeText:
-      '*(Wenn noch Zeit ist …)*\n\n' +
-      'Seien $(G, *)$ und $(H, \\times)$ Gruppen. Eine Abbildung $\\Phi: (G, *) \\to (H, \\times)$ ist ein Gruppenhomomorphismus, falls für alle $a, b \\in G$ gilt\n' +
-      '$\\Phi(a * b) = \\Phi(a) \\times \\Phi(b)$.\n' +
-      'Ist $\\Phi$ zusätzlich bijektiv, so ist $\\Phi$ ein Gruppenisomorphismus. Welche der folgenden Abbildungen sind Gruppenhomomorphismen bzw. Gruppenisomorphismen?\n' +
-      '(a) $\\Phi: (\\mathbb{Z}, +) \\to (\\mathbb{Z}_n, +)$, $z \\mapsto [z]$, wobei $n \\in \\mathbb{N}, n \\geq 2$\n' +
-      '(b) $\\Phi: (\\mathbb{R}, +) \\to ((0, \\infty), \\cdot)$, $x \\mapsto e^x$\n' +
-      '(c) $\\Phi: (\\mathbb{R}, +) \\to (T, \\cdot)$, $\\varphi \\mapsto e^{\\mathrm{i}\\varphi}$, wobei $T = \\{z \\in \\mathbb{C} : |z| = 1\\}$',
-    tippSections: [
-      {
-        icon: '💡',
-        titel: 'Konzept verstehen',
-        inhalt:
-          'Ein **Gruppenhomomorphismus** $\\Phi: (G, *) \\to (H, \\times)$ ist eine Abbildung, die die Verknüpfung respektiert:\n$\\Phi(a * b) = \\Phi(a) \\times \\Phi(b)$ für alle $a, b \\in G$.\n\nAchten Sie darauf: Links steht die Verknüpfung $*$ von $G$, rechts die Verknüpfung $\\times$ von $H$ – diese können verschieden sein (z.B. $+$ und $\\cdot$).\n\nEin **Gruppenisomorphismus** ist ein bijektiver Gruppenhomomorphismus.',
-      },
-      {
-        icon: '🔍',
-        titel: 'Vorgehensweise',
-        inhalt:
-          '**Schritt 1 – Homomorphie prüfen**: Rechnen Sie $\\Phi(a * b)$ aus und vergleichen Sie mit $\\Phi(a) \\times \\Phi(b)$. Stimmen beide für alle $a, b$ überein, ist $\\Phi$ ein Homomorphismus.\n\n**Schritt 2 – Bijektivität prüfen**: Für einen Isomorphismus muss $\\Phi$ zusätzlich injektiv **und** surjektiv sein.\n\n**Schritt 3 – Injektivität widerlegen**: Um zu zeigen, dass kein Isomorphismus vorliegt, genügt **ein** Gegenbeispiel: zwei verschiedene $a \\neq b$ mit $\\Phi(a) = \\Phi(b)$.',
-      },
-      {
-        icon: '📝',
-        titel: 'Syntax / Beispiel',
-        inhalt:
-          'Nützliche Rechenregeln:\n$e^{a+b} = e^a \\cdot e^b$ (Exponentialgesetz)\n$e^{\\mathrm{i}(\\varphi + \\psi)} = e^{\\mathrm{i}\\varphi} \\cdot e^{\\mathrm{i}\\psi}$\n$[a + b] = [a] + [b]$ (Addition von Restklassen)\n\nNicht-Injektivität durch Periodizität: $e^{\\mathrm{i} \\cdot 0} = 1 = e^{\\mathrm{i} \\cdot 2\\pi}$, obwohl $0 \\neq 2\\pi$.\nNicht-Injektivität der Restklassenabbildung: $[0] = [n]$, obwohl $0 \\neq n$ in $\\mathbb{Z}$.',
-      },
-      {
-        icon: '⚠️',
-        titel: 'Häufige Fehler',
-        inhalt:
-          '• **Verknüpfungen verwechseln**: In (b) wird $+$ auf $\\cdot$ abgebildet – die Gleichung lautet $\\Phi(a + b) = \\Phi(a) \\cdot \\Phi(b)$, nicht $\\Phi(a) + \\Phi(b)$.\n\n• **Isomorphismus mit Homomorphismus verwechseln**: Jeder Isomorphismus ist ein Homomorphismus, aber nicht umgekehrt – die Bijektivität ist eine zusätzliche Bedingung.\n\n• **Injektivität falsch widerlegt**: Ein einziges Paar $a \\neq b$ mit gleichem Bild genügt – man muss nicht „alle" Paare prüfen.\n\n• **Surjektivität übersehen**: $\\exp: \\mathbb{R} \\to (0, \\infty)$ ist bijektiv; als Abbildung nach ganz $\\mathbb{R}$ wäre sie nicht surjektiv.',
-      },
-    ],
-    loesung:
-      '**(a)** Sind $a, b \\in \\mathbb{Z}$, so ist $\\Phi(a + b) = [a + b] = [a] + [b] = \\Phi(a) + \\Phi(b)$. Damit ist $\\Phi$ ein Gruppenhomomorphismus. Da $\\Phi(0) = [0] = [n] = \\Phi(n)$, ist $\\Phi$ nicht injektiv und damit kein Gruppenisomorphismus.\n\n' +
-      '**(b)** Sind $a, b \\in \\mathbb{R}$, so ist $\\Phi(a + b) = e^{a+b} = e^a \\cdot e^b = \\Phi(a) \\cdot \\Phi(b)$. Damit ist $\\Phi$ ein Gruppenhomomorphismus. Da die Exponentialfunktion $\\exp: \\mathbb{R} \\to (0, \\infty)$ bijektiv ist (nach letztem Semester), ist $\\Phi$ sogar ein Gruppenisomorphismus.\n\n' +
-      '**(c)** Sind $\\varphi, \\psi \\in \\mathbb{R}$, so ist $\\Phi(\\varphi + \\psi) = e^{\\mathrm{i}(\\varphi + \\psi)} = e^{\\mathrm{i}\\varphi + \\mathrm{i}\\psi} = e^{\\mathrm{i}\\varphi} \\cdot e^{\\mathrm{i}\\psi} = \\Phi(\\varphi) \\cdot \\Phi(\\psi)$. Damit ist $\\Phi$ ein Gruppenhomomorphismus. Da $\\Phi(0) = e^{\\mathrm{i} \\cdot 0} = 1 = e^{\\mathrm{i} \\cdot 2\\pi} = \\Phi(2\\pi)$, ist $\\Phi$ nicht injektiv und damit kein Gruppenisomorphismus.',
     schwierigkeit: 'schwer',
+    kategorie: 'Restklassen',
+  },
+
+  // ─── Aufgabe 3: ISBN-Prüfziffern (a/b) ────────────────────────────────────
+  {
+    id: 'b6_a3a',
+    titel: 'ISBN-Prüfziffer bestimmen: 3-528-97217-y',
+    aufgabeText:
+      'Ergänzen Sie $y \\in \\{0,1,\\ldots,10\\}$ in 3-528-97217-$y$ so, dass eine gültige ISBN-Nummer herauskommt.\n\n' +
+      'Erinnerung: $x_{10}$-$x_9 x_8 x_7$-$x_6 x_5 x_4 x_3 x_2$-$x_1$ ist eine gültige ISBN-Nummer, falls in $\\mathbb{Z}_{11}$ gilt $\\left[\\sum_{k=1}^{10} k \\cdot x_k\\right] = [0]$.',
+    tippSections: [
+      {
+        icon: '💡',
+        titel: 'Die ISBN-Prüfregel',
+        inhalt:
+          'Eine zehnstellige ISBN ist gültig, wenn die gewichtete Summe modulo $11$ Null ergibt. Dabei wird die LETZTE Ziffer mit $1$ gewichtet, die vorletzte mit $2$, usw. bis zur ERSTEN Ziffer mit $10$.\n\n' +
+          'Wichtig: Die Ziffern werden von hinten gezählt – $x_1$ ist die letzte (die Prüfziffer), $x_{10}$ die erste.',
+      },
+      {
+        icon: '🔍',
+        titel: 'Ziffern zuordnen',
+        inhalt:
+          'Die Ziffern (ohne Bindestriche) sind 3 5 2 8 9 7 2 1 7 $y$. Von hinten:\n' +
+          '  $x_1 = y$ (Gewicht 1), $x_2 = 7$ (Gewicht 2), $x_3 = 1$ (Gewicht 3), $x_4 = 2$ (Gewicht 4), $x_5 = 7$ (Gewicht 5), $x_6 = 9$ (Gewicht 6), $x_7 = 8$ (Gewicht 7), $x_8 = 2$ (Gewicht 8), $x_9 = 5$ (Gewicht 9), $x_{10} = 3$ (Gewicht 10).',
+      },
+      {
+        icon: '📝',
+        titel: 'Summe berechnen',
+        inhalt:
+          'Gewichtete Summe (ohne den $y$-Term):\n' +
+          '  $10\\cdot 3 + 9\\cdot 5 + 8\\cdot 2 + 7\\cdot 8 + 6\\cdot 9 + 5\\cdot 7 + 4\\cdot 2 + 3\\cdot 1 + 2\\cdot 7 = 261$\n\n' +
+          'Plus der Prüfterm $1\\cdot y$: Summe $= 261 + y$. Modulo 11: $261 = 23\\cdot 11 + 8$, also $[261] = [8]$.\n' +
+          'Bedingung: $[8] + [y] = [0]$.',
+      },
+      {
+        icon: '⚠️',
+        titel: 'Nach $y$ auflösen',
+        inhalt:
+          '$[8] + [y] = [0] \\Leftrightarrow [y] = [-8] = [-8 + 11] = [3]$.\n\n' +
+          'Also $y = 3$. (Bei ISBN-10 kann $y = 10$ als „X" auftreten, hier ist es aber $3$.)',
+      },
+    ],
+    loesung:
+      'Gewichtete Summe in $\\mathbb{Z}_{11}$:\n' +
+      '  $\\left[\\sum_{k=1}^{10} k\\cdot x_k\\right] = [10\\cdot 3 + 9\\cdot 5 + 8\\cdot 2 + 7\\cdot 8 + 6\\cdot 9 + 5\\cdot 7 + 4\\cdot 2 + 3\\cdot 1 + 2\\cdot 7 + 1\\cdot y]$\n' +
+      '  $= [261 + y] = [8] + [y]$\n\n' +
+      'Gültig, wenn $[8] + [y] = [0]$, also $[y] = [-8] = [3]$.\n\n' +
+      'Für $y = 3$ erhält man eine gültige ISBN-Nummer.',
+    schwierigkeit: 'mittel',
+    kategorie: 'Restklassen',
+  },
+  {
+    id: 'b6_a3b',
+    titel: 'ISBN-Prüfziffer bestimmen: 3-540-z7431-9',
+    aufgabeText:
+      'Ergänzen Sie $z \\in \\{0,1,\\ldots,9\\}$ in 3-540-$z$7431-9 so, dass eine gültige ISBN-Nummer herauskommt.\n\n' +
+      'Erinnerung: $x_{10}$-$x_9 x_8 x_7$-$x_6 x_5 x_4 x_3 x_2$-$x_1$ ist gültig, falls in $\\mathbb{Z}_{11}$ gilt $\\left[\\sum_{k=1}^{10} k \\cdot x_k\\right] = [0]$.',
+    tippSections: [
+      {
+        icon: '💡',
+        titel: 'Hier steht $z$ in der Mitte',
+        inhalt:
+          'Anders als bei (a) ist hier eine mittlere Ziffer unbekannt. Wir müssen herausfinden, welches Gewicht $z$ bekommt und dann nach $z$ auflösen – das erfordert eine Division (= Multiplikation mit dem Inversen) in $\\mathbb{Z}_{11}$.',
+      },
+      {
+        icon: '🔍',
+        titel: 'Ziffern und Gewichte',
+        inhalt:
+          'Ziffern: 3 5 4 0 $z$ 7 4 3 1 9. Von hinten gezählt steht $z$ an Position $x_6$ (Gewicht 6).\n\n' +
+          'Summe der bekannten Terme:\n' +
+          '  $10\\cdot 3 + 9\\cdot 5 + 8\\cdot 4 + 7\\cdot 0 + 5\\cdot 7 + 4\\cdot 3 + 3\\cdot 3 + 2\\cdot 1 + 1\\cdot 9 = 178$\n' +
+          'Plus $6z$: Summe $= 178 + 6z$. Modulo 11: $178 = 16\\cdot 11 + 2$, also $[178] = [2]$.',
+      },
+      {
+        icon: '📝',
+        titel: 'Gleichung in $\\mathbb{Z}_{11}$ lösen',
+        inhalt:
+          'Bedingung: $[2] + [6][z] = [0]$, also $[6][z] = [-2] = [9]$.\n\n' +
+          'Um nach $z$ aufzulösen, brauchst du das Inverse von $[6]$ in $\\mathbb{Z}_{11}$. Mit dem euklidischen Algorithmus:\n' +
+          '  $11 = 1\\cdot 6 + 5$, $6 = 1\\cdot 5 + 1$\n' +
+          '  Rückwärts: $1 = 6 - 5 = 6 - (11 - 6) = 2\\cdot 6 - 11$\n' +
+          '  → $[6]^{-1} = [2]$.',
+      },
+      {
+        icon: '⚠️',
+        titel: 'Nach $z$ auflösen',
+        inhalt:
+          '$[z] = [6]^{-1}[9] = [2][9] = [18] = [7]$ (denn $18 = 11 + 7$).\n\n' +
+          'Also $z = 7$.',
+      },
+    ],
+    loesung:
+      'Gewichtete Summe in $\\mathbb{Z}_{11}$ ($z$ steht an Position $x_6$, Gewicht 6):\n' +
+      '  $[10\\cdot 3 + 9\\cdot 5 + 8\\cdot 4 + 7\\cdot 0 + 6\\cdot z + 5\\cdot 7 + 4\\cdot 3 + 3\\cdot 3 + 2\\cdot 1 + 1\\cdot 9]$\n' +
+      '  $= [178 + 6z] = [2] + [6][z]$\n\n' +
+      'Gültig, wenn $[2] + [6][z] = [0]$, also $[6][z] = [-2] = [9]$, d.h. $[z] = [6]^{-1}[9]$.\n\n' +
+      'Inverses von $[6]$ in $\\mathbb{Z}_{11}$ (euklidischer Algorithmus):\n' +
+      '  $11 = 1\\cdot 6 + 5$, $6 = 1\\cdot 5 + 1$;  rückwärts: $1 = 6 - 5 = 6 - (11 - 6) = 2\\cdot 6 - 11$, also $[6]^{-1} = [2]$.\n\n' +
+      'Damit $[z] = [2][9] = [18] = [7]$. Für $z = 7$ erhält man eine gültige ISBN-Nummer.',
+    schwierigkeit: 'schwer',
+    kategorie: 'Restklassen',
+  },
+
+  // ─── Aufgabe 4: Gruppenhomomorphismen (a/b/c) ─────────────────────────────
+  {
+    id: 'b6_a4a',
+    titel: 'Homomorphismus? – $\\Phi: (\\mathbb{Z},+) \\to (\\mathbb{Z}_n,+)$',
+    aufgabeText:
+      'Eine Abbildung $\\Phi : (G, \\ast) \\to (H, \\times)$ ist ein Gruppenhomomorphismus, falls für alle $a, b \\in G$ gilt $\\Phi(a \\ast b) = \\Phi(a) \\times \\Phi(b)$. Ist $\\Phi$ zusätzlich bijektiv, so ist es ein Gruppenisomorphismus.\n\n' +
+      'Ist $\\Phi : (\\mathbb{Z}, +) \\to (\\mathbb{Z}_n, +)$, $z \\mapsto [z]$ (mit $n \\in \\mathbb{N}$, $n \\geq 2$) ein Gruppenhomomorphismus bzw. -isomorphismus?',
+    tippSections: [
+      {
+        icon: '💡',
+        titel: 'Was ist zu zeigen?',
+        inhalt:
+          'Homomorphismus: $\\Phi(a + b) = \\Phi(a) + \\Phi(b)$ für alle $a, b$. Setze einfach die Definition $\\Phi(z) = [z]$ ein.\n\n' +
+          'Isomorphismus: zusätzlich bijektiv (injektiv UND surjektiv).',
+      },
+      {
+        icon: '🔍',
+        titel: 'Homomorphie prüfen',
+        inhalt:
+          '$\\Phi(a + b) = [a + b]$. Nach der Rechenregel in $\\mathbb{Z}_n$ ist $[a+b] = [a] + [b] = \\Phi(a) + \\Phi(b)$. ✓\n\n' +
+          'Also ist $\\Phi$ ein Gruppenhomomorphismus.',
+      },
+      {
+        icon: '📝',
+        titel: 'Injektivität prüfen',
+        inhalt:
+          'Injektiv hieße: verschiedene Zahlen werden auf Verschiedenes abgebildet. Aber:\n' +
+          '  $\\Phi(0) = [0]$ und $\\Phi(n) = [n] = [0]$ (da $n$ in $\\mathbb{Z}_n$ Null ist).\n' +
+          'Zwei verschiedene Zahlen ($0$ und $n$) landen auf demselben Wert → nicht injektiv.',
+      },
+      {
+        icon: '⚠️',
+        titel: 'Folgerung',
+        inhalt:
+          '• Da nicht injektiv, ist $\\Phi$ nicht bijektiv → kein Isomorphismus, aber ein Homomorphismus.',
+      },
+    ],
+    loesung:
+      '$\\Phi$ ist ein Gruppenhomomorphismus, aber KEIN Isomorphismus.\n\n' +
+      'Homomorphie: $\\Phi(a + b) = [a + b] = [a] + [b] = \\Phi(a) + \\Phi(b)$. ✓\n\n' +
+      'Nicht injektiv: $\\Phi(0) = [0] = [n] = \\Phi(n)$, obwohl $0 \\neq n$. Damit nicht bijektiv und kein Isomorphismus.',
+    schwierigkeit: 'mittel',
+    kategorie: 'Gruppen',
+  },
+  {
+    id: 'b6_a4b',
+    titel: 'Homomorphismus? – $\\Phi: (\\mathbb{R},+) \\to ((0,\\infty),\\cdot)$',
+    aufgabeText: 'Ist $\\Phi : (\\mathbb{R}, +) \\to ((0, \\infty), \\cdot)$, $x \\mapsto e^x$ ein Gruppenhomomorphismus bzw. -isomorphismus?',
+    tippSections: [
+      {
+        icon: '💡',
+        titel: 'Achtung: verschiedene Verknüpfungen',
+        inhalt:
+          'Links ist die Verknüpfung die Addition ($+$), rechts die Multiplikation ($\\cdot$). Die Homomorphie-Bedingung lautet hier also:\n' +
+          '  $\\Phi(a + b) = \\Phi(a) \\cdot \\Phi(b)$\n' +
+          '(Addition wird zu Multiplikation umgewandelt.)',
+      },
+      {
+        icon: '🔍',
+        titel: 'Homomorphie prüfen',
+        inhalt:
+          'Mit der Potenzregel $e^{a+b} = e^a \\cdot e^b$:\n' +
+          '  $\\Phi(a + b) = e^{a+b} = e^a \\cdot e^b = \\Phi(a) \\cdot \\Phi(b)$. ✓\n\n' +
+          'Also ist $\\Phi$ ein Gruppenhomomorphismus.',
+      },
+      {
+        icon: '📝',
+        titel: 'Bijektivität prüfen',
+        inhalt:
+          'Die Exponentialfunktion $\\exp : \\mathbb{R} \\to (0, \\infty)$ ist bijektiv: jeder positive Wert wird genau einmal getroffen (Umkehrfunktion ist der Logarithmus). ✓\n\n' +
+          'Damit ist $\\Phi$ sogar ein Gruppenisomorphismus.',
+      },
+      {
+        icon: '⚠️',
+        titel: 'Hinweis',
+        inhalt:
+          '• Dieser Isomorphismus erklärt, warum der Logarithmus „aus Multiplikation Addition macht" – beide Gruppen sind strukturgleich.',
+      },
+    ],
+    loesung:
+      '$\\Phi$ ist ein Gruppenhomomorphismus UND sogar ein Gruppenisomorphismus.\n\n' +
+      'Homomorphie: $\\Phi(a + b) = e^{a+b} = e^a \\cdot e^b = \\Phi(a) \\cdot \\Phi(b)$. ✓\n\n' +
+      'Bijektiv: $\\exp : \\mathbb{R} \\to (0, \\infty)$ ist bijektiv (Umkehrfunktion: Logarithmus). Damit Isomorphismus.',
+    schwierigkeit: 'mittel',
+    kategorie: 'Gruppen',
+  },
+  {
+    id: 'b6_a4c',
+    titel: 'Homomorphismus? – $\\Phi: (\\mathbb{R},+) \\to (T,\\cdot)$',
+    aufgabeText: 'Ist $\\Phi : (\\mathbb{R}, +) \\to (T, \\cdot)$, $\\varphi \\mapsto e^{\\mathrm{i}\\varphi}$ (mit $T = \\{z \\in \\mathbb{C} : |z| = 1\\}$) ein Gruppenhomomorphismus bzw. -isomorphismus?',
+    tippSections: [
+      {
+        icon: '💡',
+        titel: 'Abbildung auf den Einheitskreis',
+        inhalt:
+          '$\\Phi$ wickelt die reelle Achse auf den Einheitskreis $T$ auf: jedem Winkel $\\varphi$ wird der Punkt $e^{\\mathrm{i}\\varphi}$ zugeordnet. Verknüpfung links ist $+$, rechts $\\cdot$.',
+      },
+      {
+        icon: '🔍',
+        titel: 'Homomorphie prüfen',
+        inhalt:
+          'Mit der Potenzregel $e^{\\mathrm{i}(\\varphi + \\psi)} = e^{\\mathrm{i}\\varphi} \\cdot e^{\\mathrm{i}\\psi}$:\n' +
+          '  $\\Phi(\\varphi + \\psi) = e^{\\mathrm{i}(\\varphi + \\psi)} = e^{\\mathrm{i}\\varphi} \\cdot e^{\\mathrm{i}\\psi} = \\Phi(\\varphi) \\cdot \\Phi(\\psi)$. ✓\n\n' +
+          'Also ist $\\Phi$ ein Gruppenhomomorphismus.',
+      },
+      {
+        icon: '📝',
+        titel: 'Injektivität prüfen',
+        inhalt:
+          'Wegen der Periodizität von $e^{\\mathrm{i}\\varphi}$ (Periode $2\\pi$) gilt:\n' +
+          '  $\\Phi(0) = e^{\\mathrm{i}\\cdot 0} = 1$ und $\\Phi(2\\pi) = e^{\\mathrm{i}\\cdot 2\\pi} = 1$.\n' +
+          'Zwei verschiedene Winkel ($0$ und $2\\pi$) ergeben denselben Punkt → nicht injektiv.',
+      },
+      {
+        icon: '⚠️',
+        titel: 'Folgerung',
+        inhalt:
+          '• Da nicht injektiv, ist $\\Phi$ kein Isomorphismus (aber ein Homomorphismus). Anschaulich: die unendliche Gerade wird immer wieder über den Kreis gewickelt.',
+      },
+    ],
+    loesung:
+      '$\\Phi$ ist ein Gruppenhomomorphismus, aber KEIN Isomorphismus.\n\n' +
+      'Homomorphie: $\\Phi(\\varphi + \\psi) = e^{\\mathrm{i}(\\varphi + \\psi)} = e^{\\mathrm{i}\\varphi} \\cdot e^{\\mathrm{i}\\psi} = \\Phi(\\varphi) \\cdot \\Phi(\\psi)$. ✓\n\n' +
+      'Nicht injektiv: $\\Phi(0) = e^{\\mathrm{i}\\cdot 0} = 1 = e^{\\mathrm{i}\\cdot 2\\pi} = \\Phi(2\\pi)$ (Periodizität), obwohl $0 \\neq 2\\pi$. Damit kein Isomorphismus.',
+    schwierigkeit: 'mittel',
     kategorie: 'Gruppen',
   },
 ]

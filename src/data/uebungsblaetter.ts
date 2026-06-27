@@ -238,26 +238,14 @@ export const uebungsblaetter: Uebungsblatt[] = [
     typ: 'Hausaufgabe',
     beschreibung: 'Restklassen: Einheitengruppen und multiplikative Inverse (euklidischer Algorithmus), ISBN-Prüfziffern, Gruppenhomomorphismen. Besprechung: 04.06.–05.06.2026',
     aufgaben: [
-      {
-        nr: 1,
-        text: 'Geben Sie alle Elemente von Z7* und Z8* an und bestimmen Sie jeweils die zugehörigen multiplikativen Inversen.',
-        aufgabeId: 'b6_a1',
-      },
-      {
-        nr: 2,
-        text: 'Sind [96] in Z296 bzw. [26] in Z73 bezüglich der Multiplikation invertierbar? Bestimmen Sie ggf. das Inverse mit dem euklidischen Algorithmus.',
-        aufgabeId: 'b6_a2',
-      },
-      {
-        nr: 3,
-        text: 'Ergänzen Sie die fehlenden Ziffern y und z so, dass gültige ISBN-Nummern entstehen (Prüfsumme in Z11).',
-        aufgabeId: 'b6_a3',
-      },
-      {
-        nr: 4,
-        text: 'Wenn noch Zeit ist: Welche der Abbildungen (Z→Zn, R→(0,∞), R→Einheitskreis) sind Gruppenhomomorphismen bzw. -isomorphismen?',
-        aufgabeId: 'b6_a4',
-      },
+      { nr: 1, text: 'Geben Sie alle Elemente von $\\mathbb{Z}_7^*$ und $\\mathbb{Z}_8^*$ an und bestimmen Sie die zugehörigen multiplikativen Inversen.', aufgabeId: 'b6_a1' },
+      { nr: '2a', text: 'Ist $[96]$ in $\\mathbb{Z}_{296}$ bezüglich der Multiplikation invertierbar? Ggf. Inverses bestimmen.', aufgabeId: 'b6_a2a' },
+      { nr: '2b', text: 'Ist $[26]$ in $\\mathbb{Z}_{73}$ invertierbar? Ggf. Inverses mit dem euklidischen Algorithmus bestimmen.', aufgabeId: 'b6_a2b' },
+      { nr: '3a', text: 'Ergänzen Sie $y$ in 3-528-97217-$y$ so, dass eine gültige ISBN-Nummer entsteht (Prüfsumme in $\\mathbb{Z}_{11}$).', aufgabeId: 'b6_a3a' },
+      { nr: '3b', text: 'Ergänzen Sie $z$ in 3-540-$z$7431-9 so, dass eine gültige ISBN-Nummer entsteht (Prüfsumme in $\\mathbb{Z}_{11}$).', aufgabeId: 'b6_a3b' },
+      { nr: '4a', text: 'Wenn noch Zeit ist: Ist $\\Phi: (\\mathbb{Z},+) \\to (\\mathbb{Z}_n,+)$, $z \\mapsto [z]$ ein Homomorphismus bzw. Isomorphismus?', aufgabeId: 'b6_a4a' },
+      { nr: '4b', text: 'Wenn noch Zeit ist: Ist $\\Phi: (\\mathbb{R},+) \\to ((0,\\infty),\\cdot)$, $x \\mapsto e^x$ ein Homomorphismus bzw. Isomorphismus?', aufgabeId: 'b6_a4b' },
+      { nr: '4c', text: 'Wenn noch Zeit ist: Ist $\\Phi: (\\mathbb{R},+) \\to (T,\\cdot)$, $\\varphi \\mapsto e^{\\mathrm{i}\\varphi}$ ein Homomorphismus bzw. Isomorphismus?', aufgabeId: 'b6_a4c' },
     ],
   },
   {
