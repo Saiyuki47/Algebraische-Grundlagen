@@ -11,6 +11,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
         nr: '1a',
         text: 'Skizzieren Sie die Graphen der Sinus- und der Cosinusfunktion.',
         aufgabeId: 'b0_a1a',
+        referenz: ['sin-cos'],
       },
       {
         nr: '1b',
@@ -21,6 +22,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
         nr: '1c',
         text: 'Rechnen Sie die gegebenen Winkel vom Gradmaß ins Bogenmaß um.',
         aufgabeId: 'b0_a1c',
+        referenz: ['winkelumrechnung'],
       },
       {
         nr: '1d',

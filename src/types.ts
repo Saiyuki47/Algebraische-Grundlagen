@@ -55,6 +55,8 @@ export interface UebungsblattAufgabe {
   nr: number | string
   text: string
   aufgabeId: string
+  /** IDs der passenden Referenz-Themen → Deep-Links „📘 Referenz" (#referenz/<id>). */
+  referenz?: string[]
 }
 
 export interface Uebungsblatt {

@@ -2,8 +2,23 @@ import { useState, type CSSProperties } from 'react'
 import { useDoneTracker, useTaskDeepLink, getHashDetail } from 'lernseiten-ui'
 import { uebungsblaetter } from '../data/uebungsblaetter'
 import { aufgaben } from '../data/aufgaben'
+import { referenzTitelById } from '../data/referenz'
 import MathText from './MathText'
 import GraphDisplay from './Graphs'
+
+const refLinksRow: CSSProperties = { display: 'flex', flexWrap: 'wrap', gap: '0.4rem', margin: '0.6rem 0 0' }
+const refLinkStyle: CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '0.3rem',
+  fontSize: '0.8rem',
+  padding: '0.2rem 0.6rem',
+  border: '1px solid var(--blue, #2563eb)',
+  borderRadius: '999px',
+  color: 'var(--blue, #2563eb)',
+  textDecoration: 'none',
+  lineHeight: 1.3,
+}
 
 export default function Uebungsblaetter() {
   const [selectedId, setSelectedId] = useState(() => {
@@ -128,6 +143,15 @@ export default function Uebungsblaetter() {
                   </div>
                 ) : (
                   <p className="q-title"><MathText>{task.text}</MathText></p>
+                )}
+                {task.referenz && task.referenz.length > 0 && (
+                  <div style={refLinksRow}>
+                    {task.referenz.map(rid => (
+                      <a key={rid} href={`#referenz/${rid}`} style={refLinkStyle}>
+                        📘 <MathText>{referenzTitelById[rid] ?? rid}</MathText>
+                      </a>
+                    ))}
+                  </div>
                 )}
                 {aufgabe && (
                   <>

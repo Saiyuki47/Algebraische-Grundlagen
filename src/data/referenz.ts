@@ -1012,3 +1012,8 @@ export const referenzKarten: ReferenzKarte[] = [
     ],
   },
 ]
+
+// Titel je id – für die Aufgaben-Deep-Links (Label der „📘 Referenz"-Links).
+export const referenzTitelById: Record<string, string> = Object.fromEntries(
+  referenzKarten.map(k => [k.id ?? '', k.titel]),
+)
