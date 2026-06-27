@@ -5,6 +5,7 @@ import Schema from './components/Schema'
 import Uebungsblaetter from './components/Uebungsblaetter'
 import Folien from './components/Folien'
 import Formelsammlung from './components/Formelsammlung'
+import MathText from './components/MathText'
 import { Quiz, Flashcards, GlobalSearch, useTheme, useHashTab } from 'lernseiten-ui'
 import { quizFragen } from './data/quiz'
 import { karteikarten } from './data/karteikarten'
@@ -32,7 +33,9 @@ function App() {
         {activeTab === 'uebung' && <Uebungsblaetter />}
         {activeTab === 'folien' && <Folien />}
         {activeTab === 'formelsammlung' && <Formelsammlung />}
-        {activeTab === 'karten' && <Flashcards cards={karteikarten} />}
+        {activeTab === 'karten' && (
+          <Flashcards cards={karteikarten} render={(s) => <MathText block>{s}</MathText>} />
+        )}
       </div>
     </>
   )
