@@ -1011,6 +1011,163 @@ export const referenzKarten: ReferenzKarte[] = [
       },
     ],
   },
+
+  // ===== Lineare Algebra =====
+  {
+    id: 'lgs-gauss',
+    titel: 'Lineare Gleichungssysteme & Gauß-Algorithmus',
+    inhalt:
+      '**Worum geht es?**\n' +
+      'Ein lineares Gleichungssystem (LGS) ist eine Sammlung von Gleichungen, in denen mehrere Unbekannte $x_1, x_2, \\ldots$ nur in erster Potenz vorkommen (kein $x^2$, kein $\\sin x$, kein Produkt zweier Unbekannter). Gesucht sind alle Wertebelegungen, die jede Gleichung gleichzeitig erfüllen. Der Gauß-Algorithmus ist ein festes Rezept, das jedes LGS sicher löst.\n' +
+      '\n' +
+      '**Die erweiterte Koeffizientenmatrix**\n' +
+      'Statt mit den Buchstaben $x_i$ zu hantieren, schreibt man nur die Zahlen in ein Rechteck. Die Koeffizienten links bilden die Koeffizientenmatrix, die Zahlen rechts vom Gleichheitszeichen kommen hinter einen senkrechten Strich. Aus $2x_1 + 4x_2 = 6$ und $x_1 + x_2 = 2$ wird $\\left(\\begin{array}{cc|c} 2 & 4 & 6 \\\\ 1 & 1 & 2 \\end{array}\\right)$. Jede Zeile ist eine Gleichung, jede Spalte links eine Unbekannte.\n' +
+      '\n' +
+      '**Die drei erlaubten Zeilenumformungen**\n' +
+      'Diese Schritte ändern die Lösungsmenge nicht:\n' +
+      '1. Zwei Zeilen vertauschen.\n' +
+      '2. Eine Zeile mit einer Zahl $\\neq 0$ multiplizieren.\n' +
+      '3. Zu einer Zeile ein Vielfaches einer anderen Zeile addieren.\n' +
+      'Ziel ist die Zeilenstufenform: Unterhalb der ersten Nicht-Null jeder Zeile (dem Pivot) stehen nur Nullen, und jede Stufe rückt nach rechts.\n' +
+      '\n' +
+      '**Wie liest man das Ergebnis ab?**\n' +
+      'Eine Variable, deren Spalte ein Pivot enthält, heißt gebunden; eine Spalte ohne Pivot gehört zu einer freien Variablen (wählbar als Parameter). An der Zeilenstufenform erkennt man sofort einen der drei Fälle:\n' +
+      '• **Genau eine Lösung:** Jede Variable ist gebunden (so viele Pivots wie Unbekannte). Man rechnet durch Rückwärtseinsetzen alle Werte aus.\n' +
+      '• **Keine Lösung:** Es taucht eine Zeile $(0\\ 0\\ \\cdots\\ 0 \\mid c)$ mit $c \\neq 0$ auf. Das hieße $0 = c$, ein Widerspruch.\n' +
+      '• **Unendlich viele Lösungen:** Es gibt keinen Widerspruch, aber mindestens eine freie Variable. Diese setzt man als Parameter $t \\in \\mathbb{R}$ und schreibt die Lösungsmenge mit diesem Parameter.\n' +
+      '\n' +
+      '**Rückwärtseinsetzen**\n' +
+      'Hat man die Stufenform, beginnt man in der untersten brauchbaren Zeile, löst nach der dort gebundenen Variablen auf und setzt das Ergebnis Zeile für Zeile nach oben ein.\n' +
+      '\n' +
+      '**Merke**\n' +
+      'Die Anzahl der Pivots heißt Rang. Lösbar ist ein LGS genau dann, wenn der Rang der Koeffizientenmatrix gleich dem Rang der erweiterten Matrix ist. Gibt es dann weniger Pivots als Unbekannte, sind es unendlich viele Lösungen, sonst genau eine.',
+    beispiele: [
+      {
+        szenario: 'Genau eine Lösung (eindeutig)',
+        beispiele: [
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + x_2 = 3 \\\\ x_1 - x_2 = 1 \\end{cases}$.\n**Lösung:** Matrix $\\left(\\begin{array}{cc|c} 1 & 1 & 3 \\\\ 1 & -1 & 1 \\end{array}\\right)$. Zeile 2 minus Zeile 1: $\\left(\\begin{array}{cc|c} 1 & 1 & 3 \\\\ 0 & -2 & -2 \\end{array}\\right)$. Untere Zeile: $-2x_2 = -2 \\Rightarrow x_2 = 1$. Einsetzen oben: $x_1 + 1 = 3 \\Rightarrow x_1 = 2$.\n**Ergebnis:** $L = \\{(2,\\,1)\\}$ – eindeutige Lösung.',
+          '**Aufgabe:** Löse $\\begin{cases} 2x_1 + x_2 = 5 \\\\ x_1 + 3x_2 = 5 \\end{cases}$.\n**Lösung:** $\\left(\\begin{array}{cc|c} 2 & 1 & 5 \\\\ 1 & 3 & 5 \\end{array}\\right)$. Zeilen tauschen, dann Zeile 2 minus $2\\cdot$Zeile 1: $\\left(\\begin{array}{cc|c} 1 & 3 & 5 \\\\ 0 & -5 & -5 \\end{array}\\right)$. Es folgt $-5x_2 = -5 \\Rightarrow x_2 = 1$, dann $x_1 + 3\\cdot 1 = 5 \\Rightarrow x_1 = 2$.\n**Ergebnis:** $L = \\{(2,\\,1)\\}$.',
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + x_2 + x_3 = 6 \\\\ x_2 + x_3 = 5 \\\\ x_3 = 3 \\end{cases}$.\n**Lösung:** Die Matrix ist schon in Stufenform: $\\left(\\begin{array}{ccc|c} 1 & 1 & 1 & 6 \\\\ 0 & 1 & 1 & 5 \\\\ 0 & 0 & 1 & 3 \\end{array}\\right)$. Rückwärts: $x_3 = 3$; $x_2 + 3 = 5 \\Rightarrow x_2 = 2$; $x_1 + 2 + 3 = 6 \\Rightarrow x_1 = 1$.\n**Ergebnis:** $L = \\{(1,\\,2,\\,3)\\}$.',
+        ],
+      },
+      {
+        szenario: 'Keine Lösung (Widerspruch)',
+        beispiele: [
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + x_2 = 1 \\\\ x_1 + x_2 = 4 \\end{cases}$.\n**Lösung:** $\\left(\\begin{array}{cc|c} 1 & 1 & 1 \\\\ 1 & 1 & 4 \\end{array}\\right)$. Zeile 2 minus Zeile 1: $\\left(\\begin{array}{cc|c} 1 & 1 & 1 \\\\ 0 & 0 & 3 \\end{array}\\right)$. Die untere Zeile bedeutet $0 = 3$ – Widerspruch.\n**Ergebnis:** $L = \\varnothing$ (keine Lösung; zwei parallele Geraden).',
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + 2x_2 = 3 \\\\ 2x_1 + 4x_2 = 10 \\end{cases}$.\n**Lösung:** $\\left(\\begin{array}{cc|c} 1 & 2 & 3 \\\\ 2 & 4 & 10 \\end{array}\\right)$. Zeile 2 minus $2\\cdot$Zeile 1: $\\left(\\begin{array}{cc|c} 1 & 2 & 3 \\\\ 0 & 0 & 4 \\end{array}\\right)$. Untere Zeile: $0 = 4$ – Widerspruch.\n**Ergebnis:** $L = \\varnothing$.',
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + x_2 + x_3 = 2 \\\\ x_2 + x_3 = 1 \\\\ x_2 + x_3 = 5 \\end{cases}$.\n**Lösung:** $\\left(\\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\\\ 0 & 1 & 1 & 1 \\\\ 0 & 1 & 1 & 5 \\end{array}\\right)$. Zeile 3 minus Zeile 2: $\\left(\\begin{array}{ccc|c} 1 & 1 & 1 & 2 \\\\ 0 & 1 & 1 & 1 \\\\ 0 & 0 & 0 & 4 \\end{array}\\right)$. Letzte Zeile: $0 = 4$.\n**Ergebnis:** $L = \\varnothing$.',
+        ],
+      },
+      {
+        szenario: 'Unendlich viele Lösungen (Parameter)',
+        beispiele: [
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + x_2 = 2 \\\\ 2x_1 + 2x_2 = 4 \\end{cases}$.\n**Lösung:** $\\left(\\begin{array}{cc|c} 1 & 1 & 2 \\\\ 2 & 2 & 4 \\end{array}\\right)$. Zeile 2 minus $2\\cdot$Zeile 1: $\\left(\\begin{array}{cc|c} 1 & 1 & 2 \\\\ 0 & 0 & 0 \\end{array}\\right)$. Nur ein Pivot, $x_2$ ist frei. Setze $x_2 = t$, dann $x_1 = 2 - t$.\n**Ergebnis:** $L = \\{(2-t,\\,t) : t \\in \\mathbb{R}\\}$ – eine ganze Gerade.',
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + 2x_2 + x_3 = 4 \\\\ 2x_1 + 4x_2 + 3x_3 = 9 \\end{cases}$.\n**Lösung:** $\\left(\\begin{array}{ccc|c} 1 & 2 & 1 & 4 \\\\ 2 & 4 & 3 & 9 \\end{array}\\right)$. Zeile 2 minus $2\\cdot$Zeile 1: $\\left(\\begin{array}{ccc|c} 1 & 2 & 1 & 4 \\\\ 0 & 0 & 1 & 1 \\end{array}\\right)$. Pivots in Spalte 1 und 3, also $x_2$ frei. Untere Zeile: $x_3 = 1$. Oben: $x_1 + 2x_2 + 1 = 4 \\Rightarrow x_1 = 3 - 2x_2$. Setze $x_2 = t$.\n**Ergebnis:** $L = \\{(3-2t,\\,t,\\,1) : t \\in \\mathbb{R}\\}$.',
+          '**Aufgabe:** Löse $\\begin{cases} x_1 + x_2 + x_3 = 0 \\\\ x_1 - x_2 + x_3 = 0 \\end{cases}$ (homogen).\n**Lösung:** $\\left(\\begin{array}{ccc|c} 1 & 1 & 1 & 0 \\\\ 1 & -1 & 1 & 0 \\end{array}\\right)$. Zeile 2 minus Zeile 1: $\\left(\\begin{array}{ccc|c} 1 & 1 & 1 & 0 \\\\ 0 & -2 & 0 & 0 \\end{array}\\right)$. Untere Zeile: $-2x_2 = 0 \\Rightarrow x_2 = 0$. Oben: $x_1 + x_3 = 0 \\Rightarrow x_1 = -x_3$. Setze $x_3 = t$.\n**Ergebnis:** $L = \\{(-t,\\,0,\\,t) : t \\in \\mathbb{R}\\}$.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'determinanten',
+    titel: 'Determinanten',
+    inhalt:
+      '**Worum geht es?**\n' +
+      'Die Determinante ist eine einzige Zahl, die man aus einer quadratischen Matrix (gleich viele Zeilen wie Spalten) berechnet. Sie verrät unter anderem, ob die Matrix invertierbar ist und ob ein zugehöriges LGS eindeutig lösbar ist. Man schreibt $\\det A$ oder $|A|$.\n' +
+      '\n' +
+      '**$2\\times 2$-Matrix**\n' +
+      'Für $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ ist $\\det A = ad - bc$. Merksatz: Hauptdiagonale (von links oben nach rechts unten) mal, minus Nebendiagonale mal.\n' +
+      '\n' +
+      '**$3\\times 3$-Matrix: Regel von Sarrus**\n' +
+      'Für $A = \\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix}$ schreibt man die ersten beiden Spalten rechts noch einmal daneben. Dann addiert man die drei Produkte der nach rechts unten laufenden Diagonalen und zieht die drei nach rechts oben laufenden ab:\n' +
+      '$\\det A = aei + bfg + cdh - ceg - afh - bdi$.\n' +
+      'Achtung: Sarrus gilt nur für $3\\times 3$, nicht für größere Matrizen!\n' +
+      '\n' +
+      '**Wichtige Rechenregeln**\n' +
+      '• Dreiecksmatrix (alles unter oder über der Diagonale ist $0$): $\\det A$ ist das Produkt der Diagonaleinträge.\n' +
+      '• Zwei Zeilen vertauschen dreht das Vorzeichen um.\n' +
+      '• Multipliziert man eine Zeile mit $\\lambda$, so wird $\\det A$ mit $\\lambda$ multipliziert; für eine $n\\times n$-Matrix gilt $\\det(\\lambda A) = \\lambda^n \\det A$.\n' +
+      '• Addiert man das Vielfache einer Zeile zu einer anderen, ändert sich $\\det A$ nicht (so kann man auf Dreiecksform bringen).\n' +
+      '• Produktregel: $\\det(AB) = \\det A \\cdot \\det B$. Für die Inverse $\\det(A^{-1}) = \\frac{1}{\\det A}$.\n' +
+      '\n' +
+      '**Was bedeutet die Determinante?**\n' +
+      'Eine quadratische Matrix $A$ ist genau dann invertierbar (und das zugehörige LGS $Ax = b$ eindeutig lösbar), wenn $\\det A \\neq 0$. Ist $\\det A = 0$, sind die Zeilen linear abhängig – das LGS hat keine oder unendlich viele Lösungen. Geometrisch ist $|\\det A|$ der Flächen- bzw. Volumeninhalt, den die Spaltenvektoren aufspannen; $\\det A = 0$ heißt: alles fällt in eine niedrigere Dimension zusammen.',
+    beispiele: [
+      {
+        szenario: '$2\\times 2$-Determinante',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\det \\begin{pmatrix} 3 & 5 \\\\ 9 & -3 \\end{pmatrix}$.\n**Lösung:** $ad - bc = 3\\cdot(-3) - 5\\cdot 9 = -9 - 45$.\n**Ergebnis:** $\\det A = -54$.',
+          '**Aufgabe:** Berechne $\\det \\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix}$.\n**Lösung:** $2\\cdot 3 - 1\\cdot 4 = 6 - 4$.\n**Ergebnis:** $\\det A = 2$ (ungleich $0$, also invertierbar).',
+          '**Aufgabe:** Berechne $\\det \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$.\n**Lösung:** $1\\cdot 4 - 2\\cdot 2 = 4 - 4$.\n**Ergebnis:** $\\det A = 0$ – die Zeilen sind Vielfache voneinander, $A$ ist nicht invertierbar.',
+        ],
+      },
+      {
+        szenario: '$3\\times 3$ per Sarrus',
+        beispiele: [
+          '**Aufgabe:** Berechne $\\det \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 5 & 6 & 0 \\end{pmatrix}$.\n**Lösung:** Sarrus: $aei + bfg + cdh - ceg - afh - bdi$. Plus-Diagonalen: $1\\cdot 1\\cdot 0 + 2\\cdot 4\\cdot 5 + 3\\cdot 0\\cdot 6 = 0 + 40 + 0 = 40$. Minus-Diagonalen: $3\\cdot 1\\cdot 5 + 1\\cdot 4\\cdot 6 + 2\\cdot 0\\cdot 0 = 15 + 24 + 0 = 39$. Also $40 - 39$.\n**Ergebnis:** $\\det A = 1$.',
+          '**Aufgabe:** Berechne $\\det \\begin{pmatrix} 2 & 0 & 1 \\\\ 1 & 3 & 2 \\\\ 0 & 1 & 1 \\end{pmatrix}$.\n**Lösung:** Plus: $2\\cdot 3\\cdot 1 + 0\\cdot 2\\cdot 0 + 1\\cdot 1\\cdot 1 = 6 + 0 + 1 = 7$. Minus: $1\\cdot 3\\cdot 0 + 2\\cdot 2\\cdot 1 + 0\\cdot 1\\cdot 1 = 0 + 4 + 0 = 4$. Also $7 - 4$.\n**Ergebnis:** $\\det A = 3$.',
+          '**Aufgabe:** Berechne $\\det \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}$.\n**Lösung:** Plus: $1\\cdot 5\\cdot 9 + 2\\cdot 6\\cdot 7 + 3\\cdot 4\\cdot 8 = 45 + 84 + 96 = 225$. Minus: $3\\cdot 5\\cdot 7 + 1\\cdot 6\\cdot 8 + 2\\cdot 4\\cdot 9 = 105 + 48 + 72 = 225$. Also $225 - 225$.\n**Ergebnis:** $\\det A = 0$ – die Matrix ist nicht invertierbar.',
+        ],
+      },
+      {
+        szenario: 'Anwendung & Rechenregeln',
+        beispiele: [
+          '**Aufgabe:** Ist $A = \\begin{pmatrix} 4 & 2 \\\\ 6 & 3 \\end{pmatrix}$ invertierbar?\n**Lösung:** $\\det A = 4\\cdot 3 - 2\\cdot 6 = 12 - 12 = 0$. Eine Matrix ist genau dann invertierbar, wenn $\\det A \\neq 0$.\n**Ergebnis:** Nein, $A$ ist wegen $\\det A = 0$ nicht invertierbar.',
+          '**Aufgabe:** Berechne $\\det A$ für die Dreiecksmatrix $A = \\begin{pmatrix} 2 & 7 & 1 \\\\ 0 & 3 & 5 \\\\ 0 & 0 & 4 \\end{pmatrix}$.\n**Lösung:** Bei einer (oberen) Dreiecksmatrix ist die Determinante das Produkt der Diagonale: $2\\cdot 3\\cdot 4$.\n**Ergebnis:** $\\det A = 24$.',
+          '**Aufgabe:** Es sei $\\det A = 5$ für eine $3\\times 3$-Matrix. Bestimme $\\det(2A)$.\n**Lösung:** Regel $\\det(\\lambda A) = \\lambda^n \\det A$ mit $n = 3$, $\\lambda = 2$: $2^3 \\cdot 5 = 8 \\cdot 5$.\n**Ergebnis:** $\\det(2A) = 40$.',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'vektorraeume-basen',
+    titel: 'Vektorräume, lineare Hülle, Unabhängigkeit & Basis',
+    inhalt:
+      '**Worum geht es?**\n' +
+      'Ein Vektorraum (hier meist der $\\mathbb{R}^n$) ist eine Menge von Vektoren, die man addieren und mit Zahlen (Skalaren) strecken darf, ohne die Menge zu verlassen. In dieser Karte prüfst du Untervektorräume, untersuchst lineare Unabhängigkeit und bestimmst Basis und Dimension.\n' +
+      '\n' +
+      '**Untervektorraum (UVR)**\n' +
+      'Eine Teilmenge $U \\subseteq \\mathbb{R}^n$ ist ein Untervektorraum, wenn drei Dinge gelten:\n' +
+      '1. Der Nullvektor liegt in $U$ (sonst sofort kein UVR).\n' +
+      '2. Abgeschlossen unter Addition: Sind $u, v \\in U$, dann auch $u + v \\in U$.\n' +
+      '3. Abgeschlossen unter Skalarmultiplikation: Ist $u \\in U$ und $\\lambda \\in \\mathbb{R}$, dann auch $\\lambda u \\in U$.\n' +
+      'Findet man ein einziges Gegenbeispiel zu einer dieser Regeln, ist $U$ kein UVR. Faustregel: Mengen, die durch Gleichungen $= 0$ beschrieben werden, sind meist UVR; alles mit $\\geq$, $\\leq$, $|\\cdot|$ oder einem Produkt von Variablen meist nicht.\n' +
+      '\n' +
+      '**Linearkombination und lineare Hülle**\n' +
+      'Eine Linearkombination der Vektoren $v_1, \\ldots, v_k$ ist jeder Ausdruck $\\lambda_1 v_1 + \\cdots + \\lambda_k v_k$ mit Zahlen $\\lambda_i \\in \\mathbb{R}$. Die lineare Hülle (auch Spann) $\\mathrm{lin}\\{v_1, \\ldots, v_k\\}$ ist die Menge aller dieser Linearkombinationen – sie ist immer ein Untervektorraum.\n' +
+      '\n' +
+      '**Lineare Unabhängigkeit**\n' +
+      'Die Vektoren $v_1, \\ldots, v_k$ heißen linear unabhängig, wenn die Gleichung $\\lambda_1 v_1 + \\cdots + \\lambda_k v_k = 0$ nur die triviale Lösung $\\lambda_1 = \\cdots = \\lambda_k = 0$ hat. Gibt es eine Lösung mit mindestens einem $\\lambda_i \\neq 0$, sind sie linear abhängig (dann lässt sich ein Vektor aus den anderen kombinieren). Praktisch: Vektoren als Spalten/Zeilen in eine Matrix schreiben und mit Gauß auf Stufenform bringen – so viele Pivots wie Vektoren bedeutet unabhängig. Der Nullvektor allein ist immer linear abhängig.\n' +
+      '\n' +
+      '**Basis und Dimension**\n' +
+      'Eine Basis eines Vektorraums $V$ ist eine Menge von Vektoren, die (a) linear unabhängig ist und (b) ganz $V$ aufspannt ($\\mathrm{lin} = V$). Jede Basis hat gleich viele Elemente; diese Anzahl ist die Dimension $\\dim V$. Im $\\mathbb{R}^n$ ist die Standardbasis $e_1, \\ldots, e_n$, also $\\dim \\mathbb{R}^n = n$. Faustregel: $n$ Vektoren bilden genau dann eine Basis des $\\mathbb{R}^n$, wenn sie linear unabhängig sind (das prüft man z. B. über $\\det \\neq 0$). Weniger als $n$ Vektoren können den $\\mathbb{R}^n$ nie aufspannen, mehr als $n$ sind nie unabhängig.',
+    beispiele: [
+      {
+        szenario: 'Untervektorraum prüfen',
+        beispiele: [
+          '**Aufgabe:** Ist $U = \\{(x_1, x_2) : 3x_1 = 2x_2\\}$ ein UVR von $\\mathbb{R}^2$?\n**Lösung:** Nullvektor: $3\\cdot 0 = 2\\cdot 0$ ✓. Sind $u, v \\in U$ (also $3u_1 = 2u_2$ und $3v_1 = 2v_2$), so gilt für $u+v$: $3(u_1+v_1) = 3u_1 + 3v_1 = 2u_2 + 2v_2 = 2(u_2+v_2)$ ✓. Skalar: $3(\\lambda u_1) = \\lambda\\cdot 3u_1 = \\lambda\\cdot 2u_2 = 2(\\lambda u_2)$ ✓.\n**Ergebnis:** Ja, $U$ ist ein UVR (eine Ursprungsgerade).',
+          '**Aufgabe:** Ist $U = \\{(x_1, x_2) : x_1 \\geq 0,\\, x_2 \\geq 0\\}$ ein UVR von $\\mathbb{R}^2$?\n**Lösung:** Der Nullvektor liegt drin. Aber Skalarmultiplikation versagt: $(1,1) \\in U$, doch $(-1)\\cdot(1,1) = (-1,-1)$ hat negative Einträge, liegt also nicht in $U$.\n**Ergebnis:** Nein – nicht abgeschlossen unter Skalarmultiplikation.',
+          '**Aufgabe:** Ist $E = \\{x \\in \\mathbb{R}^3 : 2x_1 + 3x_2 - x_3 = 0\\}$ ein UVR von $\\mathbb{R}^3$?\n**Lösung:** Eine homogene lineare Gleichung ($= 0$). Nullvektor: $0 = 0$ ✓. Für $u, v \\in E$ ist $2(u_1+v_1) + 3(u_2+v_2) - (u_3+v_3) = (2u_1+3u_2-u_3) + (2v_1+3v_2-v_3) = 0 + 0 = 0$ ✓, analog für $\\lambda u$ ✓.\n**Ergebnis:** Ja, $E$ ist ein UVR (eine Ebene durch den Ursprung).',
+        ],
+      },
+      {
+        szenario: 'Lineare Unabhängigkeit prüfen',
+        beispiele: [
+          '**Aufgabe:** Sind $v_1 = (1,2)$ und $v_2 = (3,4)$ linear unabhängig?\n**Lösung:** Ansatz $\\lambda_1 v_1 + \\lambda_2 v_2 = 0$ entspricht der Matrix $\\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix}$. Determinante $1\\cdot 4 - 3\\cdot 2 = -2 \\neq 0$, also nur die triviale Lösung.\n**Ergebnis:** Linear unabhängig.',
+          '**Aufgabe:** Sind $v_1 = (1,2,3)$, $v_2 = (2,4,6)$ linear unabhängig?\n**Lösung:** Es gilt $v_2 = 2v_1$, also $2v_1 - v_2 = 0$ mit Koeffizienten $(2, -1) \\neq (0,0)$. Es gibt eine nichttriviale Lösung.\n**Ergebnis:** Linear abhängig.',
+          '**Aufgabe:** Sind $v_1 = (1,0,0)$, $v_2 = (1,1,0)$, $v_3 = (1,1,1)$ linear unabhängig?\n**Lösung:** Matrix mit diesen Spalten ist obere Dreiecksmatrix $\\begin{pmatrix} 1 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 1 \\end{pmatrix}$, Determinante $= 1\\cdot 1\\cdot 1 = 1 \\neq 0$. Drei Pivots bei drei Vektoren.\n**Ergebnis:** Linear unabhängig.',
+        ],
+      },
+      {
+        szenario: 'Basis & Dimension bestimmen',
+        beispiele: [
+          '**Aufgabe:** Bilden $v_1 = (1,1)$ und $v_2 = (1,-1)$ eine Basis von $\\mathbb{R}^2$?\n**Lösung:** Zwei Vektoren im $\\mathbb{R}^2$ ($\\dim = 2$) sind genau dann eine Basis, wenn sie unabhängig sind. $\\det \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} = 1\\cdot(-1) - 1\\cdot 1 = -2 \\neq 0$.\n**Ergebnis:** Ja, $\\{v_1, v_2\\}$ ist eine Basis, $\\dim = 2$.',
+          '**Aufgabe:** Bestimme eine Basis und die Dimension der Ebene $E = \\{x \\in \\mathbb{R}^3 : 2x_1 + 3x_2 - x_3 = 0\\}$.\n**Lösung:** Löse nach $x_3$ auf: $x_3 = 2x_1 + 3x_2$. Setze $x_1 = s$, $x_2 = t$ frei: $x = s(1,0,2) + t(0,1,3)$. Diese zwei Vektoren spannen $E$ auf und sind unabhängig (keiner ein Vielfaches des anderen).\n**Ergebnis:** Basis $\\{(1,0,2),\\,(0,1,3)\\}$, also $\\dim E = 2$.',
+          '**Aufgabe:** Ist $\\{(1,2,3),\\,(0,1,4),\\,(0,0,5)\\}$ eine Basis von $\\mathbb{R}^3$?\n**Lösung:** Die drei Vektoren als Spalten bilden eine untere/obere Dreiecksform mit Determinante $1\\cdot 1\\cdot 5 = 5 \\neq 0$. Drei unabhängige Vektoren im $\\mathbb{R}^3$ ($\\dim = 3$).\n**Ergebnis:** Ja, es ist eine Basis, $\\dim \\mathbb{R}^3 = 3$.',
+        ],
+      },
+    ],
+  },
 ]
 
 // Titel je id – für die Aufgaben-Deep-Links (Label der „📘 Referenz"-Links).
