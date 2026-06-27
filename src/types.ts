@@ -11,9 +11,18 @@ export interface TeilaufgabeTipp {
   tippSections: TippSection[]
 }
 
+export interface ReferenzBeispielGruppe {
+  szenario: string
+  beispiele: string[]
+}
+
 export interface ReferenzKarte {
+  /** Stabiler Slug für Inhaltsverzeichnis + Deep-Link (#referenz/<id>). */
+  id?: string
   titel: string
   inhalt: string
+  /** Pro Szenario aufklappbare Beispiele (3 je Szenario). */
+  beispiele?: ReferenzBeispielGruppe[]
 }
 
 // Abschnitt der Klausur-Formelsammlung (Hilfsmittel-Tab).
