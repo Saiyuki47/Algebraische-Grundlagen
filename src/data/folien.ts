@@ -58,6 +58,7 @@ export const pdfGruppen: PdfGruppe[] = [
       { titel: 'Blatt 5 – Gruppen & Restklassen', datei: 'uebungsblaetter-lösung/05_lsg_gruppen-restklassen_2026.pdf' },
       { titel: 'Blatt 6 – Restklassen', datei: 'uebungsblaetter-lösung/06_lsg_restklassen_2026.pdf' },
       { titel: 'Blatt 7 – Lineare Gleichungssysteme', datei: 'uebungsblaetter-lösung/07_lsg_lgs.pdf' },
+      { titel: 'Blatt 8 – LGS & Determinanten', datei: 'uebungsblaetter-lösung/08_lsg_lgs-determinanten.pdf' },
     ],
   },
 ]
