@@ -44,6 +44,7 @@ export const pdfGruppen: PdfGruppe[] = [
       { titel: 'Blatt 6 – Restklassen', datei: 'uebungsblaetter/06_aufg_restklassen.pdf' },
       { titel: 'Blatt 7 – Lineare Gleichungssysteme', datei: 'uebungsblaetter/07_aufg_lgs.pdf' },
       { titel: 'Blatt 8 – LGS & Determinanten', datei: 'uebungsblaetter/08_aufg_lgs-determinanten.pdf' },
+      { titel: 'Blatt 9 – Untervektorräume, lineare Hülle & Unabhängigkeit', datei: 'uebungsblaetter/09_aufg_uvr-lin-huelle-lin-unabh.pdf' },
     ],
   },
   {
@@ -59,6 +60,7 @@ export const pdfGruppen: PdfGruppe[] = [
       { titel: 'Blatt 6 – Restklassen', datei: 'uebungsblaetter-lösung/06_lsg_restklassen_2026.pdf' },
       { titel: 'Blatt 7 – Lineare Gleichungssysteme', datei: 'uebungsblaetter-lösung/07_lsg_lgs.pdf' },
       { titel: 'Blatt 8 – LGS & Determinanten', datei: 'uebungsblaetter-lösung/08_lsg_lgs-determinanten.pdf' },
+      { titel: 'Blatt 9 – Untervektorräume, lineare Hülle & Unabhängigkeit', datei: 'uebungsblaetter-lösung/09_lsg_uvr-lin-huelle-lin-unabh.pdf' },
     ],
   },
 ]

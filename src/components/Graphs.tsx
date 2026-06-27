@@ -621,6 +621,59 @@ function B3A2aGraph() {
   )
 }
 
+// ─── Blatt 9, Aufgabe 1: Teilmengen des R² (Untervektorräume?) ───────────────
+// U1: x1≥0 und x2≥0 → erster Quadrant (kein UVR).
+function B9A1_U1() {
+  return (
+    <CoordSketch label="U₁: x₁≥0, x₂≥0 (kein UVR)" r={3}>
+      {({ xf, yf }) => (
+        <rect x={xf(0)} y={yf(3)} width={xf(3) - xf(0)} height={yf(0) - yf(3)} fill="#4d9fff33" stroke="#4d9fff" strokeWidth={1.4} />
+      )}
+    </CoordSketch>
+  )
+}
+
+// U2: 3x1 = 2x2 → Gerade x2 = (3/2)x1 durch 0 (UVR).
+function B9A1_U2() {
+  return (
+    <CoordSketch label="U₂: 3x₁=2x₂ (UVR)" r={3}>
+      {({ xf, yf }) => (
+        <line x1={xf(-2)} y1={yf(-3)} x2={xf(2)} y2={yf(3)} stroke="#3ecf8e" strokeWidth={1.8} />
+      )}
+    </CoordSketch>
+  )
+}
+
+// U3: x1·x2 = 0 → beide Koordinatenachsen (kein UVR).
+function B9A1_U3() {
+  return (
+    <CoordSketch label="U₃: x₁·x₂=0 (kein UVR)" r={3}>
+      {({ xf, yf, c }) => (
+        <>
+          <line x1={c.pad} y1={yf(0)} x2={c.w - c.pad} y2={yf(0)} stroke="#4d9fff" strokeWidth={2} />
+          <line x1={xf(0)} y1={c.pad} x2={xf(0)} y2={c.h - c.pad} stroke="#4d9fff" strokeWidth={2} />
+        </>
+      )}
+    </CoordSketch>
+  )
+}
+
+// U4: |x1| ≤ |x2| → Bereich zwischen den beiden Winkelhalbierenden (kein UVR).
+function B9A1_U4() {
+  return (
+    <CoordSketch label="U₄: |x₁|≤|x₂| (kein UVR)" r={3}>
+      {({ xf, yf }) => (
+        <>
+          <polygon points={`${xf(0)},${yf(0)} ${xf(-3)},${yf(3)} ${xf(3)},${yf(3)}`} fill="#4d9fff33" />
+          <polygon points={`${xf(0)},${yf(0)} ${xf(-3)},${yf(-3)} ${xf(3)},${yf(-3)}`} fill="#4d9fff33" />
+          <line x1={xf(-3)} y1={yf(-3)} x2={xf(3)} y2={yf(3)} stroke="#4d9fff" strokeWidth={1.4} />
+          <line x1={xf(-3)} y1={yf(3)} x2={xf(3)} y2={yf(-3)} stroke="#4d9fff" strokeWidth={1.4} />
+        </>
+      )}
+    </CoordSketch>
+  )
+}
+
 // ─── Main export ─────────────────────────────────────────────────────────────
 export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   // ── Blatt 1 ──
@@ -639,6 +692,11 @@ export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   if (aufgabeId === 'b2_a6a') return <div className="graph-grid"><EpsilonDiskC /><EpsilonIntervalR /></div>
   // ── Blatt 3 ──
   if (aufgabeId === 'b3_a2a') return <div className="graph-grid"><B3A2aGraph /></div>
+  // ── Blatt 9 ──
+  if (aufgabeId === 'b9_a1a') return <div className="graph-grid"><B9A1_U1 /></div>
+  if (aufgabeId === 'b9_a1b') return <div className="graph-grid"><B9A1_U2 /></div>
+  if (aufgabeId === 'b9_a1c') return <div className="graph-grid"><B9A1_U3 /></div>
+  if (aufgabeId === 'b9_a1d') return <div className="graph-grid"><B9A1_U4 /></div>
   // ── Blatt 0 ──
   if (aufgabeId === 'b0_a1_sincos') {
     return <div className="graph-grid"><SinCosGraph /></div>
