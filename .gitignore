@@ -5,3 +5,6 @@ dist
 
 # Python virtual environment (lokal, nicht Teil der App)
 .venv
+
+# Auto-generiert aus den public-Moodle-Ordnern (scripts/generate-dateien.mjs)
+src/data/dateien.ts

@@ -53,8 +53,8 @@ const tabs: { id: TabId; label: string; icon: ReactNode }[] = [
     ),
   },
   {
-    id: 'folien',
-    label: 'Folien',
+    id: 'moodle',
+    label: 'Moodle',
     icon: (
       <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
         <rect x="2" y="3" width="20" height="14" rx="2" />

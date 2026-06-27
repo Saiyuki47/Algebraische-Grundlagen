@@ -3,17 +3,17 @@ import Tabs from './components/Tabs'
 import Cheatsheet from './components/Cheatsheet'
 import Schema from './components/Schema'
 import Uebungsblaetter from './components/Uebungsblaetter'
-import Folien from './components/Folien'
 import Formelsammlung from './components/Formelsammlung'
 import MathText from './components/MathText'
-import { Quiz, Flashcards, GlobalSearch, useTheme, useHashTab } from 'lernseiten-ui'
+import { Quiz, Flashcards, GlobalSearch, Moodle, useTheme, useHashTab } from 'lernseiten-ui'
 import { quizFragen } from './data/quiz'
 import { karteikarten } from './data/karteikarten'
 import { searchIndex } from './data/searchIndex'
+import { dateienTree } from './data/dateien'
 
-export type TabId = 'uebung' | 'themen' | 'referenz' | 'formelsammlung' | 'folien' | 'quiz' | 'karten'
+export type TabId = 'uebung' | 'themen' | 'referenz' | 'formelsammlung' | 'moodle' | 'quiz' | 'karten'
 
-const TABS: readonly TabId[] = ['uebung', 'themen', 'referenz', 'formelsammlung', 'folien', 'quiz', 'karten']
+const TABS: readonly TabId[] = ['uebung', 'themen', 'referenz', 'formelsammlung', 'moodle', 'quiz', 'karten']
 
 function App() {
   const [activeTab, setActiveTab] = useHashTab(TABS, 'uebung')
@@ -31,7 +31,7 @@ function App() {
         {activeTab === 'themen' && <Schema />}
         {activeTab === 'quiz' && <Quiz fragen={quizFragen} />}
         {activeTab === 'uebung' && <Uebungsblaetter />}
-        {activeTab === 'folien' && <Folien />}
+        {activeTab === 'moodle' && <Moodle tree={dateienTree} baseUrl={import.meta.env.BASE_URL} />}
         {activeTab === 'formelsammlung' && <Formelsammlung />}
         {activeTab === 'karten' && (
           <Flashcards cards={karteikarten} render={(s) => <MathText block>{s}</MathText>} />

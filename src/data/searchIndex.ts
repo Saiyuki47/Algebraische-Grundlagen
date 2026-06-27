@@ -3,8 +3,21 @@ import { uebungsblaetter } from './uebungsblaetter'
 import { quizFragen } from './quiz'
 import { referenzKarten } from './referenz'
 import { themen } from './themen'
-import { pdfGruppen } from './folien'
+import { dateienTree, type DateiFolder } from './dateien'
 import { formelsammlungSeite1, formelsammlungSeite2 } from './formelsammlung'
+
+// Alle Dateien (rekursiv) aus dem generierten Moodle-Baum mit ihrer Top-Level-Gruppe.
+function moodleDateien(): { name: string; gruppe: string }[] {
+  const out: { name: string; gruppe: string }[] = []
+  for (const gruppe of dateienTree.folders) {
+    const walk = (node: DateiFolder) => {
+      node.files.forEach(f => out.push({ name: f.name, gruppe: gruppe.name }))
+      node.folders.forEach(walk)
+    }
+    walk(gruppe)
+  }
+  return out
+}
 
 // Such-Index aus den Inhalten der Seite. Jeder Treffer kennt seinen Ziel-Tab
 // (gültige TabId), damit die globale Suche direkt dorthin springen kann.
@@ -31,14 +44,12 @@ export const searchIndex: SearchItem[] = [
     snippet: 'Formelsammlung',
     tab: 'formelsammlung',
   })),
-  // Folien & PDFs → Tab "folien"
-  ...pdfGruppen.flatMap(g =>
-    g.dokumente.map(d => ({
-      label: d.titel,
-      snippet: g.titel,
-      tab: 'folien',
-    })),
-  ),
+  // Moodle-Materialien (Folien, Übungsblätter, Lösungen) → Tab "moodle"
+  ...moodleDateien().map(d => ({
+    label: d.name,
+    snippet: d.gruppe,
+    tab: 'moodle',
+  })),
   // Referenz / Cheatsheet → Tab "referenz"
   ...referenzKarten.map(k => ({
     label: k.titel,
