@@ -600,6 +600,27 @@ function EpsilonIntervalR() {
   )
 }
 
+// ─── Blatt 3, Aufgabe 2a: vierte Wurzeln von 16 ──────────────────────────────
+// z^4 = 16 hat die Lösungen 2, 2i, −2, −2i auf einem Kreis mit Radius 2.
+function B3A2aGraph() {
+  return (
+    <CoordSketch label="z⁴=16: z₀=2, z₁=2i, z₂=−2, z₃=−2i" r={3}>
+      {({ xf, yf }) => {
+        const rpx = xf(2) - xf(0)
+        return (
+          <>
+            <circle cx={xf(0)} cy={yf(0)} r={rpx} fill="none" stroke="#3b3f55" strokeWidth={1} strokeDasharray="4,3" />
+            <Dot xf={xf} yf={yf} x={2} y={0} label="z₀" color="#4d9fff" labelOffset={[6, -6]} />
+            <Dot xf={xf} yf={yf} x={0} y={2} label="z₁" color="#3ecf8e" labelOffset={[6, -6]} />
+            <Dot xf={xf} yf={yf} x={-2} y={0} label="z₂" color="#f5a623" labelOffset={[-18, -6]} />
+            <Dot xf={xf} yf={yf} x={0} y={-2} label="z₃" color="#ff6b6b" labelOffset={[6, 14]} />
+          </>
+        )
+      }}
+    </CoordSketch>
+  )
+}
+
 // ─── Main export ─────────────────────────────────────────────────────────────
 export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   // ── Blatt 1 ──
@@ -616,6 +637,8 @@ export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
   if (aufgabeId === 'b2_a3') return <div className="graph-grid"><B2A3Graph /></div>
   if (aufgabeId === 'b2_a4') return <div className="graph-grid"><B2A4Graph /></div>
   if (aufgabeId === 'b2_a6a') return <div className="graph-grid"><EpsilonDiskC /><EpsilonIntervalR /></div>
+  // ── Blatt 3 ──
+  if (aufgabeId === 'b3_a2a') return <div className="graph-grid"><B3A2aGraph /></div>
   // ── Blatt 0 ──
   if (aufgabeId === 'b0_a1_sincos') {
     return <div className="graph-grid"><SinCosGraph /></div>
