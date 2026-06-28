@@ -56,10 +56,10 @@ export const searchIndex: SearchItem[] = [
     snippet: 'Referenz',
     tab: 'referenz',
   })),
-  // Schema / Themen → Tab "themen"
+  // Themen-Übersicht (Themen-Tab entfernt) → Treffer öffnen den Referenz-Tab
   ...themen.map(t => ({
     label: t.titel,
     snippet: t.beschreibung ?? 'Thema',
-    tab: 'themen',
+    tab: 'referenz',
   })),
 ]
