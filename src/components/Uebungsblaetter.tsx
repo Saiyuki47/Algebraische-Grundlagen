@@ -185,8 +185,8 @@ export default function Uebungsblaetter() {
                       </div>
                     )}
                     {(aufgabe.tippSections ?? aufgabe.tipp) && (
-                      <>
-                        <button type="button" className="toggle-btn toggle-btn--tips" onClick={() => toggleTipp(key)}>
+                      <div className="ub-hints-section">
+                        <button type="button" className="toggle-btn toggle-btn--hint" onClick={() => toggleTipp(key)}>
                           {isTippOpen ? '▼ Tipp verbergen' : '▶ Tipp anzeigen'}
                         </button>
                         {isTippOpen && (aufgabe.tippSections ? (
@@ -206,7 +206,7 @@ export default function Uebungsblaetter() {
                         ) : (
                           <p className="tipp-block"><MathText>{aufgabe.tipp!}</MathText></p>
                         ))}
-                      </>
+                      </div>
                     )}
                     <button type="button" className="toggle-btn" onClick={() => toggleSolution(key)}>
                       {isOpen ? '▼ Lösung verbergen' : '▶ Lösung anzeigen'}
@@ -232,9 +232,8 @@ export default function Uebungsblaetter() {
                 )}
                 <button
                   type="button"
-                  className="toggle-btn"
+                  className={`toggle-btn${isDone ? ' done' : ''}`}
                   onClick={() => toggleDone(key)}
-                  style={isDone ? { color: 'var(--green, #2ea043)', borderColor: 'var(--green, #2ea043)' } : undefined}
                 >
                   {isDone ? '✓ Verstanden' : '○ Als verstanden markieren'}
                 </button>
