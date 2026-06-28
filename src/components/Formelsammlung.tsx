@@ -32,17 +32,20 @@ function Seite({ sektionen, nummer }: { sektionen: FormelSektion[]; nummer: numb
 export default function Formelsammlung() {
   return (
     <div className="formelsammlung">
-      <div className="section-header fs-no-print">
-        <h2>Hilfsmittel / Formelsammlung</h2>
-        <p>
-          Prüfungs-Hilfsmittel auf zwei A4-Seiten zum Ausdrucken. Inhalte werden nur auf
-          deine Anweisung ergänzt.
-        </p>
-      </div>
-      <div className="fs-toolbar fs-no-print">
-        <button type="button" className="fs-print-btn" onClick={() => window.print()}>
-          Drucken / Als PDF speichern
-        </button>
+      <div className="hilf-bar">
+        <div className="hilf-bar-text">
+          <h2>Hilfsmittel</h2>
+          <p>
+            Prüfungs-Hilfsmittel auf zwei A4-Seiten zum Ausdrucken. Inhalte werden nur auf
+            deine Anweisung ergänzt.
+          </p>
+        </div>
+        <div className="hilf-bar-actions">
+          <span className="hilf-bar-hint">2 Seiten · A4</span>
+          <button type="button" className="hilf-print-btn" onClick={() => window.print()}>
+            🖨 Drucken / als PDF
+          </button>
+        </div>
       </div>
       <div className="fs-pages">
         <Seite sektionen={formelsammlungSeite1} nummer={1} />
