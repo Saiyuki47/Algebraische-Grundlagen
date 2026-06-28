@@ -1,9 +1,8 @@
 import { useState, type CSSProperties } from 'react'
-import { useDoneTracker, useTaskDeepLink, getHashDetail } from 'lernseiten-ui'
+import { useDoneTracker, useTaskDeepLink, getHashDetail, MathText } from 'lernseiten-ui'
 import { uebungsblaetter } from '../data/uebungsblaetter'
 import { aufgaben } from '../data/aufgaben'
 import { referenzTitelById } from '../data/referenz'
-import MathText from './MathText'
 import GraphDisplay from './Graphs'
 
 const refLinksRow: CSSProperties = { display: 'flex', flexWrap: 'wrap', gap: '0.4rem', margin: '0.6rem 0 0' }

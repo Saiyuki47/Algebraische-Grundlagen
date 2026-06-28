@@ -13,8 +13,6 @@
     "doctor": "react-doctor"
   },
   "dependencies": {
-    "@types/katex": "^0.16.8",
-    "katex": "^0.17.0",
     "lernseiten-ui": "github:Saiyuki47/lernseiten-ui",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

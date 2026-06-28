@@ -1,6 +1,6 @@
 import { formelsammlungSeite1, formelsammlungSeite2 } from '../data/formelsammlung'
 import type { FormelSektion } from '../types'
-import MathText from './MathText'
+import { MathText } from 'lernseiten-ui'
 
 function Seite({ sektionen, nummer }: { sektionen: FormelSektion[]; nummer: number }) {
   return (

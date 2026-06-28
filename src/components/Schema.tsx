@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { themen } from '../data/themen'
-import MathText from './MathText'
+import { MathText } from 'lernseiten-ui'
 
 export default function Schema() {
   const [openIds, setOpenIds] = useState<Set<number>>(new Set())
