@@ -219,7 +219,7 @@ export const b6: Aufgabe[] = [
         inhalt:
           'Ziffern: 3 5 4 0 $z$ 7 4 3 1 9. Von hinten gezählt steht $z$ an Position $x_6$ (Gewicht 6).\n\n' +
           'Summe der bekannten Terme:\n' +
-          '  $10\\cdot 3 + 9\\cdot 5 + 8\\cdot 4 + 7\\cdot 0 + 5\\cdot 7 + 4\\cdot 3 + 3\\cdot 3 + 2\\cdot 1 + 1\\cdot 9 = 178$\n' +
+          '  $10\\cdot 3 + 9\\cdot 5 + 8\\cdot 4 + 7\\cdot 0 + 5\\cdot 7 + 4\\cdot 4 + 3\\cdot 3 + 2\\cdot 1 + 1\\cdot 9 = 178$\n' +
           'Plus $6z$: Summe $= 178 + 6z$. Modulo 11: $178 = 16\\cdot 11 + 2$, also $[178] = [2]$.',
       },
       {
@@ -242,7 +242,7 @@ export const b6: Aufgabe[] = [
     ],
     loesung:
       'Gewichtete Summe in $\\mathbb{Z}_{11}$ ($z$ steht an Position $x_6$, Gewicht 6):\n' +
-      '  $[10\\cdot 3 + 9\\cdot 5 + 8\\cdot 4 + 7\\cdot 0 + 6\\cdot z + 5\\cdot 7 + 4\\cdot 3 + 3\\cdot 3 + 2\\cdot 1 + 1\\cdot 9]$\n' +
+      '  $[10\\cdot 3 + 9\\cdot 5 + 8\\cdot 4 + 7\\cdot 0 + 6\\cdot z + 5\\cdot 7 + 4\\cdot 4 + 3\\cdot 3 + 2\\cdot 1 + 1\\cdot 9]$\n' +
       '  $= [178 + 6z] = [2] + [6][z]$\n\n' +
       'Gültig, wenn $[2] + [6][z] = [0]$, also $[6][z] = [-2] = [9]$, d.h. $[z] = [6]^{-1}[9]$.\n\n' +
       'Inverses von $[6]$ in $\\mathbb{Z}_{11}$ (euklidischer Algorithmus):\n' +
