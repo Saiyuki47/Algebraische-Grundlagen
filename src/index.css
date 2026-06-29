@@ -94,78 +94,6 @@
   display: block;
 }
 
-/* CHEATSHEET / REFERENZ – Navigationsleiste links + einspaltige Themen */
-.cheat-layout {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-/* Sticky Inhaltsverzeichnis links: ein Klick springt zum Thema */
-.cheat-nav {
-  flex: 0 0 200px;
-  position: sticky;
-  top: 104px;
-  align-self: flex-start;
-  max-height: calc(100vh - 124px);
-  overflow-y: auto;
-}
-.cheat-nav ul { list-style: none; margin: 0; padding: 0; }
-.cheat-nav li { margin: 0; }
-.cheat-nav a {
-  display: block;
-  padding: 7px 10px;
-  font-size: 12.5px;
-  line-height: 1.35;
-  color: var(--text2);
-  text-decoration: none;
-  border-left: 2px solid transparent;
-  border-radius: 0 6px 6px 0;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-  cursor: pointer;
-}
-.cheat-nav a:hover { background: var(--bg3); color: var(--text); }
-.cheat-nav a.active {
-  color: var(--blue);
-  border-left-color: var(--blue);
-  background: var(--blue-dim);
-  font-weight: 600;
-}
-.cheat-content { flex: 1 1 auto; min-width: 0; }
-/* Einspaltig: jedes Thema in voller Breite untereinander */
-.cheat-content .cheat-card {
-  margin-bottom: 1rem;
-  scroll-margin-top: 104px;
-}
-.cheat-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--blue);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.5rem;
-}
-.cheat-card h3 {
-  font-size: 15px;
-  font-weight: 600;
-  font-family: var(--font-sans);
-  color: var(--text);
-  letter-spacing: 0;
-  text-transform: none;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-.cheat-code {
-  font-family: var(--font-sans);
-  font-size: 13.5px;
-  color: var(--text);
-  line-height: 1.7;
-}
-.cheat-code .math-block {
-  font-family: var(--font-sans);
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--text);
-}
 /* Zwischenüberschrift innerhalb eines Erklärungstextes (Zeile aus reinem **…**) */
 .math-subhead {
   font-family: var(--font-sans);
@@ -177,30 +105,6 @@
 }
 .math-subhead:first-child { margin-top: 0; }
 .cm { color: var(--text3); font-style: italic; }
-
-/* Schmale Bildschirme: Navigation über den Inhalt, als Chip-Liste */
-@media (max-width: 720px) {
-  .cheat-layout { flex-direction: column; }
-  .cheat-nav {
-    position: static;
-    flex: none;
-    width: 100%;
-    max-height: none;
-    overflow: visible;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .cheat-nav ul { display: flex; flex-wrap: wrap; gap: 5px; }
-  .cheat-nav a {
-    border-left: none;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 5px 9px;
-    font-size: 12px;
-  }
-  .cheat-nav a.active { border-color: var(--blue); }
-}
 
 /* SCHEMA */
 .filter-row { display: flex; gap: 6px; margin-bottom: 1.25rem; flex-wrap: wrap; }
@@ -701,20 +605,6 @@
 
 /* HILFSMITTEL / FORMELSAMMLUNG – druckbares Klausur-Hilfsmittel (2 × A4) */
 .formelsammlung { overflow-x: auto; }
-.fs-toolbar { margin-bottom: 1.25rem; }
-.fs-print-btn {
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 8px 16px;
-  border: 1px solid var(--blue);
-  border-radius: var(--radius);
-  background: var(--blue-dim);
-  color: var(--blue);
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.fs-print-btn:hover { background: color-mix(in srgb, var(--blue) 18%, transparent); }
 
 .fs-pages {
   display: flex;

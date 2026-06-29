@@ -1,12 +1,17 @@
+import { lazy, Suspense } from 'react'
 import Tabs from './components/Tabs'
-import Cheatsheet from './components/Cheatsheet'
-import Uebungsblaetter from './components/Uebungsblaetter'
-import Formelsammlung from './components/Formelsammlung'
-import { Header, MathText, Quiz, Flashcards, GlobalSearch, Moodle, useTheme, useHashTab } from 'lernseiten-ui'
+import { Header, MathText, GlobalSearch, useTheme, useHashTab } from 'lernseiten-ui'
 import { quizFragen } from './data/quiz'
 import { karteikarten } from './data/karteikarten'
 import { searchIndex } from './data/searchIndex'
 import { dateienTree } from './data/dateien'
+
+const Uebungsblaetter = lazy(() => import('./components/Uebungsblaetter'))
+const Cheatsheet = lazy(() => import('./components/Cheatsheet'))
+const Formelsammlung = lazy(() => import('./components/Formelsammlung'))
+const Quiz = lazy(() => import('lernseiten-ui').then(m => ({ default: m.Quiz })))
+const Flashcards = lazy(() => import('lernseiten-ui').then(m => ({ default: m.Flashcards })))
+const Moodle = lazy(() => import('lernseiten-ui').then(m => ({ default: m.Moodle })))
 
 export type TabId = 'uebung' | 'referenz' | 'formelsammlung' | 'moodle' | 'quiz' | 'karten'
 
@@ -30,14 +35,16 @@ function App() {
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.75rem' }}>
           <GlobalSearch index={searchIndex} onNavigate={t => setActiveTab(t as TabId)} />
         </div>
-        {activeTab === 'referenz' && <Cheatsheet />}
-        {activeTab === 'quiz' && <Quiz fragen={quizFragen} />}
-        {activeTab === 'uebung' && <Uebungsblaetter />}
-        {activeTab === 'moodle' && <Moodle tree={dateienTree} baseUrl={import.meta.env.BASE_URL} />}
-        {activeTab === 'formelsammlung' && <Formelsammlung />}
-        {activeTab === 'karten' && (
-          <Flashcards cards={karteikarten} render={(s) => <MathText block>{s}</MathText>} />
-        )}
+        <Suspense fallback={<div className="card"><p className="quiz-hint">Lädt …</p></div>}>
+          {activeTab === 'referenz' && <Cheatsheet />}
+          {activeTab === 'quiz' && <Quiz fragen={quizFragen} />}
+          {activeTab === 'uebung' && <Uebungsblaetter />}
+          {activeTab === 'moodle' && <Moodle tree={dateienTree} baseUrl={import.meta.env.BASE_URL} />}
+          {activeTab === 'formelsammlung' && <Formelsammlung />}
+          {activeTab === 'karten' && (
+            <Flashcards cards={karteikarten} render={(s) => <MathText block>{s}</MathText>} />
+          )}
+        </Suspense>
       </div>
     </>
   )
