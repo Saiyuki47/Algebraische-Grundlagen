@@ -1,55 +1,64 @@
-import { formelsammlungSeite1, formelsammlungSeite2 } from '../data/formelsammlung'
-import type { FormelSektion } from '../types'
-import { MathText } from 'lernseiten-ui'
+import { useState } from 'react'
 
-function Seite({ sektionen, nummer }: { sektionen: FormelSektion[]; nummer: number }) {
-  return (
-    <div className="fs-page">
-      <div className="fs-page-inner">
-        {sektionen.length === 0 ? (
-          <p className="fs-empty">
-            Noch keine Inhalte. Diese Seite wird befüllt, sobald du sagst, welche Formeln
-            hier rein sollen.
-          </p>
-        ) : (
-          sektionen.map(s => (
-            <section key={s.titel} className="fs-section">
-              <h3 className="fs-section-title">
-                <MathText>{s.titel}</MathText>
-              </h3>
-              <div className="fs-section-body">
-                <MathText block>{s.inhalt}</MathText>
-              </div>
-            </section>
-          ))
-        )}
-      </div>
-      <div className="fs-page-num">Seite {nummer} / 2</div>
-    </div>
-  )
-}
+// Offizielle Formelsammlung(en) als PDF, direkt im Hilfsmittel-Tab ansehbar.
+// Zwei Fassungen werden per Umschalter angeboten.
+const PDFS = [
+  { id: 'haupt', label: 'Formelsammlung', file: 'Formelsammlung.pdf' },
+  { id: 'neu', label: 'Formelsammlung (neu)', file: 'Formelsammlung-neu.pdf' },
+] as const
+
+type PdfId = (typeof PDFS)[number]['id']
 
 export default function Formelsammlung() {
+  const [active, setActive] = useState<PdfId>(PDFS[0].id)
+  const cur = PDFS.find(p => p.id === active) ?? PDFS[0]
+  const url = `${import.meta.env.BASE_URL}${cur.file}`
+
   return (
     <div className="formelsammlung">
       <div className="hilf-bar">
         <div className="hilf-bar-text">
           <h2>Hilfsmittel</h2>
           <p>
-            Prüfungs-Hilfsmittel auf zwei A4-Seiten zum Ausdrucken. Inhalte werden nur auf
-            deine Anweisung ergänzt.
+            Offizielle Formelsammlung als PDF — direkt ansehen oder herunterladen. Zwei
+            Fassungen stehen zur Auswahl.
           </p>
         </div>
         <div className="hilf-bar-actions">
-          <span className="hilf-bar-hint">2 Seiten · A4</span>
-          <button type="button" className="hilf-print-btn" onClick={() => window.print()}>
-            🖨 Drucken / als PDF
-          </button>
+          <span className="hilf-bar-hint">PDF · A4</span>
+          <a className="hilf-print-btn" href={url} target="_blank" rel="noopener noreferrer">
+            ⬇ Öffnen / Download
+          </a>
         </div>
       </div>
-      <div className="fs-pages">
-        <Seite sektionen={formelsammlungSeite1} nummer={1} />
-        <Seite sektionen={formelsammlungSeite2} nummer={2} />
+
+      <div className="hilf-pdf">
+        <div className="hilf-pdf-switch" role="tablist" aria-label="Formelsammlung-Fassung">
+          {PDFS.map(p => (
+            <button
+              key={p.id}
+              type="button"
+              role="tab"
+              aria-selected={p.id === active}
+              className={`hilf-pdf-tab${p.id === active ? ' active' : ''}`}
+              onClick={() => setActive(p.id)}
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
+        <iframe
+          className="hilf-pdf-frame"
+          src={url}
+          title={cur.label}
+          sandbox="allow-same-origin allow-popups allow-downloads"
+        />
+        <p className="hilf-pdf-fallback">
+          Vorschau lädt nicht?{' '}
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            PDF in neuem Tab öffnen ↗
+          </a>
+        </p>
       </div>
     </div>
   )

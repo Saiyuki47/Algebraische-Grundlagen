@@ -603,89 +603,41 @@
   line-height: 1.6;
 }
 
-/* HILFSMITTEL / FORMELSAMMLUNG – druckbares Klausur-Hilfsmittel (2 × A4) */
+/* HILFSMITTEL – offizielle Formelsammlung(en) als eingebettetes PDF */
 .formelsammlung { overflow-x: auto; }
 
-.fs-pages {
+.hilf-pdf { margin: 0 0 1.25rem; }
+.hilf-pdf-switch {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.7rem;
 }
-/* Eine Seite = ein A4-Blatt (210 × 297 mm), weiß zum Drucken */
-.fs-page {
-  width: 210mm;
-  min-height: 297mm;
-  background: #ffffff;
-  color: #14161d;
-  padding: 12mm 13mm;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
+.hilf-pdf-tab {
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg2, #1e1e1e);
+  color: var(--text, #eee);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
-.fs-page-inner { flex: 1; }
-.fs-section { margin-bottom: 5mm; break-inside: avoid; }
-.fs-section-title {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
-  color: #0b2e6b;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 2mm;
-  padding-bottom: 1mm;
-  border-bottom: 1px solid #c9ced9;
+.hilf-pdf-tab:hover { border-color: var(--blue, #4d9fff); }
+.hilf-pdf-tab.active {
+  background: var(--blue, #4d9fff);
+  color: #fff;
+  border-color: var(--blue, #4d9fff);
 }
-.fs-section-body { font-size: 11px; line-height: 1.5; }
-.fs-section-body .math-block {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  line-height: 1.5;
-  color: #14161d;
+.hilf-pdf-frame {
+  width: 100%;
+  height: min(82vh, 920px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  display: block;
 }
-/* Tabellen / Zwischenüberschriften lesbar auf weißem Papier */
-.fs-page .math-subhead { color: #0b2e6b; }
-.fs-page .math-table th,
-.fs-page .math-table td { border-color: #c9ced9; }
-.fs-page .math-table th { background: #eef1f6; color: #0b2e6b; }
-.fs-page .math-table td:first-child,
-.fs-page .math-table th:first-child { color: #14161d; }
-.fs-empty {
-  color: #9aa0ad;
-  font-style: italic;
-  font-size: 13px;
-  font-family: var(--font-sans);
-}
-.fs-page-num {
-  text-align: right;
-  font-size: 9px;
-  color: #9aa0ad;
-  font-family: var(--font-sans);
-  margin-top: 6mm;
-}
-
-/* Druck: nur die beiden A4-Seiten, sonst nichts */
-@page { size: A4 portrait; margin: 0; }
-@media print {
-  header, .tabs, .fs-no-print { display: none !important; }
-  body { background: #fff !important; }
-  .container { max-width: none !important; margin: 0 !important; padding: 0 !important; }
-  .formelsammlung { overflow: visible !important; }
-  .fs-pages { display: block !important; gap: 0 !important; }
-  .fs-page {
-    width: 210mm;
-    height: 297mm;
-    margin: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: hidden;
-    break-after: page;
-    page-break-after: always;
-  }
-  .fs-page:last-child { break-after: auto; page-break-after: auto; }
-}
+.hilf-pdf-fallback { margin: 0.5rem 0 0; font-size: 0.85rem; opacity: 0.8; }
+.hilf-pdf-fallback a { color: var(--blue, #4d9fff); font-weight: 600; }
 
 
