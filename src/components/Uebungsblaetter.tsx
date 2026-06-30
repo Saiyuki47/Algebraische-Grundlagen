@@ -1,5 +1,7 @@
-import { useState, type CSSProperties } from 'react'
-import { useDoneTracker, useTaskDeepLink, getHashDetail, MathText } from 'lernseiten-ui'
+import { useState, useMemo, type CSSProperties } from 'react'
+// eslint-disable-next-line react-doctor/no-flush-sync -- offizielles React-Muster: flushSync + scrollIntoView, um nach dem Ansichtswechsel sofort zur Ziel-Aufgabe zu scrollen
+import { flushSync } from 'react-dom'
+import { useDoneTracker, useTaskDeepLink, getHashDetail, setHashDetail, MathText, OffeneAufgaben, type OffenItem } from 'lernseiten-ui'
 import { uebungsblaetter } from '../data/uebungsblaetter'
 import { aufgaben } from '../data/aufgaben'
 import { referenzTitelById } from '../data/referenz'
@@ -24,34 +26,39 @@ export default function Uebungsblaetter() {
     const b = getHashDetail().blatt
     return b && uebungsblaetter.some(x => x.id === b) ? b : (uebungsblaetter[0]?.id ?? '')
   })
-  const [openIds, setOpenIds] = useState<Set<string>>(new Set())
-  const [openTipps, setOpenTipps] = useState<Set<string>>(new Set())
-  const [openTeilTipps, setOpenTeilTipps] = useState<Set<string>>(new Set())
+  const [open, setOpen] = useState<Set<string>>(new Set())
+  const [view, setView] = useState<'blatt' | 'offen'>('blatt')
   const { done, toggle: toggleDone, ratio } = useDoneTracker()
   const listRef = useTaskDeepLink<HTMLDivElement>(selectedId)
 
   const blatt = uebungsblaetter.find(b => b.id === selectedId)
 
-  const toggleTipp = (key: string) => {
-    setOpenTipps(prev => {
-      const next = new Set(prev)
-      if (next.has(key)) next.delete(key)
-      else next.add(key)
-      return next
+  // Alle noch nicht als „verstanden" markierten Aufgaben (über alle Blätter).
+  const offen = useMemo<OffenItem[]>(() => {
+    const out: OffenItem[] = []
+    for (const b of uebungsblaetter)
+      for (const t of b.aufgaben) {
+        const key = `${b.id}-${t.nr}`
+        if (!done.has(key)) {
+          out.push({ key, blattId: b.id, blattLabel: `Blatt ${b.nr}`, aufgabeNr: String(t.nr), label: `Aufgabe ${t.nr}` })
+        }
+      }
+    return out
+  }, [done])
+
+  // Aus der „Noch offen"-Liste zur Aufgabe zurückspringen: Blatt wählen + Ansicht
+  // synchron umschalten (flushSync), dann steht die Karte im DOM → direkt scrollen.
+  const goToTask = (blattId: string, aufgabeNr: string) => {
+    flushSync(() => {
+      setSelectedId(blattId)
+      setView('blatt')
     })
+    setHashDetail(blattId, aufgabeNr, 'uebung')
+    listRef.current?.querySelector(`[data-aufgabe="${aufgabeNr}"]`)?.scrollIntoView({ block: 'start' })
   }
 
-  const toggleTeilTipp = (key: string) => {
-    setOpenTeilTipps(prev => {
-      const next = new Set(prev)
-      if (next.has(key)) next.delete(key)
-      else next.add(key)
-      return next
-    })
-  }
-
-  const toggleSolution = (key: string) => {
-    setOpenIds(prev => {
+  const toggle = (key: string) => {
+    setOpen(prev => {
       const next = new Set(prev)
       if (next.has(key)) next.delete(key)
       else next.add(key)
@@ -70,6 +77,27 @@ export default function Uebungsblaetter() {
         <p>Aufgaben und Musterlösungen nach Übungsblatt geordnet.</p>
       </div>
 
+      <div className="filter-row" style={{ marginBottom: '0.6rem' }}>
+        <button
+          type="button"
+          className={`filter-btn${view === 'blatt' ? ' on' : ''}`}
+          onClick={() => setView('blatt')}
+        >
+          📚 Nach Blatt
+        </button>
+        <button
+          type="button"
+          className={`filter-btn${view === 'offen' ? ' on' : ''}`}
+          onClick={() => setView('offen')}
+        >
+          📌 Noch offen{offen.length ? ` (${offen.length})` : ''}
+        </button>
+      </div>
+
+      {view === 'offen' ? (
+        <OffeneAufgaben items={offen} onGo={goToTask} />
+      ) : (
+        <>
       {uebungsblaetter.length > 1 && (
         <div className="filter-row">
           {uebungsblaetter.map(b => (
@@ -120,8 +148,8 @@ export default function Uebungsblaetter() {
           {blatt.aufgaben.map(task => {
             const aufgabe = aufgaben.find(a => a.id === task.aufgabeId)
             const key = `${blatt.id}-${task.nr}`
-            const isOpen = openIds.has(key)
-            const isTippOpen = openTipps.has(key)
+            const isOpen = open.has(`${key}-sol`)
+            const isTippOpen = open.has(`${key}-tipp`)
             const isDone = done.has(key)
 
             return (
@@ -157,11 +185,11 @@ export default function Uebungsblaetter() {
                     {aufgabe.teilaufgabeTipps && aufgabe.teilaufgabeTipps.length > 0 && (
                       <div className="teilaufgabe-tipps">
                         {aufgabe.teilaufgabeTipps.map((tt) => {
-                          const ttKey = `${key}-${tt.label}`
-                          const isTtOpen = openTeilTipps.has(ttKey)
+                          const ttKey = `${key}-teil-${tt.label}`
+                          const isTtOpen = open.has(ttKey)
                           return (
                             <div key={tt.label} className="teilaufgabe-tipp-item">
-                              <button type="button" className="toggle-btn toggle-btn-teil" onClick={() => toggleTeilTipp(ttKey)}>
+                              <button type="button" className="toggle-btn toggle-btn-teil" onClick={() => toggle(ttKey)}>
                                 {isTtOpen ? `▼ Hilfe (${tt.label}) verbergen` : `▶ Hilfe (${tt.label})`}
                               </button>
                               {isTtOpen && (
@@ -186,7 +214,7 @@ export default function Uebungsblaetter() {
                     )}
                     {(aufgabe.tippSections ?? aufgabe.tipp) && (
                       <div className="ub-hints-section">
-                        <button type="button" className="toggle-btn toggle-btn--hint" onClick={() => toggleTipp(key)}>
+                        <button type="button" className="toggle-btn toggle-btn--hint" onClick={() => toggle(`${key}-tipp`)}>
                           {isTippOpen ? '▼ Tipp verbergen' : '▶ Tipp anzeigen'}
                         </button>
                         {isTippOpen && (aufgabe.tippSections ? (
@@ -208,7 +236,7 @@ export default function Uebungsblaetter() {
                         ))}
                       </div>
                     )}
-                    <button type="button" className="toggle-btn" onClick={() => toggleSolution(key)}>
+                    <button type="button" className="toggle-btn" onClick={() => toggle(`${key}-sol`)}>
                       {isOpen ? '▼ Lösung verbergen' : '▶ Lösung anzeigen'}
                     </button>
                     {isOpen && (
@@ -241,6 +269,8 @@ export default function Uebungsblaetter() {
             )
           })}
           </div>
+        </>
+      )}
         </>
       )}
     </div>
