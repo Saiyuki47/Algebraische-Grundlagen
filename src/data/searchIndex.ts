@@ -2,6 +2,7 @@ import type { SearchItem } from 'lernseiten-ui'
 import { uebungsblaetter } from './uebungsblaetter'
 import { quizFragen } from './quiz'
 import { referenzKarten } from './referenz'
+import { begriffGruppen } from './begriffe'
 import { themen } from './themen'
 import { dateienTree, type DateiFolder } from './dateien'
 import { formelsammlungSeite1, formelsammlungSeite2 } from './formelsammlung'
@@ -56,6 +57,15 @@ export const searchIndex: SearchItem[] = [
     snippet: 'Referenz',
     tab: 'referenz',
   })),
+  // Begriffs-Glossar → Tab "referenz" (Untertab „Begriffe lernen")
+  ...begriffGruppen.flatMap(g =>
+    g.begriffe.map(b => ({
+      label: `Begriff: ${b.begriff.replace(/\$[^$]*\$/g, '').trim()}`,
+      snippet: g.titel,
+      tab: 'referenz',
+      keywords: 'Begriff Definition auswendig lernen',
+    })),
+  ),
   // Themen-Übersicht (Themen-Tab entfernt) → Treffer öffnen den Referenz-Tab
   ...themen.map(t => ({
     label: t.titel,
