@@ -30,7 +30,7 @@ const tabs: TabDef<TabId>[] = [
     ),
   },
   {
-    id: 'formelsammlung',
+    id: 'hilfsmittel',
     label: 'Hilfsmittel',
     icon: (
       <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

@@ -12,9 +12,20 @@ const Quiz = lazy(() => import('lernseiten-ui').then(m => ({ default: m.Quiz }))
 const Flashcards = lazy(() => import('lernseiten-ui').then(m => ({ default: m.Flashcards })))
 const Moodle = lazy(() => import('lernseiten-ui').then(m => ({ default: m.Moodle })))
 
-export type TabId = 'uebung' | 'referenz' | 'formelsammlung' | 'moodle' | 'quiz' | 'karten'
+// Tab-IDs sind über alle Lernseiten vereinheitlicht (uebung/referenz/
+// hilfsmittel/moodle/quiz/karten).
+export type TabId = 'uebung' | 'referenz' | 'hilfsmittel' | 'moodle' | 'quiz' | 'karten'
 
-const TABS: readonly TabId[] = ['uebung', 'referenz', 'formelsammlung', 'moodle', 'quiz', 'karten']
+const TABS: readonly TabId[] = ['uebung', 'referenz', 'hilfsmittel', 'moodle', 'quiz', 'karten']
+
+// Alten Tab-Hash auf die vereinheitlichte ID umleiten (Lesezeichen/Deep-Links).
+if (typeof window !== 'undefined') {
+  const teile = window.location.hash.replace(/^#/, '').split('/')
+  if (teile[0] === 'formelsammlung') {
+    teile[0] = 'hilfsmittel'
+    history.replaceState(null, '', '#' + teile.join('/'))
+  }
+}
 
 function App() {
   const [activeTab, setActiveTab] = useHashTab(TABS, 'uebung')
@@ -39,7 +50,7 @@ function App() {
           {activeTab === 'quiz' && <Quiz fragen={quizFragen} />}
           {activeTab === 'uebung' && <Uebungsblaetter />}
           {activeTab === 'moodle' && <Moodle tree={dateienTree} baseUrl={import.meta.env.BASE_URL} />}
-          {activeTab === 'formelsammlung' && <Formelsammlung />}
+          {activeTab === 'hilfsmittel' && <Formelsammlung />}
           {activeTab === 'karten' && (
             <Flashcards cards={karteikarten} render={(s) => <MathText block>{s}</MathText>} />
           )}

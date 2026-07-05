@@ -39,11 +39,11 @@ export const searchIndex: SearchItem[] = [
     tab: 'quiz',
     keywords: q.quelle ?? '',
   })),
-  // Formelsammlung / Hilfsmittel → Tab "formelsammlung"
+  // Formelsammlung / Hilfsmittel → Tab "hilfsmittel"
   ...[...formelsammlungSeite1, ...formelsammlungSeite2].map(s => ({
     label: s.titel,
     snippet: 'Formelsammlung',
-    tab: 'formelsammlung',
+    tab: 'hilfsmittel',
   })),
   // Moodle-Materialien (Folien, Übungsblätter, Lösungen) → Tab "moodle"
   ...moodleDateien().map(d => ({
