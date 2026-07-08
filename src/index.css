@@ -607,28 +607,8 @@
 .formelsammlung { overflow-x: auto; }
 
 .hilf-pdf { margin: 0 0 1.25rem; }
-.hilf-pdf-switch {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.7rem;
-}
-.hilf-pdf-tab {
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  background: var(--bg2, #1e1e1e);
-  color: var(--text, #eee);
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.hilf-pdf-tab:hover { border-color: var(--blue, #4d9fff); }
-.hilf-pdf-tab.active {
-  background: var(--blue, #4d9fff);
-  color: #fff;
-  border-color: var(--blue, #4d9fff);
-}
+/* Der Umschalter (.hilf-fs-switch/.hilf-fs-tab) kommt aus lernseiten-ui/styles.css
+   (einheitlich über alle Lernseiten). */
 .hilf-pdf-frame {
   width: 100%;
   height: min(82vh, 920px);
