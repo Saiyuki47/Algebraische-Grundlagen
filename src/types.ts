@@ -45,7 +45,7 @@ export interface Aufgabe {
   tipp?: string
   tippSections?: TippSection[]
   teilaufgabeTipps?: TeilaufgabeTipp[]
-  loesung: string
+  loesung?: string
   loesungSections?: LoesungSection[]
   schwierigkeit: Schwierigkeit
   kategorie?: string

@@ -236,10 +236,12 @@ export default function Uebungsblaetter() {
                         ))}
                       </div>
                     )}
-                    <button type="button" className="toggle-btn" onClick={() => toggle(`${key}-sol`)}>
-                      {isOpen ? '▼ Lösung verbergen' : '▶ Lösung anzeigen'}
-                    </button>
-                    {isOpen && (
+                    {(aufgabe.loesungSections ?? aufgabe.loesung) && (
+                      <button type="button" className="toggle-btn" onClick={() => toggle(`${key}-sol`)}>
+                        {isOpen ? '▼ Lösung verbergen' : '▶ Lösung anzeigen'}
+                      </button>
+                    )}
+                    {isOpen && (aufgabe.loesungSections ?? aufgabe.loesung) && (
                       <div className="sql-block visible">
                         {aufgabe.loesungSections ? (
                           aufgabe.loesungSections.map((sec) => (
@@ -250,7 +252,7 @@ export default function Uebungsblaetter() {
                           ))
                         ) : (
                           <>
-                            <MathText block>{aufgabe.loesung}</MathText>
+                            {aufgabe.loesung && <MathText block>{aufgabe.loesung}</MathText>}
                             <GraphDisplay aufgabeId={aufgabe.id} />
                           </>
                         )}
