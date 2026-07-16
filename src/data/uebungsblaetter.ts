@@ -6,6 +6,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '0',
     typ: 'Präsenzaufgabe',
     beschreibung: 'Trigonometrische Funktionen und Teilmengen von $\\mathbb{R} \\times \\mathbb{R}$. Besprechung: 16.04.–17.04.2026',
+    pdf: 'uebungsblaetter/00_aufg_grundlagen.pdf',
     aufgaben: [
       {
         nr: '1a',
@@ -80,6 +81,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '1',
     typ: 'Hausaufgabe',
     beschreibung: 'Komplexe Zahlen, Gaußsche Zahlenebene, Beträge und Konjugierte. Besprechung: 23.04.–24.04.2026',
+    pdf: 'uebungsblaetter/01_aufg_komplexe-zahlen.pdf',
     aufgaben: [
       {
         nr: 1,
@@ -118,6 +120,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '2',
     typ: 'Präsenzaufgabe',
     beschreibung: 'Komplexe Zahlen: Mengen, Beträge, Polar- und kartesische Darstellung. Besprechung: 30.04.–01.05.2026',
+    pdf: 'uebungsblaetter/02_aufg_komplexe-zahlen.pdf',
     hinweis:
       'Werte von $\\sin$ und $\\cos$ für die wichtigsten Winkel:\n' +
       '| Winkel $\\varphi$ im Bogenmaß | $0$ | $\\frac{\\pi}{6}$ | $\\frac{\\pi}{4}$ | $\\frac{\\pi}{3}$ | $\\frac{\\pi}{2}$ | $\\frac{2\\pi}{3}$ | $\\frac{3\\pi}{4}$ | $\\frac{5\\pi}{6}$ | $\\pi$ |\n' +
@@ -183,6 +186,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '3',
     typ: 'Präsenzaufgabe',
     beschreibung: 'Komplexe Zahlen: Multiplikation, Einheitswurzeln, Drehungen. Relationen. Besprechung: 07.05.–08.05.2026',
+    pdf: 'uebungsblaetter/03_aufg_komplexe-zahlen-relationen.pdf',
     aufgaben: [
       { nr: '1a', text: 'Führen Sie folgende Multiplikation komplexer Zahlen durch: $3e^{\\mathrm{i}\\frac{\\pi}{3}} \\cdot 2e^{\\mathrm{i}\\frac{5\\pi}{6}}$.', aufgabeId: 'b3_a1a', referenz: ['polardarstellung', 'euler-formel'] },
       { nr: '1b', text: 'Führen Sie folgende Multiplikation komplexer Zahlen durch: $e^{\\mathrm{i}\\pi} \\cdot e^{3\\pi\\mathrm{i}}$.', aufgabeId: 'b3_a1b', referenz: ['polardarstellung', 'euler-formel'] },
@@ -210,6 +214,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '4',
     typ: 'Präsenzaufgabe',
     beschreibung: 'Relationen: Äquivalenzrelationen, Verkettung, Hüllen. Besprechung: 15.05.2026',
+    pdf: 'uebungsblaetter/04_aufg_relationen.pdf',
     aufgaben: [
       { nr: '1a', text: 'Falls noch nicht besprochen: Ist $R_1 = \\{(1,1),(2,2),(2,4),(4,4)\\}$ eine Äquivalenzrelation? (Siehe Blatt 3, Aufgabe 6a)', aufgabeId: 'b3_a6a', referenz: ['aequivalenz-ordnung'] },
       { nr: '1b', text: 'Falls noch nicht besprochen: Ist $R_2 = \\{(x,y) : f(x)=f(y)\\}$ eine Äquivalenzrelation? (Siehe Blatt 3, Aufgabe 6b)', aufgabeId: 'b3_a6b', referenz: ['aequivalenz-ordnung'] },
@@ -235,6 +240,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '5',
     typ: 'Hausaufgabe',
     beschreibung: 'Gruppen, Restklassen. Besprechung: 28.05.–29.05.2026',
+    pdf: 'uebungsblaetter/05_aufg_gruppen-restklassen.pdf',
     aufgaben: [
       { nr: '1a', text: 'Prüfen Sie, ob $(G, +)$ mit $G := \\{3z : z \\in \\mathbb{Z}\\}$ eine Gruppe ist.', aufgabeId: 'b5_a1a', referenz: ['gruppenaxiome'] },
       { nr: '1b', text: 'Prüfen Sie, ob $(G, +)$ mit $G := \\{z \\in \\mathbb{Z} : z \\text{ durch 2 oder 3 teilbar}\\}$ eine Gruppe ist.', aufgabeId: 'b5_a1b', referenz: ['gruppenaxiome'] },
@@ -261,6 +267,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '6',
     typ: 'Hausaufgabe',
     beschreibung: 'Restklassen: Einheitengruppen und multiplikative Inverse (euklidischer Algorithmus), ISBN-Prüfziffern, Gruppenhomomorphismen. Besprechung: 04.06.–05.06.2026',
+    pdf: 'uebungsblaetter/06_aufg_restklassen.pdf',
     aufgaben: [
       { nr: 1, text: 'Geben Sie alle Elemente von $\\mathbb{Z}_7^*$ und $\\mathbb{Z}_8^*$ an und bestimmen Sie die zugehörigen multiplikativen Inversen.', aufgabeId: 'b6_a1', referenz: ['restklassen-zn'] },
       { nr: '2a', text: 'Ist $[96]$ in $\\mathbb{Z}_{296}$ bezüglich der Multiplikation invertierbar? Ggf. Inverses bestimmen.', aufgabeId: 'b6_a2a', referenz: ['restklassen-zn'] },
@@ -277,6 +284,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '7',
     typ: 'Hausaufgabe',
     beschreibung: 'Lineare Gleichungssysteme: erweiterte Koeffizientenmatrix, Zeilenstufenform und das Gauß-Verfahren (Lösungsmengen, freie und gebundene Variablen). Besprechung: 11.06.–12.06.2026',
+    pdf: 'uebungsblaetter/07_aufg_lgs.pdf',
     aufgaben: [
       { nr: '1a', text: 'Ist $(G_1)$ ein LGS? Ggf. erweiterte Koeffizientenmatrix angeben.', aufgabeId: 'b7_a1a', referenz: ['lgs-gauss'] },
       { nr: '1b', text: 'Ist $(G_2)$ ein LGS? Ggf. erweiterte Koeffizientenmatrix angeben.', aufgabeId: 'b7_a1b', referenz: ['lgs-gauss'] },
@@ -304,6 +312,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '8',
     typ: 'Hausaufgabe',
     beschreibung: 'Lineare Gleichungssysteme mit Parameter und Determinanten: Lösbarkeit über Rang/Determinante, Determinanten berechnen (Entwicklung, Sarrus, Rechenregeln, Zeilenstufenform). Besprechung: 18.06.–19.06.2026',
+    pdf: 'uebungsblaetter/08_aufg_lgs-determinanten.pdf',
     aufgaben: [
       { nr: '1a', text: 'Für welche $\\alpha \\in \\mathbb{R}$ hat $(G_1)$ keine/genau eine/unendlich viele Lösungen?', aufgabeId: 'b8_a1a', referenz: ['lgs-gauss'] },
       { nr: '1b', text: 'Für welche $\\alpha \\in \\mathbb{R}$ hat $(G_2)$ keine/genau eine/unendlich viele Lösungen?', aufgabeId: 'b8_a1b', referenz: ['lgs-gauss'] },
@@ -329,6 +338,7 @@ export const uebungsblaetter: Uebungsblatt[] = [
     nr: '9',
     typ: 'Hausaufgabe',
     beschreibung: 'Untervektorräume, lineare Hülle, lineare Unabhängigkeit, Basen. Besprechung: 25.06.–26.06.2026',
+    pdf: 'uebungsblaetter/09_aufg_uvr-lin-huelle-lin-unabh.pdf',
     aufgaben: [
       { nr: '1a', text: 'Skizzieren Sie $U_1 = \\{(x_1,x_2) : x_1 \\geq 0, x_2 \\geq 0\\}$. Untervektorraum?', aufgabeId: 'b9_a1a', referenz: ['vektorraeume-basen'] },
       { nr: '1b', text: 'Skizzieren Sie $U_2 = \\{(x_1,x_2) : 3x_1 = 2x_2\\}$. Untervektorraum?', aufgabeId: 'b9_a1b', referenz: ['vektorraeume-basen'] },

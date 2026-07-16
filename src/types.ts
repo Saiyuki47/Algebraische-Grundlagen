@@ -66,6 +66,8 @@ export interface Uebungsblatt {
   beschreibung?: string
   /** Optionaler Hinweis (z. B. Hilfstabellen), als MathText-Block gerendert */
   hinweis?: string
+  /** Pfad zum Original-Übungsblatt (PDF) unter /public, relativ (z. B. 'uebungsblaetter/00_aufg_grundlagen.pdf'). */
+  pdf?: string
   aufgaben: UebungsblattAufgabe[]
 }
 
