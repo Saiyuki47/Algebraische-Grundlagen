@@ -68,6 +68,8 @@ export interface Uebungsblatt {
   hinweis?: string
   /** Pfad zum Original-Übungsblatt (PDF) unter /public, relativ (z. B. 'uebungsblaetter/00_aufg_grundlagen.pdf'). */
   pdf?: string
+  /** Lösungen (relativ zu /public), je als „Lösung öffnen"-Link mit eigenem Label. */
+  loesungen?: { label: string; pfad: string }[]
   aufgaben: UebungsblattAufgabe[]
 }
 
