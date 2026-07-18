@@ -125,30 +125,33 @@ function UnitCircleGraph() {
   const w = 170, h = 170, pad = 22
   const c: Cfg = { w, h, pad, xMin: -1.5, xMax: 1.5, yMin: -1.5, yMax: 1.5 }
   const xf = mkX(c), yf = mkY(c)
-  const phi = PI / 5
+  // Same obtuse angle as the task drawing (UnitCircleBlank) and the Lösungsblatt:
+  // P sits in the 2nd quadrant, so cos(φ) is negative (points left of the origin).
+  const phi = (130 * PI) / 180
   const rpx = xf(1) - xf(0)
   const cx = xf(0), cy = yf(0)
   const px = xf(Math.cos(phi)), py = yf(Math.sin(phi))
+  const ar = rpx * 0.22            // radius of the green angle marker
+  const lr = ar + 9, lphi = phi * 0.5 // φ label sits in the middle of the sector
   return (
     <figure className="graph-figure">
       <figcaption className="graph-label">Einheitskreis</figcaption>
       <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} className="graph-svg">
-        <Axes c={c}
-          xt={[{ v: 1, label: '1' }, { v: -1, label: '−1' }]}
-          yt={[{ v: 1, label: '1' }, { v: -1, label: '−1' }]}
-        />
+        <Axes c={c} xt={[{ v: 1, label: '1' }]} />
         <circle cx={cx} cy={cy} r={rpx} fill="none" stroke="#4d9fff" strokeWidth={1.6} />
         <line x1={cx} y1={cy} x2={px} y2={py} stroke="#3ecf8e" strokeWidth={1.5} />
+        {/* cos(φ): waagerechte Projektion O→Fußpunkt – für den stumpfen Winkel negativ */}
         <line x1={cx} y1={cy} x2={px} y2={cy} stroke="#f5a623" strokeWidth={1.5} strokeDasharray="3,2" />
+        {/* sin(φ): senkrechte Projektion Fußpunkt→P */}
         <line x1={px} y1={cy} x2={px} y2={py} stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="3,2" />
-        <circle cx={px} cy={py} r={3} fill="#3ecf8e" />
         <path
-          d={`M ${cx + rpx * 0.22},${cy} A ${rpx * 0.22},${rpx * 0.22} 0 0,0 ${cx + rpx * 0.22 * Math.cos(phi)},${cy - rpx * 0.22 * Math.sin(phi)}`}
-          fill="none" stroke="#8b90a8" strokeWidth={1}
+          d={`M ${cx + ar},${cy} A ${ar},${ar} 0 0,0 ${cx + ar * Math.cos(phi)},${cy - ar * Math.sin(phi)} L ${cx},${cy} Z`}
+          fill="#3ecf8e33" stroke="#3ecf8e" strokeWidth={1}
         />
+        <circle cx={px} cy={py} r={3} fill="#3ecf8e" />
         <text x={xf(Math.cos(phi) / 2)} y={cy + 16} textAnchor="middle" fontSize="8" fill="#f5a623">cos(φ)</text>
-        <text x={px + 5} y={(cy + py) / 2 + 3} fontSize="8" fill="#4d9fff">sin(φ)</text>
-        <text x={cx + 16} y={cy - 5} fontSize="8" fill="#8b90a8">φ</text>
+        <text x={px - 4} y={(cy + py) / 2 + 3} textAnchor="end" fontSize="8" fill="#4d9fff">sin(φ)</text>
+        <text x={cx + lr * Math.cos(lphi)} y={cy - lr * Math.sin(lphi) + 3} textAnchor="middle" fontSize="9" fill="#3ecf8e">φ</text>
       </svg>
     </figure>
   )
