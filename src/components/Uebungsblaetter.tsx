@@ -5,6 +5,7 @@ import { useDoneTracker, useTaskDeepLink, getHashDetail, setHashDetail, MathText
 import { uebungsblaetter } from '../data/uebungsblaetter'
 import { aufgaben } from '../data/aufgaben'
 import { referenzTitelById } from '../data/referenz'
+import { claudeAufgaben, type ClaudeAufgabe } from '../data/claudeAufgaben'
 import GraphDisplay from './Graphs'
 
 const refLinksRow: CSSProperties = { display: 'flex', flexWrap: 'wrap', gap: '0.4rem', margin: '0.6rem 0 0' }
@@ -21,13 +22,23 @@ const refLinkStyle: CSSProperties = {
   lineHeight: 1.3,
 }
 
+const claudeMetaStyle: CSSProperties = {
+  fontSize: '0.78rem',
+  color: 'var(--muted, #6b7280)',
+  margin: '0 0 0.5rem',
+}
+
+const claudeBannerStyle: CSSProperties = {
+  borderLeft: '4px solid var(--blue, #2563eb)',
+}
+
 export default function Uebungsblaetter() {
   const [selectedId, setSelectedId] = useState(() => {
     const b = getHashDetail().blatt
     return b && uebungsblaetter.some(x => x.id === b) ? b : (uebungsblaetter[0]?.id ?? '')
   })
   const [open, setOpen] = useState<Set<string>>(new Set())
-  const [view, setView] = useState<'blatt' | 'offen'>('blatt')
+  const [view, setView] = useState<'blatt' | 'offen' | 'claude'>('blatt')
   const { done, toggle: toggleDone, ratio } = useDoneTracker()
   const listRef = useTaskDeepLink<HTMLDivElement>(selectedId)
 
@@ -92,10 +103,19 @@ export default function Uebungsblaetter() {
         >
           📌 Noch offen{offen.length ? ` (${offen.length})` : ''}
         </button>
+        <button
+          type="button"
+          className={`filter-btn${view === 'claude' ? ' on' : ''}`}
+          onClick={() => setView('claude')}
+        >
+          🤖 Claude-Aufgaben
+        </button>
       </div>
 
       {view === 'offen' ? (
         <OffeneAufgaben items={offen} onGo={goToTask} />
+      ) : view === 'claude' ? (
+        <ClaudeView open={open} toggle={toggle} done={done} toggleDone={toggleDone} />
       ) : (
         <>
       {uebungsblaetter.length > 1 && (
@@ -300,6 +320,103 @@ export default function Uebungsblaetter() {
       )}
         </>
       )}
+    </div>
+  )
+}
+
+// ── Claude-Aufgaben ─────────────────────────────────────────────────────────
+// KI-generierte Beispielaufgaben, je eine pro Aufgabenart der Original-Blätter.
+// Gleicher Aufbau wie eine normale Übungsaufgabe: Frage, Tipp-Akkordeon, Lösung.
+function ClaudeCard({ a, open, toggle, done, toggleDone }: {
+  a: ClaudeAufgabe
+  open: Set<string>
+  toggle: (key: string) => void
+  done: Set<string>
+  toggleDone: (key: string) => void
+}) {
+  const key = `claude-${a.id}`
+  const isTippOpen = open.has(`${key}-tipp`)
+  const isSolOpen = open.has(`${key}-sol`)
+  const isDone = done.has(key)
+  const meta = [a.quelle && `angelehnt an ${a.quelle}`, a.schwierigkeit].filter(Boolean).join(' · ')
+  return (
+    <div className="card" data-aufgabe={String(a.nr)}>
+      <div className="ub-meta-row">
+        <span className="ub-badge"><MathText>{a.art}</MathText></span>
+      </div>
+      <p className="ub-task-nr">Aufgabe {a.nr} – <MathText>{a.titel}</MathText></p>
+      {meta && <p style={claudeMetaStyle}>{meta}</p>}
+      <div className="ub-aufgabe-body">
+        <MathText block>{a.aufgabeText}</MathText>
+      </div>
+      {a.referenz && a.referenz.length > 0 && (
+        <div style={refLinksRow}>
+          {a.referenz.map(rid => (
+            <a key={rid} href={`#referenz/${rid}`} style={refLinkStyle}>
+              📘 <MathText>{referenzTitelById[rid] ?? rid}</MathText>
+            </a>
+          ))}
+        </div>
+      )}
+      {a.tippSections.length > 0 && (
+        <div className="ub-hints-section">
+          <button type="button" className="toggle-btn toggle-btn--hint" onClick={() => toggle(`${key}-tipp`)}>
+            {isTippOpen ? '▼ Tipp verbergen' : '▶ Tipp anzeigen'}
+          </button>
+          {isTippOpen && (
+            <div className="tipp-accordion">
+              {a.tippSections.map((sec, i) => (
+                <details key={`${sec.titel}-${i}`} className="tipp-section">
+                  <summary className="tipp-section-summary">
+                    <span className="tipp-section-icon">{sec.icon}</span>
+                    <span>{sec.titel}</span>
+                  </summary>
+                  <div className="tipp-section-body">
+                    <MathText block>{sec.inhalt}</MathText>
+                  </div>
+                </details>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      <button type="button" className="toggle-btn" onClick={() => toggle(`${key}-sol`)}>
+        {isSolOpen ? '▼ Lösung verbergen' : '▶ Lösung anzeigen'}
+      </button>
+      {isSolOpen && (
+        <div className="sql-block visible">
+          <MathText block>{a.loesung}</MathText>
+        </div>
+      )}
+      <button
+        type="button"
+        className={`toggle-btn${isDone ? ' done' : ''}`}
+        onClick={() => toggleDone(key)}
+      >
+        {isDone ? '✓ Verstanden' : '○ Als verstanden markieren'}
+      </button>
+    </div>
+  )
+}
+
+function ClaudeView({ open, toggle, done, toggleDone }: {
+  open: Set<string>
+  toggle: (key: string) => void
+  done: Set<string>
+  toggleDone: (key: string) => void
+}) {
+  return (
+    <div>
+      <div className="card" style={claudeBannerStyle}>
+        <p style={{ fontWeight: 700, margin: '0 0 0.4rem' }}>🤖 KI-generierte Übungsaufgaben</p>
+        <ul style={{ margin: 0, paddingLeft: '1.1rem', fontSize: '0.88rem', lineHeight: 1.5 }}>
+          <li>Diese Aufgaben wurden von Claude (KI) erstellt – zum zusätzlichen Üben. Sie stammen <strong>nicht</strong> vom Dozenten.</li>
+          <li>Zu jeder Aufgabenart der Original-Übungsblätter gibt es hier eine eigene Beispielaufgabe – mit Tipps und ausführlicher Lösung, aufgebaut wie ein normales Arbeitsblatt.</li>
+        </ul>
+      </div>
+      {claudeAufgaben.map(a => (
+        <ClaudeCard key={a.id} a={a} open={open} toggle={toggle} done={done} toggleDone={toggleDone} />
+      ))}
     </div>
   )
 }
