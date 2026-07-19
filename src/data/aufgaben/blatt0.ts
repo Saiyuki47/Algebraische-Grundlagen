@@ -636,6 +636,23 @@ export const b0: Aufgabe[] = [
       '$B$ = beide Winkelhalbierende ($y = x$ und $y = -x$)\n' +
       '$C$ = waagerechter Streifen mit $-2 \\leq y \\leq 2$\n' +
       '$D$ = Äußeres des Einheitskreises (ohne Rand)',
+    // Im Original-Übungsblatt sind die vier Mengen nur als Skizzen gegeben –
+    // daher hier die Abbildungen, darunter die Beschreibung als Lesehilfe.
+    aufgabeSections: [
+      {
+        text:
+          'Geben Sie folgende Teilmengen von $\\mathbb{R} \\times \\mathbb{R}$ in Mengenschreibweise an\n' +
+          '(Form: $M = \\{(x,y) \\in \\mathbb{R}{\\times}\\mathbb{R} : \\text{Eigenschaft}\\}$):',
+      },
+      { graphId: 'b0_a5_aufgabe' },
+      {
+        text:
+          '$A$ = Koordinatenachsen ($x$-Achse und $y$-Achse)\n' +
+          '$B$ = beide Winkelhalbierende ($y = x$ und $y = -x$)\n' +
+          '$C$ = waagerechter Streifen mit $-2 \\leq y \\leq 2$\n' +
+          '$D$ = Äußeres des Einheitskreises (ohne Rand)',
+      },
+    ],
     tippSections: [
       {
         icon: '💡',

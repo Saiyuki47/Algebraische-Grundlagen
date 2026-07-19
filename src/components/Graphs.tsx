@@ -292,62 +292,60 @@ function M8() {
 }
 
 // ─── Aufgabe 5: Set notation sketches ────────────────────────────────────────
-function A5A() {
+// Aufgabe 5 zeigt dieselben vier Skizzen zweimal: in der Aufgabenstellung nur
+// mit „A"…„D" beschriftet (die gesuchte Bedingung soll ja nicht dranstehen),
+// in der Lösung zusätzlich mit der Bedingung. Daher hier nur einmal gezeichnet.
+const drawA5A: RenderFn = ({ xf, yf, c }) => (
+  <>
+    <line x1={c.pad} y1={yf(0)} x2={c.w - c.pad} y2={yf(0)} stroke="#3ecf8e" strokeWidth={2.2} />
+    <line x1={xf(0)} y1={c.pad} x2={xf(0)} y2={c.h - c.pad} stroke="#3ecf8e" strokeWidth={2.2} />
+  </>
+)
+
+const drawA5B: RenderFn = ({ xf, yf }) => (
+  <>
+    <line x1={xf(-2.3)} y1={yf(-2.3)} x2={xf(2.3)} y2={yf(2.3)} stroke="#3ecf8e" strokeWidth={1.8} />
+    <line x1={xf(-2.3)} y1={yf(2.3)} x2={xf(2.3)} y2={yf(-2.3)} stroke="#3ecf8e" strokeWidth={1.8} />
+  </>
+)
+
+const drawA5C: RenderFn = ({ yf, c }) => (
+  <>
+    <rect x={c.pad} y={yf(2)} width={c.w - 2 * c.pad} height={yf(-2) - yf(2)} fill="#3ecf8e1a" />
+    <line x1={c.pad} y1={yf(2)} x2={c.w - c.pad} y2={yf(2)} stroke="#3ecf8e" strokeWidth={1.8} />
+    <line x1={c.pad} y1={yf(-2)} x2={c.w - c.pad} y2={yf(-2)} stroke="#3ecf8e" strokeWidth={1.8} />
+  </>
+)
+
+const drawA5D: RenderFn = ({ xf, yf, c }) => {
+  const rpx = xf(1) - xf(0)
   return (
-    <CoordSketch label="A: x=0 oder y=0">
-      {({ xf, yf, c }) => (
-        <>
-          <line x1={c.pad} y1={yf(0)} x2={c.w - c.pad} y2={yf(0)} stroke="#3ecf8e" strokeWidth={2.2} />
-          <line x1={xf(0)} y1={c.pad} x2={xf(0)} y2={c.h - c.pad} stroke="#3ecf8e" strokeWidth={2.2} />
-        </>
-      )}
-    </CoordSketch>
+    <>
+      <rect x={c.pad} y={c.pad} width={c.w - 2 * c.pad} height={c.h - 2 * c.pad} fill="#3ecf8e1a" />
+      {/* Ausgespartes Inneres: Skizzen-Hintergrund per Theme-Variable, sonst
+          erscheint im Hellmodus ein dunkler Fleck. */}
+      <circle
+        cx={xf(0)}
+        cy={yf(0)}
+        r={rpx}
+        style={{ fill: 'var(--bg2)' }}
+        stroke="#3ecf8e"
+        strokeWidth={1.5}
+        strokeDasharray="4,3"
+      />
+    </>
   )
 }
 
-function A5B() {
-  return (
-    <CoordSketch label="B: x=y oder x=−y">
-      {({ xf, yf }) => (
-        <>
-          <line x1={xf(-2.3)} y1={yf(-2.3)} x2={xf(2.3)} y2={yf(2.3)} stroke="#3ecf8e" strokeWidth={1.8} />
-          <line x1={xf(-2.3)} y1={yf(2.3)} x2={xf(2.3)} y2={yf(-2.3)} stroke="#3ecf8e" strokeWidth={1.8} />
-        </>
-      )}
-    </CoordSketch>
-  )
-}
+function A5A() { return <CoordSketch label="A: x=0 oder y=0">{drawA5A}</CoordSketch> }
+function A5B() { return <CoordSketch label="B: x=y oder x=−y">{drawA5B}</CoordSketch> }
+function A5C() { return <CoordSketch label="C: −2≤y≤2">{drawA5C}</CoordSketch> }
+function A5D() { return <CoordSketch label="D: x²+y²>1">{drawA5D}</CoordSketch> }
 
-function A5C() {
-  return (
-    <CoordSketch label="C: −2≤y≤2">
-      {({ xf: _xf, yf, c }) => (
-        <>
-          <rect x={c.pad} y={yf(2)} width={c.w - 2 * c.pad} height={yf(-2) - yf(2)} fill="#3ecf8e1a" />
-          <line x1={c.pad} y1={yf(2)} x2={c.w - c.pad} y2={yf(2)} stroke="#3ecf8e" strokeWidth={1.8} />
-          <line x1={c.pad} y1={yf(-2)} x2={c.w - c.pad} y2={yf(-2)} stroke="#3ecf8e" strokeWidth={1.8} />
-        </>
-      )}
-    </CoordSketch>
-  )
-}
-
-function A5D() {
-  return (
-    <CoordSketch label="D: x²+y²>1">
-      {({ xf, yf, c }) => {
-        const rpx = xf(1) - xf(0)
-        const cx = xf(0), cy = yf(0)
-        return (
-          <>
-            <rect x={c.pad} y={c.pad} width={c.w - 2 * c.pad} height={c.h - 2 * c.pad} fill="#3ecf8e1a" />
-            <circle cx={cx} cy={cy} r={rpx} fill="#171b27" stroke="#3ecf8e" strokeWidth={1.5} strokeDasharray="4,3" />
-          </>
-        )
-      }}
-    </CoordSketch>
-  )
-}
+function A5AufgA() { return <CoordSketch label="A">{drawA5A}</CoordSketch> }
+function A5AufgB() { return <CoordSketch label="B">{drawA5B}</CoordSketch> }
+function A5AufgC() { return <CoordSketch label="C">{drawA5C}</CoordSketch> }
+function A5AufgD() { return <CoordSketch label="D">{drawA5D}</CoordSketch> }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -727,6 +725,13 @@ export default function GraphDisplay({ aufgabeId }: { aufgabeId: string }) {
       <div className="graph-grid">
         <M1 /><M2 /><M3 /><M4 />
         <M5 /><M6 /><M7 /><M8 />
+      </div>
+    )
+  }
+  if (aufgabeId === 'b0_a5_aufgabe') {
+    return (
+      <div className="graph-grid">
+        <A5AufgA /><A5AufgB /><A5AufgC /><A5AufgD />
       </div>
     )
   }
