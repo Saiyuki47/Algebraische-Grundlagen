@@ -125,14 +125,18 @@ export const uebungsblaetter: Uebungsblatt[] = [
     pdf: 'uebungsblaetter/02_aufg_komplexe-zahlen.pdf',
     loesungen: [{ label: 'Lösung (PDF) öffnen', pfad: 'uebungsblaetter-lösung/02_lsg_komplexe-zahlen_2026.pdf' }],
     hinweis:
-      'Werte von $\\sin$ und $\\cos$ für die wichtigsten Winkel:\n' +
+      'Werte von $\\sin$, $\\cos$ und $\\tan$ für die wichtigsten Winkel:\n' +
       '| Winkel $\\varphi$ im Bogenmaß | $0$ | $\\frac{\\pi}{6}$ | $\\frac{\\pi}{4}$ | $\\frac{\\pi}{3}$ | $\\frac{\\pi}{2}$ | $\\frac{2\\pi}{3}$ | $\\frac{3\\pi}{4}$ | $\\frac{5\\pi}{6}$ | $\\pi$ |\n' +
       '| $\\sin(\\varphi)$ | $0$ | $\\frac{1}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{\\sqrt{3}}{2}$ | $1$ | $\\frac{\\sqrt{3}}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{1}{2}$ | $0$ |\n' +
       '| $\\cos(\\varphi)$ | $1$ | $\\frac{\\sqrt{3}}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{1}{2}$ | $0$ | $-\\frac{1}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{\\sqrt{3}}{2}$ | $-1$ |\n' +
+      '| $\\tan(\\varphi)$ | $0$ | $\\frac{\\sqrt{3}}{3}$ | $1$ | $\\sqrt{3}$ | $\\text{n. d.}$ | $-\\sqrt{3}$ | $-1$ | $-\\frac{\\sqrt{3}}{3}$ | $0$ |\n' +
       '\n' +
       '| Winkel $\\varphi$ im Bogenmaß | $\\frac{7\\pi}{6}$ | $\\frac{5\\pi}{4}$ | $\\frac{4\\pi}{3}$ | $\\frac{3\\pi}{2}$ | $\\frac{5\\pi}{3}$ | $\\frac{7\\pi}{4}$ | $\\frac{11\\pi}{6}$ |\n' +
       '| $\\sin(\\varphi)$ | $-\\frac{1}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{\\sqrt{3}}{2}$ | $-1$ | $-\\frac{\\sqrt{3}}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{1}{2}$ |\n' +
-      '| $\\cos(\\varphi)$ | $-\\frac{\\sqrt{3}}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{1}{2}$ | $0$ | $\\frac{1}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{\\sqrt{3}}{2}$ |',
+      '| $\\cos(\\varphi)$ | $-\\frac{\\sqrt{3}}{2}$ | $-\\frac{\\sqrt{2}}{2}$ | $-\\frac{1}{2}$ | $0$ | $\\frac{1}{2}$ | $\\frac{\\sqrt{2}}{2}$ | $\\frac{\\sqrt{3}}{2}$ |\n' +
+      '| $\\tan(\\varphi)$ | $\\frac{\\sqrt{3}}{3}$ | $1$ | $\\sqrt{3}$ | $\\text{n. d.}$ | $-\\sqrt{3}$ | $-1$ | $-\\frac{\\sqrt{3}}{3}$ |\n' +
+      '\n' +
+      'Dabei ist $\\tan(\\varphi)=\\frac{\\sin(\\varphi)}{\\cos(\\varphi)}$. Für $\\varphi=\\frac{\\pi}{2}$ und $\\varphi=\\frac{3\\pi}{2}$ ist $\\cos(\\varphi)=0$, dort ist der Tangens nicht definiert („n. d.").',
     aufgaben: [
       {
         nr: 1,
