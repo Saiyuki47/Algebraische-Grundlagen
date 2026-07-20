@@ -1,5 +1,10 @@
 import React from 'react'
 
+// Konvention: Flächen, die den Skizzen-Hintergrund nachbilden (ausgestanzte
+// Löcher wie beim Kreisring, Kästchen hinter einer Legende), IMMER mit
+// style={{ fill: 'var(--bg2)' }} füllen – nie mit einer festen Farbe. Sonst
+// steht im Hellmodus ein dunkler Fleck auf weißem Grund.
+
 // ─── coordinate helpers ───────────────────────────────────────────────────────
 interface Cfg { w: number; h: number; pad: number; xMin: number; xMax: number; yMin: number; yMax: number }
 
@@ -81,7 +86,7 @@ function SinCosGraph() {
         />
         <polyline points={pts(Math.sin)} fill="none" stroke="#4d9fff" strokeWidth={1.8} />
         <polyline points={pts(Math.cos)} fill="none" stroke="#f5a623" strokeWidth={1.8} />
-        <rect x={w - 72} y={6} width={62} height={34} rx={4} fill="#171b27" />
+        <rect x={w - 72} y={6} width={62} height={34} rx={4} style={{ fill: 'var(--bg2)' }} />
         <line x1={w - 68} y1={17} x2={w - 56} y2={17} stroke="#4d9fff" strokeWidth={2} />
         <text x={w - 53} y={21} fontSize="9" fill="#4d9fff">sin(x)</text>
         <line x1={w - 68} y1={30} x2={w - 56} y2={30} stroke="#f5a623" strokeWidth={2} />
@@ -228,7 +233,7 @@ function M4() {
         return (
           <>
             <circle cx={cx} cy={cy} r={r2} fill="#4d9fff1a" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
-            <circle cx={cx} cy={cy} r={r1} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <circle cx={cx} cy={cy} r={r1} style={{ fill: 'var(--bg2)' }} stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
           </>
         )
       }}
@@ -322,8 +327,7 @@ const drawA5D: RenderFn = ({ xf, yf, c }) => {
   return (
     <>
       <rect x={c.pad} y={c.pad} width={c.w - 2 * c.pad} height={c.h - 2 * c.pad} fill="#3ecf8e1a" />
-      {/* Ausgespartes Inneres: Skizzen-Hintergrund per Theme-Variable, sonst
-          erscheint im Hellmodus ein dunkler Fleck. */}
+      {/* Ausgespartes Inneres (siehe Konvention oben) */}
       <circle
         cx={xf(0)}
         cy={yf(0)}
@@ -478,7 +482,7 @@ function B2A1_A() {
         return (
           <>
             <circle cx={cx} cy={cy} r={r2} fill="#4d9fff22" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
-            <circle cx={cx} cy={cy} r={r1} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <circle cx={cx} cy={cy} r={r1} style={{ fill: 'var(--bg2)' }} stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
             <circle cx={cx} cy={cy} r={2} fill="#4d9fff" />
           </>
         )
@@ -496,7 +500,7 @@ function B2A1_B() {
         return (
           <>
             <rect x={c.pad} y={c.pad} width={c.w - 2 * c.pad} height={c.h - 2 * c.pad} fill="#4d9fff22" />
-            <circle cx={cx} cy={cy} r={rpx} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
+            <circle cx={cx} cy={cy} r={rpx} style={{ fill: 'var(--bg2)' }} stroke="#4d9fff" strokeWidth={1.5} strokeDasharray="4,3" />
             <circle cx={cx} cy={cy} r={2} fill="#4d9fff" />
           </>
         )
@@ -589,8 +593,8 @@ function EpsilonIntervalR() {
         <line x1={left} y1={y} x2={right} y2={y} stroke="#555a72" strokeWidth={1} />
         <polygon points={`${right},${y - 3} ${right + 6},${y} ${right},${y + 3}`} fill="#555a72" />
         <line x1={cx - e} y1={y} x2={cx + e} y2={y} stroke="#4d9fff" strokeWidth={3} />
-        <circle cx={cx - e} cy={y} r={4} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} />
-        <circle cx={cx + e} cy={y} r={4} fill="#171b27" stroke="#4d9fff" strokeWidth={1.5} />
+        <circle cx={cx - e} cy={y} r={4} style={{ fill: 'var(--bg2)' }} stroke="#4d9fff" strokeWidth={1.5} />
+        <circle cx={cx + e} cy={y} r={4} style={{ fill: 'var(--bg2)' }} stroke="#4d9fff" strokeWidth={1.5} />
         <circle cx={cx} cy={y} r={2.5} fill="#8b90a8" />
         <text x={cx} y={y - 9} textAnchor="middle" fontSize="10" fill="#e8eaf0">x</text>
         <text x={cx - e} y={y + 18} textAnchor="middle" fontSize="9" fill="#8b90a8">x−ε</text>
