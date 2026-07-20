@@ -8,5 +8,6 @@ import { b6 } from './blatt6'
 import { b7 } from './blatt7'
 import { b8 } from './blatt8'
 import { b9 } from './blatt9'
+import { b10 } from './blatt10'
 
-export const aufgaben = [...b0, ...b1, ...b2, ...b3, ...b4, ...b5, ...b6, ...b7, ...b8, ...b9]
+export const aufgaben = [...b0, ...b1, ...b2, ...b3, ...b4, ...b5, ...b6, ...b7, ...b8, ...b9, ...b10]

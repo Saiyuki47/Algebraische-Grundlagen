@@ -374,4 +374,20 @@ export const uebungsblaetter: Uebungsblatt[] = [
       { nr: '6b', text: 'Wenn noch Zeit ist: Ist die Menge aus 4 Vektoren eine Basis von $\\mathbb{R}^3$?', aufgabeId: 'b9_a6b', referenz: ['vektorraeume-basen'] },
     ],
   },
+  {
+    id: 'blatt10',
+    nr: '10',
+    typ: 'Hausaufgabe',
+    beschreibung: 'Koordinaten bezüglich einer Basis, lineare Abbildungen, darstellende Matrizen. Besprechung: 02.07.–03.07.2026',
+    pdf: 'uebungsblaetter/10_aufg_koordinaten-lin-abb.pdf',
+    loesungen: [{ label: 'Lösung (PDF) öffnen', pfad: 'uebungsblaetter-lösung/10_lsg_koordinaten-lin-abb.pdf' }],
+    aufgaben: [
+      { nr: 1, text: 'Zeigen Sie, dass $\\mathcal{B} = \\{b_1, b_2, b_3\\}$ eine Basis von $\\mathbb{R}^3$ ist, und bestimmen Sie $K_{\\mathcal{B}}(y)$.', aufgabeId: 'b10_a1', referenz: ['vektorraeume-basen', 'lineare-unabhaengigkeit'] },
+      { nr: 2, text: 'Basis und Dimension des UVR $U \\subseteq \\mathbb{R}^4$; ist $\\mathcal{B}\'$ auch eine Basis? Koordinaten von $v$.', aufgabeId: 'b10_a2', referenz: ['vektorraeume-basen', 'lgs-gauss'] },
+      { nr: 3, text: 'Welche der fünf Abbildungen $f_1, \\dots, f_5$ sind linear?', aufgabeId: 'b10_a3', referenz: ['vektorraeume-basen'] },
+      { nr: 4, text: 'Darstellende Matrix zu vier linearen Abbildungen angeben.', aufgabeId: 'b10_a4', referenz: ['vektorraeume-basen'] },
+      { nr: 5, text: 'Wenn noch Zeit ist: Darstellende Matrizen für Skalierung, Drehungen und Spiegelungen im $\\mathbb{R}^2$.', aufgabeId: 'b10_a5', referenz: ['sin-cos'] },
+      { nr: 6, text: 'Wenn noch Zeit ist: Matrizenprodukte $Ax$, $Bx$, $x^T A$, $AB$, $BA$, $x^T x$, $x x^T$ berechnen – sofern definiert.', aufgabeId: 'b10_a6', referenz: ['lgs-gauss'] },
+    ],
+  },
 ]
