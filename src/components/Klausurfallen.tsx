@@ -69,10 +69,12 @@ function FalleCard({ f }: { f: Falle }) {
   )
 }
 
+// Zum Gruppen-Anker scrollen – kapselt keinen State, daher auf Modul-Ebene.
+function scrollTo(id: string) {
+  document.getElementById(grpId(id))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 export default function Klausurfallen() {
-  const scrollTo = (id: string) => {
-    document.getElementById(grpId(id))?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
   const anzahl = klausurFallen.reduce((n, g) => n + g.fallen.length, 0)
 
   return (

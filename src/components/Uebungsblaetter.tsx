@@ -365,8 +365,8 @@ function ClaudeCard({ a, open, toggle, done, toggleDone }: {
           </button>
           {isTippOpen && (
             <div className="tipp-accordion">
-              {a.tippSections.map((sec, i) => (
-                <details key={`${sec.titel}-${i}`} className="tipp-section">
+              {a.tippSections.map((sec, pos) => (
+                <details key={`${sec.titel}-${pos}`} className="tipp-section">
                   <summary className="tipp-section-summary">
                     <span className="tipp-section-icon">{sec.icon}</span>
                     <span>{sec.titel}</span>
